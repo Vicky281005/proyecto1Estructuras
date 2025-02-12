@@ -14,7 +14,7 @@ public class Proyecto1Estructuras {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("probando");
+        System.out.println("probando en la rama de maria");
     }
     
 }
