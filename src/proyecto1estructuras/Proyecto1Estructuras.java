@@ -20,7 +20,7 @@ public class Proyecto1Estructuras {
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
         
-        System.out.println("Hola Juan, probando en tu rama");
+        
         
     }
     
