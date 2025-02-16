@@ -3,9 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1estructuras;
-
-import proyecto.buscaminas.Configuracion;
-import proyecto.buscaminas.Juego;
+import proyecto1estructuras.Configuracion;
+import proyecto1estructuras.Juego;
 
 /**
  *
