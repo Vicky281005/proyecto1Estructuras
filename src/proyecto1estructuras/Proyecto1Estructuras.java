@@ -14,7 +14,14 @@ public class Proyecto1Estructuras {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("probando en la rama de maria");
+        System.out.println("probando");
+        
+        BuscaminasInterfaz busca = new BuscaminasInterfaz();
+        busca.setVisible(true);
+        busca.setLocationRelativeTo(null);
+        
+        
+        
     }
     
 }
