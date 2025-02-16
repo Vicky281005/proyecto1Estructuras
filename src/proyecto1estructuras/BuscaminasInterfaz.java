@@ -41,7 +41,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
@@ -50,7 +50,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnJugarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 220, 40));
+        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 250, 40));
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
@@ -59,7 +59,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 220, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 250, 40));
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
@@ -68,7 +68,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnConfiguraciónActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 300, 40));
+        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 250, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 770, 450));
 
