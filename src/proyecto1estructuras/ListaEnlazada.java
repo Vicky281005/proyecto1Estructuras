@@ -62,6 +62,14 @@ public class ListaEnlazada <T>{
             this.pFirst= n;
         }
     }
+
+    boolean contains(Arista arista) { //CREADO POR SUGERENCIA DE NETBEANS EN CLASE GRAFO
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    void remove(Arista ab) { //CREADO POR SUGERENCIA DE NETBEANS EN CLASE GRAFO
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
 

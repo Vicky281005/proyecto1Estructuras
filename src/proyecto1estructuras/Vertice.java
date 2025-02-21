@@ -11,7 +11,7 @@ package proyecto1estructuras;
 public class Vertice {
     private String nombre;
     private int numeroVertice;
-    private ListaEnlazada<Object> lad;
+     ListaEnlazada<Object> lad;
     
         public Vertice(String nom){
             nombre= nom;

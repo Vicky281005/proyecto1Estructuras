@@ -9,5 +9,19 @@ package proyecto1estructuras;
  * @author NITRO V 15
  */
 public class Arista {
-    
+         int destino;
+         
+        
+        public Arista(int d){
+            destino= d;
+        }
+        
+        public int getDestino(){
+            return destino;
+        }
+        
+        public boolean equeals(Object n){
+            Arista a = (Arista)n;
+            return destino== a.destino;
+        }
 }
