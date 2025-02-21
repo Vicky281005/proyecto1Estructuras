@@ -40,7 +40,7 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnInicio.setText("Volver a Inicio");
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 13, 160, 50));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 110, 30));
 
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
