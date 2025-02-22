@@ -4,8 +4,6 @@
  */
 package proyecto1estructuras;
 
-import proyecto.buscaminas.Buscaminas;
-
 /**
  *
  * @author jmmor
@@ -97,41 +95,37 @@ public class Configuracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numColumnasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numColumnasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numColumnasActionPerformed
-
-    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        Buscaminas busca = new Buscaminas();
-        busca.setVisible(true);
-        busca.setLocationRelativeTo(null);
-        this.dispose();
-
-    }//GEN-LAST:event_btnInicioActionPerformed
-
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
         if(Integer.parseInt(this.numColumnas.getText())<10 && Integer.parseInt(this.numColumnas.getText())>3){
             this.fila = Integer.parseInt(this.numColumnas.getText());
-        } 
+        }
         if(Integer.parseInt(this.numFilas.getText())<10 && Integer.parseInt(this.numFilas.getText())>3){
             this.columna = Integer.parseInt(this.numFilas.getText());
-        } 
+        }
         if(Integer.parseInt(this.numMinas.getText())<this.fila * this.columna && Integer.parseInt(this.numMinas.getText())> 0){
             this.minas = Integer.parseInt(this.numMinas.getText());
-        } 
-        
-        
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void numFilasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numFilasActionPerformed
- 
-        
-    }//GEN-LAST:event_numFilasActionPerformed
 
     private void numMinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numMinasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numMinasActionPerformed
+
+    private void numColumnasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numColumnasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numColumnasActionPerformed
+
+    private void numFilasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numFilasActionPerformed
+
+    }//GEN-LAST:event_numFilasActionPerformed
+
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        BuscaminasInterfaz busca = new BuscaminasInterfaz();
+        busca.setVisible(true);
+        busca.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_btnInicioActionPerformed
 
     /**
      * @param args the command line arguments
