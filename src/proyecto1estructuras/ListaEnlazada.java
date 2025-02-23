@@ -60,16 +60,25 @@ public class ListaEnlazada <T>{
         } else {
             n.setpNext(this.pFirst);
             this.pFirst= n;
+            }
+        size++;
+      }
+    
+    public boolean contains(Arista arista){
+        Nodo aux = this.pFirst;
+        
+        boolean yaExiste = false;
+        for (int i = 0; i < size; i++){
+            
+            Arista aux2 = (Arista) aux.getData();
+            if (aux2.destino == arista.destino){
+                yaExiste = true;
+            }
+            aux = aux.getpNext();
         }
+        return yaExiste;
     }
 
-    boolean contains(Arista arista) { //CREADO POR SUGERENCIA DE NETBEANS EN CLASE GRAFO
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    void remove(Arista ab) { //CREADO POR SUGERENCIA DE NETBEANS EN CLASE GRAFO
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
     
 }
 

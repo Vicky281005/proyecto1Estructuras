@@ -12,12 +12,17 @@ public class Proyecto1Estructuras {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.Exception
      */
-    public static void main(String[] args) {
-        System.out.println("probando");        
-        
-        
-        
+    public static void main(String[] args) throws Exception {
+            Grafo grafo = new Grafo();
+            
+            grafo.nuevoVertice("a");
+            grafo.nuevoVertice("b");
+            grafo.nuevoVertice("c");
+            
+            grafo.nuevaArista("a", "b");
+            
     }
     
 }

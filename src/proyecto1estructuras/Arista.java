@@ -9,7 +9,7 @@ package proyecto1estructuras;
  * @author NITRO V 15
  */
 public class Arista {
-         int destino;
+         int destino; // indice del vector al que apunta la arista
          
         
         public Arista(int d){

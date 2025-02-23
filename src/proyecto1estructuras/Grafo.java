@@ -10,25 +10,45 @@ package proyecto1estructuras;
  */
 public class Grafo {
     private int numVertices;
-    private static int maxVertices= 10;
+    private static int maxVertices;
     private Vertice [] vectorDeAdyacencia;
-    
+    /**
+     * constructor
+     */
+    public Grafo(){
+        vectorDeAdyacencia= new Vertice[10];
+        numVertices= 0;
+        maxVertices= 10;
+    }
+    /**
+     * constructor
+     * @param maxV maxima cantidad de vertices en el grafo 
+     */
     public Grafo(int maxV){
         vectorDeAdyacencia= new Vertice[maxV];
         numVertices= 0;
         maxVertices= maxV;
     }
-    
-    // DEVULVE  EL VERTICE V, LUEGO BORRAR COMENTARIO
-     public Vertice DevuelveVertice(int v) throws Exception {
+        // DEVUELVE  EL VERTICE V, LUEGO BORRAR COMENTARIO
+    /**
+     * 
+     * @param v es el indice del vertice a buscar
+     * @return el vertice a buscar
+     * @throws Exception cuando es index out of range
+     */ 
+    public Vertice DevuelveVertice(int v) throws Exception {
          if (v<0 || v>= numVertices){
              throw new Exception("Vertice fuera de rango" );  
          }
          return vectorDeAdyacencia[v];
      }
     
-     // BUSCA Y DEVULEVE EL NUMERO DE VERTICE, SI NO LO ENCUENTRA DEVUELVE -1
-     public int numVertice(String nombre){
+    /**
+     * BUSCA Y DEVULEVE EL NUMERO DE VERTICE, SI NO LO ENCUENTRA DEVUELVE -1
+     * @param nombre
+     * @return 
+     */ 
+    public int numVertice(String nombre){
      Vertice v = new Vertice(nombre);
      boolean encontrado= false;
      int i = 0;
@@ -43,13 +63,16 @@ public class Grafo {
      
      // CREAR UN NUEVO VERTICE 
      public void nuevoVertice(String nombre){
-         boolean existe = numVertice(nombre) >= 0;
-            if (!existe){
+         int indice = numVertice(nombre); // es -1 si no se encuentra el indice
+         boolean existe = indice >= 0 ||  numVertices>=10;
+         if (!existe){
                 Vertice v = new Vertice(nombre);
                 v.asigVert(numVertices);
                 this.vectorDeAdyacencia[this.numVertices] = v; // coloca de primero  vertice nuevo 
                 this.numVertices++; // le suma 1 a la cantidad de vertices
-            }
+            } else {
+             System.out.println("No existe o index out of range");
+         }
      }
      
      // Comprueba si dos vertices son adyacentes
@@ -61,15 +84,11 @@ public class Grafo {
          if(v1<0 || v2<0){
              throw new Exception ("El vertice no existe");
          }
-         if(this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))){   //PARA QUE FUNCIONE EL CONTAINS SE CREO "FUNION EN CLASE LISTA"
-             return true;
-         } else {
-             return false;
-         }
+        return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2)); //PARA QUE FUNCIONE EL CONTAINS SE CREO "FUNION EN CLASE LISTA"
      }
      
      //  COMPRUEBA SI DOS VERTICES SON ADYACENTES POR EL NUMERO DE VERTICE
-     boolean adyacente(int v1, int v2) throws Exception{
+     boolean adyacentePorNumero(int v1, int v2) throws Exception{
             if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))){
                 return true; 
             }else{
@@ -80,8 +99,10 @@ public class Grafo {
      //CREA UNA NUEVA ARISTA
      public void nuevaArista(String a, String b) throws Exception{
          if (!adyacente(a, b)){
+            
              int v1= numVertice(a);
              int v2= numVertice(b);
+             System.out.println("todo bien");
              if (v1< 0 || v2<0){
                  throw new Exception ("El veertice no existe");
              }
