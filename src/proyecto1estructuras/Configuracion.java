@@ -2,9 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package proyecto;
-
-//import proyecto1estructuras.buscaminas.BuscaminasInterfaz;
+package proyecto1estructuras;
 
 /**
  *
@@ -96,18 +94,6 @@ public class Configuracion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void numColumnasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numColumnasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_numColumnasActionPerformed
-
-    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        BuscaminasInterfaz busca = new BuscaminasInterfaz();
-        busca.setVisible(true);
-        busca.setLocationRelativeTo(null);
-        this.dispose();
-
-    }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:

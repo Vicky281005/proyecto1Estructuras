@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package proyecto;
-
+package proyecto1estructuras;
+import proyecto1estructuras.Configuracion;
+import proyecto1estructuras.Juego;
 
 /**
  *
@@ -32,7 +33,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         btnJugar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnConfiguración = new javax.swing.JButton();
-        btnCargar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,7 +59,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 220, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 250, 40));
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
@@ -68,18 +68,9 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnConfiguraciónActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 300, 40));
+        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 250, 40));
 
-        btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
-        btnCargar.setText("Cargar Juego");
-        btnCargar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCargarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 220, 40));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 770, 470));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 770, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,11 +92,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         confi.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnConfiguraciónActionPerformed
-
-    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-        
-        
-    }//GEN-LAST:event_btnCargarActionPerformed
     
     /**
      * @param args the command line arguments
@@ -144,7 +130,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnConfiguración;
     private javax.swing.JButton btnJugar;
     private javax.swing.JButton btnSalir;
