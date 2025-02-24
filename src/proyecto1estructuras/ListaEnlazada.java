@@ -78,6 +78,35 @@ public class ListaEnlazada <T>{
         }
         return yaExiste;
     }
+    
+    public Arista removeArista(Arista arista){
+        
+        if (this.isEmpty()){
+            return null;
+        } else if (((Arista) pFirst.getData()).destino == arista.destino){
+            Arista aristaARetornar = (Arista) pFirst.getData();
+            this.pFirst = pFirst.getpNext() != null ? this.pFirst.getpNext() : null;
+            size--;
+            return aristaARetornar;
+        } else {
+            Nodo prevaux = pFirst;
+            Nodo aux = pFirst.getpNext();
+
+            while (aux != null) {
+                if (((Arista) aux.getData()).destino == arista.destino) {
+                    prevaux.setpNext(aux.getpNext());
+                    if (aux.getpNext() == null){
+                        this.pLast = prevaux;
+                    }
+                    size--;
+                    return (Arista) aux.getData();
+                }
+                prevaux = aux;
+                aux = aux.getpNext();
+            }
+            return null;
+        } 
+    }
 
     
 }

@@ -15,13 +15,16 @@ public class Proyecto1Estructuras {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-            Grafo grafo = new Grafo();
+            Grafo grafo = new Grafo(9);
             
-            grafo.nuevoVertice("a");
-            grafo.nuevoVertice("b");
-            grafo.nuevoVertice("c");
+            grafo.nuevoVertice("v1");
+            grafo.nuevoVertice("v2");
+            grafo.nuevoVertice("v3");
             
-            grafo.nuevaArista("a", "b");
+            grafo.nuevaArista("v1", "v2");
+            grafo.nuevaArista("v1", "v3");
+            
+            grafo.borrarArista("v1", "v2");
             
     }
     

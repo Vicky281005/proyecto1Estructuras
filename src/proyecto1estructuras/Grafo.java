@@ -103,11 +103,13 @@ public class Grafo {
              int v1= numVertice(a);
              int v2= numVertice(b);
              System.out.println("todo bien");
-             if (v1< 0 || v2<0){
+             if (v1 < 0 || v2 < 0){
                  throw new Exception ("El veertice no existe");
              }
              Arista ab = new Arista(v2);
-             this.vectorDeAdyacencia[v1].lad.remove(ab);
+             this.vectorDeAdyacencia[v1].lad.addFirst(ab);
+         }else{
+             System.out.println("ya existe");
          }
      }
      
@@ -119,7 +121,13 @@ public class Grafo {
              throw new Exception ("El vertice no existe");
          }
          Arista ab = new Arista(v2);
-         this.vectorDeAdyacencia[v1].lad.remove(ab);
+         Arista arista = this.vectorDeAdyacencia[v1].lad.removeArista(ab);
+         System.out.print("eliminado:");
+         if (arista != null) {
+             System.out.print(arista.destino);
+         }else{
+             System.out.println("null");
+         }
      }
      
      
