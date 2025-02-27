@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package proyecto;
+package interfaces;
 
 
 /**
@@ -10,12 +10,23 @@ package proyecto;
  * @author jmmor
  */
 public class BuscaminasInterfaz extends javax.swing.JFrame {
-
+    private int nroFilas, nroColumnas, nroMinas;
     /**
      * Creates new form Buscaminas
      */
     public BuscaminasInterfaz() {
         initComponents();
+        this.nroFilas = 10;
+        this.nroColumnas = 10;
+        this.nroMinas = 15;
+        
+    }
+    
+    public BuscaminasInterfaz(int nroFilas, int nroColumnas, int nroMinas) {
+        initComponents();
+        this.nroFilas = nroFilas;
+        this.nroColumnas = nroColumnas;
+        this.nroMinas = nroMinas;
     }
 
     /**
@@ -85,7 +96,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
-            Juego jugar = new Juego();
+            Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas);
             jugar.setVisible(true);
             jugar.setLocationRelativeTo(null);
             this.dispose();
