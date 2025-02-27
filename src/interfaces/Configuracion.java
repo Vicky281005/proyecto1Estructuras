@@ -50,9 +50,11 @@ public class Configuracion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 24)); // NOI18N
         jLabel1.setText("Configración del juego");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
+        btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnInicio.setText("Volver a inicio");
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,36 +63,40 @@ public class Configuracion extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 170, 50));
 
+        jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setText("Numero de columnas:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel3.setText("Numero de filas:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel4.setText("Numero de minas:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         numFilasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numFilasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 180, -1));
+        jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 180, 30));
 
         numColumnasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numColumnasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numColumnasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 150, -1));
+        jPanel1.add(numColumnasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 160, 30));
 
         numMinasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numMinasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, -1));
+        jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 160, 30));
 
+        btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar cambios");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
