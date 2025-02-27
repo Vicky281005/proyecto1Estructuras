@@ -4,6 +4,7 @@
  */
 package proyecto1estructuras;
 
+import grafo.Grafo;
 import interfaces.BuscaminasInterfaz;
 
 /**
