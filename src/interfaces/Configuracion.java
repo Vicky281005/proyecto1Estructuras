@@ -17,6 +17,13 @@ public class Configuracion extends javax.swing.JFrame {
         initComponents();
         this.fila = this.columna = this.minas = 3;
     }
+    
+    public Configuracion(int fila, int columna, int minas) {
+        initComponents();
+        this.fila = fila;
+        this.columna = columna;
+        this.minas = minas;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,9 +40,9 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        numFilas = new javax.swing.JTextField();
-        numColumnas = new javax.swing.JTextField();
-        numMinas = new javax.swing.JTextField();
+        numFilasTextField = new javax.swing.JTextField();
+        numColumnasTextField = new javax.swing.JTextField();
+        numMinasTextField = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,26 +70,26 @@ public class Configuracion extends javax.swing.JFrame {
         jLabel4.setText("Numero de minas:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
-        numFilas.addActionListener(new java.awt.event.ActionListener() {
+        numFilasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numFilasActionPerformed(evt);
+                numFilasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numFilas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 180, -1));
+        jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 180, -1));
 
-        numColumnas.addActionListener(new java.awt.event.ActionListener() {
+        numColumnasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numColumnasActionPerformed(evt);
+                numColumnasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numColumnas, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 150, -1));
+        jPanel1.add(numColumnasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 150, -1));
 
-        numMinas.addActionListener(new java.awt.event.ActionListener() {
+        numMinasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numMinasActionPerformed(evt);
+                numMinasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numMinas, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, -1));
+        jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, -1));
 
         btnGuardar.setText("Guardar cambios");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -97,12 +104,12 @@ public class Configuracion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void numColumnasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numColumnasActionPerformed
+    private void numColumnasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numColumnasTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numColumnasActionPerformed
+    }//GEN-LAST:event_numColumnasTextFieldActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        BuscaminasInterfaz busca = new BuscaminasInterfaz();
+        BuscaminasInterfaz busca = new BuscaminasInterfaz(this.fila,this.columna,this.minas);
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
         this.dispose();
@@ -110,28 +117,27 @@ public class Configuracion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-        if(Integer.parseInt(this.numColumnas.getText())<10 && Integer.parseInt(this.numColumnas.getText())>3){
-            this.fila = Integer.parseInt(this.numColumnas.getText());
+        if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){
+            this.fila = Integer.parseInt(this.numColumnasTextField.getText());
         } 
-        if(Integer.parseInt(this.numFilas.getText())<10 && Integer.parseInt(this.numFilas.getText())>3){
-            this.columna = Integer.parseInt(this.numFilas.getText());
+        if(Integer.parseInt(this.numFilasTextField.getText()) <= 10 && Integer.parseInt(this.numFilasTextField.getText()) >= 3){
+            this.columna = Integer.parseInt(this.numFilasTextField.getText());
         } 
-        if(Integer.parseInt(this.numMinas.getText())<this.fila * this.columna && Integer.parseInt(this.numMinas.getText())> 0){
-            this.minas = Integer.parseInt(this.numMinas.getText());
+        if(Integer.parseInt(this.numMinasTextField.getText()) <= this.fila * this.columna && Integer.parseInt(this.numMinasTextField.getText())> 0){
+            this.minas = Integer.parseInt(this.numMinasTextField.getText());
         } 
         
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
-    private void numFilasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numFilasActionPerformed
+    private void numFilasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numFilasTextFieldActionPerformed
  
         
-    }//GEN-LAST:event_numFilasActionPerformed
+    }//GEN-LAST:event_numFilasTextFieldActionPerformed
 
-    private void numMinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numMinasActionPerformed
+    private void numMinasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numMinasTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numMinasActionPerformed
+    }//GEN-LAST:event_numMinasTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,8 +182,8 @@ public class Configuracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField numColumnas;
-    private javax.swing.JTextField numFilas;
-    private javax.swing.JTextField numMinas;
+    private javax.swing.JTextField numColumnasTextField;
+    private javax.swing.JTextField numFilasTextField;
+    private javax.swing.JTextField numMinasTextField;
     // End of variables declaration//GEN-END:variables
 }
