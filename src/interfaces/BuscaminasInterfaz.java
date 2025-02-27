@@ -114,7 +114,10 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfiguraciónActionPerformed
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-        
+        CargarPartida carga = new CargarPartida();
+        carga.setVisible(true);
+        carga.setLocationRelativeTo(null);
+        this.dispose();
         
     }//GEN-LAST:event_btnCargarActionPerformed
     

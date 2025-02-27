@@ -58,15 +58,12 @@ public class Juego extends javax.swing.JFrame {
                 } else {
 //                        this.jToggleButton1.setText(casilla.bombas_ady);
                     casilla.setText("");
-
                 }
-
             }
             System.out.println("DESABILITADA");
             casilla.setEnabled(false);
         }
 //        }
-
     }
 
     /**
