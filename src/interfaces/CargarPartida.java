@@ -26,21 +26,74 @@ public class CargarPartida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        Partida2 = new javax.swing.JButton();
+        Partida3 = new javax.swing.JButton();
+        Partida1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 24)); // NOI18N
+        jLabel1.setText("Cargar Partida");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        Partida2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        Partida2.setText("Partida 2");
+        Partida2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Partida2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Partida2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 170, -1));
+
+        Partida3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        Partida3.setText("Partida 3");
+        Partida3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Partida3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Partida3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 170, -1));
+
+        Partida1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        Partida1.setText("Partida 1");
+        Partida1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Partida1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Partida1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 170, -1));
+
+        jButton1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        jButton1.setText("Volver a Inicio");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 233, 140, 30));
+
+        jButton2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        jButton2.setText("Borrar Partida");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 233, 140, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void Partida2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Partida2ActionPerformed
+        
+    }//GEN-LAST:event_Partida2ActionPerformed
+
+    private void Partida3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Partida3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Partida3ActionPerformed
+
+    private void Partida1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Partida1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Partida1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +131,12 @@ public class CargarPartida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Partida1;
+    private javax.swing.JButton Partida2;
+    private javax.swing.JButton Partida3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
