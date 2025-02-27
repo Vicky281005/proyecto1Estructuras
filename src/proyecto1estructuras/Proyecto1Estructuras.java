@@ -4,6 +4,8 @@
  */
 package proyecto1estructuras;
 
+import interfaces.BuscaminasInterfaz;
+
 /**
  *
  * @author NITRO V 15
@@ -15,16 +17,20 @@ public class Proyecto1Estructuras {
      * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-            Grafo grafo = new Grafo(9);
-            
-            grafo.nuevoVertice("v1");
-            grafo.nuevoVertice("v2");
-            grafo.nuevoVertice("v3");
-            
-            grafo.nuevaArista("v1", "v2");
-            grafo.nuevaArista("v1", "v3");
-            
-            grafo.borrarArista("v1", "v2");
+//            Grafo grafo = new Grafo(9);
+//            
+//            grafo.nuevoVertice("v1");
+//            grafo.nuevoVertice("v2");
+//            grafo.nuevoVertice("v3");
+//            
+//            grafo.nuevaArista("v1", "v2");
+//            grafo.nuevaArista("v1", "v3");
+//            
+//            grafo.borrarArista("v1", "v2");
+
+        BuscaminasInterfaz busca = new BuscaminasInterfaz();
+        busca.setVisible(true);
+        busca.setLocationRelativeTo(null);
             
     }
     
