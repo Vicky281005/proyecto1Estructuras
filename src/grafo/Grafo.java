@@ -29,9 +29,9 @@ public class Grafo {
         numVertices= 0;
         maxVertices= maxV;
     }
-        // DEVUELVE  EL VERTICE V, LUEGO BORRAR COMENTARIO
+        
     /**
-     * 
+     * Devuelve el vertice v
      * @param v es el indice del vertice a buscar
      * @return el vertice a buscar
      * @throws Exception cuando es index out of range
@@ -44,7 +44,7 @@ public class Grafo {
      }
     
     /**
-     * BUSCA Y DEVULEVE EL NUMERO DE VERTICE, SI NO LO ENCUENTRA DEVUELVE -1
+     * Busca y devuelve el  numero de vertice, si no lo encuentra devuelve '1
      * @param nombre
      * @return 
      */ 
@@ -58,10 +58,14 @@ public class Grafo {
              i++;
          }
      }
-     return (i<this.numVertices) ? i : -1;  //ESTO ES UN IF, SINO
+     return (i<this.numVertices) ? i : -1;  
      }
      
-     // CREAR UN NUEVO VERTICE 
+   
+    /**
+     * Crea un nuevo vertice
+     * @param nombre recibe el nombre de como se llamara el vertice
+     */
      public void nuevoVertice(String nombre){
          int indice = numVertice(nombre); // es -1 si no se encuentra el indice
          boolean existe = indice >= 0 ||  numVertices>=10;
@@ -76,7 +80,13 @@ public class Grafo {
      }
      
      // Comprueba si dos vertices son adyacentes
-     
+     /**
+      * 
+      * @param a
+      * @param b
+      * @return true si son adyacentes, false si no lo son
+      * @throws Exception 
+      */
      boolean adyacente(String a, String b) throws Exception{
          int v1, v2;
          v1= numVertice(a);
@@ -84,7 +94,7 @@ public class Grafo {
          if(v1<0 || v2<0){
              throw new Exception ("El vertice no existe");
          }
-        return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2)); //PARA QUE FUNCIONE EL CONTAINS SE CREO "FUNION EN CLASE LISTA"
+        return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2)); 
      }
      
      //  COMPRUEBA SI DOS VERTICES SON ADYACENTES POR EL NUMERO DE VERTICE
