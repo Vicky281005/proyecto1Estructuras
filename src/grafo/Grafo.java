@@ -79,13 +79,13 @@ public class Grafo {
          }
      }
      
-     // Comprueba si dos vertices son adyacentes
+     
      /**
-      * 
-      * @param a
-      * @param b
+      *  Comprueba si dos vertices son adyacentes
+      * @param a nombre del primer vertice
+      * @param b nombre del segundo vertice
       * @return true si son adyacentes, false si no lo son
-      * @throws Exception 
+      * @throws Exception cuando uno de los dos vertices no existe
       */
      boolean adyacente(String a, String b) throws Exception{
          int v1, v2;
@@ -97,7 +97,14 @@ public class Grafo {
         return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2)); 
      }
      
-     //  COMPRUEBA SI DOS VERTICES SON ADYACENTES POR EL NUMERO DE VERTICE
+   
+     /**
+      * Comprueba si dos vertices son adyacentes por el numero de vertice
+      * @param v1 numero del primer vertice
+      * @param v2 numero del segundo vertice
+      * @return retornara true si son adyacentes, false si no lo son
+      * @throws Exception 
+      */
      boolean adyacentePorNumero(int v1, int v2) throws Exception{
             if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))){
                 return true; 
