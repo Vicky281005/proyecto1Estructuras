@@ -1129,7 +1129,7 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla16ActionPerformed
 
     private void casilla17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla17ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F1
     }//GEN-LAST:event_casilla17ActionPerformed
 
     private void casilla18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla18ActionPerformed
@@ -1137,19 +1137,19 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla18ActionPerformed
 
     private void casilla19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla19ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G1
     }//GEN-LAST:event_casilla19ActionPerformed
 
     private void casilla20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla20ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H1
     }//GEN-LAST:event_casilla20ActionPerformed
 
     private void casilla21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla21ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I1
     }//GEN-LAST:event_casilla21ActionPerformed
 
     private void casilla22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla22ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J1
     }//GEN-LAST:event_casilla22ActionPerformed
 
     private void casilla24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla24ActionPerformed
@@ -1169,43 +1169,43 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla27ActionPerformed
 
     private void casilla28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla28ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F2
     }//GEN-LAST:event_casilla28ActionPerformed
 
     private void casilla29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla29ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G2
     }//GEN-LAST:event_casilla29ActionPerformed
 
     private void casilla30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla30ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H2
     }//GEN-LAST:event_casilla30ActionPerformed
 
     private void casilla31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla31ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I2
     }//GEN-LAST:event_casilla31ActionPerformed
 
     private void casilla32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla32ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J2
     }//GEN-LAST:event_casilla32ActionPerformed
 
     private void casilla35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla35ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J3
     }//GEN-LAST:event_casilla35ActionPerformed
 
     private void casilla36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla36ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I3
     }//GEN-LAST:event_casilla36ActionPerformed
 
     private void casilla37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla37ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H3
     }//GEN-LAST:event_casilla37ActionPerformed
 
     private void casilla38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla38ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G3
     }//GEN-LAST:event_casilla38ActionPerformed
 
     private void casilla39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla39ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F3
     }//GEN-LAST:event_casilla39ActionPerformed
 
     private void casilla40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla40ActionPerformed
@@ -1241,23 +1241,23 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla47ActionPerformed
 
     private void casilla48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla48ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F4
     }//GEN-LAST:event_casilla48ActionPerformed
 
     private void casilla49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla49ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G4
     }//GEN-LAST:event_casilla49ActionPerformed
 
     private void casilla50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla50ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H4
     }//GEN-LAST:event_casilla50ActionPerformed
 
     private void casilla51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla51ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I4
     }//GEN-LAST:event_casilla51ActionPerformed
 
     private void casilla52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla52ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J4
     }//GEN-LAST:event_casilla52ActionPerformed
 
     private void casilla54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla54ActionPerformed
@@ -1281,27 +1281,27 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla58ActionPerformed
 
     private void casilla59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla59ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F5
     }//GEN-LAST:event_casilla59ActionPerformed
 
     private void casilla60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla60ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G5
     }//GEN-LAST:event_casilla60ActionPerformed
 
     private void casilla61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla61ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H5
     }//GEN-LAST:event_casilla61ActionPerformed
 
     private void casilla62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla62ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I5
     }//GEN-LAST:event_casilla62ActionPerformed
 
     private void casilla63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla63ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J5
     }//GEN-LAST:event_casilla63ActionPerformed
 
     private void casilla65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla65ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J6
     }//GEN-LAST:event_casilla65ActionPerformed
 
     private void casilla66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla66ActionPerformed
@@ -1309,19 +1309,19 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla66ActionPerformed
 
     private void casilla68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla68ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I6
     }//GEN-LAST:event_casilla68ActionPerformed
 
     private void casilla69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla69ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H6
     }//GEN-LAST:event_casilla69ActionPerformed
 
     private void casilla70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla70ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G6
     }//GEN-LAST:event_casilla70ActionPerformed
 
     private void casilla71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla71ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F6
     }//GEN-LAST:event_casilla71ActionPerformed
 
     private void casilla72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla72ActionPerformed
@@ -1381,59 +1381,59 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla85ActionPerformed
 
     private void casilla86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla86ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F10
     }//GEN-LAST:event_casilla86ActionPerformed
 
     private void casilla87ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla87ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G10
     }//GEN-LAST:event_casilla87ActionPerformed
 
     private void casilla88ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla88ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H10
     }//GEN-LAST:event_casilla88ActionPerformed
 
     private void casilla89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla89ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I10
     }//GEN-LAST:event_casilla89ActionPerformed
 
     private void casilla90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla90ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J10 
     }//GEN-LAST:event_casilla90ActionPerformed
 
     private void casilla95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla95ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J7
     }//GEN-LAST:event_casilla95ActionPerformed
 
     private void casilla96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla96ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J8
     }//GEN-LAST:event_casilla96ActionPerformed
 
     private void casilla97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla97ActionPerformed
-        // TODO add your handling code here:
+        // Vertice J9
     }//GEN-LAST:event_casilla97ActionPerformed
 
     private void casilla98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla98ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I9
     }//GEN-LAST:event_casilla98ActionPerformed
 
     private void casilla99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla99ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I8
     }//GEN-LAST:event_casilla99ActionPerformed
 
     private void casilla100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla100ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I7
     }//GEN-LAST:event_casilla100ActionPerformed
 
     private void casilla101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla101ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H7
     }//GEN-LAST:event_casilla101ActionPerformed
 
     private void casilla102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla102ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G7
     }//GEN-LAST:event_casilla102ActionPerformed
 
     private void casilla103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla103ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F7
     }//GEN-LAST:event_casilla103ActionPerformed
 
     private void casilla104ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla104ActionPerformed
@@ -1457,27 +1457,27 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla108ActionPerformed
 
     private void casilla109ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla109ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F9
     }//GEN-LAST:event_casilla109ActionPerformed
 
     private void casilla110ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla110ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G9
     }//GEN-LAST:event_casilla110ActionPerformed
 
     private void casilla111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla111ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H9
     }//GEN-LAST:event_casilla111ActionPerformed
 
     private void casilla112ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla112ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H8
     }//GEN-LAST:event_casilla112ActionPerformed
 
     private void casilla113ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla113ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G8
     }//GEN-LAST:event_casilla113ActionPerformed
 
     private void casilla114ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla114ActionPerformed
-        // TODO add your handling code here:
+        // Vertice F8
     }//GEN-LAST:event_casilla114ActionPerformed
 
     /**
