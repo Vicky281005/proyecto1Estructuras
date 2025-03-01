@@ -192,7 +192,9 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnInicio.setText("Volver a Inicio");
+        btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
@@ -200,6 +202,7 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 140, 30));
 
+        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel1.setText("FALSE");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
@@ -1027,15 +1030,19 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casilla114, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 20, 20));
 
+        btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnGuardar.setText("Guardar juego");
+        btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 130, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 150, -1));
 
+        btnBandera.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnBandera.setText("Bandera");
+        btnBandera.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBandera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBanderaActionPerformed(evt);

@@ -56,6 +56,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
+        btnJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnJugarActionPerformed(evt);
@@ -65,6 +66,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -74,6 +76,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
+        btnConfiguración.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfiguración.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfiguraciónActionPerformed(evt);
@@ -83,6 +86,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnCargar.setText("Cargar Juego");
+        btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarActionPerformed(evt);
