@@ -6,6 +6,9 @@ package interfaces;
 
 //import proyecto1estructuras.buscaminas.BuscaminasInterfaz;
 
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author jmmor
@@ -51,7 +54,7 @@ public class Configuracion extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Configración del juego");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         btnInicio.setText("Volver a inicio");
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -117,17 +120,29 @@ public class Configuracion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try{
         if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){
             this.fila = Integer.parseInt(this.numColumnasTextField.getText());
-        } 
+        }  else {
+            throw new IllegalArgumentException("El número de columnas debe estar entre 3 y 10.");
+        }
         if(Integer.parseInt(this.numFilasTextField.getText()) <= 10 && Integer.parseInt(this.numFilasTextField.getText()) >= 3){
             this.columna = Integer.parseInt(this.numFilasTextField.getText());
-        } 
+        } else {
+            throw new IllegalArgumentException("El número de filas debe estar entre 3 y 10.");
+        }
         if(Integer.parseInt(this.numMinasTextField.getText()) <= this.fila * this.columna && Integer.parseInt(this.numMinasTextField.getText())> 0){
             this.minas = Integer.parseInt(this.numMinasTextField.getText());
-        } 
-        
-        
+        } else {
+            throw new IllegalArgumentException("El número de minas debe ser mayor a 0 y menor o igual al tamaño del tablero.");
+        }
+        } catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Por favor, ingresa un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error inesperado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void numFilasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numFilasTextFieldActionPerformed
