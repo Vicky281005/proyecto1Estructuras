@@ -11,12 +11,29 @@ package grafo;
 public class Vertice {
     private String nombre;
     private int numeroVertice;
+    private boolean soyUnaBomba;
      ListaEnlazada<Object> lad;
     
         public Vertice(String nom){
             nombre= nom;
             numeroVertice= -1;
             lad = new ListaEnlazada();
+            this.soyUnaBomba = false;
+        }
+        
+        public Vertice(String nom, boolean soyUnaBomba){
+            nombre= nom;
+            numeroVertice= -1;
+            lad = new ListaEnlazada();
+            this.soyUnaBomba = soyUnaBomba;
+        }
+
+        public void setSoyUnaBomba(boolean soyUnaBomba) {
+            this.soyUnaBomba = soyUnaBomba;
+        }
+
+        public boolean isSoyUnaBomba() {
+            return soyUnaBomba;
         }
         
         public void asigVert(int n){

@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
@@ -88,7 +89,7 @@ public class Juego extends javax.swing.JFrame {
         casilla9 = new javax.swing.JToggleButton();
         casilla10 = new javax.swing.JToggleButton();
         casilla11 = new javax.swing.JToggleButton();
-        casilla12 = new javax.swing.JToggleButton();
+        casillaA1 = new javax.swing.JToggleButton();
         casilla13 = new javax.swing.JToggleButton();
         casilla14 = new javax.swing.JToggleButton();
         casilla15 = new javax.swing.JToggleButton();
@@ -280,13 +281,13 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casilla11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 20, 20));
 
-        casilla12.setText("A1");
-        casilla12.addActionListener(new java.awt.event.ActionListener() {
+        casillaA1.setText("a1");
+        casillaA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casilla12ActionPerformed(evt);
+                casillaA1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casilla12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 20, 20));
+        jPanel1.add(casillaA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 20, 20));
 
         casilla13.setText("A1");
         casilla13.addActionListener(new java.awt.event.ActionListener() {
@@ -1108,9 +1109,10 @@ public class Juego extends javax.swing.JFrame {
         // Verice A9
     }//GEN-LAST:event_casilla11ActionPerformed
 
-    private void casilla12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla12ActionPerformed
+    private void casillaA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA1ActionPerformed
         // vertice A1:
-    }//GEN-LAST:event_casilla12ActionPerformed
+        this.casillaA1.setFont(new Font("Arial",Font.BOLD,10));
+    }//GEN-LAST:event_casillaA1ActionPerformed
 
     private void casilla13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casilla13ActionPerformed
         // Vertice B1:
@@ -1528,7 +1530,6 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JToggleButton casilla112;
     private javax.swing.JToggleButton casilla113;
     private javax.swing.JToggleButton casilla114;
-    private javax.swing.JToggleButton casilla12;
     private javax.swing.JToggleButton casilla13;
     private javax.swing.JToggleButton casilla14;
     private javax.swing.JToggleButton casilla15;
@@ -1614,6 +1615,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JToggleButton casilla97;
     private javax.swing.JToggleButton casilla98;
     private javax.swing.JToggleButton casilla99;
+    private javax.swing.JToggleButton casillaA1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
