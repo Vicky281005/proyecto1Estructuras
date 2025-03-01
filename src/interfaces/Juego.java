@@ -193,6 +193,7 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\83966 (1).png")); // NOI18N
         btnInicio.setText("Volver a Inicio");
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +201,7 @@ public class Juego extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 140, 30));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 190, 50));
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel1.setText("FALSE");
@@ -1031,6 +1032,7 @@ public class Juego extends javax.swing.JFrame {
         jPanel1.add(casilla114, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 20, 20));
 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnGuardar.setText("Guardar juego");
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -1038,7 +1040,7 @@ public class Juego extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 150, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 190, -1));
 
         btnBandera.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnBandera.setText("Bandera");
@@ -1048,7 +1050,7 @@ public class Juego extends javax.swing.JFrame {
                 btnBanderaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 100, -1));
+        jPanel1.add(btnBandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 90, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 430));
 

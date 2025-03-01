@@ -50,11 +50,13 @@ public class Configuracion extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 32)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\gear-line-icon-vector (1).png")); // NOI18N
         jLabel1.setText("Configración del juego");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\83966 (1).png")); // NOI18N
         btnInicio.setText("Volver a inicio");
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +64,7 @@ public class Configuracion extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 170, 50));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 50));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setText("Numero de columnas:");
@@ -99,6 +101,7 @@ public class Configuracion extends javax.swing.JFrame {
         jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, -1));
 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnGuardar.setText("Guardar cambios");
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +109,7 @@ public class Configuracion extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 200, 50));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
