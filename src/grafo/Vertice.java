@@ -12,6 +12,7 @@ public class Vertice {
     private String nombre;
     private int numeroVertice;
     private boolean soyUnaBomba;
+    private String emoji;
      ListaEnlazada<Object> lad;
     
         public Vertice(String nom){
@@ -19,6 +20,7 @@ public class Vertice {
             numeroVertice= -1;
             lad = new ListaEnlazada();
             this.soyUnaBomba = false;
+            this.emoji = "";
         }
         
         public Vertice(String nom, boolean soyUnaBomba){
@@ -26,10 +28,16 @@ public class Vertice {
             numeroVertice= -1;
             lad = new ListaEnlazada();
             this.soyUnaBomba = soyUnaBomba;
+            this.emoji = soyUnaBomba ? "💣" : "";
+        }
+
+        public String getEmoji() {
+            return emoji;
         }
 
         public void setSoyUnaBomba(boolean soyUnaBomba) {
             this.soyUnaBomba = soyUnaBomba;
+            this.emoji = soyUnaBomba ? "💣" : "";
         }
 
         public boolean isSoyUnaBomba() {
