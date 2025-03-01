@@ -1049,7 +1049,10 @@ public class Juego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        CargarPartida carga = new CargarPartida();
+        carga.setVisible(true);
+        carga.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanderaActionPerformed

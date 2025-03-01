@@ -70,7 +70,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 220, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 220, 40));
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
@@ -79,7 +79,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnConfiguraciónActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 300, 40));
+        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 300, 40));
 
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnCargar.setText("Cargar Juego");
@@ -114,7 +114,10 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfiguraciónActionPerformed
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-        
+        CargarPartida carga = new CargarPartida();
+        carga.setVisible(true);
+        carga.setLocationRelativeTo(null);
+        this.dispose();
         
     }//GEN-LAST:event_btnCargarActionPerformed
     
