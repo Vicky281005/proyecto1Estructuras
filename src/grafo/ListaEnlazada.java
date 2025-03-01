@@ -14,42 +14,75 @@ public class ListaEnlazada <T>{
        private Nodo pLast;
        private int size;
        
+       /**
+        * Constructor
+        * Crea una lista vacia
+        */
        public ListaEnlazada(){
            this.pFirst = this.pLast = null;
        }
-       
+       /**
+        * Constructor
+        * Crea una lista con un solo elemento
+        * @param n Nodo que se aniadira
+        */
        public ListaEnlazada(Nodo<T> n){
            this.pFirst=this.pLast= n;
        }
-
+    /**
+     * Devuelve el primer nodo de la lista
+     * @return el primer nodo
+     */
     public Nodo getpFirst() {
         return pFirst;
     }
-
+    /**
+     * Devuelve el ultimo nodo de la lista
+     * @return el ultimo nodo
+     */
     public Nodo getpLast() {
         return pLast;
     }
-
+    /**
+     * Devuelve el tamaño de la lista 
+     * @return int tamaño de la lista
+     */
     public int getSize() {
         return size;
     }
-
+    /**
+     * Modificar la data del primer nodo
+     * @param pFirst 
+     */
     public void setpFirst(Nodo pFirst) {
         this.pFirst = pFirst;
     }
-
+    /**
+     * Modificar la data del ultimo nodo
+     * @param pLast 
+     */
     public void setpLast(Nodo pLast) {
         this.pLast = pLast;
     }
-
+    /**
+     * Modifica el tamaño de la lista
+     * @param size 
+     */
     public void setSize(int size) {
         this.size = size;
     }
-
+    /**
+     * Revisa si la lista esta vacia o no
+     * @return True si esta vacia, false si no
+     */
     public boolean isEmpty(){
         return this.pFirst== null;
     }
     
+    /**
+     * Se encarga de añadir un nodo en el primer lugar de una lista
+     * @param dato 
+     */
     public void addFirst(T dato) {
         Nodo<T> n = new Nodo(dato);
         if (isEmpty()) {

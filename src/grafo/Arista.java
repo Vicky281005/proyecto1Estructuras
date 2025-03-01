@@ -15,7 +15,10 @@ public class Arista {
         public Arista(int d){
             destino= d;
         }
-        
+        /**
+         * 
+         * @return 
+         */
         public int getDestino(){
             return destino;
         }

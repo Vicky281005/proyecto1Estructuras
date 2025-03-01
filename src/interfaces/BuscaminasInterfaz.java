@@ -4,6 +4,8 @@
  */
 package interfaces;
 
+import grafo.Grafo;
+
 
 /**
  *
@@ -52,7 +54,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 230, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
@@ -61,7 +63,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnJugarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 220, 40));
+        jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 260, 40));
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
@@ -70,7 +72,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 220, 40));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 260, 40));
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
@@ -79,7 +81,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnConfiguraciónActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 300, 40));
+        jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 260, 40));
 
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnCargar.setText("Cargar Juego");
@@ -88,7 +90,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 btnCargarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 220, 40));
+        jPanel1.add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 260, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 770, 470));
 
@@ -96,7 +98,26 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
-            Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas);
+        Grafo grafo = new Grafo(this.nroFilas*this.nroColumnas);
+        String[] filasCoordenadas = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+        int[] columnasCoordenadas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        
+        for (int i = 0; i < this.nroFilas; i++){
+            String coordFila = filasCoordenadas[i];
+            for (int j = 0; j < this.nroColumnas; j++){
+                String coordColumna = String.valueOf(columnasCoordenadas[j]);
+                String cooncatenacion = coordFila + coordColumna;
+                System.out.println(cooncatenacion);
+                // TODO: continuar mas tarde 
+                
+            }
+            
+        }
+
+
+        
+        
+        Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo);
             jugar.setVisible(true);
             jugar.setLocationRelativeTo(null);
             this.dispose();
