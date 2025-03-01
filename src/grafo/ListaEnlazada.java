@@ -14,10 +14,18 @@ public class ListaEnlazada <T>{
        private Nodo pLast;
        private int size;
        
+       /**
+        * Constructor
+        * Crea una lista vacia
+        */
        public ListaEnlazada(){
            this.pFirst = this.pLast = null;
        }
-       
+       /**
+        * Constructor
+        * Crea una lista con un solo elemento
+        * @param n Nodo que se aniadira
+        */
        public ListaEnlazada(Nodo<T> n){
            this.pFirst=this.pLast= n;
        }

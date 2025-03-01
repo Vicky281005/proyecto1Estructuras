@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import grafo.Grafo;
 import java.awt.Font;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
@@ -15,12 +16,14 @@ import javax.swing.JToggleButton;
 public class Juego extends javax.swing.JFrame {
     private int nroFilas, nroColumnas, nroMinas;
     boolean bandera;
+    Grafo grafo;
 
-    public Juego(int nroFilas, int nroColumnas, int nroMinas) {
+    public Juego(int nroFilas, int nroColumnas, int nroMinas, Grafo grafo) {
         initComponents();
         this.nroFilas = nroFilas;
         this.nroColumnas = nroColumnas;
         this.nroMinas = nroMinas;
+        this.grafo = grafo;
     }
 
     public void casillaBM(JToggleButton casilla, boolean es_bomba, int bombas_ady) {

@@ -75,7 +75,7 @@ public class Configuracion extends javax.swing.JFrame {
                 numFilasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 180, -1));
+        jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 150, -1));
 
         numColumnasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +89,7 @@ public class Configuracion extends javax.swing.JFrame {
                 numMinasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 170, -1));
+        jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 150, -1));
 
         btnGuardar.setText("Guardar cambios");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
