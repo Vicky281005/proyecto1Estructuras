@@ -69,9 +69,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA1ActionPerformed"/>
           </Events>
@@ -114,9 +111,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ6ActionPerformed"/>
           </Events>
@@ -127,9 +121,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA3ActionPerformed"/>
           </Events>
@@ -140,9 +131,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ10ActionPerformed"/>
           </Events>
@@ -153,9 +141,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA4ActionPerformed"/>
           </Events>
@@ -166,9 +151,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA6ActionPerformed"/>
           </Events>
@@ -179,9 +161,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA7ActionPerformed"/>
           </Events>
@@ -192,9 +171,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA8ActionPerformed"/>
           </Events>
@@ -205,9 +181,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA9ActionPerformed"/>
           </Events>
@@ -218,9 +191,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA10ActionPerformed"/>
           </Events>
@@ -231,9 +201,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA2ActionPerformed"/>
           </Events>
@@ -244,9 +211,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB1ActionPerformed"/>
           </Events>
@@ -257,9 +221,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ1ActionPerformed"/>
           </Events>
@@ -270,9 +231,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC10ActionPerformed"/>
           </Events>
@@ -283,9 +241,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD10ActionPerformed"/>
           </Events>
@@ -296,9 +251,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF1ActionPerformed"/>
           </Events>
@@ -309,9 +261,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG1ActionPerformed"/>
           </Events>
@@ -322,9 +271,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH1ActionPerformed"/>
           </Events>
@@ -335,9 +281,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI1ActionPerformed"/>
           </Events>
@@ -348,9 +291,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB2ActionPerformed"/>
           </Events>
@@ -361,9 +301,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB3ActionPerformed"/>
           </Events>
@@ -374,9 +311,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaA5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaA5ActionPerformed"/>
           </Events>
@@ -387,9 +321,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB4ActionPerformed"/>
           </Events>
@@ -400,9 +331,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC5ActionPerformed"/>
           </Events>
@@ -413,9 +341,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB6ActionPerformed"/>
           </Events>
@@ -426,9 +351,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB5ActionPerformed"/>
           </Events>
@@ -439,9 +361,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB7ActionPerformed"/>
           </Events>
@@ -452,9 +371,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB8ActionPerformed"/>
           </Events>
@@ -465,9 +381,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC1ActionPerformed"/>
           </Events>
@@ -478,9 +391,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB9ActionPerformed"/>
           </Events>
@@ -491,9 +401,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaB10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaB10ActionPerformed"/>
           </Events>
@@ -504,9 +411,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC2ActionPerformed"/>
           </Events>
@@ -517,9 +421,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC3ActionPerformed"/>
           </Events>
@@ -530,9 +431,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC4ActionPerformed"/>
           </Events>
@@ -543,9 +441,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC6ActionPerformed"/>
           </Events>
@@ -556,9 +451,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC7ActionPerformed"/>
           </Events>
@@ -569,9 +461,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC9ActionPerformed"/>
           </Events>
@@ -582,9 +471,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaC8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaC8ActionPerformed"/>
           </Events>
@@ -595,9 +481,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD9ActionPerformed"/>
           </Events>
@@ -608,9 +491,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD5ActionPerformed"/>
           </Events>
@@ -621,9 +501,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD1ActionPerformed"/>
           </Events>
@@ -634,9 +511,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD2ActionPerformed"/>
           </Events>
@@ -647,9 +521,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE3ActionPerformed"/>
           </Events>
@@ -660,9 +531,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD3ActionPerformed"/>
           </Events>
@@ -673,9 +541,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD7ActionPerformed"/>
           </Events>
@@ -686,9 +551,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD6ActionPerformed"/>
           </Events>
@@ -699,9 +561,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD8ActionPerformed"/>
           </Events>
@@ -712,9 +571,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE1ActionPerformed"/>
           </Events>
@@ -725,9 +581,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE2ActionPerformed"/>
           </Events>
@@ -738,9 +591,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE4ActionPerformed"/>
           </Events>
@@ -751,9 +601,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE5ActionPerformed"/>
           </Events>
@@ -764,9 +611,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE6ActionPerformed"/>
           </Events>
@@ -777,9 +621,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE7ActionPerformed"/>
           </Events>
@@ -790,9 +631,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE8ActionPerformed"/>
           </Events>
@@ -803,9 +641,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE9ActionPerformed"/>
           </Events>
@@ -816,9 +651,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaE10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaE10ActionPerformed"/>
           </Events>
@@ -829,9 +661,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF2ActionPerformed"/>
           </Events>
@@ -842,9 +671,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF3ActionPerformed"/>
           </Events>
@@ -855,9 +681,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaD4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaD4ActionPerformed"/>
           </Events>
@@ -868,9 +691,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF4ActionPerformed"/>
           </Events>
@@ -881,9 +701,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF6ActionPerformed"/>
           </Events>
@@ -894,9 +711,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF7ActionPerformed"/>
           </Events>
@@ -907,9 +721,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF8ActionPerformed"/>
           </Events>
@@ -920,9 +731,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF9ActionPerformed"/>
           </Events>
@@ -933,9 +741,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF10ActionPerformed"/>
           </Events>
@@ -946,9 +751,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG2ActionPerformed"/>
           </Events>
@@ -959,9 +761,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG3ActionPerformed"/>
           </Events>
@@ -972,9 +771,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaF5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaF5ActionPerformed"/>
           </Events>
@@ -985,9 +781,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG4ActionPerformed"/>
           </Events>
@@ -998,9 +791,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG6ActionPerformed"/>
           </Events>
@@ -1011,9 +801,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG7ActionPerformed"/>
           </Events>
@@ -1024,9 +811,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG8ActionPerformed"/>
           </Events>
@@ -1037,9 +821,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG9ActionPerformed"/>
           </Events>
@@ -1050,9 +831,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG10ActionPerformed"/>
           </Events>
@@ -1063,9 +841,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH2ActionPerformed"/>
           </Events>
@@ -1076,9 +851,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH3ActionPerformed"/>
           </Events>
@@ -1089,9 +861,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaG5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaG5ActionPerformed"/>
           </Events>
@@ -1102,9 +871,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH4ActionPerformed"/>
           </Events>
@@ -1115,9 +881,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH6ActionPerformed"/>
           </Events>
@@ -1128,9 +891,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH7ActionPerformed"/>
           </Events>
@@ -1141,9 +901,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH8ActionPerformed"/>
           </Events>
@@ -1154,9 +911,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH9ActionPerformed"/>
           </Events>
@@ -1167,9 +921,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH10ActionPerformed"/>
           </Events>
@@ -1180,9 +931,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI2ActionPerformed"/>
           </Events>
@@ -1193,9 +941,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI3ActionPerformed"/>
           </Events>
@@ -1206,9 +951,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaH5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaH5ActionPerformed"/>
           </Events>
@@ -1219,9 +961,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI4ActionPerformed"/>
           </Events>
@@ -1232,9 +971,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI6ActionPerformed"/>
           </Events>
@@ -1245,9 +981,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI7ActionPerformed"/>
           </Events>
@@ -1258,9 +991,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI8ActionPerformed"/>
           </Events>
@@ -1271,9 +1001,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI9ActionPerformed"/>
           </Events>
@@ -1284,9 +1011,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI10ActionPerformed"/>
           </Events>
@@ -1297,9 +1021,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ2ActionPerformed"/>
           </Events>
@@ -1310,9 +1031,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ3ActionPerformed"/>
           </Events>
@@ -1323,9 +1041,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaI5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaI5ActionPerformed"/>
           </Events>
@@ -1336,9 +1051,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ4ActionPerformed"/>
           </Events>
@@ -1349,9 +1061,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ5ActionPerformed"/>
           </Events>
@@ -1362,9 +1071,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ7ActionPerformed"/>
           </Events>
@@ -1375,9 +1081,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ8ActionPerformed"/>
           </Events>
@@ -1388,9 +1091,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JToggleButton" name="casillaJ9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="\ud83d\udea9" containsInvalidXMLChars="true"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="casillaJ9ActionPerformed"/>
           </Events>

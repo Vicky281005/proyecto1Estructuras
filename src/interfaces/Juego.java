@@ -211,7 +211,6 @@ public class Juego extends javax.swing.JFrame {
         jLabel1.setText("FALSE");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
 
-        casillaA1.setText("🚩");
         casillaA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA1ActionPerformed(evt);
@@ -237,7 +236,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(btnBandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 100, -1));
 
-        casillaJ6.setText("🚩");
         casillaJ6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ6ActionPerformed(evt);
@@ -245,7 +243,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 50, 50));
 
-        casillaA3.setText("🚩");
         casillaA3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA3ActionPerformed(evt);
@@ -253,7 +250,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 50, 50));
 
-        casillaJ10.setText("🚩");
         casillaJ10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ10ActionPerformed(evt);
@@ -261,7 +257,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 50, 50));
 
-        casillaA4.setText("🚩");
         casillaA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA4ActionPerformed(evt);
@@ -269,7 +264,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 50, 50));
 
-        casillaA6.setText("🚩");
         casillaA6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA6ActionPerformed(evt);
@@ -277,7 +271,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 50, 50));
 
-        casillaA7.setText("🚩");
         casillaA7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA7ActionPerformed(evt);
@@ -285,7 +278,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 50, 50));
 
-        casillaA8.setText("🚩");
         casillaA8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA8ActionPerformed(evt);
@@ -293,7 +285,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 50, 50));
 
-        casillaA9.setText("🚩");
         casillaA9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA9ActionPerformed(evt);
@@ -301,7 +292,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 50, 50));
 
-        casillaA10.setText("🚩");
         casillaA10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA10ActionPerformed(evt);
@@ -309,7 +299,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 50, 50));
 
-        casillaA2.setText("🚩");
         casillaA2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA2ActionPerformed(evt);
@@ -317,7 +306,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 50, 50));
 
-        casillaB1.setText("🚩");
         casillaB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB1ActionPerformed(evt);
@@ -325,7 +313,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 50, 50));
 
-        casillaJ1.setText("🚩");
         casillaJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ1ActionPerformed(evt);
@@ -333,7 +320,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 50, 50));
 
-        casillaC10.setText("🚩");
         casillaC10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC10ActionPerformed(evt);
@@ -341,7 +327,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 50, 50));
 
-        casillaD10.setText("🚩");
         casillaD10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD10ActionPerformed(evt);
@@ -349,7 +334,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 50, 50));
 
-        casillaF1.setText("🚩");
         casillaF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF1ActionPerformed(evt);
@@ -357,7 +341,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 50, 50));
 
-        casillaG1.setText("🚩");
         casillaG1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG1ActionPerformed(evt);
@@ -365,7 +348,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 50, 50));
 
-        casillaH1.setText("🚩");
         casillaH1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH1ActionPerformed(evt);
@@ -373,7 +355,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 50, 50));
 
-        casillaI1.setText("🚩");
         casillaI1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI1ActionPerformed(evt);
@@ -381,7 +362,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 50, 50));
 
-        casillaB2.setText("🚩");
         casillaB2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB2ActionPerformed(evt);
@@ -389,7 +369,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 50, 50));
 
-        casillaB3.setText("🚩");
         casillaB3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB3ActionPerformed(evt);
@@ -397,7 +376,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 50, 50));
 
-        casillaA5.setText("🚩");
         casillaA5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA5ActionPerformed(evt);
@@ -405,7 +383,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 50, 50));
 
-        casillaB4.setText("🚩");
         casillaB4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB4ActionPerformed(evt);
@@ -413,7 +390,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 50, 50));
 
-        casillaC5.setText("🚩");
         casillaC5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC5ActionPerformed(evt);
@@ -421,7 +397,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 50, 50));
 
-        casillaB6.setText("🚩");
         casillaB6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB6ActionPerformed(evt);
@@ -429,7 +404,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 50, 50));
 
-        casillaB5.setText("🚩");
         casillaB5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB5ActionPerformed(evt);
@@ -437,7 +411,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 50, 50));
 
-        casillaB7.setText("🚩");
         casillaB7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB7ActionPerformed(evt);
@@ -445,7 +418,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 50, 50));
 
-        casillaB8.setText("🚩");
         casillaB8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB8ActionPerformed(evt);
@@ -453,7 +425,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 50, 50));
 
-        casillaC1.setText("🚩");
         casillaC1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC1ActionPerformed(evt);
@@ -461,7 +432,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 50, 50));
 
-        casillaB9.setText("🚩");
         casillaB9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB9ActionPerformed(evt);
@@ -469,7 +439,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 50, 50));
 
-        casillaB10.setText("🚩");
         casillaB10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaB10ActionPerformed(evt);
@@ -477,7 +446,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 50, 50));
 
-        casillaC2.setText("🚩");
         casillaC2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC2ActionPerformed(evt);
@@ -485,7 +453,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 50, 50));
 
-        casillaC3.setText("🚩");
         casillaC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC3ActionPerformed(evt);
@@ -493,7 +460,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 50, 50));
 
-        casillaC4.setText("🚩");
         casillaC4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC4ActionPerformed(evt);
@@ -501,7 +467,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 50, 50));
 
-        casillaC6.setText("🚩");
         casillaC6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC6ActionPerformed(evt);
@@ -509,7 +474,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 50, 50));
 
-        casillaC7.setText("🚩");
         casillaC7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC7ActionPerformed(evt);
@@ -517,7 +481,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 50, 50));
 
-        casillaC9.setText("🚩");
         casillaC9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC9ActionPerformed(evt);
@@ -525,7 +488,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 50, 50));
 
-        casillaC8.setText("🚩");
         casillaC8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaC8ActionPerformed(evt);
@@ -533,7 +495,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 50, 50));
 
-        casillaD9.setText("🚩");
         casillaD9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD9ActionPerformed(evt);
@@ -541,7 +502,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 50, 50));
 
-        casillaD5.setText("🚩");
         casillaD5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD5ActionPerformed(evt);
@@ -549,7 +509,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 50, 50));
 
-        casillaD1.setText("🚩");
         casillaD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD1ActionPerformed(evt);
@@ -557,7 +516,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 50, 50));
 
-        casillaD2.setText("🚩");
         casillaD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD2ActionPerformed(evt);
@@ -565,7 +523,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 50, 50));
 
-        casillaE3.setText("🚩");
         casillaE3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE3ActionPerformed(evt);
@@ -573,7 +530,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 50, 50));
 
-        casillaD3.setText("🚩");
         casillaD3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD3ActionPerformed(evt);
@@ -581,7 +537,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 50, 50));
 
-        casillaD7.setText("🚩");
         casillaD7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD7ActionPerformed(evt);
@@ -589,7 +544,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 50, 50));
 
-        casillaD6.setText("🚩");
         casillaD6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD6ActionPerformed(evt);
@@ -597,7 +551,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 50, 50));
 
-        casillaD8.setText("🚩");
         casillaD8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD8ActionPerformed(evt);
@@ -605,7 +558,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 50, 50));
 
-        casillaE1.setText("🚩");
         casillaE1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE1ActionPerformed(evt);
@@ -613,7 +565,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 50, 50));
 
-        casillaE2.setText("🚩");
         casillaE2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE2ActionPerformed(evt);
@@ -621,7 +572,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 50, 50));
 
-        casillaE4.setText("🚩");
         casillaE4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE4ActionPerformed(evt);
@@ -629,7 +579,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 50));
 
-        casillaE5.setText("🚩");
         casillaE5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE5ActionPerformed(evt);
@@ -637,7 +586,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 50, 50));
 
-        casillaE6.setText("🚩");
         casillaE6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE6ActionPerformed(evt);
@@ -645,7 +593,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 50, 50));
 
-        casillaE7.setText("🚩");
         casillaE7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE7ActionPerformed(evt);
@@ -653,7 +600,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 50, 50));
 
-        casillaE8.setText("🚩");
         casillaE8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE8ActionPerformed(evt);
@@ -661,7 +607,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 50, 50));
 
-        casillaE9.setText("🚩");
         casillaE9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE9ActionPerformed(evt);
@@ -669,7 +614,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 50, 50));
 
-        casillaE10.setText("🚩");
         casillaE10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaE10ActionPerformed(evt);
@@ -677,7 +621,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaE10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 50, 50));
 
-        casillaF2.setText("🚩");
         casillaF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF2ActionPerformed(evt);
@@ -685,7 +628,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 50, 50));
 
-        casillaF3.setText("🚩");
         casillaF3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF3ActionPerformed(evt);
@@ -693,7 +635,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 50, 50));
 
-        casillaD4.setText("🚩");
         casillaD4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaD4ActionPerformed(evt);
@@ -701,7 +642,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaD4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 50, 50));
 
-        casillaF4.setText("🚩");
         casillaF4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF4ActionPerformed(evt);
@@ -709,7 +649,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 50, 50));
 
-        casillaF6.setText("🚩");
         casillaF6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF6ActionPerformed(evt);
@@ -717,7 +656,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 50, 50));
 
-        casillaF7.setText("🚩");
         casillaF7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF7ActionPerformed(evt);
@@ -725,7 +663,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 50, 50));
 
-        casillaF8.setText("🚩");
         casillaF8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF8ActionPerformed(evt);
@@ -733,7 +670,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 50, 50));
 
-        casillaF9.setText("🚩");
         casillaF9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF9ActionPerformed(evt);
@@ -741,7 +677,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 50, 50));
 
-        casillaF10.setText("🚩");
         casillaF10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF10ActionPerformed(evt);
@@ -749,7 +684,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 50, 50));
 
-        casillaG2.setText("🚩");
         casillaG2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG2ActionPerformed(evt);
@@ -757,7 +691,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 50, 50));
 
-        casillaG3.setText("🚩");
         casillaG3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG3ActionPerformed(evt);
@@ -765,7 +698,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 50, 50));
 
-        casillaF5.setText("🚩");
         casillaF5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaF5ActionPerformed(evt);
@@ -773,7 +705,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaF5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 50, 50));
 
-        casillaG4.setText("🚩");
         casillaG4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG4ActionPerformed(evt);
@@ -781,7 +712,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 50, 50));
 
-        casillaG6.setText("🚩");
         casillaG6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG6ActionPerformed(evt);
@@ -789,7 +719,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 50, 50));
 
-        casillaG7.setText("🚩");
         casillaG7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG7ActionPerformed(evt);
@@ -797,7 +726,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 50, 50));
 
-        casillaG8.setText("🚩");
         casillaG8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG8ActionPerformed(evt);
@@ -805,7 +733,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 50, 50));
 
-        casillaG9.setText("🚩");
         casillaG9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG9ActionPerformed(evt);
@@ -813,7 +740,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 50, 50));
 
-        casillaG10.setText("🚩");
         casillaG10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG10ActionPerformed(evt);
@@ -821,7 +747,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 50, 50));
 
-        casillaH2.setText("🚩");
         casillaH2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH2ActionPerformed(evt);
@@ -829,7 +754,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 50, 50));
 
-        casillaH3.setText("🚩");
         casillaH3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH3ActionPerformed(evt);
@@ -837,7 +761,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 50, 50));
 
-        casillaG5.setText("🚩");
         casillaG5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaG5ActionPerformed(evt);
@@ -845,7 +768,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaG5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 50, 50));
 
-        casillaH4.setText("🚩");
         casillaH4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH4ActionPerformed(evt);
@@ -853,7 +775,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 50, 50));
 
-        casillaH6.setText("🚩");
         casillaH6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH6ActionPerformed(evt);
@@ -861,7 +782,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 50, 50));
 
-        casillaH7.setText("🚩");
         casillaH7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH7ActionPerformed(evt);
@@ -869,7 +789,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 50, 50));
 
-        casillaH8.setText("🚩");
         casillaH8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH8ActionPerformed(evt);
@@ -877,7 +796,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 50, 50));
 
-        casillaH9.setText("🚩");
         casillaH9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH9ActionPerformed(evt);
@@ -885,7 +803,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 50, 50));
 
-        casillaH10.setText("🚩");
         casillaH10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH10ActionPerformed(evt);
@@ -893,7 +810,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 50, 50));
 
-        casillaI2.setText("🚩");
         casillaI2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI2ActionPerformed(evt);
@@ -901,7 +817,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 50, 50));
 
-        casillaI3.setText("🚩");
         casillaI3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI3ActionPerformed(evt);
@@ -909,7 +824,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 50, 50));
 
-        casillaH5.setText("🚩");
         casillaH5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaH5ActionPerformed(evt);
@@ -917,7 +831,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaH5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 50, 50));
 
-        casillaI4.setText("🚩");
         casillaI4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI4ActionPerformed(evt);
@@ -925,7 +838,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 50, 50));
 
-        casillaI6.setText("🚩");
         casillaI6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI6ActionPerformed(evt);
@@ -933,7 +845,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 50, 50));
 
-        casillaI7.setText("🚩");
         casillaI7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI7ActionPerformed(evt);
@@ -941,7 +852,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 50, 50));
 
-        casillaI8.setText("🚩");
         casillaI8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI8ActionPerformed(evt);
@@ -949,7 +859,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 50, 50));
 
-        casillaI9.setText("🚩");
         casillaI9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI9ActionPerformed(evt);
@@ -957,7 +866,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 520, 50, 50));
 
-        casillaI10.setText("🚩");
         casillaI10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI10ActionPerformed(evt);
@@ -965,7 +873,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 50, 50));
 
-        casillaJ2.setText("🚩");
         casillaJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ2ActionPerformed(evt);
@@ -973,7 +880,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 50, 50));
 
-        casillaJ3.setText("🚩");
         casillaJ3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ3ActionPerformed(evt);
@@ -981,7 +887,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 50, 50));
 
-        casillaI5.setText("🚩");
         casillaI5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaI5ActionPerformed(evt);
@@ -989,7 +894,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaI5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 50, 50));
 
-        casillaJ4.setText("🚩");
         casillaJ4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ4ActionPerformed(evt);
@@ -997,7 +901,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 50, 50));
 
-        casillaJ5.setText("🚩");
         casillaJ5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ5ActionPerformed(evt);
@@ -1005,7 +908,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 50, 50));
 
-        casillaJ7.setText("🚩");
         casillaJ7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ7ActionPerformed(evt);
@@ -1013,7 +915,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 570, 50, 50));
 
-        casillaJ8.setText("🚩");
         casillaJ8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ8ActionPerformed(evt);
@@ -1021,7 +922,6 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 50, 50));
 
-        casillaJ9.setText("🚩");
         casillaJ9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaJ9ActionPerformed(evt);
@@ -1063,15 +963,327 @@ public class Juego extends javax.swing.JFrame {
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA1.setText(vertice.getEmoji());
+            
+            this.casillaA1.setEnabled(false);
         } catch (Exception ex) {
             this.casillaA1.setVisible(false);
         }
     }//GEN-LAST:event_casillaA1ActionPerformed
 
+    /**
+     * Se encarga de no mostrar los botones/casillas que no existen
+     * @param evt 
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
         if (grafo.numVertice("A1") == -1){
             this.casillaA1.setVisible(false);
+        }
+        if (grafo.numVertice("A2") == -1){
+            this.casillaA2.setVisible(false);
+        }
+        if (grafo.numVertice("A3") == -1){
+            this.casillaA3.setVisible(false);
+        }
+        if (grafo.numVertice("A4") == -1){
+            this.casillaA4.setVisible(false);
+        }
+        if (grafo.numVertice("A5") == -1){
+            this.casillaA5.setVisible(false);
+        }
+        if (grafo.numVertice("A6") == -1){
+            this.casillaA6.setVisible(false);
+        }
+        if (grafo.numVertice("A7") == -1){
+            this.casillaA7.setVisible(false);
+        }
+        if (grafo.numVertice("A8") == -1){
+            this.casillaA8.setVisible(false);
+        }
+        if (grafo.numVertice("A9") == -1){
+            this.casillaA9.setVisible(false);
+        }
+        if (grafo.numVertice("A10") == -1){
+            this.casillaA10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("B1") == -1){
+            this.casillaB1.setVisible(false);
+        }
+        if (grafo.numVertice("B2") == -1){
+            this.casillaB2.setVisible(false);
+        }
+        if (grafo.numVertice("B3") == -1){
+            this.casillaB3.setVisible(false);
+        }
+        if (grafo.numVertice("B4") == -1){
+            this.casillaB4.setVisible(false);
+        }
+        if (grafo.numVertice("B5") == -1){
+            this.casillaB5.setVisible(false);
+        }
+        if (grafo.numVertice("B6") == -1){
+            this.casillaB6.setVisible(false);
+        }
+        if (grafo.numVertice("B7") == -1){
+            this.casillaB7.setVisible(false);
+        }
+        if (grafo.numVertice("B8") == -1){
+            this.casillaB8.setVisible(false);
+        }
+        if (grafo.numVertice("B9") == -1){
+            this.casillaB9.setVisible(false);
+        }
+        if (grafo.numVertice("B10") == -1){
+            this.casillaB10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("C1") == -1){
+            this.casillaC1.setVisible(false);
+        }
+        if (grafo.numVertice("C2") == -1){
+            this.casillaC2.setVisible(false);
+        }
+        if (grafo.numVertice("C3") == -1){
+            this.casillaC3.setVisible(false);
+        }
+        if (grafo.numVertice("C4") == -1){
+            this.casillaC4.setVisible(false);
+        }
+        if (grafo.numVertice("C5") == -1){
+            this.casillaC5.setVisible(false);
+        }
+        if (grafo.numVertice("C6") == -1){
+            this.casillaC6.setVisible(false);
+        }
+        if (grafo.numVertice("C7") == -1){
+            this.casillaC7.setVisible(false);
+        }
+        if (grafo.numVertice("C8") == -1){
+            this.casillaC8.setVisible(false);
+        }
+        if (grafo.numVertice("C9") == -1){
+            this.casillaC9.setVisible(false);
+        }
+        if (grafo.numVertice("C10") == -1){
+            this.casillaC10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("D1") == -1){
+            this.casillaD1.setVisible(false);
+        }
+        if (grafo.numVertice("D2") == -1){
+            this.casillaD2.setVisible(false);
+        }
+        if (grafo.numVertice("D3") == -1){
+            this.casillaD3.setVisible(false);
+        }
+        if (grafo.numVertice("D4") == -1){
+            this.casillaD4.setVisible(false);
+        }
+        if (grafo.numVertice("D5") == -1){
+            this.casillaD5.setVisible(false);
+        }
+        if (grafo.numVertice("D6") == -1){
+            this.casillaD6.setVisible(false);
+        }
+        if (grafo.numVertice("D7") == -1){
+            this.casillaD7.setVisible(false);
+        }
+        if (grafo.numVertice("D8") == -1){
+            this.casillaD8.setVisible(false);
+        }
+        if (grafo.numVertice("D9") == -1){
+            this.casillaD9.setVisible(false);
+        }
+        if (grafo.numVertice("D10") == -1){
+            this.casillaD10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("E1") == -1){
+            this.casillaE1.setVisible(false);
+        }
+        if (grafo.numVertice("E2") == -1){
+            this.casillaE2.setVisible(false);
+        }
+        if (grafo.numVertice("E3") == -1){
+            this.casillaE3.setVisible(false);
+        }
+        if (grafo.numVertice("E4") == -1){
+            this.casillaE4.setVisible(false);
+        }
+        if (grafo.numVertice("E5") == -1){
+            this.casillaE5.setVisible(false);
+        }
+        if (grafo.numVertice("E6") == -1){
+            this.casillaE6.setVisible(false);
+        }
+        if (grafo.numVertice("E7") == -1){
+            this.casillaE7.setVisible(false);
+        }
+        if (grafo.numVertice("E8") == -1){
+            this.casillaE8.setVisible(false);
+        }
+        if (grafo.numVertice("E9") == -1){
+            this.casillaE9.setVisible(false);
+        }
+        if (grafo.numVertice("E10") == -1){
+            this.casillaE10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("F1") == -1){
+            this.casillaF1.setVisible(false);
+        }
+        if (grafo.numVertice("F2") == -1){
+            this.casillaF2.setVisible(false);
+        }
+        if (grafo.numVertice("F3") == -1){
+            this.casillaF3.setVisible(false);
+        }
+        if (grafo.numVertice("F4") == -1){
+            this.casillaF4.setVisible(false);
+        }
+        if (grafo.numVertice("F5") == -1){
+            this.casillaF5.setVisible(false);
+        }
+        if (grafo.numVertice("F6") == -1){
+            this.casillaF6.setVisible(false);
+        }
+        if (grafo.numVertice("F7") == -1){
+            this.casillaF7.setVisible(false);
+        }
+        if (grafo.numVertice("F8") == -1){
+            this.casillaF8.setVisible(false);
+        }
+        if (grafo.numVertice("F9") == -1){
+            this.casillaF9.setVisible(false);
+        }
+        if (grafo.numVertice("F10") == -1){
+            this.casillaF10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("G1") == -1){
+            this.casillaG1.setVisible(false);
+        }
+        if (grafo.numVertice("G2") == -1){
+            this.casillaG2.setVisible(false);
+        }
+        if (grafo.numVertice("G3") == -1){
+            this.casillaG3.setVisible(false);
+        }
+        if (grafo.numVertice("G4") == -1){
+            this.casillaG4.setVisible(false);
+        }
+        if (grafo.numVertice("G5") == -1){
+            this.casillaG5.setVisible(false);
+        }
+        if (grafo.numVertice("G6") == -1){
+            this.casillaG6.setVisible(false);
+        }
+        if (grafo.numVertice("G7") == -1){
+            this.casillaG7.setVisible(false);
+        }
+        if (grafo.numVertice("G8") == -1){
+            this.casillaG8.setVisible(false);
+        }
+        if (grafo.numVertice("G9") == -1){
+            this.casillaG9.setVisible(false);
+        }
+        if (grafo.numVertice("G10") == -1){
+            this.casillaG10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("H1") == -1){
+            this.casillaH1.setVisible(false);
+        }
+        if (grafo.numVertice("H2") == -1){
+            this.casillaH2.setVisible(false);
+        }
+        if (grafo.numVertice("H3") == -1){
+            this.casillaH3.setVisible(false);
+        }
+        if (grafo.numVertice("H4") == -1){
+            this.casillaH4.setVisible(false);
+        }
+        if (grafo.numVertice("H5") == -1){
+            this.casillaH5.setVisible(false);
+        }
+        if (grafo.numVertice("H6") == -1){
+            this.casillaH6.setVisible(false);
+        }
+        if (grafo.numVertice("H7") == -1){
+            this.casillaH7.setVisible(false);
+        }
+        if (grafo.numVertice("H8") == -1){
+            this.casillaH8.setVisible(false);
+        }
+        if (grafo.numVertice("H9") == -1){
+            this.casillaH9.setVisible(false);
+        }
+        if (grafo.numVertice("H10") == -1){
+            this.casillaH10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("I1") == -1){
+            this.casillaI1.setVisible(false);
+        }
+        if (grafo.numVertice("I2") == -1){
+            this.casillaI2.setVisible(false);
+        }
+        if (grafo.numVertice("I3") == -1){
+            this.casillaI3.setVisible(false);
+        }
+        if (grafo.numVertice("I4") == -1){
+            this.casillaI4.setVisible(false);
+        }
+        if (grafo.numVertice("I5") == -1){
+            this.casillaI5.setVisible(false);
+        }
+        if (grafo.numVertice("I6") == -1){
+            this.casillaI6.setVisible(false);
+        }
+        if (grafo.numVertice("I7") == -1){
+            this.casillaI7.setVisible(false);
+        }
+        if (grafo.numVertice("I8") == -1){
+            this.casillaI8.setVisible(false);
+        }
+        if (grafo.numVertice("I9") == -1){
+            this.casillaI9.setVisible(false);
+        }
+        if (grafo.numVertice("I10") == -1){
+            this.casillaI10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("J1") == -1){
+            this.casillaJ1.setVisible(false);
+        }
+        if (grafo.numVertice("J2") == -1){
+            this.casillaJ2.setVisible(false);
+        }
+        if (grafo.numVertice("J3") == -1){
+            this.casillaJ3.setVisible(false);
+        }
+        if (grafo.numVertice("J4") == -1){
+            this.casillaJ4.setVisible(false);
+        }
+        if (grafo.numVertice("J5") == -1){
+            this.casillaJ5.setVisible(false);
+        }
+        if (grafo.numVertice("J6") == -1){
+            this.casillaJ6.setVisible(false);
+        }
+        if (grafo.numVertice("J7") == -1){
+            this.casillaJ7.setVisible(false);
+        }
+        if (grafo.numVertice("J8") == -1){
+            this.casillaJ8.setVisible(false);
+        }
+        if (grafo.numVertice("J9") == -1){
+            this.casillaJ9.setVisible(false);
+        }
+        if (grafo.numVertice("J10") == -1){
+            this.casillaJ10.setVisible(false);
         }
     }//GEN-LAST:event_formWindowOpened
 
