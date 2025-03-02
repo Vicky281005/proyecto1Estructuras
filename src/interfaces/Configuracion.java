@@ -118,7 +118,10 @@ public class Configuracion extends javax.swing.JFrame {
         this.dispose();
 
     }//GEN-LAST:event_btnInicioActionPerformed
-
+/**
+ * Se encarga de solicitar al usuario y guardar sus respuestas en cuando al tamanio del tablero
+ * @param evt 
+ */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try{
         if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){

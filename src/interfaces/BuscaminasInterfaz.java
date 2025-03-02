@@ -100,14 +100,17 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         Grafo grafo = new Grafo(this.nroFilas*this.nroColumnas);
         String[] filasCoordenadas = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+        String[] arregloVectores = new String[this.nroFilas*this.nroColumnas];
         int[] columnasCoordenadas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         
+        int contador= 0;
         for (int i = 0; i < this.nroFilas; i++){
             String coordFila = filasCoordenadas[i];
             for (int j = 0; j < this.nroColumnas; j++){
                 String coordColumna = String.valueOf(columnasCoordenadas[j]);
                 String cooncatenacion = coordFila + coordColumna;
                 System.out.println(cooncatenacion);
+                contador +=1;
                 // TODO: continuar mas tarde 
                 
             }
