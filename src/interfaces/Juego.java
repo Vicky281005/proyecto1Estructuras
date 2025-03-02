@@ -116,8 +116,8 @@ public class Juego extends javax.swing.JFrame {
         casillaB7 = new javax.swing.JToggleButton();
         casillaB8 = new javax.swing.JToggleButton();
         casillaC1 = new javax.swing.JToggleButton();
-        B9 = new javax.swing.JToggleButton();
-        B10 = new javax.swing.JToggleButton();
+        casillaB9 = new javax.swing.JToggleButton();
+        casillaB10 = new javax.swing.JToggleButton();
         casillaC2 = new javax.swing.JToggleButton();
         casillaC3 = new javax.swing.JToggleButton();
         casillaC4 = new javax.swing.JToggleButton();
@@ -461,21 +461,21 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 50, 50));
 
-        B9.setText("🚩");
-        B9.addActionListener(new java.awt.event.ActionListener() {
+        casillaB9.setText("🚩");
+        casillaB9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B9ActionPerformed(evt);
+                casillaB9ActionPerformed(evt);
             }
         });
-        jPanel1.add(B9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 50, 50));
+        jPanel1.add(casillaB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 50, 50));
 
-        B10.setText("🚩");
-        B10.addActionListener(new java.awt.event.ActionListener() {
+        casillaB10.setText("🚩");
+        casillaB10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                B10ActionPerformed(evt);
+                casillaB10ActionPerformed(evt);
             }
         });
-        jPanel1.add(B10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 50, 50));
+        jPanel1.add(casillaB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 50, 50));
 
         casillaC2.setText("🚩");
         casillaC2.addActionListener(new java.awt.event.ActionListener() {
@@ -1062,7 +1062,6 @@ public class Juego extends javax.swing.JFrame {
         int indice = this.grafo.numVertice("A1");
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
-            System.out.println(vertice.getEmoji());
             this.casillaA1.setText(vertice.getEmoji());
         } catch (Exception ex) {
             this.casillaA1.setVisible(false);
@@ -1077,39 +1076,102 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void casillaJ6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ6ActionPerformed
-        // A2
+         // Vertice J6
+        int indice = this.grafo.numVertice("J6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ6ActionPerformed
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
-        //A3
+        // Vertice A3
+        int indice = this.grafo.numVertice("A3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA3ActionPerformed
 
     private void casillaJ10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ10ActionPerformed
-        // TODO add your handling code here:
+           // Vertice J10
+        int indice = this.grafo.numVertice("J10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ10ActionPerformed
 
     private void casillaA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA4ActionPerformed
-        // TODO add your handling code here:
+        // Vertice A4
+        int indice = this.grafo.numVertice("A4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA4ActionPerformed
 
     private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
-        // TODO add your handling code here:
+        // Vertice A6
+        int indice = this.grafo.numVertice("A6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA6ActionPerformed
 
     private void casillaA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA7ActionPerformed
-        // TODO add your handling code here:
+        // Vertice A7
+        int indice = this.grafo.numVertice("A7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA7ActionPerformed
 
     private void casillaA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA8ActionPerformed
-        // TODO add your handling code here:
+        // Vertice A8
+        int indice = this.grafo.numVertice("A8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA8ActionPerformed
 
     private void casillaA9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA9ActionPerformed
-        // TODO add your handling code here:
+        // Vertice A9
+        int indice = this.grafo.numVertice("A9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);  
+            this.casillaA9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA9ActionPerformed
 
     private void casillaA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA10ActionPerformed
-        // TODO add your handling code here:
+        // Vertice A10
+        int indice = this.grafo.numVertice("A10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA10ActionPerformed
 
     private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
@@ -1117,7 +1179,6 @@ public class Juego extends javax.swing.JFrame {
         int indice = this.grafo.numVertice("A2");
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
-            System.out.println(vertice.getEmoji());
             this.casillaA2.setText(vertice.getEmoji());
         } catch (Exception ex) {
             this.casillaA2.setVisible(false);
@@ -1125,359 +1186,982 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_casillaA2ActionPerformed
 
     private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
-        // TODO add your handling code here:
+        // Vertice B1 
+        int indice = this.grafo.numVertice("B1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB1ActionPerformed
 
     private void casillaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ1ActionPerformed
-        // TODO add your handling code here:
+         // Vertice J1
+        int indice = this.grafo.numVertice("J1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ1ActionPerformed
 
     private void casillaC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC10ActionPerformed
-        // TODO add your handling code here:
+          // Vertice C10
+        int indice = this.grafo.numVertice("C10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC10ActionPerformed
 
     private void casillaD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD10ActionPerformed
-        // TODO add your handling code here:
+        // Vertice D10
+        int indice = this.grafo.numVertice("D10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD10ActionPerformed
 
     private void casillaF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF1ActionPerformed
-        // TODO add your handling code here:
+          // Vertice F1
+        int indice = this.grafo.numVertice("F1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF1ActionPerformed
 
     private void casillaG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG1ActionPerformed
-        // TODO add your handling code here:
+          // Vertice G1
+        int indice = this.grafo.numVertice("G1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG1ActionPerformed
 
     private void casillaH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH1ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H1
+        int indice = this.grafo.numVertice("H1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH1ActionPerformed
 
     private void casillaI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI1ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I1
+        int indice = this.grafo.numVertice("I1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI1ActionPerformed
 
     private void casillaB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB2ActionPerformed
-        // TODO add your handling code here:
+        // Vertice B2
+        int indice = this.grafo.numVertice("B2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB2ActionPerformed
 
     private void casillaB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB3ActionPerformed
-        // TODO add your handling code here:
+        // Vertice B3
+        int indice = this.grafo.numVertice("B3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB3ActionPerformed
 
     private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
-        // TODO add your handling code here:
+        // Vertice A5
+        int indice = this.grafo.numVertice("A5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA5ActionPerformed
 
     private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
-        // TODO add your handling code here:
+       // Vertice B4 
+        int indice = this.grafo.numVertice("B4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB4ActionPerformed
 
     private void casillaC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC5ActionPerformed
-        // TODO add your handling code here:
+         // Vertice C5
+        int indice = this.grafo.numVertice("C5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC5ActionPerformed
 
     private void casillaB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB6ActionPerformed
-        // TODO add your handling code here:
+        // Vertice B6
+        int indice = this.grafo.numVertice("B6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB6ActionPerformed
 
     private void casillaB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB5ActionPerformed
-        // TODO add your handling code here:
+      // Vertice B5
+        int indice = this.grafo.numVertice("B5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB5ActionPerformed
 
     private void casillaB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB7ActionPerformed
-        // TODO add your handling code here:
+       // Vertice B7
+        int indice = this.grafo.numVertice("B7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB7ActionPerformed
 
     private void casillaB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB8ActionPerformed
-        // TODO add your handling code here:
+        // Vertice B8
+        int indice = this.grafo.numVertice("B8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaB8ActionPerformed
 
     private void casillaC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC1ActionPerformed
-        // TODO add your handling code here:
+       // Vertice C1
+        int indice = this.grafo.numVertice("C1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC1ActionPerformed
 
-    private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B9ActionPerformed
+    private void casillaB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB9ActionPerformed
+       // Vertice B9
+        int indice = this.grafo.numVertice("B9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB9ActionPerformed
 
-    private void B10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_B10ActionPerformed
+    private void casillaB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB10ActionPerformed
+       // Vertice B10
+        int indice = this.grafo.numVertice("B10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB10ActionPerformed
 
     private void casillaC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC2ActionPerformed
-        // TODO add your handling code here:
+       // Vertice C2
+        int indice = this.grafo.numVertice("C2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC2ActionPerformed
 
     private void casillaC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC3ActionPerformed
-        // TODO add your handling code here:
+          // Vertice C3
+        int indice = this.grafo.numVertice("C3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC3ActionPerformed
 
     private void casillaC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC4ActionPerformed
-        // TODO add your handling code here:
+        // Vertice C4
+        int indice = this.grafo.numVertice("C4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC4ActionPerformed
 
     private void casillaC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC6ActionPerformed
-        // TODO add your handling code here:
+         // Vertice C6
+        int indice = this.grafo.numVertice("C6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC6ActionPerformed
 
     private void casillaC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC7ActionPerformed
-        // TODO add your handling code here:
+          // Vertice C7
+        int indice = this.grafo.numVertice("C7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC7ActionPerformed
 
     private void casillaC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC9ActionPerformed
-        // TODO add your handling code here:
+          // Vertice C9
+        int indice = this.grafo.numVertice("C9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC9ActionPerformed
 
     private void casillaC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC8ActionPerformed
-        // TODO add your handling code here:
+         // Vertice C8
+        int indice = this.grafo.numVertice("C8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaC8ActionPerformed
 
     private void casillaD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD9ActionPerformed
-        // TODO add your handling code here:
+        // Vertice D9
+        int indice = this.grafo.numVertice("D9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD9ActionPerformed
 
     private void casillaD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD5ActionPerformed
-        // TODO add your handling code here:
+        // Vertice D5
+        int indice = this.grafo.numVertice("D5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD5ActionPerformed
 
     private void casillaD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD1ActionPerformed
-        // TODO add your handling code here:
+          // Vertice D1
+        int indice = this.grafo.numVertice("D1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD1ActionPerformed
 
     private void casillaD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD2ActionPerformed
-        // TODO add your handling code here:
+          // Vertice D2
+        int indice = this.grafo.numVertice("D2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD2ActionPerformed
 
     private void casillaE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE3ActionPerformed
-        // TODO add your handling code here:
+          // Vertice E3
+        int indice = this.grafo.numVertice("E3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE3ActionPerformed
 
     private void casillaD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD3ActionPerformed
-        // TODO add your handling code here:
+         // Vertice D3
+        int indice = this.grafo.numVertice("D3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD3ActionPerformed
 
     private void casillaD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD7ActionPerformed
-        // TODO add your handling code here:
+        // Vertice D7
+        int indice = this.grafo.numVertice("D7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD7ActionPerformed
 
     private void casillaD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD6ActionPerformed
-        // TODO add your handling code here:
+       // Vertice D6
+        int indice = this.grafo.numVertice("D6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD6ActionPerformed
 
     private void casillaD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD8ActionPerformed
-        // TODO add your handling code here:
+       // Vertice D8
+        int indice = this.grafo.numVertice("D8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD8ActionPerformed
 
     private void casillaE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE1ActionPerformed
-        // TODO add your handling code here:
+       // Vertice E1
+        int indice = this.grafo.numVertice("E1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE1ActionPerformed
 
     private void casillaE2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE2ActionPerformed
-        // TODO add your handling code here:
+          // Vertice E2
+        int indice = this.grafo.numVertice("E2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE2ActionPerformed
 
     private void casillaE4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE4ActionPerformed
-        // TODO add your handling code here:
+         // Vertice E4
+        int indice = this.grafo.numVertice("E4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE4ActionPerformed
 
     private void casillaE5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE5ActionPerformed
-        // TODO add your handling code here:
+         // Vertice E5
+        int indice = this.grafo.numVertice("E5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE5ActionPerformed
 
     private void casillaE6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE6ActionPerformed
-        // TODO add your handling code here:
+          // Vertice E6
+        int indice = this.grafo.numVertice("E6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE6ActionPerformed
 
     private void casillaE7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE7ActionPerformed
-        // TODO add your handling code here:
+          // Vertice E7
+        int indice = this.grafo.numVertice("E7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE7ActionPerformed
 
     private void casillaE8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE8ActionPerformed
-        // TODO add your handling code here:
+          // Vertice E8
+        int indice = this.grafo.numVertice("E8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE8ActionPerformed
 
     private void casillaE9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE9ActionPerformed
-        // TODO add your handling code here:
+         // Vertice E9
+        int indice = this.grafo.numVertice("E9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE9ActionPerformed
 
     private void casillaE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE10ActionPerformed
-        // TODO add your handling code here:
+         // Vertice E10
+        int indice = this.grafo.numVertice("E10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaE10ActionPerformed
 
     private void casillaF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF2ActionPerformed
-        // TODO add your handling code here:
+           // Vertice F2
+        int indice = this.grafo.numVertice("F2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF2ActionPerformed
 
     private void casillaF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF3ActionPerformed
-        // TODO add your handling code here:
+          // Vertice F3
+        int indice = this.grafo.numVertice("F3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF3ActionPerformed
 
     private void casillaD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD4ActionPerformed
-        // TODO add your handling code here:
+          // Vertice D4
+        int indice = this.grafo.numVertice("D4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaD4ActionPerformed
 
     private void casillaF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF4ActionPerformed
-        // TODO add your handling code here:
+           // Vertice F4
+        int indice = this.grafo.numVertice("F4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF4ActionPerformed
 
     private void casillaF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF6ActionPerformed
-        // TODO add your handling code here:
+           // Vertice F6
+        int indice = this.grafo.numVertice("F6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF6ActionPerformed
 
     private void casillaF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF7ActionPerformed
-        // TODO add your handling code here:
+           // Vertice F7
+        int indice = this.grafo.numVertice("F7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF7ActionPerformed
 
     private void casillaF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF8ActionPerformed
-        // TODO add your handling code here:
+           // Vertice F8
+        int indice = this.grafo.numVertice("F8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF8ActionPerformed
 
     private void casillaF9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF9ActionPerformed
-        // TODO add your handling code here:
+           // Vertice F9
+        int indice = this.grafo.numVertice("F9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF9ActionPerformed
 
     private void casillaF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF10ActionPerformed
-        // TODO add your handling code here:
+          // Vertice F10
+        int indice = this.grafo.numVertice("F10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF10ActionPerformed
 
     private void casillaG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG2ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G2
+        int indice = this.grafo.numVertice("G2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG2ActionPerformed
 
     private void casillaG3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG3ActionPerformed
-        // TODO add your handling code here:
+       // Vertice G3
+        int indice = this.grafo.numVertice("G3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG3ActionPerformed
 
     private void casillaF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF5ActionPerformed
-        // TODO add your handling code here:
+           // Vertice F5
+        int indice = this.grafo.numVertice("F5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaF5ActionPerformed
 
     private void casillaG4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG4ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G4
+        int indice = this.grafo.numVertice("G4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG4ActionPerformed
 
     private void casillaG6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG6ActionPerformed
-        // TODO add your handling code here:
+       // Vertice G6
+        int indice = this.grafo.numVertice("G6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG6ActionPerformed
 
     private void casillaG7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG7ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G7
+        int indice = this.grafo.numVertice("G7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG7ActionPerformed
 
     private void casillaG8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG8ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G8
+        int indice = this.grafo.numVertice("G8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG8ActionPerformed
 
     private void casillaG9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG9ActionPerformed
-        // TODO add your handling code here:
+       // Vertice G9
+        int indice = this.grafo.numVertice("G9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG9ActionPerformed
 
     private void casillaG10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG10ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G10
+        int indice = this.grafo.numVertice("G10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG10ActionPerformed
 
     private void casillaH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH2ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H2
+        int indice = this.grafo.numVertice("H2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH2ActionPerformed
 
     private void casillaH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH3ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H3
+        int indice = this.grafo.numVertice("H3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH3ActionPerformed
 
     private void casillaG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG5ActionPerformed
-        // TODO add your handling code here:
+        // Vertice G5
+        int indice = this.grafo.numVertice("G5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaG5ActionPerformed
 
     private void casillaH4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH4ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H4
+        int indice = this.grafo.numVertice("H4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH4ActionPerformed
 
     private void casillaH6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH6ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H6
+        int indice = this.grafo.numVertice("H6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH6ActionPerformed
 
     private void casillaH7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH7ActionPerformed
-        // TODO add your handling code here:
+       // Vertice H7
+        int indice = this.grafo.numVertice("H7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH7ActionPerformed
 
     private void casillaH8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH8ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H8
+        int indice = this.grafo.numVertice("H8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH8ActionPerformed
 
     private void casillaH9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH9ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H9
+        int indice = this.grafo.numVertice("H9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH9ActionPerformed
 
     private void casillaH10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH10ActionPerformed
-        // TODO add your handling code here:
+        // Vertice H10
+        int indice = this.grafo.numVertice("H10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH10ActionPerformed
 
     private void casillaI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI2ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I2
+        int indice = this.grafo.numVertice("I2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI2ActionPerformed
 
     private void casillaI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI3ActionPerformed
-        // TODO add your handling code here:
+       // Vertice I3
+        int indice = this.grafo.numVertice("I3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI3ActionPerformed
 
     private void casillaH5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH5ActionPerformed
-        // TODO add your handling code here:
+       // Vertice H5
+        int indice = this.grafo.numVertice("H5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaH5ActionPerformed
 
     private void casillaI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI4ActionPerformed
-        // TODO add your handling code here:
+       // Vertice I4
+        int indice = this.grafo.numVertice("I4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI4ActionPerformed
 
     private void casillaI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI6ActionPerformed
-        // TODO add your handling code here:
+       // Vertice I6
+        int indice = this.grafo.numVertice("I6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI6.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI6ActionPerformed
 
     private void casillaI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI7ActionPerformed
-        // TODO add your handling code here:
+       // Vertice I7
+        int indice = this.grafo.numVertice("I7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI7ActionPerformed
 
     private void casillaI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI8ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I8
+        int indice = this.grafo.numVertice("I8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI8ActionPerformed
 
     private void casillaI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI9ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I9
+        int indice = this.grafo.numVertice("I9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI9ActionPerformed
 
     private void casillaI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI10ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I0
+        int indice = this.grafo.numVertice("I10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI10.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI10ActionPerformed
 
     private void casillaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ2ActionPerformed
-        // TODO add your handling code here:
+           // Vertice J2
+        int indice = this.grafo.numVertice("J2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ2.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ2ActionPerformed
 
     private void casillaJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ3ActionPerformed
-        // TODO add your handling code here:
+           // Vertice J3
+        int indice = this.grafo.numVertice("J3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ3.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ3ActionPerformed
 
     private void casillaI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI5ActionPerformed
-        // TODO add your handling code here:
+        // Vertice I5
+        int indice = this.grafo.numVertice("I5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaI5ActionPerformed
 
     private void casillaJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ4ActionPerformed
-        // TODO add your handling code here:
+          // Vertice J4
+        int indice = this.grafo.numVertice("J4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ4.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ4ActionPerformed
 
     private void casillaJ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ5ActionPerformed
-        // TODO add your handling code here:
+           // Vertice J5
+        int indice = this.grafo.numVertice("J5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ5.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ5ActionPerformed
 
     private void casillaJ7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ7ActionPerformed
-        // TODO add your handling code here:
+           // Vertice J7
+        int indice = this.grafo.numVertice("J7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ7.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ7ActionPerformed
 
     private void casillaJ8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ8ActionPerformed
-        // TODO add your handling code here:
+          // Vertice J8
+        int indice = this.grafo.numVertice("J8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ8.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ8ActionPerformed
 
     private void casillaJ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ9ActionPerformed
-        // TODO add your handling code here:
+          // Vertice J9
+        int indice = this.grafo.numVertice("J9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ9.setVisible(false);
+        }
     }//GEN-LAST:event_casillaJ9ActionPerformed
 
     /**
@@ -1509,8 +2193,6 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton B10;
-    private javax.swing.JToggleButton B9;
     private javax.swing.JButton btnBandera;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnInicio;
@@ -1525,6 +2207,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JToggleButton casillaA8;
     private javax.swing.JToggleButton casillaA9;
     private javax.swing.JToggleButton casillaB1;
+    private javax.swing.JToggleButton casillaB10;
     private javax.swing.JToggleButton casillaB2;
     private javax.swing.JToggleButton casillaB3;
     private javax.swing.JToggleButton casillaB4;
@@ -1532,6 +2215,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JToggleButton casillaB6;
     private javax.swing.JToggleButton casillaB7;
     private javax.swing.JToggleButton casillaB8;
+    private javax.swing.JToggleButton casillaB9;
     private javax.swing.JToggleButton casillaC1;
     private javax.swing.JToggleButton casillaC10;
     private javax.swing.JToggleButton casillaC2;
