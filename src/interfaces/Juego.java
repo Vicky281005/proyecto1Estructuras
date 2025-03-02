@@ -88,105 +88,105 @@ public class Juego extends javax.swing.JFrame {
         casillaA1 = new javax.swing.JToggleButton();
         btnGuardar = new javax.swing.JButton();
         btnBandera = new javax.swing.JButton();
-        casillaA2 = new javax.swing.JToggleButton();
+        casillaJ6 = new javax.swing.JToggleButton();
         casillaA3 = new javax.swing.JToggleButton();
+        casillaJ10 = new javax.swing.JToggleButton();
         casillaA4 = new javax.swing.JToggleButton();
-        casillaA5 = new javax.swing.JToggleButton();
         casillaA6 = new javax.swing.JToggleButton();
         casillaA7 = new javax.swing.JToggleButton();
         casillaA8 = new javax.swing.JToggleButton();
         casillaA9 = new javax.swing.JToggleButton();
         casillaA10 = new javax.swing.JToggleButton();
-        casillaA11 = new javax.swing.JToggleButton();
-        casillaA12 = new javax.swing.JToggleButton();
-        casillaA13 = new javax.swing.JToggleButton();
-        casillaA14 = new javax.swing.JToggleButton();
-        casillaA15 = new javax.swing.JToggleButton();
-        casillaA16 = new javax.swing.JToggleButton();
-        casillaA17 = new javax.swing.JToggleButton();
-        casillaA18 = new javax.swing.JToggleButton();
-        casillaA19 = new javax.swing.JToggleButton();
-        casillaA20 = new javax.swing.JToggleButton();
-        casillaA21 = new javax.swing.JToggleButton();
-        casillaA22 = new javax.swing.JToggleButton();
-        casillaA23 = new javax.swing.JToggleButton();
-        casillaA24 = new javax.swing.JToggleButton();
-        casillaA25 = new javax.swing.JToggleButton();
-        casillaA26 = new javax.swing.JToggleButton();
-        casillaA27 = new javax.swing.JToggleButton();
-        casillaA28 = new javax.swing.JToggleButton();
-        casillaA29 = new javax.swing.JToggleButton();
-        casillaA30 = new javax.swing.JToggleButton();
-        casillaA31 = new javax.swing.JToggleButton();
-        casillaA32 = new javax.swing.JToggleButton();
-        casillaA33 = new javax.swing.JToggleButton();
-        casillaA34 = new javax.swing.JToggleButton();
-        casillaA35 = new javax.swing.JToggleButton();
-        casillaA36 = new javax.swing.JToggleButton();
-        casillaA37 = new javax.swing.JToggleButton();
-        casillaA38 = new javax.swing.JToggleButton();
-        casillaA39 = new javax.swing.JToggleButton();
-        casillaA40 = new javax.swing.JToggleButton();
-        casillaA41 = new javax.swing.JToggleButton();
-        casillaA42 = new javax.swing.JToggleButton();
-        casillaA43 = new javax.swing.JToggleButton();
-        casillaA44 = new javax.swing.JToggleButton();
-        casillaA46 = new javax.swing.JToggleButton();
-        casillaA47 = new javax.swing.JToggleButton();
-        casillaA48 = new javax.swing.JToggleButton();
-        casillaA45 = new javax.swing.JToggleButton();
-        casillaA49 = new javax.swing.JToggleButton();
-        casillaA50 = new javax.swing.JToggleButton();
-        casillaA51 = new javax.swing.JToggleButton();
-        casillaA52 = new javax.swing.JToggleButton();
-        casillaA53 = new javax.swing.JToggleButton();
-        casillaA54 = new javax.swing.JToggleButton();
-        casillaA55 = new javax.swing.JToggleButton();
-        casillaA56 = new javax.swing.JToggleButton();
-        casillaA57 = new javax.swing.JToggleButton();
-        casillaA58 = new javax.swing.JToggleButton();
-        casillaA59 = new javax.swing.JToggleButton();
-        casillaA60 = new javax.swing.JToggleButton();
-        casillaA61 = new javax.swing.JToggleButton();
-        casillaA62 = new javax.swing.JToggleButton();
-        casillaA63 = new javax.swing.JToggleButton();
-        casillaA64 = new javax.swing.JToggleButton();
-        casillaA65 = new javax.swing.JToggleButton();
-        casillaA66 = new javax.swing.JToggleButton();
-        casillaA67 = new javax.swing.JToggleButton();
-        casillaA68 = new javax.swing.JToggleButton();
-        casillaA69 = new javax.swing.JToggleButton();
-        casillaA70 = new javax.swing.JToggleButton();
-        casillaA71 = new javax.swing.JToggleButton();
-        casillaA72 = new javax.swing.JToggleButton();
-        casillaA73 = new javax.swing.JToggleButton();
-        casillaA74 = new javax.swing.JToggleButton();
-        casillaA75 = new javax.swing.JToggleButton();
-        casillaA76 = new javax.swing.JToggleButton();
-        casillaA77 = new javax.swing.JToggleButton();
-        casillaA78 = new javax.swing.JToggleButton();
-        casillaA79 = new javax.swing.JToggleButton();
-        casillaA80 = new javax.swing.JToggleButton();
-        casillaA81 = new javax.swing.JToggleButton();
-        casillaA82 = new javax.swing.JToggleButton();
-        casillaA83 = new javax.swing.JToggleButton();
-        casillaA84 = new javax.swing.JToggleButton();
-        casillaA85 = new javax.swing.JToggleButton();
-        casillaA86 = new javax.swing.JToggleButton();
-        casillaA87 = new javax.swing.JToggleButton();
-        casillaA88 = new javax.swing.JToggleButton();
-        casillaA89 = new javax.swing.JToggleButton();
-        casillaA90 = new javax.swing.JToggleButton();
-        casillaA91 = new javax.swing.JToggleButton();
-        casillaA92 = new javax.swing.JToggleButton();
-        casillaA93 = new javax.swing.JToggleButton();
-        casillaA94 = new javax.swing.JToggleButton();
-        casillaA95 = new javax.swing.JToggleButton();
-        casillaA96 = new javax.swing.JToggleButton();
-        casillaA97 = new javax.swing.JToggleButton();
-        casillaA98 = new javax.swing.JToggleButton();
-        casillaA99 = new javax.swing.JToggleButton();
-        casillaA100 = new javax.swing.JToggleButton();
+        casillaA2 = new javax.swing.JToggleButton();
+        casillaB1 = new javax.swing.JToggleButton();
+        casillaJ1 = new javax.swing.JToggleButton();
+        casillaC10 = new javax.swing.JToggleButton();
+        casillaD10 = new javax.swing.JToggleButton();
+        casillaF1 = new javax.swing.JToggleButton();
+        casillaG1 = new javax.swing.JToggleButton();
+        casillaH1 = new javax.swing.JToggleButton();
+        casillaI1 = new javax.swing.JToggleButton();
+        casillaB2 = new javax.swing.JToggleButton();
+        casillaB3 = new javax.swing.JToggleButton();
+        casillaA5 = new javax.swing.JToggleButton();
+        casillaB4 = new javax.swing.JToggleButton();
+        casillaC5 = new javax.swing.JToggleButton();
+        casillaB6 = new javax.swing.JToggleButton();
+        casillaB5 = new javax.swing.JToggleButton();
+        casillaB7 = new javax.swing.JToggleButton();
+        casillaB8 = new javax.swing.JToggleButton();
+        casillaC1 = new javax.swing.JToggleButton();
+        B9 = new javax.swing.JToggleButton();
+        B10 = new javax.swing.JToggleButton();
+        casillaC2 = new javax.swing.JToggleButton();
+        casillaC3 = new javax.swing.JToggleButton();
+        casillaC4 = new javax.swing.JToggleButton();
+        casillaC6 = new javax.swing.JToggleButton();
+        casillaC7 = new javax.swing.JToggleButton();
+        casillaC9 = new javax.swing.JToggleButton();
+        casillaC8 = new javax.swing.JToggleButton();
+        casillaD9 = new javax.swing.JToggleButton();
+        casillaD5 = new javax.swing.JToggleButton();
+        casillaD1 = new javax.swing.JToggleButton();
+        casillaD2 = new javax.swing.JToggleButton();
+        casillaE3 = new javax.swing.JToggleButton();
+        casillaD3 = new javax.swing.JToggleButton();
+        casillaD7 = new javax.swing.JToggleButton();
+        casillaD6 = new javax.swing.JToggleButton();
+        casillaD8 = new javax.swing.JToggleButton();
+        casillaE1 = new javax.swing.JToggleButton();
+        casillaE2 = new javax.swing.JToggleButton();
+        casillaE4 = new javax.swing.JToggleButton();
+        casillaE5 = new javax.swing.JToggleButton();
+        casillaE6 = new javax.swing.JToggleButton();
+        casillaE7 = new javax.swing.JToggleButton();
+        casillaE8 = new javax.swing.JToggleButton();
+        casillaE9 = new javax.swing.JToggleButton();
+        casillaE10 = new javax.swing.JToggleButton();
+        casillaF2 = new javax.swing.JToggleButton();
+        casillaF3 = new javax.swing.JToggleButton();
+        casillaD4 = new javax.swing.JToggleButton();
+        casillaF4 = new javax.swing.JToggleButton();
+        casillaF6 = new javax.swing.JToggleButton();
+        casillaF7 = new javax.swing.JToggleButton();
+        casillaF8 = new javax.swing.JToggleButton();
+        casillaF9 = new javax.swing.JToggleButton();
+        casillaF10 = new javax.swing.JToggleButton();
+        casillaG2 = new javax.swing.JToggleButton();
+        casillaG3 = new javax.swing.JToggleButton();
+        casillaF5 = new javax.swing.JToggleButton();
+        casillaG4 = new javax.swing.JToggleButton();
+        casillaG6 = new javax.swing.JToggleButton();
+        casillaG7 = new javax.swing.JToggleButton();
+        casillaG8 = new javax.swing.JToggleButton();
+        casillaG9 = new javax.swing.JToggleButton();
+        casillaG10 = new javax.swing.JToggleButton();
+        casillaH2 = new javax.swing.JToggleButton();
+        casillaH3 = new javax.swing.JToggleButton();
+        casillaG5 = new javax.swing.JToggleButton();
+        casillaH4 = new javax.swing.JToggleButton();
+        casillaH6 = new javax.swing.JToggleButton();
+        casillaH7 = new javax.swing.JToggleButton();
+        casillaH8 = new javax.swing.JToggleButton();
+        casillaH9 = new javax.swing.JToggleButton();
+        casillaH10 = new javax.swing.JToggleButton();
+        casillaI2 = new javax.swing.JToggleButton();
+        casillaI3 = new javax.swing.JToggleButton();
+        casillaH5 = new javax.swing.JToggleButton();
+        casillaI4 = new javax.swing.JToggleButton();
+        casillaI6 = new javax.swing.JToggleButton();
+        casillaI7 = new javax.swing.JToggleButton();
+        casillaI8 = new javax.swing.JToggleButton();
+        casillaI9 = new javax.swing.JToggleButton();
+        casillaI10 = new javax.swing.JToggleButton();
+        casillaJ2 = new javax.swing.JToggleButton();
+        casillaJ3 = new javax.swing.JToggleButton();
+        casillaI5 = new javax.swing.JToggleButton();
+        casillaJ4 = new javax.swing.JToggleButton();
+        casillaJ5 = new javax.swing.JToggleButton();
+        casillaJ7 = new javax.swing.JToggleButton();
+        casillaJ8 = new javax.swing.JToggleButton();
+        casillaJ9 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -237,13 +237,13 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(btnBandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 100, -1));
 
-        casillaA2.setText("🚩");
-        casillaA2.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ6.setText("🚩");
+        casillaJ6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA2ActionPerformed(evt);
+                casillaJ6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 50, 50));
+        jPanel1.add(casillaJ6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 50, 50));
 
         casillaA3.setText("🚩");
         casillaA3.addActionListener(new java.awt.event.ActionListener() {
@@ -253,21 +253,21 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 50, 50));
 
+        casillaJ10.setText("🚩");
+        casillaJ10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 50, 50));
+
         casillaA4.setText("🚩");
         casillaA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 50, 50));
-
-        casillaA5.setText("🚩");
-        casillaA5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA5ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(casillaA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 50, 50));
+        jPanel1.add(casillaA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 50, 50));
 
         casillaA6.setText("🚩");
         casillaA6.addActionListener(new java.awt.event.ActionListener() {
@@ -275,7 +275,7 @@ public class Juego extends javax.swing.JFrame {
                 casillaA6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 50, 50));
+        jPanel1.add(casillaA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 50, 50));
 
         casillaA7.setText("🚩");
         casillaA7.addActionListener(new java.awt.event.ActionListener() {
@@ -283,7 +283,7 @@ public class Juego extends javax.swing.JFrame {
                 casillaA7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 50, 50));
+        jPanel1.add(casillaA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 50, 50));
 
         casillaA8.setText("🚩");
         casillaA8.addActionListener(new java.awt.event.ActionListener() {
@@ -291,7 +291,7 @@ public class Juego extends javax.swing.JFrame {
                 casillaA8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 50, 50));
+        jPanel1.add(casillaA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 50, 50));
 
         casillaA9.setText("🚩");
         casillaA9.addActionListener(new java.awt.event.ActionListener() {
@@ -299,7 +299,7 @@ public class Juego extends javax.swing.JFrame {
                 casillaA9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 50, 50));
+        jPanel1.add(casillaA9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 50, 50));
 
         casillaA10.setText("🚩");
         casillaA10.addActionListener(new java.awt.event.ActionListener() {
@@ -307,727 +307,727 @@ public class Juego extends javax.swing.JFrame {
                 casillaA10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 50, 50));
+        jPanel1.add(casillaA10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 50, 50));
 
-        casillaA11.setText("🚩");
-        casillaA11.addActionListener(new java.awt.event.ActionListener() {
+        casillaA2.setText("🚩");
+        casillaA2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA11ActionPerformed(evt);
+                casillaA2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 50, 50));
+        jPanel1.add(casillaA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 50, 50));
 
-        casillaA12.setText("🚩");
-        casillaA12.addActionListener(new java.awt.event.ActionListener() {
+        casillaB1.setText("🚩");
+        casillaB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA12ActionPerformed(evt);
+                casillaB1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA12, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 50, 50));
+        jPanel1.add(casillaB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 50, 50));
 
-        casillaA13.setText("🚩");
-        casillaA13.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ1.setText("🚩");
+        casillaJ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA13ActionPerformed(evt);
+                casillaJ1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 50, 50));
+        jPanel1.add(casillaJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 50, 50));
 
-        casillaA14.setText("🚩");
-        casillaA14.addActionListener(new java.awt.event.ActionListener() {
+        casillaC10.setText("🚩");
+        casillaC10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA14ActionPerformed(evt);
+                casillaC10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA14, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 50, 50));
+        jPanel1.add(casillaC10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 50, 50));
 
-        casillaA15.setText("🚩");
-        casillaA15.addActionListener(new java.awt.event.ActionListener() {
+        casillaD10.setText("🚩");
+        casillaD10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA15ActionPerformed(evt);
+                casillaD10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 50, 50));
+        jPanel1.add(casillaD10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 50, 50));
 
-        casillaA16.setText("🚩");
-        casillaA16.addActionListener(new java.awt.event.ActionListener() {
+        casillaF1.setText("🚩");
+        casillaF1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA16ActionPerformed(evt);
+                casillaF1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 50, 50));
+        jPanel1.add(casillaF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 50, 50));
 
-        casillaA17.setText("🚩");
-        casillaA17.addActionListener(new java.awt.event.ActionListener() {
+        casillaG1.setText("🚩");
+        casillaG1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA17ActionPerformed(evt);
+                casillaG1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 50, 50));
+        jPanel1.add(casillaG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 50, 50));
 
-        casillaA18.setText("🚩");
-        casillaA18.addActionListener(new java.awt.event.ActionListener() {
+        casillaH1.setText("🚩");
+        casillaH1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA18ActionPerformed(evt);
+                casillaH1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 50, 50));
+        jPanel1.add(casillaH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 50, 50));
 
-        casillaA19.setText("🚩");
-        casillaA19.addActionListener(new java.awt.event.ActionListener() {
+        casillaI1.setText("🚩");
+        casillaI1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA19ActionPerformed(evt);
+                casillaI1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 50, 50));
+        jPanel1.add(casillaI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 50, 50));
 
-        casillaA20.setText("🚩");
-        casillaA20.addActionListener(new java.awt.event.ActionListener() {
+        casillaB2.setText("🚩");
+        casillaB2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA20ActionPerformed(evt);
+                casillaB2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA20, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 50, 50));
+        jPanel1.add(casillaB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 50, 50));
 
-        casillaA21.setText("🚩");
-        casillaA21.addActionListener(new java.awt.event.ActionListener() {
+        casillaB3.setText("🚩");
+        casillaB3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA21ActionPerformed(evt);
+                casillaB3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA21, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 50, 50));
+        jPanel1.add(casillaB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 50, 50));
 
-        casillaA22.setText("🚩");
-        casillaA22.addActionListener(new java.awt.event.ActionListener() {
+        casillaA5.setText("🚩");
+        casillaA5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA22ActionPerformed(evt);
+                casillaA5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA22, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 50, 50));
+        jPanel1.add(casillaA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 50, 50));
 
-        casillaA23.setText("🚩");
-        casillaA23.addActionListener(new java.awt.event.ActionListener() {
+        casillaB4.setText("🚩");
+        casillaB4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA23ActionPerformed(evt);
+                casillaB4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA23, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 50, 50));
+        jPanel1.add(casillaB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 50, 50));
 
-        casillaA24.setText("🚩");
-        casillaA24.addActionListener(new java.awt.event.ActionListener() {
+        casillaC5.setText("🚩");
+        casillaC5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA24ActionPerformed(evt);
+                casillaC5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 50, 50));
+        jPanel1.add(casillaC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 50, 50));
 
-        casillaA25.setText("🚩");
-        casillaA25.addActionListener(new java.awt.event.ActionListener() {
+        casillaB6.setText("🚩");
+        casillaB6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA25ActionPerformed(evt);
+                casillaB6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA25, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 50, 50));
+        jPanel1.add(casillaB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 50, 50));
 
-        casillaA26.setText("🚩");
-        casillaA26.addActionListener(new java.awt.event.ActionListener() {
+        casillaB5.setText("🚩");
+        casillaB5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA26ActionPerformed(evt);
+                casillaB5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA26, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 50, 50));
+        jPanel1.add(casillaB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 50, 50));
 
-        casillaA27.setText("🚩");
-        casillaA27.addActionListener(new java.awt.event.ActionListener() {
+        casillaB7.setText("🚩");
+        casillaB7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA27ActionPerformed(evt);
+                casillaB7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA27, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 50, 50));
+        jPanel1.add(casillaB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 50, 50));
 
-        casillaA28.setText("🚩");
-        casillaA28.addActionListener(new java.awt.event.ActionListener() {
+        casillaB8.setText("🚩");
+        casillaB8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA28ActionPerformed(evt);
+                casillaB8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA28, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 50, 50));
+        jPanel1.add(casillaB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 50, 50));
 
-        casillaA29.setText("🚩");
-        casillaA29.addActionListener(new java.awt.event.ActionListener() {
+        casillaC1.setText("🚩");
+        casillaC1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA29ActionPerformed(evt);
+                casillaC1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA29, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 50, 50));
+        jPanel1.add(casillaC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 50, 50));
 
-        casillaA30.setText("🚩");
-        casillaA30.addActionListener(new java.awt.event.ActionListener() {
+        B9.setText("🚩");
+        B9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA30ActionPerformed(evt);
+                B9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA30, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 50, 50));
+        jPanel1.add(B9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 50, 50));
 
-        casillaA31.setText("🚩");
-        casillaA31.addActionListener(new java.awt.event.ActionListener() {
+        B10.setText("🚩");
+        B10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA31ActionPerformed(evt);
+                B10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA31, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 50, 50));
+        jPanel1.add(B10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 50, 50));
 
-        casillaA32.setText("🚩");
-        casillaA32.addActionListener(new java.awt.event.ActionListener() {
+        casillaC2.setText("🚩");
+        casillaC2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA32ActionPerformed(evt);
+                casillaC2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA32, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 50, 50));
+        jPanel1.add(casillaC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 50, 50));
 
-        casillaA33.setText("🚩");
-        casillaA33.addActionListener(new java.awt.event.ActionListener() {
+        casillaC3.setText("🚩");
+        casillaC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA33ActionPerformed(evt);
+                casillaC3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA33, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 50, 50));
+        jPanel1.add(casillaC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 50, 50));
 
-        casillaA34.setText("🚩");
-        casillaA34.addActionListener(new java.awt.event.ActionListener() {
+        casillaC4.setText("🚩");
+        casillaC4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA34ActionPerformed(evt);
+                casillaC4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA34, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 50, 50));
+        jPanel1.add(casillaC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 50, 50));
 
-        casillaA35.setText("🚩");
-        casillaA35.addActionListener(new java.awt.event.ActionListener() {
+        casillaC6.setText("🚩");
+        casillaC6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA35ActionPerformed(evt);
+                casillaC6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA35, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 50, 50));
+        jPanel1.add(casillaC6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 50, 50));
 
-        casillaA36.setText("🚩");
-        casillaA36.addActionListener(new java.awt.event.ActionListener() {
+        casillaC7.setText("🚩");
+        casillaC7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA36ActionPerformed(evt);
+                casillaC7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA36, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 50, 50));
+        jPanel1.add(casillaC7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 50, 50));
 
-        casillaA37.setText("🚩");
-        casillaA37.addActionListener(new java.awt.event.ActionListener() {
+        casillaC9.setText("🚩");
+        casillaC9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA37ActionPerformed(evt);
+                casillaC9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA37, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 50, 50));
+        jPanel1.add(casillaC9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 50, 50));
 
-        casillaA38.setText("🚩");
-        casillaA38.addActionListener(new java.awt.event.ActionListener() {
+        casillaC8.setText("🚩");
+        casillaC8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA38ActionPerformed(evt);
+                casillaC8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA38, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 50, 50));
+        jPanel1.add(casillaC8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 50, 50));
 
-        casillaA39.setText("🚩");
-        casillaA39.addActionListener(new java.awt.event.ActionListener() {
+        casillaD9.setText("🚩");
+        casillaD9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA39ActionPerformed(evt);
+                casillaD9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA39, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 50, 50));
+        jPanel1.add(casillaD9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 50, 50));
 
-        casillaA40.setText("🚩");
-        casillaA40.addActionListener(new java.awt.event.ActionListener() {
+        casillaD5.setText("🚩");
+        casillaD5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA40ActionPerformed(evt);
+                casillaD5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA40, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 50, 50));
+        jPanel1.add(casillaD5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 50, 50));
 
-        casillaA41.setText("🚩");
-        casillaA41.addActionListener(new java.awt.event.ActionListener() {
+        casillaD1.setText("🚩");
+        casillaD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA41ActionPerformed(evt);
+                casillaD1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA41, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 50, 50));
+        jPanel1.add(casillaD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 50, 50));
 
-        casillaA42.setText("🚩");
-        casillaA42.addActionListener(new java.awt.event.ActionListener() {
+        casillaD2.setText("🚩");
+        casillaD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA42ActionPerformed(evt);
+                casillaD2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA42, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 50, 50));
+        jPanel1.add(casillaD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 50, 50));
 
-        casillaA43.setText("🚩");
-        casillaA43.addActionListener(new java.awt.event.ActionListener() {
+        casillaE3.setText("🚩");
+        casillaE3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA43ActionPerformed(evt);
+                casillaE3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA43, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 50, 50));
+        jPanel1.add(casillaE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 50, 50));
 
-        casillaA44.setText("🚩");
-        casillaA44.addActionListener(new java.awt.event.ActionListener() {
+        casillaD3.setText("🚩");
+        casillaD3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA44ActionPerformed(evt);
+                casillaD3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA44, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 50, 50));
+        jPanel1.add(casillaD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 50, 50));
 
-        casillaA46.setText("🚩");
-        casillaA46.addActionListener(new java.awt.event.ActionListener() {
+        casillaD7.setText("🚩");
+        casillaD7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA46ActionPerformed(evt);
+                casillaD7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA46, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 50, 50));
+        jPanel1.add(casillaD7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 50, 50));
 
-        casillaA47.setText("🚩");
-        casillaA47.addActionListener(new java.awt.event.ActionListener() {
+        casillaD6.setText("🚩");
+        casillaD6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA47ActionPerformed(evt);
+                casillaD6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA47, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 50, 50));
+        jPanel1.add(casillaD6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 50, 50));
 
-        casillaA48.setText("🚩");
-        casillaA48.addActionListener(new java.awt.event.ActionListener() {
+        casillaD8.setText("🚩");
+        casillaD8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA48ActionPerformed(evt);
+                casillaD8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA48, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 50, 50));
+        jPanel1.add(casillaD8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 50, 50));
 
-        casillaA45.setText("🚩");
-        casillaA45.addActionListener(new java.awt.event.ActionListener() {
+        casillaE1.setText("🚩");
+        casillaE1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA45ActionPerformed(evt);
+                casillaE1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA45, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 50, 50));
+        jPanel1.add(casillaE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 50, 50));
 
-        casillaA49.setText("🚩");
-        casillaA49.addActionListener(new java.awt.event.ActionListener() {
+        casillaE2.setText("🚩");
+        casillaE2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA49ActionPerformed(evt);
+                casillaE2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA49, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 50, 50));
+        jPanel1.add(casillaE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 50, 50));
 
-        casillaA50.setText("🚩");
-        casillaA50.addActionListener(new java.awt.event.ActionListener() {
+        casillaE4.setText("🚩");
+        casillaE4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA50ActionPerformed(evt);
+                casillaE4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA50, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 50));
+        jPanel1.add(casillaE4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 50));
 
-        casillaA51.setText("🚩");
-        casillaA51.addActionListener(new java.awt.event.ActionListener() {
+        casillaE5.setText("🚩");
+        casillaE5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA51ActionPerformed(evt);
+                casillaE5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA51, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 50, 50));
+        jPanel1.add(casillaE5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 50, 50));
 
-        casillaA52.setText("🚩");
-        casillaA52.addActionListener(new java.awt.event.ActionListener() {
+        casillaE6.setText("🚩");
+        casillaE6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA52ActionPerformed(evt);
+                casillaE6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA52, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 50, 50));
+        jPanel1.add(casillaE6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 50, 50));
 
-        casillaA53.setText("🚩");
-        casillaA53.addActionListener(new java.awt.event.ActionListener() {
+        casillaE7.setText("🚩");
+        casillaE7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA53ActionPerformed(evt);
+                casillaE7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA53, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 50, 50));
+        jPanel1.add(casillaE7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 50, 50));
 
-        casillaA54.setText("🚩");
-        casillaA54.addActionListener(new java.awt.event.ActionListener() {
+        casillaE8.setText("🚩");
+        casillaE8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA54ActionPerformed(evt);
+                casillaE8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA54, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 50, 50));
+        jPanel1.add(casillaE8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 50, 50));
 
-        casillaA55.setText("🚩");
-        casillaA55.addActionListener(new java.awt.event.ActionListener() {
+        casillaE9.setText("🚩");
+        casillaE9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA55ActionPerformed(evt);
+                casillaE9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA55, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 50, 50));
+        jPanel1.add(casillaE9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 50, 50));
 
-        casillaA56.setText("🚩");
-        casillaA56.addActionListener(new java.awt.event.ActionListener() {
+        casillaE10.setText("🚩");
+        casillaE10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA56ActionPerformed(evt);
+                casillaE10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA56, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 50, 50));
+        jPanel1.add(casillaE10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 50, 50));
 
-        casillaA57.setText("🚩");
-        casillaA57.addActionListener(new java.awt.event.ActionListener() {
+        casillaF2.setText("🚩");
+        casillaF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA57ActionPerformed(evt);
+                casillaF2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA57, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 50, 50));
+        jPanel1.add(casillaF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 50, 50));
 
-        casillaA58.setText("🚩");
-        casillaA58.addActionListener(new java.awt.event.ActionListener() {
+        casillaF3.setText("🚩");
+        casillaF3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA58ActionPerformed(evt);
+                casillaF3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA58, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 50, 50));
+        jPanel1.add(casillaF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 50, 50));
 
-        casillaA59.setText("🚩");
-        casillaA59.addActionListener(new java.awt.event.ActionListener() {
+        casillaD4.setText("🚩");
+        casillaD4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA59ActionPerformed(evt);
+                casillaD4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA59, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 50, 50));
+        jPanel1.add(casillaD4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 50, 50));
 
-        casillaA60.setText("🚩");
-        casillaA60.addActionListener(new java.awt.event.ActionListener() {
+        casillaF4.setText("🚩");
+        casillaF4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA60ActionPerformed(evt);
+                casillaF4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA60, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 50, 50));
+        jPanel1.add(casillaF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 50, 50));
 
-        casillaA61.setText("🚩");
-        casillaA61.addActionListener(new java.awt.event.ActionListener() {
+        casillaF6.setText("🚩");
+        casillaF6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA61ActionPerformed(evt);
+                casillaF6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA61, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 50, 50));
+        jPanel1.add(casillaF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 50, 50));
 
-        casillaA62.setText("🚩");
-        casillaA62.addActionListener(new java.awt.event.ActionListener() {
+        casillaF7.setText("🚩");
+        casillaF7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA62ActionPerformed(evt);
+                casillaF7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA62, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 50, 50));
+        jPanel1.add(casillaF7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 50, 50));
 
-        casillaA63.setText("🚩");
-        casillaA63.addActionListener(new java.awt.event.ActionListener() {
+        casillaF8.setText("🚩");
+        casillaF8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA63ActionPerformed(evt);
+                casillaF8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA63, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 50, 50));
+        jPanel1.add(casillaF8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 50, 50));
 
-        casillaA64.setText("🚩");
-        casillaA64.addActionListener(new java.awt.event.ActionListener() {
+        casillaF9.setText("🚩");
+        casillaF9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA64ActionPerformed(evt);
+                casillaF9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA64, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 50, 50));
+        jPanel1.add(casillaF9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 50, 50));
 
-        casillaA65.setText("🚩");
-        casillaA65.addActionListener(new java.awt.event.ActionListener() {
+        casillaF10.setText("🚩");
+        casillaF10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA65ActionPerformed(evt);
+                casillaF10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA65, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 50, 50));
+        jPanel1.add(casillaF10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 50, 50));
 
-        casillaA66.setText("🚩");
-        casillaA66.addActionListener(new java.awt.event.ActionListener() {
+        casillaG2.setText("🚩");
+        casillaG2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA66ActionPerformed(evt);
+                casillaG2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA66, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 50, 50));
+        jPanel1.add(casillaG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 50, 50));
 
-        casillaA67.setText("🚩");
-        casillaA67.addActionListener(new java.awt.event.ActionListener() {
+        casillaG3.setText("🚩");
+        casillaG3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA67ActionPerformed(evt);
+                casillaG3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA67, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 50, 50));
+        jPanel1.add(casillaG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 50, 50));
 
-        casillaA68.setText("🚩");
-        casillaA68.addActionListener(new java.awt.event.ActionListener() {
+        casillaF5.setText("🚩");
+        casillaF5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA68ActionPerformed(evt);
+                casillaF5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA68, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 50, 50));
+        jPanel1.add(casillaF5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 50, 50));
 
-        casillaA69.setText("🚩");
-        casillaA69.addActionListener(new java.awt.event.ActionListener() {
+        casillaG4.setText("🚩");
+        casillaG4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA69ActionPerformed(evt);
+                casillaG4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA69, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 50, 50));
+        jPanel1.add(casillaG4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 50, 50));
 
-        casillaA70.setText("🚩");
-        casillaA70.addActionListener(new java.awt.event.ActionListener() {
+        casillaG6.setText("🚩");
+        casillaG6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA70ActionPerformed(evt);
+                casillaG6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA70, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 50, 50));
+        jPanel1.add(casillaG6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 50, 50));
 
-        casillaA71.setText("🚩");
-        casillaA71.addActionListener(new java.awt.event.ActionListener() {
+        casillaG7.setText("🚩");
+        casillaG7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA71ActionPerformed(evt);
+                casillaG7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA71, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 50, 50));
+        jPanel1.add(casillaG7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 50, 50));
 
-        casillaA72.setText("🚩");
-        casillaA72.addActionListener(new java.awt.event.ActionListener() {
+        casillaG8.setText("🚩");
+        casillaG8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA72ActionPerformed(evt);
+                casillaG8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA72, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 50, 50));
+        jPanel1.add(casillaG8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 50, 50));
 
-        casillaA73.setText("🚩");
-        casillaA73.addActionListener(new java.awt.event.ActionListener() {
+        casillaG9.setText("🚩");
+        casillaG9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA73ActionPerformed(evt);
+                casillaG9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA73, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 50, 50));
+        jPanel1.add(casillaG9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 50, 50));
 
-        casillaA74.setText("🚩");
-        casillaA74.addActionListener(new java.awt.event.ActionListener() {
+        casillaG10.setText("🚩");
+        casillaG10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA74ActionPerformed(evt);
+                casillaG10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA74, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 50, 50));
+        jPanel1.add(casillaG10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 50, 50));
 
-        casillaA75.setText("🚩");
-        casillaA75.addActionListener(new java.awt.event.ActionListener() {
+        casillaH2.setText("🚩");
+        casillaH2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA75ActionPerformed(evt);
+                casillaH2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA75, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 50, 50));
+        jPanel1.add(casillaH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 50, 50));
 
-        casillaA76.setText("🚩");
-        casillaA76.addActionListener(new java.awt.event.ActionListener() {
+        casillaH3.setText("🚩");
+        casillaH3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA76ActionPerformed(evt);
+                casillaH3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA76, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 50, 50));
+        jPanel1.add(casillaH3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 50, 50));
 
-        casillaA77.setText("🚩");
-        casillaA77.addActionListener(new java.awt.event.ActionListener() {
+        casillaG5.setText("🚩");
+        casillaG5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA77ActionPerformed(evt);
+                casillaG5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA77, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 50, 50));
+        jPanel1.add(casillaG5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 50, 50));
 
-        casillaA78.setText("🚩");
-        casillaA78.addActionListener(new java.awt.event.ActionListener() {
+        casillaH4.setText("🚩");
+        casillaH4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA78ActionPerformed(evt);
+                casillaH4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA78, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 50, 50));
+        jPanel1.add(casillaH4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 50, 50));
 
-        casillaA79.setText("🚩");
-        casillaA79.addActionListener(new java.awt.event.ActionListener() {
+        casillaH6.setText("🚩");
+        casillaH6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA79ActionPerformed(evt);
+                casillaH6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA79, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 50, 50));
+        jPanel1.add(casillaH6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 50, 50));
 
-        casillaA80.setText("🚩");
-        casillaA80.addActionListener(new java.awt.event.ActionListener() {
+        casillaH7.setText("🚩");
+        casillaH7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA80ActionPerformed(evt);
+                casillaH7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA80, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 50, 50));
+        jPanel1.add(casillaH7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 50, 50));
 
-        casillaA81.setText("🚩");
-        casillaA81.addActionListener(new java.awt.event.ActionListener() {
+        casillaH8.setText("🚩");
+        casillaH8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA81ActionPerformed(evt);
+                casillaH8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA81, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 50, 50));
+        jPanel1.add(casillaH8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 50, 50));
 
-        casillaA82.setText("🚩");
-        casillaA82.addActionListener(new java.awt.event.ActionListener() {
+        casillaH9.setText("🚩");
+        casillaH9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA82ActionPerformed(evt);
+                casillaH9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA82, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 50, 50));
+        jPanel1.add(casillaH9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 50, 50));
 
-        casillaA83.setText("🚩");
-        casillaA83.addActionListener(new java.awt.event.ActionListener() {
+        casillaH10.setText("🚩");
+        casillaH10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA83ActionPerformed(evt);
+                casillaH10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA83, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 50, 50));
+        jPanel1.add(casillaH10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 50, 50));
 
-        casillaA84.setText("🚩");
-        casillaA84.addActionListener(new java.awt.event.ActionListener() {
+        casillaI2.setText("🚩");
+        casillaI2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA84ActionPerformed(evt);
+                casillaI2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA84, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 50, 50));
+        jPanel1.add(casillaI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 50, 50));
 
-        casillaA85.setText("🚩");
-        casillaA85.addActionListener(new java.awt.event.ActionListener() {
+        casillaI3.setText("🚩");
+        casillaI3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA85ActionPerformed(evt);
+                casillaI3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA85, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 50, 50));
+        jPanel1.add(casillaI3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 50, 50));
 
-        casillaA86.setText("🚩");
-        casillaA86.addActionListener(new java.awt.event.ActionListener() {
+        casillaH5.setText("🚩");
+        casillaH5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA86ActionPerformed(evt);
+                casillaH5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA86, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 50, 50));
+        jPanel1.add(casillaH5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 50, 50));
 
-        casillaA87.setText("🚩");
-        casillaA87.addActionListener(new java.awt.event.ActionListener() {
+        casillaI4.setText("🚩");
+        casillaI4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA87ActionPerformed(evt);
+                casillaI4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA87, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 50, 50));
+        jPanel1.add(casillaI4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 50, 50));
 
-        casillaA88.setText("🚩");
-        casillaA88.addActionListener(new java.awt.event.ActionListener() {
+        casillaI6.setText("🚩");
+        casillaI6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA88ActionPerformed(evt);
+                casillaI6ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA88, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 50, 50));
+        jPanel1.add(casillaI6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 50, 50));
 
-        casillaA89.setText("🚩");
-        casillaA89.addActionListener(new java.awt.event.ActionListener() {
+        casillaI7.setText("🚩");
+        casillaI7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA89ActionPerformed(evt);
+                casillaI7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA89, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 50, 50));
+        jPanel1.add(casillaI7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 50, 50));
 
-        casillaA90.setText("🚩");
-        casillaA90.addActionListener(new java.awt.event.ActionListener() {
+        casillaI8.setText("🚩");
+        casillaI8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA90ActionPerformed(evt);
+                casillaI8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA90, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 50, 50));
+        jPanel1.add(casillaI8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 50, 50));
 
-        casillaA91.setText("🚩");
-        casillaA91.addActionListener(new java.awt.event.ActionListener() {
+        casillaI9.setText("🚩");
+        casillaI9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA91ActionPerformed(evt);
+                casillaI9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA91, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 520, 50, 50));
+        jPanel1.add(casillaI9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 520, 50, 50));
 
-        casillaA92.setText("🚩");
-        casillaA92.addActionListener(new java.awt.event.ActionListener() {
+        casillaI10.setText("🚩");
+        casillaI10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA92ActionPerformed(evt);
+                casillaI10ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA92, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 50, 50));
+        jPanel1.add(casillaI10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 50, 50));
 
-        casillaA93.setText("🚩");
-        casillaA93.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ2.setText("🚩");
+        casillaJ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA93ActionPerformed(evt);
+                casillaJ2ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA93, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 50, 50));
+        jPanel1.add(casillaJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 50, 50));
 
-        casillaA94.setText("🚩");
-        casillaA94.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ3.setText("🚩");
+        casillaJ3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA94ActionPerformed(evt);
+                casillaJ3ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA94, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 50, 50));
+        jPanel1.add(casillaJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 50, 50));
 
-        casillaA95.setText("🚩");
-        casillaA95.addActionListener(new java.awt.event.ActionListener() {
+        casillaI5.setText("🚩");
+        casillaI5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA95ActionPerformed(evt);
+                casillaI5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA95, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 50, 50));
+        jPanel1.add(casillaI5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 50, 50));
 
-        casillaA96.setText("🚩");
-        casillaA96.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ4.setText("🚩");
+        casillaJ4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA96ActionPerformed(evt);
+                casillaJ4ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA96, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 50, 50));
+        jPanel1.add(casillaJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 50, 50));
 
-        casillaA97.setText("🚩");
-        casillaA97.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ5.setText("🚩");
+        casillaJ5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA97ActionPerformed(evt);
+                casillaJ5ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA97, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 50, 50));
+        jPanel1.add(casillaJ5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 50, 50));
 
-        casillaA98.setText("🚩");
-        casillaA98.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ7.setText("🚩");
+        casillaJ7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA98ActionPerformed(evt);
+                casillaJ7ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA98, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 570, 50, 50));
+        jPanel1.add(casillaJ7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 570, 50, 50));
 
-        casillaA99.setText("🚩");
-        casillaA99.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ8.setText("🚩");
+        casillaJ8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA99ActionPerformed(evt);
+                casillaJ8ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA99, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 50, 50));
+        jPanel1.add(casillaJ8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 50, 50));
 
-        casillaA100.setText("🚩");
-        casillaA100.addActionListener(new java.awt.event.ActionListener() {
+        casillaJ9.setText("🚩");
+        casillaJ9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                casillaA100ActionPerformed(evt);
+                casillaJ9ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA100, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, 50, 50));
+        jPanel1.add(casillaJ9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, 50, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 680));
 
@@ -1076,21 +1076,21 @@ public class Juego extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
+    private void casillaJ6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ6ActionPerformed
         // A2
-    }//GEN-LAST:event_casillaA2ActionPerformed
+    }//GEN-LAST:event_casillaJ6ActionPerformed
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
         //A3
     }//GEN-LAST:event_casillaA3ActionPerformed
 
+    private void casillaJ10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_casillaJ10ActionPerformed
+
     private void casillaA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_casillaA4ActionPerformed
-
-    private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA5ActionPerformed
 
     private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
         // TODO add your handling code here:
@@ -1112,365 +1112,373 @@ public class Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_casillaA10ActionPerformed
 
-    private void casillaA11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA11ActionPerformed
+    private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
+        // Vertice A2
+        int indice = this.grafo.numVertice("A2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            System.out.println(vertice.getEmoji());
+            this.casillaA2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA2ActionPerformed
 
-    private void casillaA12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA12ActionPerformed
+    private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA12ActionPerformed
+    }//GEN-LAST:event_casillaB1ActionPerformed
 
-    private void casillaA13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA13ActionPerformed
+    private void casillaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA13ActionPerformed
+    }//GEN-LAST:event_casillaJ1ActionPerformed
 
-    private void casillaA14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA14ActionPerformed
+    private void casillaC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA14ActionPerformed
+    }//GEN-LAST:event_casillaC10ActionPerformed
 
-    private void casillaA15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA15ActionPerformed
+    private void casillaD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA15ActionPerformed
+    }//GEN-LAST:event_casillaD10ActionPerformed
 
-    private void casillaA16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA16ActionPerformed
+    private void casillaF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA16ActionPerformed
+    }//GEN-LAST:event_casillaF1ActionPerformed
 
-    private void casillaA17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA17ActionPerformed
+    private void casillaG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA17ActionPerformed
+    }//GEN-LAST:event_casillaG1ActionPerformed
 
-    private void casillaA18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA18ActionPerformed
+    private void casillaH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA18ActionPerformed
+    }//GEN-LAST:event_casillaH1ActionPerformed
 
-    private void casillaA19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA19ActionPerformed
+    private void casillaI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA19ActionPerformed
+    }//GEN-LAST:event_casillaI1ActionPerformed
 
-    private void casillaA20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA20ActionPerformed
+    private void casillaB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA20ActionPerformed
+    }//GEN-LAST:event_casillaB2ActionPerformed
 
-    private void casillaA21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA21ActionPerformed
+    private void casillaB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA21ActionPerformed
+    }//GEN-LAST:event_casillaB3ActionPerformed
 
-    private void casillaA22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA22ActionPerformed
+    private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA22ActionPerformed
+    }//GEN-LAST:event_casillaA5ActionPerformed
 
-    private void casillaA23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA23ActionPerformed
+    private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA23ActionPerformed
+    }//GEN-LAST:event_casillaB4ActionPerformed
 
-    private void casillaA24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA24ActionPerformed
+    private void casillaC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA24ActionPerformed
+    }//GEN-LAST:event_casillaC5ActionPerformed
 
-    private void casillaA25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA25ActionPerformed
+    private void casillaB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA25ActionPerformed
+    }//GEN-LAST:event_casillaB6ActionPerformed
 
-    private void casillaA26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA26ActionPerformed
+    private void casillaB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA26ActionPerformed
+    }//GEN-LAST:event_casillaB5ActionPerformed
 
-    private void casillaA27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA27ActionPerformed
+    private void casillaB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA27ActionPerformed
+    }//GEN-LAST:event_casillaB7ActionPerformed
 
-    private void casillaA28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA28ActionPerformed
+    private void casillaB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA28ActionPerformed
+    }//GEN-LAST:event_casillaB8ActionPerformed
 
-    private void casillaA29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA29ActionPerformed
+    private void casillaC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA29ActionPerformed
+    }//GEN-LAST:event_casillaC1ActionPerformed
 
-    private void casillaA30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA30ActionPerformed
+    private void B9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA30ActionPerformed
+    }//GEN-LAST:event_B9ActionPerformed
 
-    private void casillaA31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA31ActionPerformed
+    private void B10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA31ActionPerformed
+    }//GEN-LAST:event_B10ActionPerformed
 
-    private void casillaA32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA32ActionPerformed
+    private void casillaC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA32ActionPerformed
+    }//GEN-LAST:event_casillaC2ActionPerformed
 
-    private void casillaA33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA33ActionPerformed
+    private void casillaC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA33ActionPerformed
+    }//GEN-LAST:event_casillaC3ActionPerformed
 
-    private void casillaA34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA34ActionPerformed
+    private void casillaC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA34ActionPerformed
+    }//GEN-LAST:event_casillaC4ActionPerformed
 
-    private void casillaA35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA35ActionPerformed
+    private void casillaC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA35ActionPerformed
+    }//GEN-LAST:event_casillaC6ActionPerformed
 
-    private void casillaA36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA36ActionPerformed
+    private void casillaC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA36ActionPerformed
+    }//GEN-LAST:event_casillaC7ActionPerformed
 
-    private void casillaA37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA37ActionPerformed
+    private void casillaC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA37ActionPerformed
+    }//GEN-LAST:event_casillaC9ActionPerformed
 
-    private void casillaA38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA38ActionPerformed
+    private void casillaC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA38ActionPerformed
+    }//GEN-LAST:event_casillaC8ActionPerformed
 
-    private void casillaA39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA39ActionPerformed
+    private void casillaD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA39ActionPerformed
+    }//GEN-LAST:event_casillaD9ActionPerformed
 
-    private void casillaA40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA40ActionPerformed
+    private void casillaD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA40ActionPerformed
+    }//GEN-LAST:event_casillaD5ActionPerformed
 
-    private void casillaA41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA41ActionPerformed
+    private void casillaD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA41ActionPerformed
+    }//GEN-LAST:event_casillaD1ActionPerformed
 
-    private void casillaA42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA42ActionPerformed
+    private void casillaD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA42ActionPerformed
+    }//GEN-LAST:event_casillaD2ActionPerformed
 
-    private void casillaA43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA43ActionPerformed
+    private void casillaE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA43ActionPerformed
+    }//GEN-LAST:event_casillaE3ActionPerformed
 
-    private void casillaA44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA44ActionPerformed
+    private void casillaD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA44ActionPerformed
+    }//GEN-LAST:event_casillaD3ActionPerformed
 
-    private void casillaA46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA46ActionPerformed
+    private void casillaD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA46ActionPerformed
+    }//GEN-LAST:event_casillaD7ActionPerformed
 
-    private void casillaA47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA47ActionPerformed
+    private void casillaD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA47ActionPerformed
+    }//GEN-LAST:event_casillaD6ActionPerformed
 
-    private void casillaA48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA48ActionPerformed
+    private void casillaD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA48ActionPerformed
+    }//GEN-LAST:event_casillaD8ActionPerformed
 
-    private void casillaA45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA45ActionPerformed
+    private void casillaE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA45ActionPerformed
+    }//GEN-LAST:event_casillaE1ActionPerformed
 
-    private void casillaA49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA49ActionPerformed
+    private void casillaE2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA49ActionPerformed
+    }//GEN-LAST:event_casillaE2ActionPerformed
 
-    private void casillaA50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA50ActionPerformed
+    private void casillaE4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA50ActionPerformed
+    }//GEN-LAST:event_casillaE4ActionPerformed
 
-    private void casillaA51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA51ActionPerformed
+    private void casillaE5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA51ActionPerformed
+    }//GEN-LAST:event_casillaE5ActionPerformed
 
-    private void casillaA52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA52ActionPerformed
+    private void casillaE6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA52ActionPerformed
+    }//GEN-LAST:event_casillaE6ActionPerformed
 
-    private void casillaA53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA53ActionPerformed
+    private void casillaE7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA53ActionPerformed
+    }//GEN-LAST:event_casillaE7ActionPerformed
 
-    private void casillaA54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA54ActionPerformed
+    private void casillaE8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA54ActionPerformed
+    }//GEN-LAST:event_casillaE8ActionPerformed
 
-    private void casillaA55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA55ActionPerformed
+    private void casillaE9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA55ActionPerformed
+    }//GEN-LAST:event_casillaE9ActionPerformed
 
-    private void casillaA56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA56ActionPerformed
+    private void casillaE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA56ActionPerformed
+    }//GEN-LAST:event_casillaE10ActionPerformed
 
-    private void casillaA57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA57ActionPerformed
+    private void casillaF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA57ActionPerformed
+    }//GEN-LAST:event_casillaF2ActionPerformed
 
-    private void casillaA58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA58ActionPerformed
+    private void casillaF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA58ActionPerformed
+    }//GEN-LAST:event_casillaF3ActionPerformed
 
-    private void casillaA59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA59ActionPerformed
+    private void casillaD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA59ActionPerformed
+    }//GEN-LAST:event_casillaD4ActionPerformed
 
-    private void casillaA60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA60ActionPerformed
+    private void casillaF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA60ActionPerformed
+    }//GEN-LAST:event_casillaF4ActionPerformed
 
-    private void casillaA61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA61ActionPerformed
+    private void casillaF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA61ActionPerformed
+    }//GEN-LAST:event_casillaF6ActionPerformed
 
-    private void casillaA62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA62ActionPerformed
+    private void casillaF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA62ActionPerformed
+    }//GEN-LAST:event_casillaF7ActionPerformed
 
-    private void casillaA63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA63ActionPerformed
+    private void casillaF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA63ActionPerformed
+    }//GEN-LAST:event_casillaF8ActionPerformed
 
-    private void casillaA64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA64ActionPerformed
+    private void casillaF9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA64ActionPerformed
+    }//GEN-LAST:event_casillaF9ActionPerformed
 
-    private void casillaA65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA65ActionPerformed
+    private void casillaF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA65ActionPerformed
+    }//GEN-LAST:event_casillaF10ActionPerformed
 
-    private void casillaA66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA66ActionPerformed
+    private void casillaG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA66ActionPerformed
+    }//GEN-LAST:event_casillaG2ActionPerformed
 
-    private void casillaA67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA67ActionPerformed
+    private void casillaG3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA67ActionPerformed
+    }//GEN-LAST:event_casillaG3ActionPerformed
 
-    private void casillaA68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA68ActionPerformed
+    private void casillaF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA68ActionPerformed
+    }//GEN-LAST:event_casillaF5ActionPerformed
 
-    private void casillaA69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA69ActionPerformed
+    private void casillaG4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA69ActionPerformed
+    }//GEN-LAST:event_casillaG4ActionPerformed
 
-    private void casillaA70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA70ActionPerformed
+    private void casillaG6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA70ActionPerformed
+    }//GEN-LAST:event_casillaG6ActionPerformed
 
-    private void casillaA71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA71ActionPerformed
+    private void casillaG7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA71ActionPerformed
+    }//GEN-LAST:event_casillaG7ActionPerformed
 
-    private void casillaA72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA72ActionPerformed
+    private void casillaG8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA72ActionPerformed
+    }//GEN-LAST:event_casillaG8ActionPerformed
 
-    private void casillaA73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA73ActionPerformed
+    private void casillaG9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA73ActionPerformed
+    }//GEN-LAST:event_casillaG9ActionPerformed
 
-    private void casillaA74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA74ActionPerformed
+    private void casillaG10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA74ActionPerformed
+    }//GEN-LAST:event_casillaG10ActionPerformed
 
-    private void casillaA75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA75ActionPerformed
+    private void casillaH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA75ActionPerformed
+    }//GEN-LAST:event_casillaH2ActionPerformed
 
-    private void casillaA76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA76ActionPerformed
+    private void casillaH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA76ActionPerformed
+    }//GEN-LAST:event_casillaH3ActionPerformed
 
-    private void casillaA77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA77ActionPerformed
+    private void casillaG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA77ActionPerformed
+    }//GEN-LAST:event_casillaG5ActionPerformed
 
-    private void casillaA78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA78ActionPerformed
+    private void casillaH4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA78ActionPerformed
+    }//GEN-LAST:event_casillaH4ActionPerformed
 
-    private void casillaA79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA79ActionPerformed
+    private void casillaH6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA79ActionPerformed
+    }//GEN-LAST:event_casillaH6ActionPerformed
 
-    private void casillaA80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA80ActionPerformed
+    private void casillaH7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA80ActionPerformed
+    }//GEN-LAST:event_casillaH7ActionPerformed
 
-    private void casillaA81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA81ActionPerformed
+    private void casillaH8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA81ActionPerformed
+    }//GEN-LAST:event_casillaH8ActionPerformed
 
-    private void casillaA82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA82ActionPerformed
+    private void casillaH9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA82ActionPerformed
+    }//GEN-LAST:event_casillaH9ActionPerformed
 
-    private void casillaA83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA83ActionPerformed
+    private void casillaH10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA83ActionPerformed
+    }//GEN-LAST:event_casillaH10ActionPerformed
 
-    private void casillaA84ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA84ActionPerformed
+    private void casillaI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA84ActionPerformed
+    }//GEN-LAST:event_casillaI2ActionPerformed
 
-    private void casillaA85ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA85ActionPerformed
+    private void casillaI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA85ActionPerformed
+    }//GEN-LAST:event_casillaI3ActionPerformed
 
-    private void casillaA86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA86ActionPerformed
+    private void casillaH5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA86ActionPerformed
+    }//GEN-LAST:event_casillaH5ActionPerformed
 
-    private void casillaA87ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA87ActionPerformed
+    private void casillaI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA87ActionPerformed
+    }//GEN-LAST:event_casillaI4ActionPerformed
 
-    private void casillaA88ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA88ActionPerformed
+    private void casillaI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA88ActionPerformed
+    }//GEN-LAST:event_casillaI6ActionPerformed
 
-    private void casillaA89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA89ActionPerformed
+    private void casillaI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA89ActionPerformed
+    }//GEN-LAST:event_casillaI7ActionPerformed
 
-    private void casillaA90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA90ActionPerformed
+    private void casillaI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA90ActionPerformed
+    }//GEN-LAST:event_casillaI8ActionPerformed
 
-    private void casillaA91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA91ActionPerformed
+    private void casillaI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA91ActionPerformed
+    }//GEN-LAST:event_casillaI9ActionPerformed
 
-    private void casillaA92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA92ActionPerformed
+    private void casillaI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI10ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA92ActionPerformed
+    }//GEN-LAST:event_casillaI10ActionPerformed
 
-    private void casillaA93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA93ActionPerformed
+    private void casillaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA93ActionPerformed
+    }//GEN-LAST:event_casillaJ2ActionPerformed
 
-    private void casillaA94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA94ActionPerformed
+    private void casillaJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA94ActionPerformed
+    }//GEN-LAST:event_casillaJ3ActionPerformed
 
-    private void casillaA95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA95ActionPerformed
+    private void casillaI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA95ActionPerformed
+    }//GEN-LAST:event_casillaI5ActionPerformed
 
-    private void casillaA96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA96ActionPerformed
+    private void casillaJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA96ActionPerformed
+    }//GEN-LAST:event_casillaJ4ActionPerformed
 
-    private void casillaA97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA97ActionPerformed
+    private void casillaJ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA97ActionPerformed
+    }//GEN-LAST:event_casillaJ5ActionPerformed
 
-    private void casillaA98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA98ActionPerformed
+    private void casillaJ7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA98ActionPerformed
+    }//GEN-LAST:event_casillaJ7ActionPerformed
 
-    private void casillaA99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA99ActionPerformed
+    private void casillaJ8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ8ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA99ActionPerformed
+    }//GEN-LAST:event_casillaJ8ActionPerformed
 
-    private void casillaA100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA100ActionPerformed
+    private void casillaJ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_casillaA100ActionPerformed
+    }//GEN-LAST:event_casillaJ9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1501,109 +1509,109 @@ public class Juego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton B10;
+    private javax.swing.JToggleButton B9;
     private javax.swing.JButton btnBandera;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnInicio;
     private javax.swing.JToggleButton casillaA1;
     private javax.swing.JToggleButton casillaA10;
-    private javax.swing.JToggleButton casillaA100;
-    private javax.swing.JToggleButton casillaA11;
-    private javax.swing.JToggleButton casillaA12;
-    private javax.swing.JToggleButton casillaA13;
-    private javax.swing.JToggleButton casillaA14;
-    private javax.swing.JToggleButton casillaA15;
-    private javax.swing.JToggleButton casillaA16;
-    private javax.swing.JToggleButton casillaA17;
-    private javax.swing.JToggleButton casillaA18;
-    private javax.swing.JToggleButton casillaA19;
     private javax.swing.JToggleButton casillaA2;
-    private javax.swing.JToggleButton casillaA20;
-    private javax.swing.JToggleButton casillaA21;
-    private javax.swing.JToggleButton casillaA22;
-    private javax.swing.JToggleButton casillaA23;
-    private javax.swing.JToggleButton casillaA24;
-    private javax.swing.JToggleButton casillaA25;
-    private javax.swing.JToggleButton casillaA26;
-    private javax.swing.JToggleButton casillaA27;
-    private javax.swing.JToggleButton casillaA28;
-    private javax.swing.JToggleButton casillaA29;
     private javax.swing.JToggleButton casillaA3;
-    private javax.swing.JToggleButton casillaA30;
-    private javax.swing.JToggleButton casillaA31;
-    private javax.swing.JToggleButton casillaA32;
-    private javax.swing.JToggleButton casillaA33;
-    private javax.swing.JToggleButton casillaA34;
-    private javax.swing.JToggleButton casillaA35;
-    private javax.swing.JToggleButton casillaA36;
-    private javax.swing.JToggleButton casillaA37;
-    private javax.swing.JToggleButton casillaA38;
-    private javax.swing.JToggleButton casillaA39;
     private javax.swing.JToggleButton casillaA4;
-    private javax.swing.JToggleButton casillaA40;
-    private javax.swing.JToggleButton casillaA41;
-    private javax.swing.JToggleButton casillaA42;
-    private javax.swing.JToggleButton casillaA43;
-    private javax.swing.JToggleButton casillaA44;
-    private javax.swing.JToggleButton casillaA45;
-    private javax.swing.JToggleButton casillaA46;
-    private javax.swing.JToggleButton casillaA47;
-    private javax.swing.JToggleButton casillaA48;
-    private javax.swing.JToggleButton casillaA49;
     private javax.swing.JToggleButton casillaA5;
-    private javax.swing.JToggleButton casillaA50;
-    private javax.swing.JToggleButton casillaA51;
-    private javax.swing.JToggleButton casillaA52;
-    private javax.swing.JToggleButton casillaA53;
-    private javax.swing.JToggleButton casillaA54;
-    private javax.swing.JToggleButton casillaA55;
-    private javax.swing.JToggleButton casillaA56;
-    private javax.swing.JToggleButton casillaA57;
-    private javax.swing.JToggleButton casillaA58;
-    private javax.swing.JToggleButton casillaA59;
     private javax.swing.JToggleButton casillaA6;
-    private javax.swing.JToggleButton casillaA60;
-    private javax.swing.JToggleButton casillaA61;
-    private javax.swing.JToggleButton casillaA62;
-    private javax.swing.JToggleButton casillaA63;
-    private javax.swing.JToggleButton casillaA64;
-    private javax.swing.JToggleButton casillaA65;
-    private javax.swing.JToggleButton casillaA66;
-    private javax.swing.JToggleButton casillaA67;
-    private javax.swing.JToggleButton casillaA68;
-    private javax.swing.JToggleButton casillaA69;
     private javax.swing.JToggleButton casillaA7;
-    private javax.swing.JToggleButton casillaA70;
-    private javax.swing.JToggleButton casillaA71;
-    private javax.swing.JToggleButton casillaA72;
-    private javax.swing.JToggleButton casillaA73;
-    private javax.swing.JToggleButton casillaA74;
-    private javax.swing.JToggleButton casillaA75;
-    private javax.swing.JToggleButton casillaA76;
-    private javax.swing.JToggleButton casillaA77;
-    private javax.swing.JToggleButton casillaA78;
-    private javax.swing.JToggleButton casillaA79;
     private javax.swing.JToggleButton casillaA8;
-    private javax.swing.JToggleButton casillaA80;
-    private javax.swing.JToggleButton casillaA81;
-    private javax.swing.JToggleButton casillaA82;
-    private javax.swing.JToggleButton casillaA83;
-    private javax.swing.JToggleButton casillaA84;
-    private javax.swing.JToggleButton casillaA85;
-    private javax.swing.JToggleButton casillaA86;
-    private javax.swing.JToggleButton casillaA87;
-    private javax.swing.JToggleButton casillaA88;
-    private javax.swing.JToggleButton casillaA89;
     private javax.swing.JToggleButton casillaA9;
-    private javax.swing.JToggleButton casillaA90;
-    private javax.swing.JToggleButton casillaA91;
-    private javax.swing.JToggleButton casillaA92;
-    private javax.swing.JToggleButton casillaA93;
-    private javax.swing.JToggleButton casillaA94;
-    private javax.swing.JToggleButton casillaA95;
-    private javax.swing.JToggleButton casillaA96;
-    private javax.swing.JToggleButton casillaA97;
-    private javax.swing.JToggleButton casillaA98;
-    private javax.swing.JToggleButton casillaA99;
+    private javax.swing.JToggleButton casillaB1;
+    private javax.swing.JToggleButton casillaB2;
+    private javax.swing.JToggleButton casillaB3;
+    private javax.swing.JToggleButton casillaB4;
+    private javax.swing.JToggleButton casillaB5;
+    private javax.swing.JToggleButton casillaB6;
+    private javax.swing.JToggleButton casillaB7;
+    private javax.swing.JToggleButton casillaB8;
+    private javax.swing.JToggleButton casillaC1;
+    private javax.swing.JToggleButton casillaC10;
+    private javax.swing.JToggleButton casillaC2;
+    private javax.swing.JToggleButton casillaC3;
+    private javax.swing.JToggleButton casillaC4;
+    private javax.swing.JToggleButton casillaC5;
+    private javax.swing.JToggleButton casillaC6;
+    private javax.swing.JToggleButton casillaC7;
+    private javax.swing.JToggleButton casillaC8;
+    private javax.swing.JToggleButton casillaC9;
+    private javax.swing.JToggleButton casillaD1;
+    private javax.swing.JToggleButton casillaD10;
+    private javax.swing.JToggleButton casillaD2;
+    private javax.swing.JToggleButton casillaD3;
+    private javax.swing.JToggleButton casillaD4;
+    private javax.swing.JToggleButton casillaD5;
+    private javax.swing.JToggleButton casillaD6;
+    private javax.swing.JToggleButton casillaD7;
+    private javax.swing.JToggleButton casillaD8;
+    private javax.swing.JToggleButton casillaD9;
+    private javax.swing.JToggleButton casillaE1;
+    private javax.swing.JToggleButton casillaE10;
+    private javax.swing.JToggleButton casillaE2;
+    private javax.swing.JToggleButton casillaE3;
+    private javax.swing.JToggleButton casillaE4;
+    private javax.swing.JToggleButton casillaE5;
+    private javax.swing.JToggleButton casillaE6;
+    private javax.swing.JToggleButton casillaE7;
+    private javax.swing.JToggleButton casillaE8;
+    private javax.swing.JToggleButton casillaE9;
+    private javax.swing.JToggleButton casillaF1;
+    private javax.swing.JToggleButton casillaF10;
+    private javax.swing.JToggleButton casillaF2;
+    private javax.swing.JToggleButton casillaF3;
+    private javax.swing.JToggleButton casillaF4;
+    private javax.swing.JToggleButton casillaF5;
+    private javax.swing.JToggleButton casillaF6;
+    private javax.swing.JToggleButton casillaF7;
+    private javax.swing.JToggleButton casillaF8;
+    private javax.swing.JToggleButton casillaF9;
+    private javax.swing.JToggleButton casillaG1;
+    private javax.swing.JToggleButton casillaG10;
+    private javax.swing.JToggleButton casillaG2;
+    private javax.swing.JToggleButton casillaG3;
+    private javax.swing.JToggleButton casillaG4;
+    private javax.swing.JToggleButton casillaG5;
+    private javax.swing.JToggleButton casillaG6;
+    private javax.swing.JToggleButton casillaG7;
+    private javax.swing.JToggleButton casillaG8;
+    private javax.swing.JToggleButton casillaG9;
+    private javax.swing.JToggleButton casillaH1;
+    private javax.swing.JToggleButton casillaH10;
+    private javax.swing.JToggleButton casillaH2;
+    private javax.swing.JToggleButton casillaH3;
+    private javax.swing.JToggleButton casillaH4;
+    private javax.swing.JToggleButton casillaH5;
+    private javax.swing.JToggleButton casillaH6;
+    private javax.swing.JToggleButton casillaH7;
+    private javax.swing.JToggleButton casillaH8;
+    private javax.swing.JToggleButton casillaH9;
+    private javax.swing.JToggleButton casillaI1;
+    private javax.swing.JToggleButton casillaI10;
+    private javax.swing.JToggleButton casillaI2;
+    private javax.swing.JToggleButton casillaI3;
+    private javax.swing.JToggleButton casillaI4;
+    private javax.swing.JToggleButton casillaI5;
+    private javax.swing.JToggleButton casillaI6;
+    private javax.swing.JToggleButton casillaI7;
+    private javax.swing.JToggleButton casillaI8;
+    private javax.swing.JToggleButton casillaI9;
+    private javax.swing.JToggleButton casillaJ1;
+    private javax.swing.JToggleButton casillaJ10;
+    private javax.swing.JToggleButton casillaJ2;
+    private javax.swing.JToggleButton casillaJ3;
+    private javax.swing.JToggleButton casillaJ4;
+    private javax.swing.JToggleButton casillaJ5;
+    private javax.swing.JToggleButton casillaJ6;
+    private javax.swing.JToggleButton casillaJ7;
+    private javax.swing.JToggleButton casillaJ8;
+    private javax.swing.JToggleButton casillaJ9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
