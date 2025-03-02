@@ -4,13 +4,15 @@
  */
 package grafo;
 
+import java.util.Arrays;
+
 /**
  *
  * @author NITRO V 15
  */
 public class Grafo {
     private int numVertices;
-    private static int maxVertices;
+    private int maxVertices;
     private Vertice [] vectorDeAdyacencia;
     /**
      * constructor
@@ -43,6 +45,11 @@ public class Grafo {
          return vectorDeAdyacencia[v];
      }
     
+    public Vertice DevuelveVerticePorNombre(String nombre) throws Exception {
+        int indice = this.numVertice(nombre);
+        return DevuelveVertice(indice);
+    }
+    
     /**
      * Busca y devuelve el  numero de vertice, si no lo encuentra devuelve '1
      * @param nombre
@@ -68,15 +75,42 @@ public class Grafo {
      */
      public void nuevoVertice(String nombre){
          int indice = numVertice(nombre); // es -1 si no se encuentra el indice
-         boolean existe = indice >= 0 ||  numVertices>=10;
+         boolean existe = indice >= 0 ||  numVertices>=this.maxVertices;
          if (!existe){
                 Vertice v = new Vertice(nombre);
                 v.asigVert(numVertices);
                 this.vectorDeAdyacencia[this.numVertices] = v; // coloca de primero  vertice nuevo 
                 this.numVertices++; // le suma 1 a la cantidad de vertices
             } else {
-             System.out.println("No existe o index out of range");
+             System.out.println("Existe o index out of range");
          }
+     }
+     
+     public void nuevoVerticesRecibiendoArrayDeVertices(String[] arrayVertices){
+         int tamanioArray = arrayVertices.length;
+         
+         for (int i = 0; i < tamanioArray; i++) {
+             this.nuevoVertice(arrayVertices[i]);
+         }
+     } 
+     
+     public void fijarMinasAleatoriamente(int numMinas){
+         
+         int minasColocadas = 0;
+
+        // Mientras queden minas por colocar
+        while (minasColocadas < numMinas) {
+            // Generar índice aleatorio para una casilla
+            int indiceAleatorio = (int) (Math.random() * this.maxVertices);
+
+            // Si la casilla no es una bomba, colocar una bomba
+            if (!vectorDeAdyacencia[indiceAleatorio].isSoyUnaBomba()) {
+                vectorDeAdyacencia[indiceAleatorio].setSoyUnaBomba(true);
+                minasColocadas++;
+
+            }
+        }
+            
      }
      
      

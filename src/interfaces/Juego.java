@@ -5,7 +5,10 @@
 package interfaces;
 
 import grafo.Grafo;
+import grafo.Vertice;
 import java.awt.Font;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
@@ -87,6 +90,11 @@ public class Juego extends javax.swing.JFrame {
         btnBandera = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -155,8 +163,23 @@ public class Juego extends javax.swing.JFrame {
 
     private void casillaA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA1ActionPerformed
         // vertice A1:
-        this.casillaA1.setFont(new Font("Arial",Font.BOLD,10));
+        
+        int indice = this.grafo.numVertice("A1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            System.out.println(vertice.getEmoji());
+            this.casillaA1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA1.setVisible(false);
+        }
     }//GEN-LAST:event_casillaA1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        if (grafo.numVertice("A1") == -1){
+            this.casillaA1.setVisible(false);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -183,6 +206,7 @@ public class Juego extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

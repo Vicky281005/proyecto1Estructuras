@@ -5,6 +5,7 @@
 package interfaces;
 
 import grafo.Grafo;
+import java.util.Arrays;
 
 
 /**
@@ -108,14 +109,16 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
             String coordFila = filasCoordenadas[i];
             for (int j = 0; j < this.nroColumnas; j++){
                 String coordColumna = String.valueOf(columnasCoordenadas[j]);
-                String cooncatenacion = coordFila + coordColumna;
-                System.out.println(cooncatenacion);
-                contador +=1;
-                // TODO: continuar mas tarde 
-                
+                String concatenacion = coordFila + coordColumna;
+                arregloVectores[contador] = concatenacion;
+                contador++;
+                // TODO: continuar mas tarde por vicky
             }
-            
         }
+        
+        System.out.println(Arrays.toString(arregloVectores));
+        grafo.nuevoVerticesRecibiendoArrayDeVertices(arregloVectores);
+        grafo.fijarMinasAleatoriamente(this.nroMinas);
 
 
         
