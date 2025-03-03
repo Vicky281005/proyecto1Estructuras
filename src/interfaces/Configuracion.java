@@ -73,11 +73,11 @@ public class Configuracion extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel3.setText("Numero de filas:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel4.setText("Numero de minas:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         numFilasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

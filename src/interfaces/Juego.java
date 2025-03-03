@@ -205,7 +205,7 @@ public class Juego extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 140, 30));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 140, 30));
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel1.setText("FALSE");
@@ -929,7 +929,7 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(casillaJ9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, 50, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 680));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
