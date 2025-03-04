@@ -76,14 +76,14 @@ public class Arbol {
 
       }
       
-      /**
- * Realiza una búsqueda en amplitud en el árbol binario,
- * comenzando desde la raíz y recorriendo los nodos nivel por nivel.
- * @param dataBuscado El valor del dato que se desea buscar en el árbol.
- * @return El dato del nodo encontrado si existe un nodo con el valor especificado, o null si el valor no está en el árbol.
- */
+            /**
+       * Realiza una búsqueda en amplitud en el árbol binario,
+       * comenzando desde la raíz y recorriendo los nodos nivel por nivel.
+       * @param dataBuscado El valor del dato que se desea buscar en el árbol.
+       * @return El dato del nodo encontrado si existe un nodo con el valor especificado, o null si el valor no está en el árbol.
+       */
       public Object busquedaEnAmplitud(int dataBuscado) {
-            if (raiz == null) {
+            if (raiz == null) { 
                 return null; 
             }
             Cola cola = new Cola();
@@ -103,12 +103,12 @@ public class Arbol {
             return null; 
             }
       
-      /**
- * Realiza una búsqueda en profundidad en el árbol binario  para encontrar un nodo con un valor específico.
- * @param nodo El nodo actual desde donde comienza la búsqueda.
- * @param dataBuscado El valor del dato que se desea buscar.
- * @return El dato del nodo si se encuentra, o null si no está.
- */
+            /**
+       * Realiza una búsqueda en profundidad en el árbol binario  para encontrar un nodo con un valor específico.
+       * @param nodo El nodo actual desde donde comienza la búsqueda.
+       * @param dataBuscado El valor del dato que se desea buscar.
+       * @return El dato del nodo si se encuentra, o null si no está.
+       */
         public Object buscarProfundidad(NodoArbol nodo, int dataBuscado) {
             if (nodo == null) {
                 return null;
