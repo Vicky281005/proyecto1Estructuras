@@ -97,6 +97,105 @@ public class Juego extends javax.swing.JFrame {
         casillaA1 = new javax.swing.JToggleButton();
         btnGuardar = new javax.swing.JButton();
         btnBandera = new javax.swing.JButton();
+        casillaJ6 = new javax.swing.JToggleButton();
+        casillaA3 = new javax.swing.JToggleButton();
+        casillaJ10 = new javax.swing.JToggleButton();
+        casillaA4 = new javax.swing.JToggleButton();
+        casillaA6 = new javax.swing.JToggleButton();
+        casillaA7 = new javax.swing.JToggleButton();
+        casillaA8 = new javax.swing.JToggleButton();
+        casillaA9 = new javax.swing.JToggleButton();
+        casillaA10 = new javax.swing.JToggleButton();
+        casillaA2 = new javax.swing.JToggleButton();
+        casillaB1 = new javax.swing.JToggleButton();
+        casillaJ1 = new javax.swing.JToggleButton();
+        casillaC10 = new javax.swing.JToggleButton();
+        casillaD10 = new javax.swing.JToggleButton();
+        casillaF1 = new javax.swing.JToggleButton();
+        casillaG1 = new javax.swing.JToggleButton();
+        casillaH1 = new javax.swing.JToggleButton();
+        casillaI1 = new javax.swing.JToggleButton();
+        casillaB2 = new javax.swing.JToggleButton();
+        casillaB3 = new javax.swing.JToggleButton();
+        casillaA5 = new javax.swing.JToggleButton();
+        casillaB4 = new javax.swing.JToggleButton();
+        casillaC5 = new javax.swing.JToggleButton();
+        casillaB6 = new javax.swing.JToggleButton();
+        casillaB5 = new javax.swing.JToggleButton();
+        casillaB7 = new javax.swing.JToggleButton();
+        casillaB8 = new javax.swing.JToggleButton();
+        casillaC1 = new javax.swing.JToggleButton();
+        casillaB9 = new javax.swing.JToggleButton();
+        casillaB10 = new javax.swing.JToggleButton();
+        casillaC2 = new javax.swing.JToggleButton();
+        casillaC3 = new javax.swing.JToggleButton();
+        casillaC4 = new javax.swing.JToggleButton();
+        casillaC6 = new javax.swing.JToggleButton();
+        casillaC7 = new javax.swing.JToggleButton();
+        casillaC9 = new javax.swing.JToggleButton();
+        casillaC8 = new javax.swing.JToggleButton();
+        casillaD9 = new javax.swing.JToggleButton();
+        casillaD5 = new javax.swing.JToggleButton();
+        casillaD1 = new javax.swing.JToggleButton();
+        casillaD2 = new javax.swing.JToggleButton();
+        casillaE3 = new javax.swing.JToggleButton();
+        casillaD3 = new javax.swing.JToggleButton();
+        casillaD7 = new javax.swing.JToggleButton();
+        casillaD6 = new javax.swing.JToggleButton();
+        casillaD8 = new javax.swing.JToggleButton();
+        casillaE1 = new javax.swing.JToggleButton();
+        casillaE2 = new javax.swing.JToggleButton();
+        casillaE4 = new javax.swing.JToggleButton();
+        casillaE5 = new javax.swing.JToggleButton();
+        casillaE6 = new javax.swing.JToggleButton();
+        casillaE7 = new javax.swing.JToggleButton();
+        casillaE8 = new javax.swing.JToggleButton();
+        casillaE9 = new javax.swing.JToggleButton();
+        casillaE10 = new javax.swing.JToggleButton();
+        casillaF2 = new javax.swing.JToggleButton();
+        casillaF3 = new javax.swing.JToggleButton();
+        casillaD4 = new javax.swing.JToggleButton();
+        casillaF4 = new javax.swing.JToggleButton();
+        casillaF6 = new javax.swing.JToggleButton();
+        casillaF7 = new javax.swing.JToggleButton();
+        casillaF8 = new javax.swing.JToggleButton();
+        casillaF9 = new javax.swing.JToggleButton();
+        casillaF10 = new javax.swing.JToggleButton();
+        casillaG2 = new javax.swing.JToggleButton();
+        casillaG3 = new javax.swing.JToggleButton();
+        casillaF5 = new javax.swing.JToggleButton();
+        casillaG4 = new javax.swing.JToggleButton();
+        casillaG6 = new javax.swing.JToggleButton();
+        casillaG7 = new javax.swing.JToggleButton();
+        casillaG8 = new javax.swing.JToggleButton();
+        casillaG9 = new javax.swing.JToggleButton();
+        casillaG10 = new javax.swing.JToggleButton();
+        casillaH2 = new javax.swing.JToggleButton();
+        casillaH3 = new javax.swing.JToggleButton();
+        casillaG5 = new javax.swing.JToggleButton();
+        casillaH4 = new javax.swing.JToggleButton();
+        casillaH6 = new javax.swing.JToggleButton();
+        casillaH7 = new javax.swing.JToggleButton();
+        casillaH8 = new javax.swing.JToggleButton();
+        casillaH9 = new javax.swing.JToggleButton();
+        casillaH10 = new javax.swing.JToggleButton();
+        casillaI2 = new javax.swing.JToggleButton();
+        casillaI3 = new javax.swing.JToggleButton();
+        casillaH5 = new javax.swing.JToggleButton();
+        casillaI4 = new javax.swing.JToggleButton();
+        casillaI6 = new javax.swing.JToggleButton();
+        casillaI7 = new javax.swing.JToggleButton();
+        casillaI8 = new javax.swing.JToggleButton();
+        casillaI9 = new javax.swing.JToggleButton();
+        casillaI10 = new javax.swing.JToggleButton();
+        casillaJ2 = new javax.swing.JToggleButton();
+        casillaJ3 = new javax.swing.JToggleButton();
+        casillaI5 = new javax.swing.JToggleButton();
+        casillaJ4 = new javax.swing.JToggleButton();
+        casillaJ5 = new javax.swing.JToggleButton();
+        casillaJ7 = new javax.swing.JToggleButton();
+        casillaJ8 = new javax.swing.JToggleButton();
+        casillaJ9 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -115,19 +214,18 @@ public class Juego extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 140, 30));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 140, 30));
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel1.setText("FALSE");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
 
-        casillaA1.setText("🚩");
         casillaA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 casillaA1ActionPerformed(evt);
             }
         });
-        jPanel1.add(casillaA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 50, 50));
+        jPanel1.add(casillaA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 50, 50));
 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnGuardar.setText("Guardar juego");
@@ -136,7 +234,7 @@ public class Juego extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 140, -1));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 140, -1));
 
         btnBandera.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnBandera.setText("Bandera");
@@ -147,7 +245,700 @@ public class Juego extends javax.swing.JFrame {
         });
         jPanel1.add(btnBandera, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 100, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 430));
+        casillaJ6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 570, 50, 50));
+
+        casillaA3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 50, 50));
+
+        casillaJ10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 50, 50));
+
+        casillaA4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 50, 50));
+
+        casillaA6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 50, 50));
+
+        casillaA7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 50, 50));
+
+        casillaA8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 50, 50));
+
+        casillaA9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 50, 50));
+
+        casillaA10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 50, 50));
+
+        casillaA2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 50, 50));
+
+        casillaB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 50, 50));
+
+        casillaJ1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 50, 50));
+
+        casillaC10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 50, 50));
+
+        casillaD10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 50, 50));
+
+        casillaF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, 50, 50));
+
+        casillaG1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 50, 50));
+
+        casillaH1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 50, 50));
+
+        casillaI1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 50, 50));
+
+        casillaB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 50, 50));
+
+        casillaB3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 50, 50));
+
+        casillaA5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaA5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 50, 50));
+
+        casillaB4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 50, 50));
+
+        casillaC5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 50, 50));
+
+        casillaB6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 50, 50));
+
+        casillaB5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 50, 50));
+
+        casillaB7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 50, 50));
+
+        casillaB8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 50, 50));
+
+        casillaC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 50, 50));
+
+        casillaB9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 50, 50));
+
+        casillaB10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaB10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaB10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 50, 50));
+
+        casillaC2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 50, 50));
+
+        casillaC3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 50, 50));
+
+        casillaC4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 50, 50));
+
+        casillaC6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 50, 50));
+
+        casillaC7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 50, 50));
+
+        casillaC9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 50, 50));
+
+        casillaC8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaC8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaC8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 50, 50));
+
+        casillaD9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 50, 50));
+
+        casillaD5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 50, 50));
+
+        casillaD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 50, 50));
+
+        casillaD2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 50, 50));
+
+        casillaE3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 50, 50));
+
+        casillaD3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 50, 50));
+
+        casillaD7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 50, 50));
+
+        casillaD6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 50, 50));
+
+        casillaD8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 50, 50));
+
+        casillaE1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 50, 50));
+
+        casillaE2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 50, 50));
+
+        casillaE4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 50, 50));
+
+        casillaE5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 50, 50));
+
+        casillaE6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 50, 50));
+
+        casillaE7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 50, 50));
+
+        casillaE8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 50, 50));
+
+        casillaE9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 50, 50));
+
+        casillaE10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaE10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaE10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 320, 50, 50));
+
+        casillaF2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 50, 50));
+
+        casillaF3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 50, 50));
+
+        casillaD4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaD4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaD4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 50, 50));
+
+        casillaF4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 50, 50));
+
+        casillaF6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, 50, 50));
+
+        casillaF7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 50, 50));
+
+        casillaF8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 50, 50));
+
+        casillaF9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 50, 50));
+
+        casillaF10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 50, 50));
+
+        casillaG2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 50, 50));
+
+        casillaG3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 50, 50));
+
+        casillaF5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaF5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaF5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 50, 50));
+
+        casillaG4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, 50, 50));
+
+        casillaG6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 50, 50));
+
+        casillaG7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 50, 50));
+
+        casillaG8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 50, 50));
+
+        casillaG9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 50, 50));
+
+        casillaG10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 50, 50));
+
+        casillaH2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, 50, 50));
+
+        casillaH3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, 50, 50));
+
+        casillaG5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaG5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaG5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 50, 50));
+
+        casillaH4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 50, 50));
+
+        casillaH6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, 50, 50));
+
+        casillaH7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 50, 50));
+
+        casillaH8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 50, 50));
+
+        casillaH9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 50, 50));
+
+        casillaH10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 50, 50));
+
+        casillaI2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 50, 50));
+
+        casillaI3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 50, 50));
+
+        casillaH5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaH5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaH5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, 50, 50));
+
+        casillaI4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 520, 50, 50));
+
+        casillaI6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, 50, 50));
+
+        casillaI7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 520, 50, 50));
+
+        casillaI8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 50, 50));
+
+        casillaI9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 520, 50, 50));
+
+        casillaI10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI10ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 50, 50));
+
+        casillaJ2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, 50, 50));
+
+        casillaJ3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, 50, 50));
+
+        casillaI5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaI5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaI5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 50, 50));
+
+        casillaJ4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, 50, 50));
+
+        casillaJ5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 570, 50, 50));
+
+        casillaJ7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 570, 50, 50));
+
+        casillaJ8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ8ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 50, 50));
+
+        casillaJ9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                casillaJ9ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(casillaJ9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, 50, 50));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -184,19 +975,1419 @@ public class Juego extends javax.swing.JFrame {
         int indice = this.grafo.numVertice("A1");
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
-            System.out.println(vertice.getEmoji());
             this.casillaA1.setText(vertice.getEmoji());
+            
+            this.casillaA1.setEnabled(false);
         } catch (Exception ex) {
             this.casillaA1.setVisible(false);
         }
     }//GEN-LAST:event_casillaA1ActionPerformed
 
+    /**
+     * Se encarga de no mostrar los botones/casillas que no existen
+     * @param evt 
+     */
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
         if (grafo.numVertice("A1") == -1){
             this.casillaA1.setVisible(false);
         }
+        if (grafo.numVertice("A2") == -1){
+            this.casillaA2.setVisible(false);
+        }
+        if (grafo.numVertice("A3") == -1){
+            this.casillaA3.setVisible(false);
+        }
+        if (grafo.numVertice("A4") == -1){
+            this.casillaA4.setVisible(false);
+        }
+        if (grafo.numVertice("A5") == -1){
+            this.casillaA5.setVisible(false);
+        }
+        if (grafo.numVertice("A6") == -1){
+            this.casillaA6.setVisible(false);
+        }
+        if (grafo.numVertice("A7") == -1){
+            this.casillaA7.setVisible(false);
+        }
+        if (grafo.numVertice("A8") == -1){
+            this.casillaA8.setVisible(false);
+        }
+        if (grafo.numVertice("A9") == -1){
+            this.casillaA9.setVisible(false);
+        }
+        if (grafo.numVertice("A10") == -1){
+            this.casillaA10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("B1") == -1){
+            this.casillaB1.setVisible(false);
+        }
+        if (grafo.numVertice("B2") == -1){
+            this.casillaB2.setVisible(false);
+        }
+        if (grafo.numVertice("B3") == -1){
+            this.casillaB3.setVisible(false);
+        }
+        if (grafo.numVertice("B4") == -1){
+            this.casillaB4.setVisible(false);
+        }
+        if (grafo.numVertice("B5") == -1){
+            this.casillaB5.setVisible(false);
+        }
+        if (grafo.numVertice("B6") == -1){
+            this.casillaB6.setVisible(false);
+        }
+        if (grafo.numVertice("B7") == -1){
+            this.casillaB7.setVisible(false);
+        }
+        if (grafo.numVertice("B8") == -1){
+            this.casillaB8.setVisible(false);
+        }
+        if (grafo.numVertice("B9") == -1){
+            this.casillaB9.setVisible(false);
+        }
+        if (grafo.numVertice("B10") == -1){
+            this.casillaB10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("C1") == -1){
+            this.casillaC1.setVisible(false);
+        }
+        if (grafo.numVertice("C2") == -1){
+            this.casillaC2.setVisible(false);
+        }
+        if (grafo.numVertice("C3") == -1){
+            this.casillaC3.setVisible(false);
+        }
+        if (grafo.numVertice("C4") == -1){
+            this.casillaC4.setVisible(false);
+        }
+        if (grafo.numVertice("C5") == -1){
+            this.casillaC5.setVisible(false);
+        }
+        if (grafo.numVertice("C6") == -1){
+            this.casillaC6.setVisible(false);
+        }
+        if (grafo.numVertice("C7") == -1){
+            this.casillaC7.setVisible(false);
+        }
+        if (grafo.numVertice("C8") == -1){
+            this.casillaC8.setVisible(false);
+        }
+        if (grafo.numVertice("C9") == -1){
+            this.casillaC9.setVisible(false);
+        }
+        if (grafo.numVertice("C10") == -1){
+            this.casillaC10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("D1") == -1){
+            this.casillaD1.setVisible(false);
+        }
+        if (grafo.numVertice("D2") == -1){
+            this.casillaD2.setVisible(false);
+        }
+        if (grafo.numVertice("D3") == -1){
+            this.casillaD3.setVisible(false);
+        }
+        if (grafo.numVertice("D4") == -1){
+            this.casillaD4.setVisible(false);
+        }
+        if (grafo.numVertice("D5") == -1){
+            this.casillaD5.setVisible(false);
+        }
+        if (grafo.numVertice("D6") == -1){
+            this.casillaD6.setVisible(false);
+        }
+        if (grafo.numVertice("D7") == -1){
+            this.casillaD7.setVisible(false);
+        }
+        if (grafo.numVertice("D8") == -1){
+            this.casillaD8.setVisible(false);
+        }
+        if (grafo.numVertice("D9") == -1){
+            this.casillaD9.setVisible(false);
+        }
+        if (grafo.numVertice("D10") == -1){
+            this.casillaD10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("E1") == -1){
+            this.casillaE1.setVisible(false);
+        }
+        if (grafo.numVertice("E2") == -1){
+            this.casillaE2.setVisible(false);
+        }
+        if (grafo.numVertice("E3") == -1){
+            this.casillaE3.setVisible(false);
+        }
+        if (grafo.numVertice("E4") == -1){
+            this.casillaE4.setVisible(false);
+        }
+        if (grafo.numVertice("E5") == -1){
+            this.casillaE5.setVisible(false);
+        }
+        if (grafo.numVertice("E6") == -1){
+            this.casillaE6.setVisible(false);
+        }
+        if (grafo.numVertice("E7") == -1){
+            this.casillaE7.setVisible(false);
+        }
+        if (grafo.numVertice("E8") == -1){
+            this.casillaE8.setVisible(false);
+        }
+        if (grafo.numVertice("E9") == -1){
+            this.casillaE9.setVisible(false);
+        }
+        if (grafo.numVertice("E10") == -1){
+            this.casillaE10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("F1") == -1){
+            this.casillaF1.setVisible(false);
+        }
+        if (grafo.numVertice("F2") == -1){
+            this.casillaF2.setVisible(false);
+        }
+        if (grafo.numVertice("F3") == -1){
+            this.casillaF3.setVisible(false);
+        }
+        if (grafo.numVertice("F4") == -1){
+            this.casillaF4.setVisible(false);
+        }
+        if (grafo.numVertice("F5") == -1){
+            this.casillaF5.setVisible(false);
+        }
+        if (grafo.numVertice("F6") == -1){
+            this.casillaF6.setVisible(false);
+        }
+        if (grafo.numVertice("F7") == -1){
+            this.casillaF7.setVisible(false);
+        }
+        if (grafo.numVertice("F8") == -1){
+            this.casillaF8.setVisible(false);
+        }
+        if (grafo.numVertice("F9") == -1){
+            this.casillaF9.setVisible(false);
+        }
+        if (grafo.numVertice("F10") == -1){
+            this.casillaF10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("G1") == -1){
+            this.casillaG1.setVisible(false);
+        }
+        if (grafo.numVertice("G2") == -1){
+            this.casillaG2.setVisible(false);
+        }
+        if (grafo.numVertice("G3") == -1){
+            this.casillaG3.setVisible(false);
+        }
+        if (grafo.numVertice("G4") == -1){
+            this.casillaG4.setVisible(false);
+        }
+        if (grafo.numVertice("G5") == -1){
+            this.casillaG5.setVisible(false);
+        }
+        if (grafo.numVertice("G6") == -1){
+            this.casillaG6.setVisible(false);
+        }
+        if (grafo.numVertice("G7") == -1){
+            this.casillaG7.setVisible(false);
+        }
+        if (grafo.numVertice("G8") == -1){
+            this.casillaG8.setVisible(false);
+        }
+        if (grafo.numVertice("G9") == -1){
+            this.casillaG9.setVisible(false);
+        }
+        if (grafo.numVertice("G10") == -1){
+            this.casillaG10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("H1") == -1){
+            this.casillaH1.setVisible(false);
+        }
+        if (grafo.numVertice("H2") == -1){
+            this.casillaH2.setVisible(false);
+        }
+        if (grafo.numVertice("H3") == -1){
+            this.casillaH3.setVisible(false);
+        }
+        if (grafo.numVertice("H4") == -1){
+            this.casillaH4.setVisible(false);
+        }
+        if (grafo.numVertice("H5") == -1){
+            this.casillaH5.setVisible(false);
+        }
+        if (grafo.numVertice("H6") == -1){
+            this.casillaH6.setVisible(false);
+        }
+        if (grafo.numVertice("H7") == -1){
+            this.casillaH7.setVisible(false);
+        }
+        if (grafo.numVertice("H8") == -1){
+            this.casillaH8.setVisible(false);
+        }
+        if (grafo.numVertice("H9") == -1){
+            this.casillaH9.setVisible(false);
+        }
+        if (grafo.numVertice("H10") == -1){
+            this.casillaH10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("I1") == -1){
+            this.casillaI1.setVisible(false);
+        }
+        if (grafo.numVertice("I2") == -1){
+            this.casillaI2.setVisible(false);
+        }
+        if (grafo.numVertice("I3") == -1){
+            this.casillaI3.setVisible(false);
+        }
+        if (grafo.numVertice("I4") == -1){
+            this.casillaI4.setVisible(false);
+        }
+        if (grafo.numVertice("I5") == -1){
+            this.casillaI5.setVisible(false);
+        }
+        if (grafo.numVertice("I6") == -1){
+            this.casillaI6.setVisible(false);
+        }
+        if (grafo.numVertice("I7") == -1){
+            this.casillaI7.setVisible(false);
+        }
+        if (grafo.numVertice("I8") == -1){
+            this.casillaI8.setVisible(false);
+        }
+        if (grafo.numVertice("I9") == -1){
+            this.casillaI9.setVisible(false);
+        }
+        if (grafo.numVertice("I10") == -1){
+            this.casillaI10.setVisible(false);
+        }
+        
+          if (grafo.numVertice("J1") == -1){
+            this.casillaJ1.setVisible(false);
+        }
+        if (grafo.numVertice("J2") == -1){
+            this.casillaJ2.setVisible(false);
+        }
+        if (grafo.numVertice("J3") == -1){
+            this.casillaJ3.setVisible(false);
+        }
+        if (grafo.numVertice("J4") == -1){
+            this.casillaJ4.setVisible(false);
+        }
+        if (grafo.numVertice("J5") == -1){
+            this.casillaJ5.setVisible(false);
+        }
+        if (grafo.numVertice("J6") == -1){
+            this.casillaJ6.setVisible(false);
+        }
+        if (grafo.numVertice("J7") == -1){
+            this.casillaJ7.setVisible(false);
+        }
+        if (grafo.numVertice("J8") == -1){
+            this.casillaJ8.setVisible(false);
+        }
+        if (grafo.numVertice("J9") == -1){
+            this.casillaJ9.setVisible(false);
+        }
+        if (grafo.numVertice("J10") == -1){
+            this.casillaJ10.setVisible(false);
+        }
     }//GEN-LAST:event_formWindowOpened
+
+    private void casillaJ6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ6ActionPerformed
+         // Vertice J6
+        int indice = this.grafo.numVertice("J6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ6ActionPerformed
+
+    private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
+        // Vertice A3
+        int indice = this.grafo.numVertice("A3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA3ActionPerformed
+
+    private void casillaJ10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ10ActionPerformed
+           // Vertice J10
+        int indice = this.grafo.numVertice("J10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ10ActionPerformed
+
+    private void casillaA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA4ActionPerformed
+        // Vertice A4
+        int indice = this.grafo.numVertice("A4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA4ActionPerformed
+
+    private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
+        // Vertice A6
+        int indice = this.grafo.numVertice("A6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA6ActionPerformed
+
+    private void casillaA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA7ActionPerformed
+        // Vertice A7
+        int indice = this.grafo.numVertice("A7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA7ActionPerformed
+
+    private void casillaA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA8ActionPerformed
+        // Vertice A8
+        int indice = this.grafo.numVertice("A8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA8ActionPerformed
+
+    private void casillaA9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA9ActionPerformed
+        // Vertice A9
+        int indice = this.grafo.numVertice("A9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);  
+            this.casillaA9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA9ActionPerformed
+
+    private void casillaA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA10ActionPerformed
+        // Vertice A10
+        int indice = this.grafo.numVertice("A10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA10ActionPerformed
+
+    private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
+        // Vertice A2
+        int indice = this.grafo.numVertice("A2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA2ActionPerformed
+
+    private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
+        // Vertice B1 
+        int indice = this.grafo.numVertice("B1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB1ActionPerformed
+
+    private void casillaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ1ActionPerformed
+         // Vertice J1
+        int indice = this.grafo.numVertice("J1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ1ActionPerformed
+
+    private void casillaC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC10ActionPerformed
+          // Vertice C10
+        int indice = this.grafo.numVertice("C10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC10ActionPerformed
+
+    private void casillaD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD10ActionPerformed
+        // Vertice D10
+        int indice = this.grafo.numVertice("D10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD10ActionPerformed
+
+    private void casillaF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF1ActionPerformed
+          // Vertice F1
+        int indice = this.grafo.numVertice("F1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF1ActionPerformed
+
+    private void casillaG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG1ActionPerformed
+          // Vertice G1
+        int indice = this.grafo.numVertice("G1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG1ActionPerformed
+
+    private void casillaH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH1ActionPerformed
+        // Vertice H1
+        int indice = this.grafo.numVertice("H1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH1ActionPerformed
+
+    private void casillaI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI1ActionPerformed
+        // Vertice I1
+        int indice = this.grafo.numVertice("I1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI1ActionPerformed
+
+    private void casillaB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB2ActionPerformed
+        // Vertice B2
+        int indice = this.grafo.numVertice("B2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB2ActionPerformed
+
+    private void casillaB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB3ActionPerformed
+        // Vertice B3
+        int indice = this.grafo.numVertice("B3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB3ActionPerformed
+
+    private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
+        // Vertice A5
+        int indice = this.grafo.numVertice("A5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaA5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaA5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaA5ActionPerformed
+
+    private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
+       // Vertice B4 
+        int indice = this.grafo.numVertice("B4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB4ActionPerformed
+
+    private void casillaC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC5ActionPerformed
+         // Vertice C5
+        int indice = this.grafo.numVertice("C5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC5ActionPerformed
+
+    private void casillaB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB6ActionPerformed
+        // Vertice B6
+        int indice = this.grafo.numVertice("B6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB6ActionPerformed
+
+    private void casillaB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB5ActionPerformed
+      // Vertice B5
+        int indice = this.grafo.numVertice("B5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB5ActionPerformed
+
+    private void casillaB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB7ActionPerformed
+       // Vertice B7
+        int indice = this.grafo.numVertice("B7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB7ActionPerformed
+
+    private void casillaB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB8ActionPerformed
+        // Vertice B8
+        int indice = this.grafo.numVertice("B8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB8ActionPerformed
+
+    private void casillaC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC1ActionPerformed
+       // Vertice C1
+        int indice = this.grafo.numVertice("C1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC1ActionPerformed
+
+    private void casillaB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB9ActionPerformed
+       // Vertice B9
+        int indice = this.grafo.numVertice("B9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB9ActionPerformed
+
+    private void casillaB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB10ActionPerformed
+       // Vertice B10
+        int indice = this.grafo.numVertice("B10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaB10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaB10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaB10ActionPerformed
+
+    private void casillaC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC2ActionPerformed
+       // Vertice C2
+        int indice = this.grafo.numVertice("C2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC2ActionPerformed
+
+    private void casillaC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC3ActionPerformed
+          // Vertice C3
+        int indice = this.grafo.numVertice("C3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC3ActionPerformed
+
+    private void casillaC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC4ActionPerformed
+        // Vertice C4
+        int indice = this.grafo.numVertice("C4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC4ActionPerformed
+
+    private void casillaC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC6ActionPerformed
+         // Vertice C6
+        int indice = this.grafo.numVertice("C6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC6ActionPerformed
+
+    private void casillaC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC7ActionPerformed
+          // Vertice C7
+        int indice = this.grafo.numVertice("C7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC7ActionPerformed
+
+    private void casillaC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC9ActionPerformed
+          // Vertice C9
+        int indice = this.grafo.numVertice("C9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC9ActionPerformed
+
+    private void casillaC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC8ActionPerformed
+         // Vertice C8
+        int indice = this.grafo.numVertice("C8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaC8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaC8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaC8ActionPerformed
+
+    private void casillaD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD9ActionPerformed
+        // Vertice D9
+        int indice = this.grafo.numVertice("D9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD9ActionPerformed
+
+    private void casillaD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD5ActionPerformed
+        // Vertice D5
+        int indice = this.grafo.numVertice("D5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD5ActionPerformed
+
+    private void casillaD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD1ActionPerformed
+          // Vertice D1
+        int indice = this.grafo.numVertice("D1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD1ActionPerformed
+
+    private void casillaD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD2ActionPerformed
+          // Vertice D2
+        int indice = this.grafo.numVertice("D2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD2ActionPerformed
+
+    private void casillaE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE3ActionPerformed
+          // Vertice E3
+        int indice = this.grafo.numVertice("E3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE3ActionPerformed
+
+    private void casillaD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD3ActionPerformed
+         // Vertice D3
+        int indice = this.grafo.numVertice("D3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD3ActionPerformed
+
+    private void casillaD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD7ActionPerformed
+        // Vertice D7
+        int indice = this.grafo.numVertice("D7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD7ActionPerformed
+
+    private void casillaD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD6ActionPerformed
+       // Vertice D6
+        int indice = this.grafo.numVertice("D6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD6ActionPerformed
+
+    private void casillaD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD8ActionPerformed
+       // Vertice D8
+        int indice = this.grafo.numVertice("D8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD8ActionPerformed
+
+    private void casillaE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE1ActionPerformed
+       // Vertice E1
+        int indice = this.grafo.numVertice("E1");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE1.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE1.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE1ActionPerformed
+
+    private void casillaE2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE2ActionPerformed
+          // Vertice E2
+        int indice = this.grafo.numVertice("E2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE2ActionPerformed
+
+    private void casillaE4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE4ActionPerformed
+         // Vertice E4
+        int indice = this.grafo.numVertice("E4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE4ActionPerformed
+
+    private void casillaE5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE5ActionPerformed
+         // Vertice E5
+        int indice = this.grafo.numVertice("E5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE5ActionPerformed
+
+    private void casillaE6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE6ActionPerformed
+          // Vertice E6
+        int indice = this.grafo.numVertice("E6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE6ActionPerformed
+
+    private void casillaE7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE7ActionPerformed
+          // Vertice E7
+        int indice = this.grafo.numVertice("E7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE7ActionPerformed
+
+    private void casillaE8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE8ActionPerformed
+          // Vertice E8
+        int indice = this.grafo.numVertice("E8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE8ActionPerformed
+
+    private void casillaE9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE9ActionPerformed
+         // Vertice E9
+        int indice = this.grafo.numVertice("E9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE9ActionPerformed
+
+    private void casillaE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE10ActionPerformed
+         // Vertice E10
+        int indice = this.grafo.numVertice("E10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaE10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaE10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaE10ActionPerformed
+
+    private void casillaF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF2ActionPerformed
+           // Vertice F2
+        int indice = this.grafo.numVertice("F2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF2ActionPerformed
+
+    private void casillaF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF3ActionPerformed
+          // Vertice F3
+        int indice = this.grafo.numVertice("F3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF3ActionPerformed
+
+    private void casillaD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD4ActionPerformed
+          // Vertice D4
+        int indice = this.grafo.numVertice("D4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaD4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaD4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaD4ActionPerformed
+
+    private void casillaF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF4ActionPerformed
+           // Vertice F4
+        int indice = this.grafo.numVertice("F4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF4ActionPerformed
+
+    private void casillaF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF6ActionPerformed
+           // Vertice F6
+        int indice = this.grafo.numVertice("F6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF6ActionPerformed
+
+    private void casillaF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF7ActionPerformed
+           // Vertice F7
+        int indice = this.grafo.numVertice("F7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF7ActionPerformed
+
+    private void casillaF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF8ActionPerformed
+           // Vertice F8
+        int indice = this.grafo.numVertice("F8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF8ActionPerformed
+
+    private void casillaF9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF9ActionPerformed
+           // Vertice F9
+        int indice = this.grafo.numVertice("F9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF9ActionPerformed
+
+    private void casillaF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF10ActionPerformed
+          // Vertice F10
+        int indice = this.grafo.numVertice("F10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF10ActionPerformed
+
+    private void casillaG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG2ActionPerformed
+        // Vertice G2
+        int indice = this.grafo.numVertice("G2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG2ActionPerformed
+
+    private void casillaG3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG3ActionPerformed
+       // Vertice G3
+        int indice = this.grafo.numVertice("G3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG3ActionPerformed
+
+    private void casillaF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF5ActionPerformed
+           // Vertice F5
+        int indice = this.grafo.numVertice("F5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaF5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaF5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaF5ActionPerformed
+
+    private void casillaG4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG4ActionPerformed
+        // Vertice G4
+        int indice = this.grafo.numVertice("G4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG4ActionPerformed
+
+    private void casillaG6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG6ActionPerformed
+       // Vertice G6
+        int indice = this.grafo.numVertice("G6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG6ActionPerformed
+
+    private void casillaG7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG7ActionPerformed
+        // Vertice G7
+        int indice = this.grafo.numVertice("G7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG7ActionPerformed
+
+    private void casillaG8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG8ActionPerformed
+        // Vertice G8
+        int indice = this.grafo.numVertice("G8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG8ActionPerformed
+
+    private void casillaG9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG9ActionPerformed
+       // Vertice G9
+        int indice = this.grafo.numVertice("G9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG9ActionPerformed
+
+    private void casillaG10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG10ActionPerformed
+        // Vertice G10
+        int indice = this.grafo.numVertice("G10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG10ActionPerformed
+
+    private void casillaH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH2ActionPerformed
+        // Vertice H2
+        int indice = this.grafo.numVertice("H2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH2ActionPerformed
+
+    private void casillaH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH3ActionPerformed
+        // Vertice H3
+        int indice = this.grafo.numVertice("H3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH3ActionPerformed
+
+    private void casillaG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG5ActionPerformed
+        // Vertice G5
+        int indice = this.grafo.numVertice("G5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaG5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaG5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaG5ActionPerformed
+
+    private void casillaH4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH4ActionPerformed
+        // Vertice H4
+        int indice = this.grafo.numVertice("H4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH4ActionPerformed
+
+    private void casillaH6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH6ActionPerformed
+        // Vertice H6
+        int indice = this.grafo.numVertice("H6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH6ActionPerformed
+
+    private void casillaH7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH7ActionPerformed
+       // Vertice H7
+        int indice = this.grafo.numVertice("H7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH7ActionPerformed
+
+    private void casillaH8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH8ActionPerformed
+        // Vertice H8
+        int indice = this.grafo.numVertice("H8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH8ActionPerformed
+
+    private void casillaH9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH9ActionPerformed
+        // Vertice H9
+        int indice = this.grafo.numVertice("H9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH9ActionPerformed
+
+    private void casillaH10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH10ActionPerformed
+        // Vertice H10
+        int indice = this.grafo.numVertice("H10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH10ActionPerformed
+
+    private void casillaI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI2ActionPerformed
+        // Vertice I2
+        int indice = this.grafo.numVertice("I2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI2ActionPerformed
+
+    private void casillaI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI3ActionPerformed
+       // Vertice I3
+        int indice = this.grafo.numVertice("I3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI3ActionPerformed
+
+    private void casillaH5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH5ActionPerformed
+       // Vertice H5
+        int indice = this.grafo.numVertice("H5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaH5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaH5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaH5ActionPerformed
+
+    private void casillaI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI4ActionPerformed
+       // Vertice I4
+        int indice = this.grafo.numVertice("I4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI4ActionPerformed
+
+    private void casillaI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI6ActionPerformed
+       // Vertice I6
+        int indice = this.grafo.numVertice("I6");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI6.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI6.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI6ActionPerformed
+
+    private void casillaI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI7ActionPerformed
+       // Vertice I7
+        int indice = this.grafo.numVertice("I7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI7ActionPerformed
+
+    private void casillaI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI8ActionPerformed
+        // Vertice I8
+        int indice = this.grafo.numVertice("I8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI8ActionPerformed
+
+    private void casillaI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI9ActionPerformed
+        // Vertice I9
+        int indice = this.grafo.numVertice("I9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI9ActionPerformed
+
+    private void casillaI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI10ActionPerformed
+        // Vertice I0
+        int indice = this.grafo.numVertice("I10");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI10.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI10.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI10ActionPerformed
+
+    private void casillaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ2ActionPerformed
+           // Vertice J2
+        int indice = this.grafo.numVertice("J2");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ2.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ2.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ2ActionPerformed
+
+    private void casillaJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ3ActionPerformed
+           // Vertice J3
+        int indice = this.grafo.numVertice("J3");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ3.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ3.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ3ActionPerformed
+
+    private void casillaI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI5ActionPerformed
+        // Vertice I5
+        int indice = this.grafo.numVertice("I5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaI5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaI5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaI5ActionPerformed
+
+    private void casillaJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ4ActionPerformed
+          // Vertice J4
+        int indice = this.grafo.numVertice("J4");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ4.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ4.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ4ActionPerformed
+
+    private void casillaJ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ5ActionPerformed
+           // Vertice J5
+        int indice = this.grafo.numVertice("J5");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ5.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ5.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ5ActionPerformed
+
+    private void casillaJ7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ7ActionPerformed
+           // Vertice J7
+        int indice = this.grafo.numVertice("J7");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ7.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ7.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ7ActionPerformed
+
+    private void casillaJ8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ8ActionPerformed
+          // Vertice J8
+        int indice = this.grafo.numVertice("J8");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ8.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ8.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ8ActionPerformed
+
+    private void casillaJ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ9ActionPerformed
+          // Vertice J9
+        int indice = this.grafo.numVertice("J9");
+        try {
+            Vertice vertice = this.grafo.DevuelveVertice(indice);
+            this.casillaJ9.setText(vertice.getEmoji());
+        } catch (Exception ex) {
+            this.casillaJ9.setVisible(false);
+        }
+    }//GEN-LAST:event_casillaJ9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,6 +2422,105 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnInicio;
     private javax.swing.JToggleButton casillaA1;
+    private javax.swing.JToggleButton casillaA10;
+    private javax.swing.JToggleButton casillaA2;
+    private javax.swing.JToggleButton casillaA3;
+    private javax.swing.JToggleButton casillaA4;
+    private javax.swing.JToggleButton casillaA5;
+    private javax.swing.JToggleButton casillaA6;
+    private javax.swing.JToggleButton casillaA7;
+    private javax.swing.JToggleButton casillaA8;
+    private javax.swing.JToggleButton casillaA9;
+    private javax.swing.JToggleButton casillaB1;
+    private javax.swing.JToggleButton casillaB10;
+    private javax.swing.JToggleButton casillaB2;
+    private javax.swing.JToggleButton casillaB3;
+    private javax.swing.JToggleButton casillaB4;
+    private javax.swing.JToggleButton casillaB5;
+    private javax.swing.JToggleButton casillaB6;
+    private javax.swing.JToggleButton casillaB7;
+    private javax.swing.JToggleButton casillaB8;
+    private javax.swing.JToggleButton casillaB9;
+    private javax.swing.JToggleButton casillaC1;
+    private javax.swing.JToggleButton casillaC10;
+    private javax.swing.JToggleButton casillaC2;
+    private javax.swing.JToggleButton casillaC3;
+    private javax.swing.JToggleButton casillaC4;
+    private javax.swing.JToggleButton casillaC5;
+    private javax.swing.JToggleButton casillaC6;
+    private javax.swing.JToggleButton casillaC7;
+    private javax.swing.JToggleButton casillaC8;
+    private javax.swing.JToggleButton casillaC9;
+    private javax.swing.JToggleButton casillaD1;
+    private javax.swing.JToggleButton casillaD10;
+    private javax.swing.JToggleButton casillaD2;
+    private javax.swing.JToggleButton casillaD3;
+    private javax.swing.JToggleButton casillaD4;
+    private javax.swing.JToggleButton casillaD5;
+    private javax.swing.JToggleButton casillaD6;
+    private javax.swing.JToggleButton casillaD7;
+    private javax.swing.JToggleButton casillaD8;
+    private javax.swing.JToggleButton casillaD9;
+    private javax.swing.JToggleButton casillaE1;
+    private javax.swing.JToggleButton casillaE10;
+    private javax.swing.JToggleButton casillaE2;
+    private javax.swing.JToggleButton casillaE3;
+    private javax.swing.JToggleButton casillaE4;
+    private javax.swing.JToggleButton casillaE5;
+    private javax.swing.JToggleButton casillaE6;
+    private javax.swing.JToggleButton casillaE7;
+    private javax.swing.JToggleButton casillaE8;
+    private javax.swing.JToggleButton casillaE9;
+    private javax.swing.JToggleButton casillaF1;
+    private javax.swing.JToggleButton casillaF10;
+    private javax.swing.JToggleButton casillaF2;
+    private javax.swing.JToggleButton casillaF3;
+    private javax.swing.JToggleButton casillaF4;
+    private javax.swing.JToggleButton casillaF5;
+    private javax.swing.JToggleButton casillaF6;
+    private javax.swing.JToggleButton casillaF7;
+    private javax.swing.JToggleButton casillaF8;
+    private javax.swing.JToggleButton casillaF9;
+    private javax.swing.JToggleButton casillaG1;
+    private javax.swing.JToggleButton casillaG10;
+    private javax.swing.JToggleButton casillaG2;
+    private javax.swing.JToggleButton casillaG3;
+    private javax.swing.JToggleButton casillaG4;
+    private javax.swing.JToggleButton casillaG5;
+    private javax.swing.JToggleButton casillaG6;
+    private javax.swing.JToggleButton casillaG7;
+    private javax.swing.JToggleButton casillaG8;
+    private javax.swing.JToggleButton casillaG9;
+    private javax.swing.JToggleButton casillaH1;
+    private javax.swing.JToggleButton casillaH10;
+    private javax.swing.JToggleButton casillaH2;
+    private javax.swing.JToggleButton casillaH3;
+    private javax.swing.JToggleButton casillaH4;
+    private javax.swing.JToggleButton casillaH5;
+    private javax.swing.JToggleButton casillaH6;
+    private javax.swing.JToggleButton casillaH7;
+    private javax.swing.JToggleButton casillaH8;
+    private javax.swing.JToggleButton casillaH9;
+    private javax.swing.JToggleButton casillaI1;
+    private javax.swing.JToggleButton casillaI10;
+    private javax.swing.JToggleButton casillaI2;
+    private javax.swing.JToggleButton casillaI3;
+    private javax.swing.JToggleButton casillaI4;
+    private javax.swing.JToggleButton casillaI5;
+    private javax.swing.JToggleButton casillaI6;
+    private javax.swing.JToggleButton casillaI7;
+    private javax.swing.JToggleButton casillaI8;
+    private javax.swing.JToggleButton casillaI9;
+    private javax.swing.JToggleButton casillaJ1;
+    private javax.swing.JToggleButton casillaJ10;
+    private javax.swing.JToggleButton casillaJ2;
+    private javax.swing.JToggleButton casillaJ3;
+    private javax.swing.JToggleButton casillaJ4;
+    private javax.swing.JToggleButton casillaJ5;
+    private javax.swing.JToggleButton casillaJ6;
+    private javax.swing.JToggleButton casillaJ7;
+    private javax.swing.JToggleButton casillaJ8;
+    private javax.swing.JToggleButton casillaJ9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
