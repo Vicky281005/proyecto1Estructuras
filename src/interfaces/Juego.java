@@ -190,7 +190,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         casillaJ7 = new javax.swing.JToggleButton();
         casillaJ8 = new javax.swing.JToggleButton();
         casillaJ9 = new javax.swing.JToggleButton();
-        TrueOrFalse = new javax.swing.JToggleButton();
+        TrueOrFalse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1032,9 +1032,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         });
         jPanel1.add(casillaJ9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, 50, 50));
 
-        TrueOrFalse.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        TrueOrFalse.setText("False");
-        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 90, 30));
+        TrueOrFalse.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
+        TrueOrFalse.setText("FALSE");
+        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 
@@ -1044,21 +1044,26 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+/**
+ * Verifica si la bandera esta habilitada
+ * @param evt 
+ */
     private void btnBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanderaActionPerformed
-// Verifica si la funcion bandera esta habilitada
-        if (bandera) {// Si el modo bandera está activado, desactivarlo
+        if (bandera) {
             bandera = false; 
-            this.TrueOrFalse.setText("FALSE"); 
+            this.TrueOrFalse.setText("False"); 
         } else {
             bandera = true; 
-            this.TrueOrFalse.setText("TRUE"); 
+            this.TrueOrFalse.setText("True"); 
 
         }
     }//GEN-LAST:event_btnBanderaActionPerformed
-
+/**
+ * Regresa al menu de inicio
+ * @param evt 
+ */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-//      Regresa al menu de inicio
+
         BuscaminasInterfaz busca = new BuscaminasInterfaz();
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
@@ -2509,7 +2514,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton TrueOrFalse;
+    private javax.swing.JButton TrueOrFalse;
     private javax.swing.JButton btnBandera;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnInicio;

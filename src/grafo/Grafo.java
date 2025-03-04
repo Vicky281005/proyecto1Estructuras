@@ -22,15 +22,23 @@ public class Grafo {
         numVertices= 0;
         maxVertices= 10;
     }
-
-    public Grafo(int maxV){ //maxV es la maxima cantidad de vertices en el grafo
+     /**
+     * constructor
+     * @param maxV maxima cantidad de vertices en el grafo 
+     */
+    public Grafo(int maxV){ 
         vectorDeAdyacencia= new Vertice[maxV];
         numVertices= 0;
         maxVertices= maxV;
     }
+      /**
+     * Devuelve el vertice v
+     * @param v es el indice del vertice a buscar
+     * @return el vertice a buscar
+     * @throws Exception cuando es index out of range
+     */ 
         
-
-    public Vertice DevuelveVertice(int v) throws Exception { //Devuelve el vertice v, el cual es el indice del vertice a buscar y throws es una exepcion cuando indez esta fuera de rango.
+    public Vertice DevuelveVertice(int v) throws Exception { 
          if (v<0 || v>= numVertices){
              throw new Exception("Vertice fuera de rango" );  
          }
@@ -41,8 +49,12 @@ public class Grafo {
         int indice = this.numVertice(nombre);
         return DevuelveVertice(indice);
     }
-    
-    public int numVertice(String nombre){ //Busca y devuelve el nuemero de vertice, si no lo encuentra devuelve '1 y se le pasa de parametro nombre
+     /**
+     * Busca y devuelve el  numero de vertice, si no lo encuentra devuelve '1
+     * @param nombre
+     * @return 
+     */ 
+    public int numVertice(String nombre){ 
      Vertice v = new Vertice(nombre);
      boolean encontrado= false;
      int i = 0;
@@ -54,9 +66,12 @@ public class Grafo {
      }
      return (i<this.numVertices) ? i : -1;  
      }
-     
+      /**
+     * Crea un nuevo vertice
+     * @param nombre recibe el nombre de como se llamara el vertice
+     */
    
-     public void nuevoVertice(String nombre){ //Crea un nuevo vertice y el parametro nombre es como se va a llamar
+     public void nuevoVertice(String nombre){ 
          int indice = numVertice(nombre); 
          boolean existe = indice >= 0 ||  numVertices>=this.maxVertices;
          if (!existe){
@@ -91,9 +106,14 @@ public class Grafo {
         }
             
      }
-     
-     boolean adyacente(String a, String b) throws Exception{ //Comprueba si 2 vertices son adyacentes, si los 2 parametros son true son adyacentes, si no false
-
+      /**
+      *  Comprueba si dos vertices son adyacentes
+      * @param a nombre del primer vertice
+      * @param b nombre del segundo vertice
+      * @return true si son adyacentes, false si no lo son
+      * @throws Exception cuando uno de los dos vertices no existe
+      */
+     boolean adyacente(String a, String b) throws Exception{ 
          int v1, v2;
          v1= numVertice(a);
          v2= numVertice(b);
@@ -103,10 +123,14 @@ public class Grafo {
         return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2)); 
      }
      
-   
+    /**
+      * Comprueba si dos vertices son adyacentes por el numero de vertice
+      * @param v1 numero del primer vertice
+      * @param v2 numero del segundo vertice
+      * @return retornara true si son adyacentes, false si no lo son
+      * @throws Exception 
+      */
      boolean adyacentePorNumero(int v1, int v2) throws Exception{ 
-        // Comprueba si 2 vertices son adyacentes por el numero de vertice.
-        // Los parametros v1 y v2, son el primer y segundo vertice respectivamente, lo cual retornaran true si son adyacentes, false si no
         if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))){
                 return true; 
             }else{

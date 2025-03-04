@@ -9,8 +9,8 @@ import java.util.Arrays;
  *
  * @author jmmor
  */
-public class BuscaminasInterfaz extends javax.swing.JFrame {
-//    Atributos de la clase BuscaminasInterfaz
+public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la clase BuscaminasInterfaz
+
     private int nroFilas, nroColumnas, nroMinas;
 
     public BuscaminasInterfaz() {//Constructor de la clase Buscaminas Interfaz
@@ -20,8 +20,13 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         this.nroMinas = 35;
         
     }
-    
-    public BuscaminasInterfaz(int nroFilas, int nroColumnas, int nroMinas) {//Constructor de la clase Buscaminas Interfaz
+    /**
+     * Constructor de la clase Buscaminas Interfaz
+     * @param nroFilas
+     * @param nroColumnas
+     * @param nroMinas 
+     */
+    public BuscaminasInterfaz(int nroFilas, int nroColumnas, int nroMinas) {
 
         initComponents();
         this.nroFilas = nroFilas;
@@ -51,8 +56,9 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\unnamed (1).png")); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 230, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 290, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
@@ -99,6 +105,10 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Dirige al jugador a jugar
+     * @param evt 
+     */
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         Grafo grafo = new Grafo(this.nroFilas*this.nroColumnas); //crea un nuevo objeto de la clase grafo basado en la variables globales de la clase BuscaminasInterfaz
         String[] filasCoordenadas = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}; //Define la coordenadas de las filas en coordenadas de A a la J
@@ -136,22 +146,30 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
             jugar.setLocationRelativeTo(null);
             this.dispose(); //Sale de la ventana emergente
     }//GEN-LAST:event_btnJugarActionPerformed
-
+/**
+ * Sale del programa
+ * @param evt 
+ */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-// Hace que el usuario salga del juego, es decir termina el programa.
+
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-
+/**
+ * Dirige al usuario a la configuración del tablero
+ * @param evt 
+ */
     private void btnConfiguraciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguraciónActionPerformed
-//      Dirige al usuario a la configuración del tablero.
         Configuracion confi = new Configuracion();
         confi.setVisible(true);
         confi.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnConfiguraciónActionPerformed
 
+    /**
+     * Es el boton que carga la partida
+     * @param evt 
+     */
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-//       Boton que carga el juego a la ultima partida jugada.
         CargarPartida carga = new CargarPartida();
         carga.setVisible(true);
         carga.setLocationRelativeTo(null);

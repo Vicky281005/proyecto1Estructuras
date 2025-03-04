@@ -11,43 +11,79 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
        private Nodo pLast;
        private int size;
        
-       
-    public ListaEnlazada(){ // Constructor, Crea una lista vacia
+        /**
+        * Constructor
+        * Crea una lista vacia
+        */
+    public ListaEnlazada(){ 
         this.pFirst = this.pLast = null;
     }
        
-    public ListaEnlazada(Nodo<T> n){ // Constructor, Crea una lista con un solo elemento, * @param n Nodo que se agrega
+     /**
+        * Constructor
+        * Crea una lista con un solo elemento
+        * @param n Nodo que se aniadira
+        */
+    public ListaEnlazada(Nodo<T> n){ 
         this.pFirst=this.pLast= n;
     }
      
+    /**
+     * Devuelve el primer nodo de la lista
+     * @return el primer nodo
+     */
     public Nodo getpFirst() { // Devuelve el primer nodo de la lista @return el primer nodo
         return pFirst;
     }
     
+     /**
+     * Devuelve el ultimo nodo de la lista
+     * @return el ultimo nodo
+     */
     public Nodo getpLast() { // Devuelve el ultimo nodo de la lista @return el ultimo nodo
         return pLast;
     }
 
+      /**
+     * Devuelve el tamaño de la lista 
+     * @return int tamaño de la lista
+     */
     public int getSize() { // Devuelve el tamaño de la lista ,@return int tamaño de la lista
         return size;
     }
-
+    /**
+     * Modificar la data del primer nodo
+     * @param pFirst 
+     */
     public void setpFirst(Nodo pFirst) { // Modificar la data del primer nodo, @param pFirst 
         this.pFirst = pFirst;
     }
-
+     /**
+     * Modificar la data del ultimo nodo
+     * @param pLast 
+     */
     public void setpLast(Nodo pLast) { // Modificar la data del ultimo nodo, @param pLast 
         this.pLast = pLast;
     }
-
+    
+    /**
+     * Modifica el tamaño de la lista
+     * @param size 
+     */
     public void setSize(int size) { // Modifica el tamaño de la lista, @param size 
         this.size = size;
     }
-
+    /**
+     * Revisa si la lista esta vacia o no
+     * @return True si esta vacia, false si no
+     */
     public boolean isEmpty(){ // Revisa si la lista esta vacia o no, @return True si esta vacia, false si no
         return this.pFirst== null;
     }
-         
+     /**
+     * Se encarga de añadir un nodo en el primer lugar de una lista
+     * @param dato 
+     */     
     public void addFirst(T dato) { // Agrega un nodo en el primer lugar de una lista @param dato 
         Nodo<T> n = new Nodo(dato);
         if (isEmpty()) {
@@ -82,9 +118,9 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
         return yaExiste; //Devuelve el resultado de la busqueda
     }
     
-    public Arista removeArista(Arista arista){
-//        Remueve la arista
-        if (this.isEmpty()){ // Retorna null si la arista esta vacia
+    public Arista removeArista(Arista arista){// Remueve la arista
+
+        if (this.isEmpty()){ 
             return null;
         } else if (((Arista) pFirst.getData()).destino == arista.destino){
             Arista aristaARetornar = (Arista) pFirst.getData();

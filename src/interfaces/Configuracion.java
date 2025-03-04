@@ -117,9 +117,11 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     private void numColumnasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numColumnasTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numColumnasTextFieldActionPerformed
-
+/**
+ * Regresa al usuario al menu de inicio
+ * @param evt 
+ */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-// Regresa al usuario al menu principal
         BuscaminasInterfaz busca = new BuscaminasInterfaz(this.fila,this.columna,this.minas);
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
@@ -131,7 +133,6 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
  * @param evt 
  */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-//Solicita al usuario registrar y guardar sus respuestra en cuando a las dimensiones del tablero, tambien se encuentra las validaciones de para la longitud de filas, columnas y numeros de minas
         try{
         if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){
             this.fila = Integer.parseInt(this.numColumnasTextField.getText());
@@ -156,12 +157,17 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error inesperado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+/**
+ * captura el numero de filas puesto por el usuario
+ * @param evt 
+ */
     private void numFilasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numFilasTextFieldActionPerformed
- 
-        
+  
     }//GEN-LAST:event_numFilasTextFieldActionPerformed
-
+/**
+ * captura el numero de columnas puesto por el usuario
+ * @param evt 
+ */
     private void numMinasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numMinasTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numMinasTextFieldActionPerformed

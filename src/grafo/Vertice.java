@@ -5,8 +5,7 @@ package grafo;
  *
  * @author NITRO V 15
  */
-public class Vertice {
-//    Atributos de la clase vertice
+public class Vertice { // Atributos de la clase vertice
     private String nombre;
     private int numeroVertice;
     private boolean soyUnaBomba;
@@ -29,30 +28,52 @@ public class Vertice {
             this.soyUnaBomba = soyUnaBomba;
             this.emoji = soyUnaBomba ? "💣" : "";
         }
-
+        
+        /**
+         * Obtiene el emoji de si es bomba o no
+         * @return emoji de bomba o vacio
+         */
         public String getEmoji() { // Obtiene el emoji de si es bomba o no y retorna emoji de bomba o vacio
             return emoji;
         }
         
-        public void setSoyUnaBomba(boolean soyUnaBomba) { // Modifica si un vertice es bomba o no. soyUnaBomba booleano true si es bomba, false si no.
+        /**
+         * Modifica si un vertice es bomba o no
+         * @param soyUnaBomba booleano true si es bomba, false si no
+         */
+        public void setSoyUnaBomba(boolean soyUnaBomba) { 
             this.soyUnaBomba = soyUnaBomba;
             this.emoji = soyUnaBomba ? "💣" : "";
         }
-      
-        public boolean isSoyUnaBomba() { // Retorna si un vertice es bomba o no, ademas true es bomba y false si no es
+        
+         /**
+         * Retorna si un vertice es bomba o no
+         * @return true si es bomba, false si no
+         */
+        public boolean isSoyUnaBomba() { 
             return soyUnaBomba;
         }
-        
-        public void asigVert(int n){ // Asigna un número de vértice a un objeto.
+        /**
+         * Asigna un número de vértice a un objeto.
+         * @param n 
+         */
+        public void asigVert(int n){ 
             numeroVertice= n;
         }
         
-        
-        public String nombreVertice(){ // Obtiene el nombre del vertice
+        /**
+         * Retorna el nombre del vertice
+         * @return 
+         */
+        public String nombreVertice(){ 
             return nombre;
         }
-        
-        public boolean equals(Object d){ // Compara si 2 vertices son iguales
+        /**
+         * Compara si 2 vertice son iguales
+         * @param d
+         * @return 
+         */
+        public boolean equals(Object d){ 
             Vertice dos= (Vertice) d;
             return nombre.equals(dos.nombre);
         }
