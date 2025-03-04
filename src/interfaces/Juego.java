@@ -16,12 +16,14 @@ import javax.swing.JToggleButton;
  *
  * @author jmmor
  */
-public class Juego extends javax.swing.JFrame {
+public class Juego extends javax.swing.JFrame { 
+// Atributos de la clase juego con herencia de la liberia Java Swing
     private int nroFilas, nroColumnas, nroMinas;
     boolean bandera;
     Grafo grafo;
 
     public Juego(int nroFilas, int nroColumnas, int nroMinas, Grafo grafo) {
+// Constructor de la clase Juego
         initComponents();
         this.nroFilas = nroFilas;
         this.nroColumnas = nroColumnas;
@@ -41,32 +43,39 @@ public class Juego extends javax.swing.JFrame {
 //        Nodo casilla = grafo.buscar(this.jToggleButton1.getText());
 //        if(casilla.isSelected()){
 
-
+//Verificar si la casilla tiene el texto "BANDERA" y si el modo bandera está desactivado
         if (casilla.getText().equals("BANDERA") && this.bandera == false) {
-            casilla.setSelected(true);
+            casilla.setSelected(true); //Selecciona la casilla
             return;
         }
+// Verifica si bandera esta habilitada
         if (bandera) {
             if (casilla.getText().equals("BANDERA")) {
-                casilla.setIcon(null);
-                casilla.setText("A1");
+                casilla.setIcon(null); // Quita el icono de la casilla
+                casilla.setText("A1"); // Restablecer el texto de la casilla a su valor inicial
             } else {
+                // Si la casilla no tiene el texto "BANDERA", se marca como bandera
+        casilla.setText("BANDERA"); // Cambiar el texto de la casilla a "BANDERA"
 //                this.jToggleButton1.setIcon(bandera);
-                casilla.setText("BANDERA");
 //                casilla.set(false);
 
             }
         } else {
+//            Se activa si el modo bandera esta deshabilitado
             if (es_bomba) {
                 JOptionPane.showMessageDialog(null, "Perdistes");
             } else {
+//Verifica si la casilla no es una bomba
                 if (bombas_ady == 0) {
+//                    Si no hay bombas adyacentes realiza un barrido
 //                        this.barrido
                 } else {
+//                    Si hay bombas adyacentes, muestra el numero de bombas adyacentes 
 //                        this.jToggleButton1.setText(casilla.bombas_ady);
-                    casilla.setText("");
+                    casilla.setText(""); //                    Limpia el texto de la casilla 
                 }
             }
+            // Deshabilitar la casilla para que no se pueda volver a hacer clic en ella
             System.out.println("DESABILITADA");
             casilla.setEnabled(false);
         }
@@ -148,17 +157,21 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanderaActionPerformed
+//        Verifica si la funcion bandera esta habilitada
         if (bandera) {
-            bandera = false;
-            this.jLabel1.setText("FALSE");
+            // Si el modo bandera está activado, desactivarlo
+            bandera = false; // Cambiar el estado de la bandera a false
+            this.jLabel1.setText("FALSE"); // Cambia el texto del jLabel1 a "FALSE"
         } else {
-            bandera = true;
-            this.jLabel1.setText("TRUE");
+//          si el modo bandera esta desactivado, habilitado
+            bandera = true; // Cambiar el estado de la bandera a true
+            this.jLabel1.setText("TRUE"); // Cambia el texto del jLabel1 a "TRUE"
 
         }
     }//GEN-LAST:event_btnBanderaActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+//      Regresa al menu de inicio
         BuscaminasInterfaz busca = new BuscaminasInterfaz();
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
@@ -166,7 +179,7 @@ public class Juego extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void casillaA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA1ActionPerformed
-        // vertice A1:
+        // Obtiene el vertice A1 en el grafo:
         
         int indice = this.grafo.numVertice("A1");
         try {

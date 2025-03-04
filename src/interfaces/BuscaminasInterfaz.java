@@ -15,9 +15,10 @@ import java.util.Arrays;
 public class BuscaminasInterfaz extends javax.swing.JFrame {
     private int nroFilas, nroColumnas, nroMinas;
     /**
-     * Creates new form Buscaminas
+     * Inicializacion de los atributos de la clase que son nrofilas, nrocolumnas y nrominas.
      */
     public BuscaminasInterfaz() {
+//        Constructor de la clase Buscaminas Interfaz
         initComponents();
         this.nroFilas = 10;
         this.nroColumnas = 10;
@@ -26,6 +27,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }
     
     public BuscaminasInterfaz(int nroFilas, int nroColumnas, int nroMinas) {
+//        Constructor de la clase Buscaminas Interfaz
         initComponents();
         this.nroFilas = nroFilas;
         this.nroColumnas = nroColumnas;
@@ -69,6 +71,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
@@ -78,6 +81,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
+        btnConfiguración.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfiguración.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConfiguraciónActionPerformed(evt);
@@ -101,41 +105,50 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
-        Grafo grafo = new Grafo(this.nroFilas*this.nroColumnas);
-        String[] filasCoordenadas = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
-        String[] arregloVectores = new String[this.nroFilas*this.nroColumnas];
-        int[] columnasCoordenadas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        
-        int contador= 0;
-        for (int i = 0; i < this.nroFilas; i++){
-            String coordFila = filasCoordenadas[i];
+        Grafo grafo = new Grafo(this.nroFilas*this.nroColumnas); //crea un nuevo objeto de la clase grafo basado en la variables globales de la clase BuscaminasInterfaz
+        String[] filasCoordenadas = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}; //Define la coordenadas de las filas en coordenadas de A a la J
+        String[] arregloVectores = new String[this.nroFilas*this.nroColumnas]; //Crea un arreglo de vectores para almacenar las coordenadas de los vertices
+        int[] columnasCoordenadas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //Define las coordenas de las columnas del 1 al 10 
+
+        int contador= 0; //        Contador que llena el arreglo de vertices 
+
+//Bucle For que genera las coordenadas de las casillas combinando filas y columnas
+        for (int i = 0; i < this.nroFilas; i++){ 
+            String coordFila = filasCoordenadas[i]; //Obtiene la letra de la fila actual
             for (int j = 0; j < this.nroColumnas; j++){
-                String coordColumna = String.valueOf(columnasCoordenadas[j]);
-                String concatenacion = coordFila + coordColumna;
-                arregloVectores[contador] = concatenacion;
-                contador++;
+                String coordColumna = String.valueOf(columnasCoordenadas[j]); // Obtiene el número de la columna actual
+                String concatenacion = coordFila + coordColumna; // Combina la final y las columnas
+                arregloVectores[contador] = concatenacion;//Almacena la posición la posicion en el arreglo
+                contador++;//Incrementa el contador para la siguiente posición del arreglo
+                
                 // TODO: continuar mas tarde por vicky
             }
         }
         
+        // Imprimir el arreglo de coordenadas generado (para depuración)
         System.out.println(Arrays.toString(arregloVectores));
+
+// Crear los vértices en el grafo utilizando el arreglo de coordenadas
         grafo.nuevoVerticesRecibiendoArrayDeVertices(arregloVectores);
+
+// Colocar minas aleatoriamente en el grafo, según el número de minas especificado
         grafo.fijarMinasAleatoriamente(this.nroMinas);
 
-
         
         
-        Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo);
+        Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
             jugar.setVisible(true);
             jugar.setLocationRelativeTo(null);
-            this.dispose();
+            this.dispose(); //Sale de la ventana emergente
     }//GEN-LAST:event_btnJugarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+//      Hace que el usuario salga del juego, es decir termina el programa.
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnConfiguraciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguraciónActionPerformed
+//      Dirige al usuario a la configuración del tablero.
         Configuracion confi = new Configuracion();
         confi.setVisible(true);
         confi.setLocationRelativeTo(null);
@@ -143,6 +156,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfiguraciónActionPerformed
 
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+//       Boton que carga el juego a la ultima partida jugada.
         CargarPartida carga = new CargarPartida();
         carga.setVisible(true);
         carga.setLocationRelativeTo(null);
