@@ -5,7 +5,8 @@ package grafo;
  *
  * @author NITRO V 15
  */
-public class Vertice { // Atributos de la clase Vertice
+public class Vertice {
+//    Atributos de la clase vertice
     private String nombre;
     private int numeroVertice;
     private boolean soyUnaBomba;

@@ -62,23 +62,29 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
         size++;
       }
     
-    public boolean contains(Arista arista){ // Método para verificar si una arista específica ya existe en una lista de aristas.
-        Nodo aux = this.pFirst;
-        
-        boolean yaExiste = false;
+    public boolean contains(Arista arista){
 
-        for (int i = 0; i < size; i++){ 
+        Nodo aux = this.pFirst;// Obtiene el primer nodo de la lista
+        
+         
+        boolean yaExiste = false; // Variable para almacenar si la arista ya existe
+
+        for (int i = 0; i < size; i++){// Recorrer la lista desde el primer nodo hasta el último
+            
             Arista aux2 = (Arista) aux.getData();
             if (aux2.destino == arista.destino){
                 yaExiste = true;
             }
-            aux = aux.getpNext();
+
+            aux = aux.getpNext();// Mueve al siguiente nodo de la lista
         }
-        return yaExiste;
+
+        return yaExiste; //Devuelve el resultado de la busqueda
     }
     
-    public Arista removeArista(Arista arista){ // Método para eliminar una arista específica de una lista de aristas.      
-        if (this.isEmpty()){
+    public Arista removeArista(Arista arista){
+//        Remueve la arista
+        if (this.isEmpty()){ // Retorna null si la arista esta vacia
             return null;
         } else if (((Arista) pFirst.getData()).destino == arista.destino){
             Arista aristaARetornar = (Arista) pFirst.getData();
