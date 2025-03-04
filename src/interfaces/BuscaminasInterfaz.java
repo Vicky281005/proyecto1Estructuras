@@ -21,7 +21,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         initComponents();
         this.nroFilas = 10;
         this.nroColumnas = 10;
-        this.nroMinas = 15;
+        this.nroMinas = 35;
         
     }
     
