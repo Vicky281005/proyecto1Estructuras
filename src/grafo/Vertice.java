@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafo;
 
 /**
@@ -9,6 +6,7 @@ package grafo;
  * @author NITRO V 15
  */
 public class Vertice {
+//    Atributos de la clase vertice
     private String nombre;
     private int numeroVertice;
     private boolean soyUnaBomba;

@@ -1,16 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafo;
 
-import java.util.Arrays;
+import java.util.Arrays; 
+//Importa la libreria java.util.Arrays
 
 /**
  *
  * @author NITRO V 15
  */
 public class Grafo {
+//    Atributos de la clase Grafo
     private int numVertices;
     private int maxVertices;
     private Vertice [] vectorDeAdyacencia;
@@ -18,6 +17,7 @@ public class Grafo {
      * constructor
      */
     public Grafo(){
+//        Constructor de la clase grafo
         vectorDeAdyacencia= new Vertice[10];
         numVertices= 0;
         maxVertices= 10;

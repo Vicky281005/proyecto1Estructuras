@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafo;
 
 /**
@@ -98,23 +95,28 @@ public class ListaEnlazada <T>{
       }
     
     public boolean contains(Arista arista){
-        Nodo aux = this.pFirst;
+
+        Nodo aux = this.pFirst;// Obtiene el primer nodo de la lista
         
-        boolean yaExiste = false;
-        for (int i = 0; i < size; i++){
+         
+        boolean yaExiste = false; // Variable para almacenar si la arista ya existe
+
+        for (int i = 0; i < size; i++){// Recorrer la lista desde el primer nodo hasta el último
             
             Arista aux2 = (Arista) aux.getData();
             if (aux2.destino == arista.destino){
                 yaExiste = true;
             }
-            aux = aux.getpNext();
+
+            aux = aux.getpNext();// Mueve al siguiente nodo de la lista
         }
-        return yaExiste;
+
+        return yaExiste; //Devuelve el resultado de la busqueda
     }
     
     public Arista removeArista(Arista arista){
-        
-        if (this.isEmpty()){
+//        Remueve la arista
+        if (this.isEmpty()){ // Retorna null si la arista esta vacia
             return null;
         } else if (((Arista) pFirst.getData()).destino == arista.destino){
             Arista aristaARetornar = (Arista) pFirst.getData();

@@ -1,18 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafo;
 
-/**
- *
- * @author NITRO V 15
- */
+
 public class Arista {
+//Atributos de la clase Arista
          int destino; // indice del vector al que apunta la arista
          
         
         public Arista(int d){
+//Constructor de la clase arista
             destino= d;
         }
         /**
@@ -24,7 +20,9 @@ public class Arista {
         }
         
         public boolean equeals(Object n){
+             // Convierte el objeto proporcionado a tipo Arista
             Arista a = (Arista)n;
+             // Comparar el atributo "destino" de la instancia actual con el de la arista proporcionada
             return destino== a.destino;
         }
 }
