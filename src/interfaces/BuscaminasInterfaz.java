@@ -51,12 +51,10 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\unnamed (1).png")); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 290, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 230, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
-        btnJugar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\5261298 (1).png")); // NOI18N
         btnJugar.setText("Iniciar Juego");
         btnJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +65,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 260, 40));
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
-        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\salir (1) (1) (1).png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +85,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 260, 40));
 
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
-        btnCargar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnCargar.setText("Cargar Juego");
         btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.NE_RESIZE_CURSOR));
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
