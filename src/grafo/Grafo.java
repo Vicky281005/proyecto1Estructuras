@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafo;
 
 import java.util.Arrays;
@@ -10,52 +7,40 @@ import java.util.Arrays;
  *
  * @author NITRO V 15
  */
-public class Grafo {
+public class Grafo { //Atributos de la clase grafo
+
     private int numVertices;
     private int maxVertices;
     private Vertice [] vectorDeAdyacencia;
     /**
      * constructor
      */
-    public Grafo(){
+    public Grafo(){ //Constructor de la clase grafo
         vectorDeAdyacencia= new Vertice[10];
         numVertices= 0;
         maxVertices= 10;
     }
-    /**
-     * constructor
-     * @param maxV maxima cantidad de vertices en el grafo 
-     */
-    public Grafo(int maxV){
+
+    public Grafo(int maxV){ //maxV es la maxima cantidad de vertices en el grafo
         vectorDeAdyacencia= new Vertice[maxV];
         numVertices= 0;
         maxVertices= maxV;
     }
         
-    /**
-     * Devuelve el vertice v
-     * @param v es el indice del vertice a buscar
-     * @return el vertice a buscar
-     * @throws Exception cuando es index out of range
-     */ 
-    public Vertice DevuelveVertice(int v) throws Exception {
+
+    public Vertice DevuelveVertice(int v) throws Exception { //Devuelve el vertice v, el cual es el indice del vertice a buscar y throws es una exepcion cuando indez esta fuera de rango.
          if (v<0 || v>= numVertices){
              throw new Exception("Vertice fuera de rango" );  
          }
          return vectorDeAdyacencia[v];
      }
     
-    public Vertice DevuelveVerticePorNombre(String nombre) throws Exception {
+    public Vertice DevuelveVerticePorNombre(String nombre) throws Exception { //Devuelve un vértice basado en su nombre.
         int indice = this.numVertice(nombre);
         return DevuelveVertice(indice);
     }
     
-    /**
-     * Busca y devuelve el  numero de vertice, si no lo encuentra devuelve '1
-     * @param nombre
-     * @return 
-     */ 
-    public int numVertice(String nombre){
+    public int numVertice(String nombre){ //Busca y devuelve el nuemero de vertice, si no lo encuentra devuelve '1 y se le pasa de parametro nombre
      Vertice v = new Vertice(nombre);
      boolean encontrado= false;
      int i = 0;
@@ -69,24 +54,20 @@ public class Grafo {
      }
      
    
-    /**
-     * Crea un nuevo vertice
-     * @param nombre recibe el nombre de como se llamara el vertice
-     */
-     public void nuevoVertice(String nombre){
-         int indice = numVertice(nombre); // es -1 si no se encuentra el indice
+     public void nuevoVertice(String nombre){ //Crea un nuevo vertice y el parametro nombre es como se va a llamar
+         int indice = numVertice(nombre); 
          boolean existe = indice >= 0 ||  numVertices>=this.maxVertices;
          if (!existe){
                 Vertice v = new Vertice(nombre);
                 v.asigVert(numVertices);
-                this.vectorDeAdyacencia[this.numVertices] = v; // coloca de primero  vertice nuevo 
-                this.numVertices++; // le suma 1 a la cantidad de vertices
+                this.vectorDeAdyacencia[this.numVertices] = v; 
+                this.numVertices++; 
             } else {
              System.out.println("Existe o index out of range");
          }
      }
      
-     public void nuevoVerticesRecibiendoArrayDeVertices(String[] arrayVertices){
+     public void nuevoVerticesRecibiendoArrayDeVertices(String[] arrayVertices){ //Agrega múltiples vértices a un grafo el recibe un array de nombres de vértices.
          int tamanioArray = arrayVertices.length;
          
          for (int i = 0; i < tamanioArray; i++) {
@@ -94,16 +75,12 @@ public class Grafo {
          }
      } 
      
-     public void fijarMinasAleatoriamente(int numMinas){
+     public void fijarMinasAleatoriamente(int numMinas){ //Método para colocar minas aleatoriamente en un conjunto de vértices.
          
          int minasColocadas = 0;
 
-        // Mientras queden minas por colocar
         while (minasColocadas < numMinas) {
-            // Generar índice aleatorio para una casilla
             int indiceAleatorio = (int) (Math.random() * this.maxVertices);
-
-            // Si la casilla no es una bomba, colocar una bomba
             if (!vectorDeAdyacencia[indiceAleatorio].isSoyUnaBomba()) {
                 vectorDeAdyacencia[indiceAleatorio].setSoyUnaBomba(true);
                 minasColocadas++;
@@ -113,15 +90,8 @@ public class Grafo {
             
      }
      
-     
-     /**
-      *  Comprueba si dos vertices son adyacentes
-      * @param a nombre del primer vertice
-      * @param b nombre del segundo vertice
-      * @return true si son adyacentes, false si no lo son
-      * @throws Exception cuando uno de los dos vertices no existe
-      */
-     boolean adyacente(String a, String b) throws Exception{
+     boolean adyacente(String a, String b) throws Exception{ //Comprueba si 2 vertices son adyacentes, si los 2 parametros son true son adyacentes, si no false
+
          int v1, v2;
          v1= numVertice(a);
          v2= numVertice(b);
@@ -132,23 +102,18 @@ public class Grafo {
      }
      
    
-     /**
-      * Comprueba si dos vertices son adyacentes por el numero de vertice
-      * @param v1 numero del primer vertice
-      * @param v2 numero del segundo vertice
-      * @return retornara true si son adyacentes, false si no lo son
-      * @throws Exception 
-      */
-     boolean adyacentePorNumero(int v1, int v2) throws Exception{
-            if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))){
+     boolean adyacentePorNumero(int v1, int v2) throws Exception{ 
+        // Comprueba si 2 vertices son adyacentes por el numero de vertice.
+        // Los parametros v1 y v2, son el primer y segundo vertice respectivamente, lo cual retornaran true si son adyacentes, false si no
+        if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))){
                 return true; 
             }else{
                 return false;
             }
      }
      
-     //CREA UNA NUEVA ARISTA
-     public void nuevaArista(String a, String b) throws Exception{
+     
+     public void nuevaArista(String a, String b) throws Exception{ //Crea una nueva arista
          if (!adyacente(a, b)){
             
              int v1= numVertice(a);
@@ -164,8 +129,8 @@ public class Grafo {
          }
      }
      
-     //BORRAR UNA ARISRA YA CREADA
-     public void borrarArista(String a, String b) throws Exception {
+     
+     public void borrarArista(String a, String b) throws Exception { //Borra una arista creada
          int v1= numVertice(a);
          int v2= numVertice(b);
          if (v1 < 0 || v2< 0){

@@ -1,27 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafo;
 
 /**
  *
  * @author NITRO V 15
  */
-public class Vertice {
+public class Vertice { // Atributos de la clase Vertice
     private String nombre;
     private int numeroVertice;
     private boolean soyUnaBomba;
     private String emoji;
      ListaEnlazada<Object> lad;
     
-     
-        /**
-         * Constructor 
-         * Se encarga de crear un nuevo vertice
-         * @param nom nombre del vertice
-         */
-        public Vertice(String nom){
+
+        public Vertice(String nom){ // Es el constructor, se encarga de crear un nuevo vertice y nom es el nombre del vertice
             nombre= nom;
             numeroVertice= -1;
             lad = new ListaEnlazada();
@@ -29,53 +21,37 @@ public class Vertice {
             this.emoji = "";
         }
         
-        /**
-         * Constructor
-         * Se encarga de crear un nuevo vertice y recibe si es bomba o no
-         * @param nom nombre del vertice
-         * @param soyUnaBomba booleano true si es bomba, false si no es bomba
-         */
-        public Vertice(String nom, boolean soyUnaBomba){
+        public Vertice(String nom, boolean soyUnaBomba){ //  Constructor, Se encarga de crear un nuevo vertice y recibe si es bomba o no, nom nombre del vertice y soyUnaBomba booleano true si es bomba, false si no es bomba
             nombre= nom;
             numeroVertice= -1;
             lad = new ListaEnlazada();
             this.soyUnaBomba = soyUnaBomba;
             this.emoji = soyUnaBomba ? "💣" : "";
         }
-        /**
-         * Obtiene el emoji de si es bomba o no
-         * @return emoji de bomba o vacio
-         */
-        public String getEmoji() {
+
+        public String getEmoji() { // Obtiene el emoji de si es bomba o no y retorna emoji de bomba o vacio
             return emoji;
         }
         
-        /**
-         * Modifica si un vertice es bomba o no
-         * @param soyUnaBomba booleano true si es bomba, false si no
-         */
-        public void setSoyUnaBomba(boolean soyUnaBomba) {
+        public void setSoyUnaBomba(boolean soyUnaBomba) { // Modifica si un vertice es bomba o no. soyUnaBomba booleano true si es bomba, false si no.
             this.soyUnaBomba = soyUnaBomba;
             this.emoji = soyUnaBomba ? "💣" : "";
         }
-        /**
-         * Retorna si un vertice es bomba o no
-         * @return true si es bomba, false si no
-         */
-        public boolean isSoyUnaBomba() {
+      
+        public boolean isSoyUnaBomba() { // Retorna si un vertice es bomba o no, ademas true es bomba y false si no es
             return soyUnaBomba;
         }
         
-        public void asigVert(int n){
+        public void asigVert(int n){ // Asigna un número de vértice a un objeto.
             numeroVertice= n;
         }
         
         
-        public String nombreVertice(){
+        public String nombreVertice(){ // Obtiene el nombre del vertice
             return nombre;
         }
         
-        public boolean equals(Object d){
+        public boolean equals(Object d){ // Compara si 2 vertices son iguales
             Vertice dos= (Vertice) d;
             return nombre.equals(dos.nombre);
         }

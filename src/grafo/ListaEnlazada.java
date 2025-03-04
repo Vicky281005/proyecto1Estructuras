@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package grafo;
 
 /**
@@ -9,81 +6,49 @@ package grafo;
  * @author NITRO V 15
  * @param <T>
  */
-public class ListaEnlazada <T>{
+public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
        private Nodo pFirst;
        private Nodo pLast;
        private int size;
        
-       /**
-        * Constructor
-        * Crea una lista vacia
-        */
-       public ListaEnlazada(){
-           this.pFirst = this.pLast = null;
-       }
-       /**
-        * Constructor
-        * Crea una lista con un solo elemento
-        * @param n Nodo que se aniadira
-        */
-       public ListaEnlazada(Nodo<T> n){
-           this.pFirst=this.pLast= n;
-       }
-    /**
-     * Devuelve el primer nodo de la lista
-     * @return el primer nodo
-     */
-    public Nodo getpFirst() {
+       
+    public ListaEnlazada(){ // Constructor, Crea una lista vacia
+        this.pFirst = this.pLast = null;
+    }
+       
+    public ListaEnlazada(Nodo<T> n){ // Constructor, Crea una lista con un solo elemento, * @param n Nodo que se agrega
+        this.pFirst=this.pLast= n;
+    }
+     
+    public Nodo getpFirst() { // Devuelve el primer nodo de la lista @return el primer nodo
         return pFirst;
     }
-    /**
-     * Devuelve el ultimo nodo de la lista
-     * @return el ultimo nodo
-     */
-    public Nodo getpLast() {
+    
+    public Nodo getpLast() { // Devuelve el ultimo nodo de la lista @return el ultimo nodo
         return pLast;
     }
-    /**
-     * Devuelve el tamaño de la lista 
-     * @return int tamaño de la lista
-     */
-    public int getSize() {
+
+    public int getSize() { // Devuelve el tamaño de la lista ,@return int tamaño de la lista
         return size;
     }
-    /**
-     * Modificar la data del primer nodo
-     * @param pFirst 
-     */
-    public void setpFirst(Nodo pFirst) {
+
+    public void setpFirst(Nodo pFirst) { // Modificar la data del primer nodo, @param pFirst 
         this.pFirst = pFirst;
     }
-    /**
-     * Modificar la data del ultimo nodo
-     * @param pLast 
-     */
-    public void setpLast(Nodo pLast) {
+
+    public void setpLast(Nodo pLast) { // Modificar la data del ultimo nodo, @param pLast 
         this.pLast = pLast;
     }
-    /**
-     * Modifica el tamaño de la lista
-     * @param size 
-     */
-    public void setSize(int size) {
+
+    public void setSize(int size) { // Modifica el tamaño de la lista, @param size 
         this.size = size;
     }
-    /**
-     * Revisa si la lista esta vacia o no
-     * @return True si esta vacia, false si no
-     */
-    public boolean isEmpty(){
+
+    public boolean isEmpty(){ // Revisa si la lista esta vacia o no, @return True si esta vacia, false si no
         return this.pFirst== null;
     }
-    
-    /**
-     * Se encarga de añadir un nodo en el primer lugar de una lista
-     * @param dato 
-     */
-    public void addFirst(T dato) {
+         
+    public void addFirst(T dato) { // Agrega un nodo en el primer lugar de una lista @param dato 
         Nodo<T> n = new Nodo(dato);
         if (isEmpty()) {
             this.pFirst = n;
@@ -97,12 +62,12 @@ public class ListaEnlazada <T>{
         size++;
       }
     
-    public boolean contains(Arista arista){
+    public boolean contains(Arista arista){ // Método para verificar si una arista específica ya existe en una lista de aristas.
         Nodo aux = this.pFirst;
         
         boolean yaExiste = false;
-        for (int i = 0; i < size; i++){
-            
+
+        for (int i = 0; i < size; i++){ 
             Arista aux2 = (Arista) aux.getData();
             if (aux2.destino == arista.destino){
                 yaExiste = true;
@@ -112,8 +77,7 @@ public class ListaEnlazada <T>{
         return yaExiste;
     }
     
-    public Arista removeArista(Arista arista){
-        
+    public Arista removeArista(Arista arista){ // Método para eliminar una arista específica de una lista de aristas.      
         if (this.isEmpty()){
             return null;
         } else if (((Arista) pFirst.getData()).destino == arista.destino){

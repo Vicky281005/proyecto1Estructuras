@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package interfaces;
 
 import grafo.Grafo;
@@ -13,12 +10,10 @@ import java.util.Arrays;
  * @author jmmor
  */
 public class BuscaminasInterfaz extends javax.swing.JFrame {
+//    Atributos de la clase BuscaminasInterfaz
     private int nroFilas, nroColumnas, nroMinas;
-    /**
-     * Inicializacion de los atributos de la clase que son nrofilas, nrocolumnas y nrominas.
-     */
-    public BuscaminasInterfaz() {
-//        Constructor de la clase Buscaminas Interfaz
+
+    public BuscaminasInterfaz() {//Constructor de la clase Buscaminas Interfaz
         initComponents();
         this.nroFilas = 10;
         this.nroColumnas = 10;
@@ -26,8 +21,8 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         
     }
     
-    public BuscaminasInterfaz(int nroFilas, int nroColumnas, int nroMinas) {
-//        Constructor de la clase Buscaminas Interfaz
+    public BuscaminasInterfaz(int nroFilas, int nroColumnas, int nroMinas) {//Constructor de la clase Buscaminas Interfaz
+
         initComponents();
         this.nroFilas = nroFilas;
         this.nroColumnas = nroColumnas;
@@ -56,10 +51,12 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\unnamed (1).png")); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 230, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 290, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
+        btnJugar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\5261298 (1).png")); // NOI18N
         btnJugar.setText("Iniciar Juego");
         btnJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
@@ -70,6 +67,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.add(btnJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 260, 40));
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\salir (1) (1) (1).png")); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +88,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.add(btnConfiguración, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 260, 40));
 
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
+        btnCargar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnCargar.setText("Cargar Juego");
         btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.NE_RESIZE_CURSOR));
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,14 +135,14 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         
         
-        Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
+            Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
             jugar.setVisible(true);
             jugar.setLocationRelativeTo(null);
             this.dispose(); //Sale de la ventana emergente
     }//GEN-LAST:event_btnJugarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-//      Hace que el usuario salga del juego, es decir termina el programa.
+// Hace que el usuario salga del juego, es decir termina el programa.
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package interfaces;
 
 //import proyecto1estructuras.buscaminas.BuscaminasInterfaz;
@@ -13,16 +10,14 @@ import javax.swing.JOptionPane;
  *
  * @author jmmor
  */
-public class Configuracion extends javax.swing.JFrame {
-//atributos de la clase junto a que hereda a la libreria Java.swing
+public class Configuracion extends javax.swing.JFrame { //Atributos de la clase junto a que hereda a la libreria Java.swing
     int fila, columna, minas;
     public Configuracion() {
         initComponents();
         this.fila = this.columna = this.minas = 3;
     }
     
-    public Configuracion(int fila, int columna, int minas) {
-//        Constructor de la clase
+    public Configuracion(int fila, int columna, int minas) { //Constructor de la clase
         initComponents();
         this.fila = fila;
         this.columna = columna;
@@ -55,10 +50,12 @@ public class Configuracion extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\gear-line-icon-vector__1_-removebg-preview.png")); // NOI18N
         jLabel1.setText("Configración del juego");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\83966 (1).png")); // NOI18N
         btnInicio.setText("Volver a inicio");
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +63,7 @@ public class Configuracion extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 170, 50));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 50));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setText("Numero de columnas:");
@@ -102,6 +99,7 @@ public class Configuracion extends javax.swing.JFrame {
         jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 172, 150, 30));
 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnGuardar.setText("Guardar cambios");
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +107,7 @@ public class Configuracion extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 200, 50));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
@@ -121,7 +119,7 @@ public class Configuracion extends javax.swing.JFrame {
     }//GEN-LAST:event_numColumnasTextFieldActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-//        Regresa al usuario al menu principal
+// Regresa al usuario al menu principal
         BuscaminasInterfaz busca = new BuscaminasInterfaz(this.fila,this.columna,this.minas);
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
@@ -133,30 +131,24 @@ public class Configuracion extends javax.swing.JFrame {
  * @param evt 
  */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+//Solicita al usuario registrar y guardar sus respuestra en cuando a las dimensiones del tablero, tambien se encuentra las validaciones de para la longitud de filas, columnas y numeros de minas
         try{
-        // Validacion para asginar el numero de columnas
         if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){
             this.fila = Integer.parseInt(this.numColumnasTextField.getText());
         }  else { 
-        // Lanza la excepcion si se pasa de los valores permitidos
             throw new IllegalArgumentException("El número de columnas debe estar entre 3 y 10.");
         }
-        // Validacion para asginar el numero de filas
         if(Integer.parseInt(this.numFilasTextField.getText()) <= 10 && Integer.parseInt(this.numFilasTextField.getText()) >= 3){
             this.columna = Integer.parseInt(this.numFilasTextField.getText());
         } else {
-        // Lanza la excepcion si se pasa de los valores permitidos
             throw new IllegalArgumentException("El número de filas debe estar entre 3 y 10.");
         }
-        // Validacion para asignar el numero de minas
         if(Integer.parseInt(this.numMinasTextField.getText()) <= this.fila * this.columna && Integer.parseInt(this.numMinasTextField.getText())> 0){
             this.minas = Integer.parseInt(this.numMinasTextField.getText());
         } else {
-        // Lanza la excepcion si se pasa de los valores permitidos
             throw new IllegalArgumentException("El número de minas debe ser mayor a 0 y menor o igual al tamaño del tablero.");
         }
-        } catch (NumberFormatException ex){ //Captura la excepcion si el valor no es 
+        } catch (NumberFormatException ex){ 
             JOptionPane.showMessageDialog(this, "Por favor, ingresa un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
