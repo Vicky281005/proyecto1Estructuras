@@ -116,7 +116,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 arregloVectores[contador] = concatenacion;//Almacena la posición la posicion en el arreglo
                 contador++;//Incrementa el contador para la siguiente posición del arreglo
                 
-                // TODO: continuar mas tarde por vicky
+                
             }
         }
         
