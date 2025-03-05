@@ -2,7 +2,7 @@
 package interfaces;
 
 import grafo.Grafo;
-import java.util.Arrays;
+
 
 
 /**
@@ -115,7 +115,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
         String[] arregloVectores = new String[this.nroFilas*this.nroColumnas]; //Crea un arreglo de vectores para almacenar las coordenadas de los vertices
         int[] columnasCoordenadas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //Define las coordenas de las columnas del 1 al 10 
 
-        int contador= 0; //        Contador que llena el arreglo de vertices 
+        int contador= 0; 
 
 //Bucle For que genera las coordenadas de las casillas combinando filas y columnas
         for (int i = 0; i < this.nroFilas; i++){ 
@@ -130,8 +130,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
             }
         }
         
-        // Imprimir el arreglo de coordenadas generado (para depuración)
-        System.out.println(Arrays.toString(arregloVectores));
 
 // Crear los vértices en el grafo utilizando el arreglo de coordenadas
         grafo.nuevoVerticesRecibiendoArrayDeVertices(arregloVectores);

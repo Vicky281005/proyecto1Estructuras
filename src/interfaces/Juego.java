@@ -3,9 +3,6 @@ package interfaces;
 
 import grafo.Grafo;
 import grafo.Vertice;
-import java.awt.Font;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
