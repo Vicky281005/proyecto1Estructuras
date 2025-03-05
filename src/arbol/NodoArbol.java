@@ -9,16 +9,18 @@ package arbol;
  * @author NITRO V 15
  */
 public class NodoArbol {
+// Atributos de la clase NodoArbol
     private int data;
     private NodoArbol izquierdo;
     private NodoArbol derecho;
     
     public NodoArbol(int data){
+// Constructor de la clase Arbol
         this.data=data;
         this.derecho = derecho;
         this.izquierdo= izquierdo;
     }
-    
+//    Getters y setters de los atributos de la clase NodoArbol
     public int getData(){
         return data;
     }

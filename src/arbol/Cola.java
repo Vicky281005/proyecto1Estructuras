@@ -9,6 +9,7 @@ package arbol;
  * @author NITRO V 15
  */
 public class Cola {
+//    Atributos de la clase Cola
     private NodoCola frente, finalCola;
     
     private class NodoCola{
@@ -16,6 +17,7 @@ public class Cola {
         NodoCola siguiente;
         
         NodoCola(NodoArbol valor){
+//Constructor de la clase cola
             this.valor= valor; 
             this.siguiente= null;
         
@@ -29,7 +31,10 @@ public class Cola {
     public boolean estaVacia(){
         return frente==null;
     }
-    
+    /**
+     * Añade nuevos elementos a la cola
+     * @param valor 
+     */
     public void encolar(NodoArbol valor){
         NodoCola nuevo= new NodoCola(valor);
         if (finalCola != null){
@@ -40,7 +45,10 @@ public class Cola {
             frente= finalCola;
         }
     }
-    
+    /**
+     * Elimina los elementos de la cola
+     * @return 
+     */
     public NodoArbol desencolar(){
         if (frente== null){
             return null; // la cola esta vacia :)

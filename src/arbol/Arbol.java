@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package arbol;
 
 /**
@@ -15,19 +12,25 @@ public class Arbol {
           this.raiz= null;
       }
       
-      public Arbol(NodoArbol nodo){
+      public Arbol(NodoArbol nodo){// Constuctor de la clase Arbol
           this.raiz= nodo;
       }
 
+// Getters y setters de la variables raiz
     public NodoArbol getRaiz() {
         return raiz;
     }
 
     public void setRaiz(NodoArbol raiz) {
+
         this.raiz = raiz;
     }
       
-    
+    /**
+     * 
+     * @param raiz
+     * @param newNodo 
+     */
     
       public void insertar(NodoArbol raiz, NodoArbol newNodo){
           if(this.raiz==null){
@@ -51,7 +54,13 @@ public class Arbol {
               }
           }
       }
-      
+      /**
+       * 
+       * @param aux
+       * @param data
+       * @param nivel
+       * @return 
+       */
       
       public int getNodoNivel(NodoArbol aux, int data, int nivel){
           if(aux== null) return -1;
@@ -65,7 +74,12 @@ public class Arbol {
           }
       }
       
-      
+      /**
+       * Se verifica si data se encuentra en el arbol binario
+       * @param aux recorre el árbol y verifica si el valor data está presente en alguno de los nodos.
+       * @param data verifica si el valor entero esta en el arbol
+       * @return 
+       */
       public boolean estaEnArbol(NodoArbol aux, int data){
           if(aux==null) return false;
           
