@@ -3,9 +3,6 @@ package interfaces;
 
 import grafo.Grafo;
 import grafo.Vertice;
-import java.awt.Font;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 
@@ -1404,9 +1401,13 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         }
     }//GEN-LAST:event_formWindowOpened
 
+    /**
+     * Los siguiente metodos ejecutan la acción (hacer click) en las siguientes casillas
+     * @param evt 
+     */
     private void casillaJ6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ6ActionPerformed
          // Vertice J6
-        int indice = this.grafo.numVertice("J6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice); 
             this.casillaJ6.setText(vertice.getEmoji());
@@ -1417,7 +1418,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
         // Vertice A3
-        int indice = this.grafo.numVertice("A3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA3.setText(vertice.getEmoji());
@@ -1428,7 +1429,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ10ActionPerformed
            // Vertice J10
-        int indice = this.grafo.numVertice("J10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ10.setText(vertice.getEmoji());
@@ -1439,7 +1440,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA4ActionPerformed
         // Vertice A4
-        int indice = this.grafo.numVertice("A4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA4.setText(vertice.getEmoji());
@@ -1450,7 +1451,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
         // Vertice A6
-        int indice = this.grafo.numVertice("A6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA6.setText(vertice.getEmoji());
@@ -1461,7 +1462,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA7ActionPerformed
         // Vertice A7
-        int indice = this.grafo.numVertice("A7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA7.setText(vertice.getEmoji());
@@ -1472,7 +1473,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA8ActionPerformed
         // Vertice A8
-        int indice = this.grafo.numVertice("A8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A8");
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA8.setText(vertice.getEmoji());
@@ -1483,7 +1484,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA9ActionPerformed
         // Vertice A9
-        int indice = this.grafo.numVertice("A9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);  
             this.casillaA9.setText(vertice.getEmoji());
@@ -1494,7 +1495,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA10ActionPerformed
         // Vertice A10
-        int indice = this.grafo.numVertice("A10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA10.setText(vertice.getEmoji());
@@ -1505,7 +1506,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
         // Vertice A2
-        int indice = this.grafo.numVertice("A2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA2.setText(vertice.getEmoji());
@@ -1516,7 +1517,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
         // Vertice B1 
-        int indice = this.grafo.numVertice("B1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB1.setText(vertice.getEmoji());
@@ -1527,7 +1528,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ1ActionPerformed
          // Vertice J1
-        int indice = this.grafo.numVertice("J1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ1.setText(vertice.getEmoji());
@@ -1538,7 +1539,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC10ActionPerformed
           // Vertice C10
-        int indice = this.grafo.numVertice("C10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC10.setText(vertice.getEmoji());
@@ -1549,7 +1550,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD10ActionPerformed
         // Vertice D10
-        int indice = this.grafo.numVertice("D10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD10.setText(vertice.getEmoji());
@@ -1560,7 +1561,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF1ActionPerformed
           // Vertice F1
-        int indice = this.grafo.numVertice("F1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF1.setText(vertice.getEmoji());
@@ -1571,7 +1572,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG1ActionPerformed
           // Vertice G1
-        int indice = this.grafo.numVertice("G1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG1.setText(vertice.getEmoji());
@@ -1582,7 +1583,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH1ActionPerformed
         // Vertice H1
-        int indice = this.grafo.numVertice("H1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH1.setText(vertice.getEmoji());
@@ -1593,7 +1594,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI1ActionPerformed
         // Vertice I1
-        int indice = this.grafo.numVertice("I1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI1.setText(vertice.getEmoji());
@@ -1604,7 +1605,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB2ActionPerformed
         // Vertice B2
-        int indice = this.grafo.numVertice("B2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB2.setText(vertice.getEmoji());
@@ -1615,7 +1616,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB3ActionPerformed
         // Vertice B3
-        int indice = this.grafo.numVertice("B3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB3.setText(vertice.getEmoji());
@@ -1626,7 +1627,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
         // Vertice A5
-        int indice = this.grafo.numVertice("A5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("A5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaA5.setText(vertice.getEmoji());
@@ -1637,7 +1638,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
        // Vertice B4 
-        int indice = this.grafo.numVertice("B4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB4.setText(vertice.getEmoji());
@@ -1648,7 +1649,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC5ActionPerformed
          // Vertice C5
-        int indice = this.grafo.numVertice("C5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC5.setText(vertice.getEmoji());
@@ -1659,7 +1660,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB6ActionPerformed
         // Vertice B6
-        int indice = this.grafo.numVertice("B6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB6.setText(vertice.getEmoji());
@@ -1670,7 +1671,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB5ActionPerformed
       // Vertice B5
-        int indice = this.grafo.numVertice("B5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB5.setText(vertice.getEmoji());
@@ -1681,7 +1682,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB7ActionPerformed
        // Vertice B7
-        int indice = this.grafo.numVertice("B7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB7.setText(vertice.getEmoji());
@@ -1692,7 +1693,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB8ActionPerformed
         // Vertice B8
-        int indice = this.grafo.numVertice("B8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB8.setText(vertice.getEmoji());
@@ -1703,7 +1704,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC1ActionPerformed
        // Vertice C1
-        int indice = this.grafo.numVertice("C1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC1.setText(vertice.getEmoji());
@@ -1714,7 +1715,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB9ActionPerformed
        // Vertice B9
-        int indice = this.grafo.numVertice("B9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB9.setText(vertice.getEmoji());
@@ -1725,7 +1726,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB10ActionPerformed
        // Vertice B10
-        int indice = this.grafo.numVertice("B10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("B10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaB10.setText(vertice.getEmoji());
@@ -1736,7 +1737,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC2ActionPerformed
        // Vertice C2
-        int indice = this.grafo.numVertice("C2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC2.setText(vertice.getEmoji());
@@ -1747,7 +1748,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC3ActionPerformed
           // Vertice C3
-        int indice = this.grafo.numVertice("C3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC3.setText(vertice.getEmoji());
@@ -1758,7 +1759,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC4ActionPerformed
         // Vertice C4
-        int indice = this.grafo.numVertice("C4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC4.setText(vertice.getEmoji());
@@ -1769,7 +1770,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC6ActionPerformed
          // Vertice C6
-        int indice = this.grafo.numVertice("C6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC6.setText(vertice.getEmoji());
@@ -1780,7 +1781,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC7ActionPerformed
           // Vertice C7
-        int indice = this.grafo.numVertice("C7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC7.setText(vertice.getEmoji());
@@ -1791,7 +1792,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC9ActionPerformed
           // Vertice C9
-        int indice = this.grafo.numVertice("C9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC9.setText(vertice.getEmoji());
@@ -1802,7 +1803,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC8ActionPerformed
          // Vertice C8
-        int indice = this.grafo.numVertice("C8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("C8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaC8.setText(vertice.getEmoji());
@@ -1813,7 +1814,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD9ActionPerformed
         // Vertice D9
-        int indice = this.grafo.numVertice("D9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD9.setText(vertice.getEmoji());
@@ -1824,7 +1825,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD5ActionPerformed
         // Vertice D5
-        int indice = this.grafo.numVertice("D5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD5.setText(vertice.getEmoji());
@@ -1835,7 +1836,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD1ActionPerformed
           // Vertice D1
-        int indice = this.grafo.numVertice("D1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD1.setText(vertice.getEmoji());
@@ -1846,7 +1847,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD2ActionPerformed
           // Vertice D2
-        int indice = this.grafo.numVertice("D2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD2.setText(vertice.getEmoji());
@@ -1857,7 +1858,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE3ActionPerformed
           // Vertice E3
-        int indice = this.grafo.numVertice("E3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE3.setText(vertice.getEmoji());
@@ -1868,7 +1869,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD3ActionPerformed
          // Vertice D3
-        int indice = this.grafo.numVertice("D3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD3.setText(vertice.getEmoji());
@@ -1879,7 +1880,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD7ActionPerformed
         // Vertice D7
-        int indice = this.grafo.numVertice("D7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD7.setText(vertice.getEmoji());
@@ -1890,7 +1891,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD6ActionPerformed
        // Vertice D6
-        int indice = this.grafo.numVertice("D6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD6.setText(vertice.getEmoji());
@@ -1901,7 +1902,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD8ActionPerformed
        // Vertice D8
-        int indice = this.grafo.numVertice("D8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD8.setText(vertice.getEmoji());
@@ -1912,7 +1913,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE1ActionPerformed
        // Vertice E1
-        int indice = this.grafo.numVertice("E1"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E1"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE1.setText(vertice.getEmoji());
@@ -1923,7 +1924,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE2ActionPerformed
           // Vertice E2
-        int indice = this.grafo.numVertice("E2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE2.setText(vertice.getEmoji());
@@ -1934,7 +1935,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE4ActionPerformed
          // Vertice E4
-        int indice = this.grafo.numVertice("E4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE4.setText(vertice.getEmoji());
@@ -1945,7 +1946,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE5ActionPerformed
          // Vertice E5
-        int indice = this.grafo.numVertice("E5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE5.setText(vertice.getEmoji());
@@ -1956,7 +1957,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE6ActionPerformed
           // Vertice E6
-        int indice = this.grafo.numVertice("E6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE6.setText(vertice.getEmoji());
@@ -1967,7 +1968,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE7ActionPerformed
           // Vertice E7
-        int indice = this.grafo.numVertice("E7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE7.setText(vertice.getEmoji());
@@ -1978,7 +1979,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE8ActionPerformed
           // Vertice E8
-        int indice = this.grafo.numVertice("E8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE8.setText(vertice.getEmoji());
@@ -1989,7 +1990,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE9ActionPerformed
          // Vertice E9
-        int indice = this.grafo.numVertice("E9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE9.setText(vertice.getEmoji());
@@ -2000,7 +2001,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE10ActionPerformed
          // Vertice E10
-        int indice = this.grafo.numVertice("E10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("E10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaE10.setText(vertice.getEmoji());
@@ -2011,7 +2012,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF2ActionPerformed
            // Vertice F2
-        int indice = this.grafo.numVertice("F2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF2.setText(vertice.getEmoji());
@@ -2022,7 +2023,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF3ActionPerformed
           // Vertice F3
-        int indice = this.grafo.numVertice("F3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF3.setText(vertice.getEmoji());
@@ -2033,7 +2034,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD4ActionPerformed
           // Vertice D4
-        int indice = this.grafo.numVertice("D4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("D4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaD4.setText(vertice.getEmoji());
@@ -2044,7 +2045,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF4ActionPerformed
            // Vertice F4
-        int indice = this.grafo.numVertice("F4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F4");
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF4.setText(vertice.getEmoji());
@@ -2055,7 +2056,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF6ActionPerformed
            // Vertice F6
-        int indice = this.grafo.numVertice("F6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF6.setText(vertice.getEmoji());
@@ -2066,7 +2067,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF7ActionPerformed
            // Vertice F7
-        int indice = this.grafo.numVertice("F7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF7.setText(vertice.getEmoji());
@@ -2077,7 +2078,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF8ActionPerformed
            // Vertice F8
-        int indice = this.grafo.numVertice("F8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF8.setText(vertice.getEmoji());
@@ -2088,7 +2089,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF9ActionPerformed
            // Vertice F9
-        int indice = this.grafo.numVertice("F9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF9.setText(vertice.getEmoji());
@@ -2099,7 +2100,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF10ActionPerformed
           // Vertice F10
-        int indice = this.grafo.numVertice("F10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF10.setText(vertice.getEmoji());
@@ -2110,7 +2111,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG2ActionPerformed
         // Vertice G2
-        int indice = this.grafo.numVertice("G2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG2.setText(vertice.getEmoji());
@@ -2121,7 +2122,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG3ActionPerformed
        // Vertice G3
-        int indice = this.grafo.numVertice("G3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG3.setText(vertice.getEmoji());
@@ -2132,7 +2133,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF5ActionPerformed
            // Vertice F5
-        int indice = this.grafo.numVertice("F5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("F5");
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaF5.setText(vertice.getEmoji());
@@ -2143,7 +2144,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG4ActionPerformed
         // Vertice G4
-        int indice = this.grafo.numVertice("G4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG4.setText(vertice.getEmoji());
@@ -2154,7 +2155,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG6ActionPerformed
        // Vertice G6
-        int indice = this.grafo.numVertice("G6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG6.setText(vertice.getEmoji());
@@ -2165,7 +2166,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG7ActionPerformed
         // Vertice G7
-        int indice = this.grafo.numVertice("G7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG7.setText(vertice.getEmoji());
@@ -2176,7 +2177,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG8ActionPerformed
         // Vertice G8
-        int indice = this.grafo.numVertice("G8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG8.setText(vertice.getEmoji());
@@ -2187,7 +2188,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG9ActionPerformed
        // Vertice G9
-        int indice = this.grafo.numVertice("G9");// El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G9");
         try { 
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG9.setText(vertice.getEmoji());
@@ -2198,18 +2199,18 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG10ActionPerformed
         // Vertice G10
-        int indice = this.grafo.numVertice("G10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG10.setText(vertice.getEmoji());
         } catch (Exception ex) {
-            this.casillaG10.setVisible(false); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+            this.casillaG10.setVisible(false); 
         }
     }//GEN-LAST:event_casillaG10ActionPerformed
 
     private void casillaH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH2ActionPerformed
         // Vertice H2
-        int indice = this.grafo.numVertice("H2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH2.setText(vertice.getEmoji());
@@ -2220,7 +2221,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH3ActionPerformed
         // Vertice H3
-        int indice = this.grafo.numVertice("H3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH3.setText(vertice.getEmoji());
@@ -2231,7 +2232,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG5ActionPerformed
         // Vertice G5
-        int indice = this.grafo.numVertice("G5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("G5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaG5.setText(vertice.getEmoji());
@@ -2242,7 +2243,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH4ActionPerformed
         // Vertice H4
-        int indice = this.grafo.numVertice("H4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH4.setText(vertice.getEmoji());
@@ -2253,7 +2254,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH6ActionPerformed
         // Vertice H6
-        int indice = this.grafo.numVertice("H6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH6.setText(vertice.getEmoji());
@@ -2264,7 +2265,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH7ActionPerformed
        // Vertice H7
-        int indice = this.grafo.numVertice("H7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH7.setText(vertice.getEmoji());
@@ -2275,7 +2276,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH8ActionPerformed
         // Vertice H8
-        int indice = this.grafo.numVertice("H8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH8.setText(vertice.getEmoji());
@@ -2286,7 +2287,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH9ActionPerformed
         // Vertice H9
-        int indice = this.grafo.numVertice("H9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH9.setText(vertice.getEmoji());
@@ -2297,7 +2298,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH10ActionPerformed
         // Vertice H10
-        int indice = this.grafo.numVertice("H10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH10.setText(vertice.getEmoji());
@@ -2308,7 +2309,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI2ActionPerformed
         // Vertice I2
-        int indice = this.grafo.numVertice("I2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI2.setText(vertice.getEmoji());
@@ -2319,7 +2320,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI3ActionPerformed
        // Vertice I3
-        int indice = this.grafo.numVertice("I3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI3.setText(vertice.getEmoji());
@@ -2330,7 +2331,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaH5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH5ActionPerformed
        // Vertice H5
-        int indice = this.grafo.numVertice("H5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("H5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaH5.setText(vertice.getEmoji());
@@ -2341,7 +2342,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI4ActionPerformed
        // Vertice I4
-        int indice = this.grafo.numVertice("I4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI4.setText(vertice.getEmoji());
@@ -2352,7 +2353,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI6ActionPerformed
        // Vertice I6
-        int indice = this.grafo.numVertice("I6"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I6"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI6.setText(vertice.getEmoji());
@@ -2363,7 +2364,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI7ActionPerformed
        // Vertice I7
-        int indice = this.grafo.numVertice("I7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI7.setText(vertice.getEmoji());
@@ -2374,7 +2375,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI8ActionPerformed
         // Vertice I8
-        int indice = this.grafo.numVertice("I8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI8.setText(vertice.getEmoji());
@@ -2385,7 +2386,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI9ActionPerformed
         // Vertice I9
-        int indice = this.grafo.numVertice("I9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI9.setText(vertice.getEmoji());
@@ -2396,7 +2397,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI10ActionPerformed
         // Vertice I0
-        int indice = this.grafo.numVertice("I10"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I10"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI10.setText(vertice.getEmoji());
@@ -2407,7 +2408,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ2ActionPerformed
            // Vertice J2
-        int indice = this.grafo.numVertice("J2"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J2"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ2.setText(vertice.getEmoji());
@@ -2418,7 +2419,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ3ActionPerformed
            // Vertice J3
-        int indice = this.grafo.numVertice("J3"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J3"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ3.setText(vertice.getEmoji());
@@ -2429,7 +2430,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI5ActionPerformed
         // Vertice I5
-        int indice = this.grafo.numVertice("I5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("I5");
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaI5.setText(vertice.getEmoji());
@@ -2440,7 +2441,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ4ActionPerformed
           // Vertice J4
-        int indice = this.grafo.numVertice("J4"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J4"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ4.setText(vertice.getEmoji());
@@ -2451,7 +2452,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ5ActionPerformed
            // Vertice J5
-        int indice = this.grafo.numVertice("J5"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J5"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ5.setText(vertice.getEmoji());
@@ -2462,7 +2463,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ7ActionPerformed
            // Vertice J7
-        int indice = this.grafo.numVertice("J7"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J7"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ7.setText(vertice.getEmoji());
@@ -2473,7 +2474,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ8ActionPerformed
           // Vertice J8
-        int indice = this.grafo.numVertice("J8"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J8"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ8.setText(vertice.getEmoji());
@@ -2484,7 +2485,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ9ActionPerformed
           // Vertice J9
-        int indice = this.grafo.numVertice("J9"); // El método `numVertice` busca el vértice y devuelve su posición (índice) en la estructura del grafo.
+        int indice = this.grafo.numVertice("J9"); 
         try {
             Vertice vertice = this.grafo.DevuelveVertice(indice);
             this.casillaJ9.setText(vertice.getEmoji());
@@ -2494,6 +2495,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     }//GEN-LAST:event_casillaJ9ActionPerformed
 
     /**
+     * Configura el Look and Feel (apariencia) de la aplicacion
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -2505,19 +2507,19 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         try {
     
     for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) { // Recorre todos los look and feels instalados en el sistema.
-        if ("Nimbus".equals(info.getName()))  {  // Busca el look and feel llamado "Nimbus".
-            // Si encuentra "Nimbus", lo establece como el look and feel actual.
+        if ("Nimbus".equals(info.getName()))  { 
+            
             javax.swing.UIManager.setLookAndFeel(info.getClassName());
-            break; // Sale del bucle una vez que se ha establecido "Nimbus".
+            break; 
         }
     }
-    } catch (ClassNotFoundException ex) { // Captura una excepción si la clase del look and feel no se encuentra.
+    } catch (ClassNotFoundException ex) { 
         java.util.logging.Logger.getLogger(Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) { // Captura una excepción si no se puede crear una instancia del look and feel.
+    } catch (InstantiationException ex) { 
         java.util.logging.Logger.getLogger(Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {  // Captura una excepción si no se tiene acceso a la clase del look and feel.
+    } catch (IllegalAccessException ex) {  
         java.util.logging.Logger.getLogger(Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) { // Captura una excepción si el look and feel no es compatible con el sistema.
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) { 
         java.util.logging.Logger.getLogger(Juego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
         
