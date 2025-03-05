@@ -23,4 +23,6 @@ public class Arista { //indice del vector al que apunta la arista
             Arista a = (Arista) n; 
             return destino == a.destino; 
 }
+        //pruebaaaaa
+        
 }
