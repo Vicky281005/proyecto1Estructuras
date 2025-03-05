@@ -14,18 +14,27 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
     private int nroFilas, nroColumnas, nroMinas;
 
-    public BuscaminasInterfaz() {//Constructor de la clase Buscaminas Interfaz
+        /**
+     * Constructor de la clase BuscaminasInterfaz.
+     * Inicializa los componentes de la interfaz y establece los parámetros del juego por defecto.
+     */
+    public BuscaminasInterfaz() {
         initComponents();
         this.nroFilas = 10;
         this.nroColumnas = 10;
         this.nroMinas = 35;
         
     }
-    /**
-     * Constructor de la clase Buscaminas Interfaz
-     * @param nroFilas
-     * @param nroColumnas
-     * @param nroMinas 
+    
+        /**
+     * Constructor de la clase BuscaminasInterfaz.
+     * 
+     * @param nroFilas El número de filas del tablero.
+     * @param nroColumnas El número de columnas del tablero.
+     * @param nroMinas El número de minas en el tablero.
+     * 
+     * Inicializa los componentes de la interfaz y establece los parámetros del juego 
+     * con los valores proporcionados.
      */
     public BuscaminasInterfaz(int nroFilas, int nroColumnas, int nroMinas) {
 
@@ -132,7 +141,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 arregloVectores[contador] = concatenacion;//Almacena la posición la posicion en el arreglo
                 contador++;//Incrementa el contador para la siguiente posición del arreglo
                 
-                // TODO: continuar mas tarde por vicky
+                
             }
         }
         
@@ -158,11 +167,16 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-/**
- * Dirige al usuario a la configuración del tablero
- * @param evt 
- */
+
+   
+        /**
+     * Maneja el evento de acción para el botón de configuración.
+     * 
+     * @param evt El evento de acción que activó este método.
+     * Este método dirige al usuario a la configuración del tablero, crea una nueva instancia de la clase Configuracion, la hace visible, centra la ventana en la pantalla y cierra la ventana actual.
+     */
     private void btnConfiguraciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguraciónActionPerformed
+
         Configuracion confi = new Configuracion();
         confi.setVisible(true);
         confi.setLocationRelativeTo(null);
