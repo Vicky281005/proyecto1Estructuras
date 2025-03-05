@@ -27,9 +27,9 @@ public class Arbol {
     }
       
     /**
-     * 
-     * @param raiz
-     * @param newNodo 
+     * Inserta un nuevo nodo en el arbol binario
+     * @param raiz Nodo raiz del arbol actual
+     * @param newNodo Nodo nuevo que se va a insertar
      */
     
       public void insertar(NodoArbol raiz, NodoArbol newNodo){
@@ -46,20 +46,19 @@ public class Arbol {
                   if (raiz.getDerecho()== null){
                       raiz.setDerecho(newNodo);
                   }else{
-                      insertar(raiz.getDerecho(), newNodo); ////
+                      insertar(raiz.getDerecho(), newNodo); 
                   }
-              
               }else{
                   System.out.println("EL ELEMENTO YA ESTA EN EL ARBOL");
               }
           }
       }
       /**
-       * 
-       * @param aux
-       * @param data
-       * @param nivel
-       * @return 
+       * Obtiene el nivel de un nodo en un árbol binario de búsqueda dado su valor
+       * @param aux Nodo actual del arbol
+       * @param data valor del nodo que se busca
+       * @param nivel Nivel actual del nodo
+       * @return El nivel del nodo se encuentra
        */
       
       public int getNodoNivel(NodoArbol aux, int data, int nivel){

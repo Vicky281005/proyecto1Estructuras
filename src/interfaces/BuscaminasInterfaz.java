@@ -9,7 +9,8 @@ import grafo.Grafo;
  *
  * @author jmmor
  */
-public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la clase BuscaminasInterfaz
+public class BuscaminasInterfaz extends javax.swing.JFrame {
+// Atributos de la clase BuscaminasInterfaz
 
     private int nroFilas, nroColumnas, nroMinas;
 
@@ -53,6 +54,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
@@ -62,6 +64,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
+        btnJugar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +75,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +86,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
+        btnConfiguración.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfiguración.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfiguración.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +97,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
 
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnCargar.setText("Cargar Juego");
+        btnCargar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.NE_RESIZE_CURSOR));
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +112,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {// Atributos de la c
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Dirige al jugador a jugar
+     * Dirige al jugador a la ventana para jugar
      * @param evt 
      */
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed

@@ -14,8 +14,14 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private int nroFilas, nroColumnas, nroMinas;
     boolean bandera;
     Grafo grafo;
-
-    public Juego(int nroFilas, int nroColumnas, int nroMinas, Grafo grafo) { // Constructor de la clase Juego
+/**
+ * Constructor de la clase Juego
+ * @param nroFilas
+ * @param nroColumnas
+ * @param nroMinas
+ * @param grafo 
+ */
+    public Juego(int nroFilas, int nroColumnas, int nroMinas, Grafo grafo) { 
         initComponents();
         this.nroFilas = nroFilas;
         this.nroColumnas = nroColumnas;
@@ -201,6 +207,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnInicio.setText("Volver a Inicio");
+        btnInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,6 +226,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnGuardar.setText("Guardar juego");
+        btnGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +237,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
         btnBandera.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnBandera.setText("Bandera");
+        btnBandera.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBandera.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBandera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1031,6 +1040,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
         TrueOrFalse.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
         TrueOrFalse.setText("FALSE");
+        TrueOrFalse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));

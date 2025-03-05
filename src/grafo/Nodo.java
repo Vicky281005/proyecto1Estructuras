@@ -18,7 +18,7 @@ public class Nodo<T> { // Atributos de la clase Nodo
      * Se encarga de modificar la data de un nodo
      * @param data 
      */
-    public void setData(T data) { // Modifica la data de un nodo
+    public void setData(T data) { 
         this.data = data;
     }
     /**

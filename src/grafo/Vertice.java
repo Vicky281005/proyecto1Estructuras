@@ -33,7 +33,7 @@ public class Vertice { // Atributos de la clase vertice
          * Obtiene el emoji de si es bomba o no
          * @return emoji de bomba o vacio
          */
-        public String getEmoji() { // Obtiene el emoji de si es bomba o no y retorna emoji de bomba o vacio
+        public String getEmoji() { 
             return emoji;
         }
         
