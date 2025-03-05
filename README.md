@@ -10,7 +10,7 @@ java.swing.JOptionPane
 
 java.GraphStream
 
-java.r
+java.random
 
 Si presentan problemas al momento de instalar la libreria de GraphStream se puede instalar por el siguiente link:
 https://graphstream-project.org/download/
