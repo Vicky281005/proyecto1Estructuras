@@ -29,7 +29,32 @@ public class Grafo {
         maxVertices= maxV;
     }
         
+//getters y setters 
+    public int getNumVertices() {
+        return numVertices;
+    }
 
+    public void setNumVertices(int numVertices) {
+        this.numVertices = numVertices;
+    }
+
+    public int getMaxVertices() {
+        return maxVertices;
+    }
+
+    public void setMaxVertices(int maxVertices) {
+        this.maxVertices = maxVertices;
+    }
+
+    public Vertice[] getVectorDeAdyacencia() {
+        return vectorDeAdyacencia;
+    }
+
+    public void setVectorDeAdyacencia(Vertice[] vectorDeAdyacencia) {
+        this.vectorDeAdyacencia = vectorDeAdyacencia;
+    }
+ // hasta aquí son los getters y setters   
+    
     public Vertice DevuelveVertice(int v) throws Exception { //Devuelve el vertice v, el cual es el indice del vertice a buscar y throws es una exepcion cuando indez esta fuera de rango.
          if (v<0 || v>= numVertices){
              throw new Exception("Vertice fuera de rango" );  
@@ -147,6 +172,7 @@ public class Grafo {
              System.out.println("null");
          }
      }
+
      
      
 }

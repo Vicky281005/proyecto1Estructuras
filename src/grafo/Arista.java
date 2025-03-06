@@ -23,6 +23,14 @@ public class Arista { //indice del vector al que apunta la arista
             Arista a = (Arista) n; 
             return destino == a.destino; 
 }
-        //pruebaaaaa
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Arista{");
+        sb.append("destino=").append(destino);
+        sb.append('}');
+        return sb.toString();
+    }
         
 }
