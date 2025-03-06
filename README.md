@@ -10,9 +10,9 @@ java.swing.JToggleButton
 
 java.swing.JOptionPane
 
-java.GraphStream
+org.graphstream.graph.Graph
 
-java.random
+org.graphstream.graph.implementations.SingleGraph
 
 Si presentan problemas al momento de instalar la libreria de GraphStream se puede instalar por el siguiente link:
 https://graphstream-project.org/download/
