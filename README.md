@@ -1,5 +1,7 @@
 Bienvenido a nuestro proyecto de Estructuras de Datos:
 
+Integrantes: Juan Moreira, Maria Victoria Almonte, Mishel Monaco
+
 El cual fue realizado en la versión Apache Netbeans IDE 24 y la version 23 del JDK.
 
 En el proyecto no puede correr sin la importación de liberias como:
