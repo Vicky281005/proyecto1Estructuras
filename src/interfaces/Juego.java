@@ -5,7 +5,8 @@ import grafo.Grafo;
 import grafo.Vertice;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
-
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.implementations.SingleGraph;
 /**
  *
  * @author jmmor
