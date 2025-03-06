@@ -1,13 +1,15 @@
 
 package arbol;
 
+import grafo.Nodo;
+
 /**
  *
  * @author NITRO V 15
  */
 public class Cola {
 // Atributos de la clase Cola
-    private NodoCola frente, finalCola;
+    private Nodo frente, finalCola;
     
     private class NodoCola{
         NodoArbol valor;
@@ -32,10 +34,10 @@ public class Cola {
      * Añade nuevos elementos a la cola
      * @param valor 
      */
-    public void encolar(NodoArbol valor){
-        NodoCola nuevo= new NodoCola(valor);
+    public void encolar(Nodo valor){
+        Nodo nuevo= new Nodo(valor);
         if (finalCola != null){
-            finalCola.siguiente=nuevo;
+            finalCola.setpNext(nuevo);
         }
         finalCola=nuevo;
         if(frente== null){
@@ -46,12 +48,12 @@ public class Cola {
      * Elimina los elementos de la cola
      * @return 
      */
-    public NodoArbol desencolar(){
+    public Nodo desencolar(){
         if (frente== null){
             return null; // la cola esta vacia :)
         }
-        NodoArbol valor=frente.valor;
-        frente= frente.siguiente;
+        Nodo valor = frente;
+        frente= frente.getpNext();
         if(frente==null){
             finalCola=null;
         }

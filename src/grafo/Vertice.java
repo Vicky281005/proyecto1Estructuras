@@ -10,7 +10,7 @@ public class Vertice { // Atributos de la clase vertice
     private int numeroVertice;
     private boolean soyUnaBomba;
     private String emoji;
-     ListaEnlazada<Object> lad;
+    public ListaEnlazada<Object> lad;
     
 
         public Vertice(String nom){ // Es el constructor, se encarga de crear un nuevo vertice y nom es el nombre del vertice

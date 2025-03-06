@@ -2,7 +2,11 @@
 package interfaces;
 
 import grafo.Grafo;
+import grafo.ListaEnlazada;
+import grafo.Nodo;
 import grafo.Vertice;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import org.graphstream.graph.Graph;
@@ -195,6 +199,8 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         casillaJ8 = new javax.swing.JToggleButton();
         casillaJ9 = new javax.swing.JToggleButton();
         TrueOrFalse = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1043,6 +1049,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         TrueOrFalse.setText("FALSE");
         TrueOrFalse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
+
+        jButton1.setText("DFS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
+
+        jButton2.setText("BFS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 
@@ -2495,6 +2517,51 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         }
     }//GEN-LAST:event_casillaJ9ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String nombre = "A3";
+        try {
+            ListaEnlazada visitados = grafo.DFS(nombre);
+            Nodo aux = visitados.getpFirst();
+            while (aux != null){
+                String nombreCasilla = aux.getData().toString();
+                /*
+                Buscas la casilla con este nombre y muestras su valor,
+                es decir, si no hay bombas adyacentes se muestra vacia. 
+                Si tiene x bombas adyacentes, se muestra ese numero.
+                En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
+                */
+                
+                aux = aux.getpNext();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String nombre = "A3";
+        try {
+            ListaEnlazada visitados = grafo.BFS(nombre);
+            Nodo aux = visitados.getpFirst();
+            while (aux != null){
+                String nombreCasilla = aux.getData().toString();
+                /*
+                Buscas la casilla con este nombre y muestras su valor,
+                es decir, si no hay bombas adyacentes se muestra vacia. 
+                Si tiene x bombas adyacentes, se muestra ese numero.
+                En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
+                */
+                
+                aux = aux.getpNext();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * Configura el Look and Feel (apariencia) de la aplicacion
      * @param args the command line arguments
@@ -2631,6 +2698,8 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private javax.swing.JToggleButton casillaJ7;
     private javax.swing.JToggleButton casillaJ8;
     private javax.swing.JToggleButton casillaJ9;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

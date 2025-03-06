@@ -95,26 +95,26 @@ public class Arbol {
        * @param dataBuscado El valor del dato que se desea buscar en el árbol.
        * @return El dato del nodo encontrado si existe un nodo con el valor especificado, o null si el valor no está en el árbol.
        */
-      public Object busquedaEnAmplitud(int dataBuscado) {
-            if (raiz == null) { 
-                return null; 
-            }
-            Cola cola = new Cola();
-            cola.encolar(raiz); 
-            while (!cola.estaVacia()) {
-                NodoArbol nodoActual = cola.desencolar(); 
-                if (nodoActual.getData() == dataBuscado) {
-                    return nodoActual.getData(); 
-                }
-                if (nodoActual.getIzquierdo() != null) {
-                    cola.encolar(nodoActual.getIzquierdo());
-                }
-                if (nodoActual.getDerecho() != null) {
-                    cola.encolar(nodoActual.getDerecho());
-                }
-            }
-            return null; 
-            }
+//      public Object busquedaEnAmplitud(int dataBuscado) {
+//            if (raiz == null) { 
+//                return null; 
+//            }
+//            Cola cola = new Cola();
+//            cola.encolar(raiz); 
+//            while (!cola.estaVacia()) {
+//                NodoArbol nodoActual = cola.desencolar(); 
+//                if (nodoActual.getData() == dataBuscado) {
+//                    return nodoActual.getData(); 
+//                }
+//                if (nodoActual.getIzquierdo() != null) {
+//                    cola.encolar(nodoActual.getIzquierdo());
+//                }
+//                if (nodoActual.getDerecho() != null) {
+//                    cola.encolar(nodoActual.getDerecho());
+//                }
+//            }
+//            return null; 
+//            }
       
             /**
        * Realiza una búsqueda en profundidad en el árbol binario  para encontrar un nodo con un valor específico.

@@ -1,4 +1,3 @@
-
 package grafo;
 
 /**
@@ -6,85 +5,97 @@ package grafo;
  * @author NITRO V 15
  * @param <T>
  */
-public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
-       private Nodo pFirst;
-       private Nodo pLast;
-       private int size;
-       
-        /**
-        * Constructor
-        * Crea una lista vacia
-        */
-    public ListaEnlazada(){ 
+public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
+
+    private Nodo pFirst;
+    private Nodo pLast;
+    private int size;
+
+    /**
+     * Constructor Crea una lista vacia
+     */
+    public ListaEnlazada() {
         this.pFirst = this.pLast = null;
     }
-       
-     /**
-        * Constructor
-        * Crea una lista con un solo elemento
-        * @param n Nodo que se aniadira
-        */
-    public ListaEnlazada(Nodo<T> n){ 
-        this.pFirst=this.pLast= n;
+
+    /**
+     * Constructor Crea una lista con un solo elemento
+     *
+     * @param n Nodo que se aniadira
+     */
+    public ListaEnlazada(Nodo<T> n) {
+        this.pFirst = this.pLast = n;
     }
-     
+
     /**
      * Devuelve el primer nodo de la lista
+     *
      * @return el primer nodo
      */
-    public Nodo getpFirst() { 
+    public Nodo getpFirst() {
         return pFirst;
     }
-    
-     /**
+
+    /**
      * Devuelve el ultimo nodo de la lista
+     *
      * @return el ultimo nodo
      */
-    public Nodo getpLast() { 
+    public Nodo getpLast() {
         return pLast;
     }
 
-      /**
-     * Devuelve el tamaño de la lista 
+    /**
+     * Devuelve el tamaño de la lista
+     *
      * @return int tamaño de la lista
      */
-    public int getSize() { 
+    public int getSize() {
         return size;
     }
+
     /**
      * Modificar la data del primer nodo
-     * @param pFirst 
+     *
+     * @param pFirst
      */
-    public void setpFirst(Nodo pFirst) {  
+    public void setpFirst(Nodo pFirst) {
         this.pFirst = pFirst;
     }
-     /**
+
+    /**
      * Modificar la data del ultimo nodo
-     * @param pLast 
+     *
+     * @param pLast
      */
-    public void setpLast(Nodo pLast) { 
+    public void setpLast(Nodo pLast) {
         this.pLast = pLast;
     }
-    
+
     /**
      * Modifica el tamaño de la lista
-     * @param size 
+     *
+     * @param size
      */
-    public void setSize(int size) { 
+    public void setSize(int size) {
         this.size = size;
     }
+
     /**
      * Revisa si la lista esta vacia o no
+     *
      * @return True si esta vacia, false si no
      */
-    public boolean isEmpty(){ 
-        return this.pFirst== null;
+    public boolean isEmpty() {
+        return this.pFirst == null;
     }
-     /**
+
+    /**
      * Se encarga de añadir un nodo en el primer lugar de una lista
-     * @param dato 
-     */     
-    public void addFirst(T dato) { 
+     *
+     * @param dato
+     */
+    public void addFirst(T dato) {
         Nodo<T> n = new Nodo(dato);
         if (isEmpty()) {
             this.pFirst = n;
@@ -93,43 +104,58 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
             this.pLast.setpNext(null);
         } else {
             n.setpNext(this.pFirst);
-            this.pFirst= n;
-            }
+            this.pFirst = n;
+        }
         size++;
-      }
-    
+    }
+
+    public void addLast(T dato) {
+        Nodo<T> n = new Nodo(dato);
+        if (isEmpty()) {
+            this.pFirst = n;
+            this.pLast = n;
+        }
+        else{
+            this.pLast.setpNext(n);
+        }
+        size++;
+    }
+
     /**
      * Busca si existe la arista en la lista enlazada
+     *
      * @param arista
-     * @return 
+     * @return
      */
-    public boolean contains(Arista arista){
+    public boolean contains(Arista arista) {
 
         Nodo aux = this.pFirst;
-        
-        boolean yaExiste = false; 
 
-        for (int i = 0; i < size; i++){
-            
+        boolean yaExiste = false;
+
+        for (int i = 0; i < size; i++) {
+
             Arista aux2 = (Arista) aux.getData();
-            if (aux2.destino == arista.destino){
+            if (aux2.destino == arista.destino) {
                 yaExiste = true;
             }
             aux = aux.getpNext();
         }
-        return yaExiste; 
+        return yaExiste;
     }
+
     /**
      * Remueve la Arista, ya creada
+     *
      * @param arista
-     * @return 
+     * @return
      */
-    
-    public Arista removeArista(Arista arista){
 
-        if (this.isEmpty()){ 
+    public Arista removeArista(Arista arista) {
+
+        if (this.isEmpty()) {
             return null;
-        } else if (((Arista) pFirst.getData()).destino == arista.destino){
+        } else if (((Arista) pFirst.getData()).destino == arista.destino) {
             Arista aristaARetornar = (Arista) pFirst.getData();
             this.pFirst = pFirst.getpNext() != null ? this.pFirst.getpNext() : null;
             size--;
@@ -141,7 +167,7 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
             while (aux != null) {
                 if (((Arista) aux.getData()).destino == arista.destino) {
                     prevaux.setpNext(aux.getpNext());
-                    if (aux.getpNext() == null){
+                    if (aux.getpNext() == null) {
                         this.pLast = prevaux;
                     }
                     size--;
@@ -151,10 +177,29 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
                 aux = aux.getpNext();
             }
             return null;
-        } 
+        }
     }
 
+    public int bombasAdy(Grafo g) throws Exception {
+        Nodo aux = this.getpFirst();
+        int b = 0;
+        while (aux != null) {
+            if (g.DevuelveVertice2((aux.getData().toString())).isSoyUnaBomba()) {
+                b++;
+            }
+            aux = aux.getpNext();
+        }
+        return b;
+    }
     
+    public boolean buscar(String ind){
+        Nodo aux = this.getpFirst();
+        while (aux != null) {
+            if (aux.getData().toString().equals(ind)) {
+               return true;
+            }
+            aux = aux.getpNext();
+        }
+        return false;
+    }
 }
-
-
