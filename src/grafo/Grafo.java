@@ -32,10 +32,33 @@ public class Grafo {
         maxVertices = maxV;
     }
 
+    /**
+     * Añadí getters y setters que no estaban y los necesitaba
+     * @return 
+     */
+    public int getNumVertices() {
+        return numVertices;
+    }
+
+    public void setNumVertices(int numVertices) {
+        this.numVertices = numVertices;
+    }
+
+    public int getMaxVertices() {
+        return maxVertices;
+    }
+
+    public void setMaxVertices(int maxVertices) {
+        this.maxVertices = maxVertices;
+    }
+    
     public Vertice[] getVectorDeAdyacencia() {
         return vectorDeAdyacencia;
     }
     
+    public void setVectorDeAdyacencia(Vertice[] vectorDeAdyacencia) {
+        this.vectorDeAdyacencia = vectorDeAdyacencia;
+    }
     
     
     /**
@@ -437,19 +460,5 @@ public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
 //        return listaVisitados;
 //    }
 
-    public int getNumVertices() {
-        return numVertices;
-    }
-
-    public void setNumVertices(int numVertices) {
-        this.numVertices = numVertices;
-    }
-
-    public int getMaxVertices() {
-        return maxVertices;
-    }
-
-    public void setMaxVertices(int maxVertices) {
-        this.maxVertices = maxVertices;
-    }
+    
 }
