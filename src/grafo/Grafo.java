@@ -56,6 +56,7 @@ public class Grafo {
         return vectorDeAdyacencia;
     }
     
+
     public void setVectorDeAdyacencia(Vertice[] vectorDeAdyacencia) {
         this.vectorDeAdyacencia = vectorDeAdyacencia;
     }
@@ -460,5 +461,4 @@ public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
 //        return listaVisitados;
 //    }
 
-    
 }
