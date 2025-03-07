@@ -1474,7 +1474,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                     Vertice v = grafo.devuelveVerticePorNombre("B3");
                     
                     System.out.println("hola");
-                    System.out.println(v.lad.getSize());
+                    System.out.println(v.getLad().getSize());
                     
                     
                     
@@ -2607,7 +2607,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             if (vertice.isSoyUnaBomba()) {
                 System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
             } else {
-                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
+                int bombasAdyacentes = vertice.getLad().bombasAdy(grafo);
                 if (bombasAdyacentes == 0) {
                     System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
                 } else {
@@ -2643,7 +2643,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
             } else {
                
-                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
+                int bombasAdyacentes = vertice.getLad().bombasAdy(grafo);
 
                 if (bombasAdyacentes == 0) {
                     System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");

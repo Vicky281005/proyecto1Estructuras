@@ -236,7 +236,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
         if (v1 < 0 || v2 < 0) {
             throw new Exception("El vertice no existe");
         }
-        return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2));
+        return this.vectorDeAdyacencia[v1].getLad().contains(new Arista(v2));
     }
 
     /**
@@ -248,7 +248,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
      * @throws Exception
      */
     boolean adyacentePorNumero(int v1, int v2) throws Exception {
-        if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))) {
+        if (this.vectorDeAdyacencia[v1].getLad().contains(new Arista(v2))) {
             return true;
         } else {
             return false;
@@ -272,7 +272,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
                 throw new Exception("El veertice no existe");
             }
             Arista ab = new Arista(v2);
-            this.vectorDeAdyacencia[v1].lad.addFirst(ab);
+            this.vectorDeAdyacencia[v1].getLad().addFirst(ab);
         } else {
             System.out.println("ya existe");
         }
@@ -292,7 +292,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             throw new Exception("El vertice no existe");
         }
         Arista ab = new Arista(v2);
-        Arista arista = this.vectorDeAdyacencia[v1].lad.removeArista(ab);
+        Arista arista = this.vectorDeAdyacencia[v1].getLad().removeArista(ab);
         System.out.print("eliminado:");
         if (arista != null) {
             System.out.print(arista.destino);
@@ -311,7 +311,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             System.out.print("Vertice " + vertice.nombreVertice() + " (" + i + ") -> ");
 
             // Recorrer las aristas del vértice actual
-            Nodo aux = vertice.lad.getpFirst();
+            Nodo aux = vertice.getLad().getpFirst();
             while(aux!= null){
                 System.out.print(" -- " + aux.getData().toString());
                 aux = aux.getpNext();
@@ -370,11 +370,11 @@ public void recorridoDFS(ListaEnlazada lista, Vertice v, boolean[] visitados) {
     visitados[this.numVertice(v.nombreVertice())] = true;
     lista.addLast(this.numVertice(v.nombreVertice())); 
     
-    Nodo aux = v.lad.getpFirst();
+    Nodo aux = v.getLad().getpFirst();
     while (aux != null) {
         try {
             Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
-            if (!visitados[this.numVertice(vecino.nombreVertice())] && vecino.lad.bombasAdy(this) == 0) {
+            if (!visitados[this.numVertice(vecino.nombreVertice())] && vecino.getLad().bombasAdy(this) == 0) {
                 recorridoDFS(lista, vecino, visitados); 
             }
         } catch (Exception ex) {
@@ -405,7 +405,7 @@ public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
         System.out.println("Te conte");
         listaVisitados.addLast(this.numVertice(actual.nombreVertice())); 
 
-        Nodo aux = actual.lad.getpFirst();
+        Nodo aux = actual.getLad().getpFirst();
         while (aux != null) {
             try {
                 Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
@@ -460,5 +460,6 @@ public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
 //
 //        return listaVisitados;
 //    }
+
 
 }
