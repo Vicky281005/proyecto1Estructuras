@@ -150,6 +150,8 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
  * Función que crea las adyacencias
  * Conecta las vertices con sus adyacentes, en todos los lado: diagonales, arriba, abajo, izquierda y derecha
  */
+
+//Inserta todas las casillas en el grafo
         for (int fila = 0; fila < this.nroFilas; fila++) {
             for (int columna = 0; columna < this.nroColumnas; columna++) {
                 String actual = filasCoordenadas[columna] + String.valueOf(fila+1);
@@ -162,6 +164,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                     {1, -1}, {1, 0}, {1, 1} // Lados: diagonal abajo izauierda, abajo (recto), diagonal abajo derecha
                 };
 
+// Conecta las casillas con sus adyacentes
                 for (int[] mov : movimientos) {
                     int nuevaFila = fila + mov[0];
                     int nuevaColumna = columna + mov[1];
