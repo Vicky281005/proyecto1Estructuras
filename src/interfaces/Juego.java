@@ -5,8 +5,6 @@ import grafo.Grafo;
 import grafo.ListaEnlazada;
 import grafo.Nodo;
 import grafo.Vertice;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import org.graphstream.graph.Graph;
@@ -199,8 +197,8 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         casillaJ8 = new javax.swing.JToggleButton();
         casillaJ9 = new javax.swing.JToggleButton();
         TrueOrFalse = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        DFS = new javax.swing.JButton();
+        BFS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1050,21 +1048,25 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         TrueOrFalse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
 
-        jButton1.setText("DFS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        DFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        DFS.setText("DFS");
+        DFS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        DFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                DFSActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
+        jPanel1.add(DFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 30, -1));
 
-        jButton2.setText("BFS");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        BFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        BFS.setText("BFS");
+        BFS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                BFSActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+        jPanel1.add(BFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 
@@ -1436,7 +1438,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             this.casillaJ6.setText(vertice.getEmoji());
         } catch (Exception ex) { 
             this.casillaJ6.setVisible(false);
-        }
+        }        
     }//GEN-LAST:event_casillaJ6ActionPerformed
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
@@ -2516,51 +2518,91 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             this.casillaJ9.setVisible(false);
         }
     }//GEN-LAST:event_casillaJ9ActionPerformed
+/**
+ * 
+ * @param evt 
+ */
+    private void DFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DFSActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        String nombre = "A3";
-        try {
-            ListaEnlazada visitados = grafo.DFS(nombre);
-            Nodo aux = visitados.getpFirst();
-            while (aux != null){
-                String nombreCasilla = aux.getData().toString();
-                /*
+        /*
                 Buscas la casilla con este nombre y muestras su valor,
                 es decir, si no hay bombas adyacentes se muestra vacia. 
                 Si tiene x bombas adyacentes, se muestra ese numero.
                 En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
                 */
-                
-                aux = aux.getpNext();
-            }
-        } catch (Exception ex) {
-            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                 
+        String nombre = "A3"; 
+    try {
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        ListaEnlazada visitados = grafo.DFS(nombre);
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        String nombre = "A3";
-        try {
-            ListaEnlazada visitados = grafo.BFS(nombre);
-            Nodo aux = visitados.getpFirst();
-            while (aux != null){
-                String nombreCasilla = aux.getData().toString();
-                /*
-                Buscas la casilla con este nombre y muestras su valor,
-                es decir, si no hay bombas adyacentes se muestra vacia. 
-                Si tiene x bombas adyacentes, se muestra ese numero.
-                En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
-                */
-                
-                aux = aux.getpNext();
+        Nodo aux = visitados.getpFirst();
+       
+        while (aux != null) {
+            
+            String nombreCasilla = aux.getData().toString();
+
+            int indiceVertice = Integer.parseInt(nombreCasilla);
+
+            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
+            
+            if (vertice.isSoyUnaBomba()) {
+                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+            } else {
+                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
+                if (bombasAdyacentes == 0) {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+                } else {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+                }
             }
-        } catch (Exception ex) {
-            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+
+            aux = aux.getpNext();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    } catch (Exception ex) {
+        System.out.println("Error: " + ex.getMessage());      
+    }
+    }//GEN-LAST:event_DFSActionPerformed
+/**
+ * 
+ * @param evt 
+ */
+    private void BFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BFSActionPerformed
+   String nombre = "A3"; // Nombre del vértice de inicio
+    try {
+      
+        ListaEnlazada<Integer> visitados = grafo.BFS(nombre);
+
+        Nodo aux = visitados.getpFirst();
+
+        while (aux != null) {
+            
+            int indiceVertice = (int) aux.getData(); 
+
+            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
+
+            if (vertice.isSoyUnaBomba()) {
+                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+            } else {
+               
+                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
+
+                if (bombasAdyacentes == 0) {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+                } else {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+                }
+            }
+
+            aux = aux.getpNext();
+        }
+    } catch (Exception ex) {
+      
+        System.err.println("Error: " + ex.getMessage());
+        
+    }
+
+    }//GEN-LAST:event_BFSActionPerformed
 
     /**
      * Configura el Look and Feel (apariencia) de la aplicacion
@@ -2594,6 +2636,8 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BFS;
+    private javax.swing.JButton DFS;
     private javax.swing.JButton TrueOrFalse;
     private javax.swing.JButton btnBandera;
     private javax.swing.JButton btnGuardar;
@@ -2698,8 +2742,6 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private javax.swing.JToggleButton casillaJ7;
     private javax.swing.JToggleButton casillaJ8;
     private javax.swing.JToggleButton casillaJ9;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

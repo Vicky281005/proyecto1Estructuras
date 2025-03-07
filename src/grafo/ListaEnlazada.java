@@ -150,7 +150,6 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
      * @param arista
      * @return
      */
-
     public Arista removeArista(Arista arista) {
 
         if (this.isEmpty()) {
@@ -179,7 +178,12 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
             return null;
         }
     }
-
+/**
+ * Obtiene el primer nodo de una lista enlazada
+ * @param g
+ * @return
+ * @throws Exception 
+ */
     public int bombasAdy(Grafo g) throws Exception {
         Nodo aux = this.getpFirst();
         int b = 0;
@@ -191,7 +195,11 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         }
         return b;
     }
-    
+    /**
+     * Busca los nodos dentro de la lista enlazada
+     * @param ind
+     * @return 
+     */
     public boolean buscar(String ind){
         Nodo aux = this.getpFirst();
         while (aux != null) {

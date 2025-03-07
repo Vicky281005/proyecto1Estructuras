@@ -23,7 +23,12 @@ public class Arista { //indice del vector al que apunta la arista
         public String toString(){
             return String.valueOf(destino);
         }
-        public boolean equeals(Object n) { //Método para comparar si dos objetos de tipo Arista son iguales.
+        /**
+         * Compara si 2 objetos de tipo arista son iguales
+         * @param n
+         * @return 
+         */
+        public boolean equeals(Object n) { 
             Arista a = (Arista) n; 
             return destino == a.destino; 
 }

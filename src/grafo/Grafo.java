@@ -274,7 +274,9 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             System.out.println("null");
         }
     }
-
+/**
+ * Imprime el grafo
+ */
     
     public void imprimirGrafo() {
         System.out.println("Grafo:");
@@ -320,32 +322,34 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
 //        }
 //        return lista;
 //    }
-    
-    
+//    
+//    
     public ListaEnlazada DFS(String nombre) throws Exception {
     Vertice inicio = this.DevuelveVerticePorNombre(nombre);
-    boolean[] visitados = new boolean[numVertices]; // Arreglo para marcar vértices visitados
+    boolean[] visitados = new boolean[numVertices]; 
     ListaEnlazada lista = new ListaEnlazada();
     recorridoDFS(lista, inicio, visitados);
     return lista;
 }
-
+/**
+ * Recorre
+ * @param lista
+ * @param v
+ * @param visitados 
+ */
 public void recorridoDFS(ListaEnlazada lista, Vertice v, boolean[] visitados) {
     if (v == null || visitados[this.numVertice(v.nombreVertice())]) {
-        return; // Caso base: vértice nulo o ya visitado
+        return; 
     }
-
-    // Marcar el vértice como visitado
     visitados[this.numVertice(v.nombreVertice())] = true;
-    lista.addLast(this.numVertice(v.nombreVertice())); // Agregar el vértice a la lista
+    lista.addLast(this.numVertice(v.nombreVertice())); 
     
-    // Recorrer las aristas del vértice actual
     Nodo aux = v.lad.getpFirst();
     while (aux != null) {
         try {
             Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
             if (!visitados[this.numVertice(vecino.nombreVertice())] && vecino.lad.bombasAdy(this) == 0) {
-                recorridoDFS(lista, vecino, visitados); // Llamada recursiva
+                recorridoDFS(lista, vecino, visitados); 
             }
         } catch (Exception ex) {
             System.err.println("Error al procesar el vértice: " + ex.getMessage());
@@ -353,37 +357,34 @@ public void recorridoDFS(ListaEnlazada lista, Vertice v, boolean[] visitados) {
         aux = aux.getpNext();
     }
 }
+/*
+Obtiene el vertice de incio
+*/
 public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
-        // Obtener el vértice de inicio
         Vertice inicio = this.DevuelveVerticePorNombre(nombre);
         if (inicio == null) {
             throw new Exception("El vértice no existe.");
         }
 
-        // Lista para almacenar los vértices visitados
         ListaEnlazada<Integer> listaVisitados = new ListaEnlazada<>();
 
-        // Arreglo para marcar los vértices visitados
         boolean[] visitados = new boolean[numVertices];
 
-        // Cola para gestionar los vértices por visitar  CREAR UNA CLASE DE COLA
        Cola cola = new Cola();
         cola.encolar(new Nodo(inicio));
-        visitados[this.numVertice(inicio.nombreVertice())] = true; // Marcar el vértice inicial como visitado
+        visitados[this.numVertice(inicio.nombreVertice())] = true; 
 
-        // Recorrer el grafo usando BFS
         while (!cola.estaVacia()) {
-            Vertice actual = (Vertice) cola.desencolar().getData(); // Obtener el primer vértice de la cola
-            listaVisitados.addLast(this.numVertice(actual.nombreVertice())); // Agregar el vértice a la lista de visitados
+            Vertice actual = (Vertice) cola.desencolar().getData(); 
+            listaVisitados.addLast(this.numVertice(actual.nombreVertice())); 
 
-            // Recorrer las aristas del vértice actual
             Nodo aux = actual.lad.getpFirst();
             while (aux != null) {
                 try {
                     Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
                     if (!visitados[this.numVertice(vecino.nombreVertice())]) {
-                        cola.encolar(new Nodo(vecino)); // Agregar el vecino a la cola
-                        visitados[this.numVertice(vecino.nombreVertice())] = true; // Marcar el vecino como visitado
+                        cola.encolar(new Nodo(vecino)); 
+                        visitados[this.numVertice(vecino.nombreVertice())] = true; 
                     }
                 } catch (Exception ex) {
                     System.err.println("Error al procesar el vértice: " + ex.getMessage());
