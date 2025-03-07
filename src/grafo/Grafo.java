@@ -282,9 +282,8 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
 
             int v1 = numVertice(a);
             int v2 = numVertice(b);
-            System.out.println("todo bien");
             if (v1 < 0 || v2 < 0) {
-                throw new Exception("El veertice no existe");
+                throw new Exception("El vertice no existe");
             }
             Arista ab = new Arista(v2);
             this.vectorDeAdyacencia[v1].getLad().addFirst(ab);
