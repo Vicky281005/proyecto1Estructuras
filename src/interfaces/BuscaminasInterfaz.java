@@ -153,11 +153,50 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         grafo.fijarMinasAleatoriamente(this.nroMinas);
 
         
+/**
+ * Conecta cada casilla con sus adyacentes
+ */
+        for (int fila = 0; fila < this.nroFilas; fila++) { 
+            for (int columna = 0; columna < this.nroColumnas; columna++) {
+                String actual = filasCoordenadas[columna] + String.valueOf(fila+1);
+                
+            // Todos los posibles movimientos (diagonales, abajo, arriba, izquierda y derecha)
+                System.out.println(actual);
+                int[][] movimientos = {
+                    {-1, -1}, {-1, 0}, {-1, 1}, // Diagonal arriba izquierda, arriba (recto), Diagonal arriba derecha
+                    {0, -1}, {0, 1}, // izquierda (recto) y derecha (recto)
+                    {1, -1}, {1, 0}, {1, 1} // Diagonal abajo izquierda, abajo (recto), Diagonal abajo derecha
+                };
+
+                for (int[] mov : movimientos) {
+                    int nuevaFila = fila + mov[0];
+                    int nuevaColumna = columna + mov[1];
+
+                    if (nuevaFila >= 0 && nuevaFila < this.nroFilas && nuevaColumna >= 0 && nuevaColumna < this.nroColumnas) {
+                        String vecino = filasCoordenadas[nuevaColumna] + String.valueOf(nuevaFila+1);
+                        System.out.println(vecino);
+                        try {
+                            grafo.nuevaArista(actual, vecino);
+                        } catch (Exception ex) {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
         
             Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
             jugar.setVisible(true);
             jugar.setLocationRelativeTo(null);
             this.dispose(); //Sale de la ventana emergente
+            
+/** 
+ * Prueba para ver si las adyacencias se estan agregando 
+ * Puse el 0 porque representa la esquina, el cual siempre tiene 3 adyacentes
+ * @return 3 porque es el 0 
+ */
+            System.out.println(grafo.getVectorDeAdyacencia()[0].getLad().getSize());
+            
     }//GEN-LAST:event_btnJugarActionPerformed
 /**
  * Sale del programa
