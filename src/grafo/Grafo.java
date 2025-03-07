@@ -113,13 +113,26 @@ public class Grafo {
         while (minasColocadas < numMinas) {
             int indiceAleatorio = (int) (Math.random() * this.maxVertices);
             if (!vectorDeAdyacencia[indiceAleatorio].isSoyUnaBomba()) {
-                vectorDeAdyacencia[indiceAleatorio].setSoyUnaBomba(true);
+                vectorDeAdyacencia[indiceAleatorio].setSoyUnaBomba(true, this);
                 minasColocadas++;
 
             }
         }
             
      }
+    
+/** 
+ * Fijar las minas alrededor de la casilla
+ */     
+     public void fijarCantidadMinasAdy(){
+         for (int i = 0; i < vectorDeAdyacencia.length; i++) {
+             Vertice verticeActual = vectorDeAdyacencia[i]; 
+             if(!verticeActual.isSoyUnaBomba()){ 
+                 verticeActual.setSoyUnaBomba(false, this);
+             }
+         }
+     }
+     
      
      boolean adyacente(String a, String b) throws Exception{ //Comprueba si 2 vertices son adyacentes, si los 2 parametros son true son adyacentes, si no false
 

@@ -177,7 +177,9 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                     }
                 }
             }
-        }        
+        }  
+        
+        grafo.fijarCantidadMinasAdy();  // muestra la cantidad de minas alrededor de la casilla
     
             Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
             jugar.setVisible(true);
