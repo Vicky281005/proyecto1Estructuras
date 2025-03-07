@@ -98,6 +98,12 @@ public class Vertice { // Atributos de la clase vertice
         return nombre.equals(dos.nombre);
     }
     
+    
+    /** 
+     * Funcionalidad para contar las minas alrededor de la casilla que se oprimió
+     * @param grafo
+     * @return cantidad de minas alrededor de casilla
+     */
     public int cantidadMinasAdy(Grafo grafo) {
         int count = 0;
         Nodo<Arista> aux = this.lad.getpFirst();
