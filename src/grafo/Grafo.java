@@ -37,6 +37,10 @@ public class Grafo {
         maxVertices = maxV;
     }
 
+    public Vertice[] getVectorDeAdyacencia() {
+        return vectorDeAdyacencia;
+    }
+    
     /**
      * Devuelve el vertice v
      *
@@ -69,7 +73,7 @@ public class Grafo {
      * @return
      * @throws Exception
      */
-    public Vertice DevuelveVerticePorNombre(String nombre) throws Exception {
+    public Vertice devuelveVerticePorNombre(String nombre) throws Exception {
         int indice = this.numVertice(nombre);
         return DevuelveVertice(indice);
     }
@@ -204,7 +208,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
      * @return true si son adyacentes, false si no lo son
      * @throws Exception cuando uno de los dos vertices no existe
      */
-    boolean adyacente(String a, String b) throws Exception {
+    public boolean adyacente(String a, String b) throws Exception {
         int v1, v2;
         v1 = numVertice(a);
         v2 = numVertice(b);
@@ -326,7 +330,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
 //    
 //    
     public ListaEnlazada DFS(String nombre) throws Exception {
-    Vertice inicio = this.DevuelveVerticePorNombre(nombre);
+    Vertice inicio = this.devuelveVerticePorNombre(nombre);
     boolean[] visitados = new boolean[numVertices]; 
     ListaEnlazada lista = new ListaEnlazada();
     recorridoDFS(lista, inicio, visitados);
@@ -362,7 +366,7 @@ public void recorridoDFS(ListaEnlazada lista, Vertice v, boolean[] visitados) {
 Obtiene el vertice de incio
 */
 public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
-    Vertice inicio = this.DevuelveVerticePorNombre(nombre);
+    Vertice inicio = this.devuelveVerticePorNombre(nombre);
     if (inicio == null) {
         throw new Exception("El vértice no existe.");
     }
