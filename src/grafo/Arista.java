@@ -31,5 +31,6 @@ public class Arista { //indice del vector al que apunta la arista
         public boolean equeals(Object n) { 
             Arista a = (Arista) n; 
             return destino == a.destino; 
-}
+        }
+
 }

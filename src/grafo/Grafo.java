@@ -214,12 +214,27 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
         while (minasColocadas < numMinas) {
             int indiceAleatorio = (int) (Math.random() * this.maxVertices);
             if (!vectorDeAdyacencia[indiceAleatorio].isSoyUnaBomba()) {
-                vectorDeAdyacencia[indiceAleatorio].setSoyUnaBomba(true);
+                vectorDeAdyacencia[indiceAleatorio].setSoyUnaBomba(true, this);
                 minasColocadas++;
             }
         }
 
     }
+    
+    /**
+     * Fija la cantidad de minas adjacentes 
+     * Por cada iteración se iguala el vertice a la adyacencia en la posición i
+     * Si vertice NO es una bomba etonces se fijan las minas adyacentes
+     */
+    
+    public void fijarCantidadMinasAdy(){
+         for (int i = 0; i < vectorDeAdyacencia.length; i++) {
+             Vertice verticeActual = vectorDeAdyacencia[i];
+             if(!verticeActual.isSoyUnaBomba()){
+                 verticeActual.setSoyUnaBomba(false, this);
+             }
+         }
+     }
 
     /**
      * Comprueba si dos vertices son adyacentes

@@ -184,6 +184,11 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                 }
             }
         }
+    /**
+     * Ejecuta la funcionalidad de decir cuantas minas hay alrededor de la casilla oprimida
+     * @return cantidad de minas alrededor de casilla oprimida
+     */
+        grafo.fijarCantidadMinasAdy();
         
             Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
             jugar.setVisible(true);

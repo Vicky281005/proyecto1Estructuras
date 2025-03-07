@@ -53,10 +53,11 @@ public class Vertice { // Atributos de la clase vertice
      * Modifica si un vertice es bomba o no
      *
      * @param soyUnaBomba booleano true si es bomba, false si no
+     * @param grafo
      */
-    public void setSoyUnaBomba(boolean soyUnaBomba) {
+    public void setSoyUnaBomba(boolean soyUnaBomba,  Grafo grafo) {
         this.soyUnaBomba = soyUnaBomba;
-        this.emoji = soyUnaBomba ? "💣" : "";
+        this.emoji = soyUnaBomba ? "💣" : String.valueOf(this.cantidadMinasAdy(grafo));
     }
 
     /**
@@ -96,5 +97,16 @@ public class Vertice { // Atributos de la clase vertice
         Vertice dos = (Vertice) d;
         return nombre.equals(dos.nombre);
     }
-
+    
+    public int cantidadMinasAdy(Grafo grafo) {
+        int count = 0;
+        Nodo<Arista> aux = this.lad.getpFirst();
+        while (aux != null) {
+            if (grafo.getVectorDeAdyacencia()[aux.getData().getDestino()].soyUnaBomba) {
+                count++;
+            }
+            aux = aux.getpNext();
+        }
+        return count;       
+    }
 }
