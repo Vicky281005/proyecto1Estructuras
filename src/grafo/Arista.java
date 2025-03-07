@@ -8,6 +8,7 @@ package grafo;
 public class Arista { //indice del vector al que apunta la arista
          int destino; 
          
+         
         
        public Arista(int d) { //Inicializa el atributo `destino` con el valor pasado como parámetro.
           destino = d; 
@@ -18,8 +19,16 @@ public class Arista { //indice del vector al que apunta la arista
             return destino; 
         }
 
-        
-        public boolean equeals(Object n) { //Método para comparar si dos objetos de tipo Arista son iguales.
+        @Override
+        public String toString(){
+            return String.valueOf(destino);
+        }
+        /**
+         * Compara si 2 objetos de tipo arista son iguales
+         * @param n
+         * @return 
+         */
+        public boolean equeals(Object n) { 
             Arista a = (Arista) n; 
             return destino == a.destino; 
 }

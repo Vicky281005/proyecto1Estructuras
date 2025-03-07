@@ -4,13 +4,14 @@ package grafo;
  *
  * @author NITRO V 15
  */
-public class Vertice {
-//    Atributos de la clase vertice
+
+public class Vertice { // Atributos de la clase vertice
 
     private String nombre;
     private int numeroVertice;
     private boolean soyUnaBomba;
     private String emoji;
+
     private ListaEnlazada<Object> lad;
 
     public Vertice(String nom) { // Es el constructor, se encarga de crear un nuevo vertice y nom es el nombre del vertice
@@ -79,6 +80,15 @@ public class Vertice {
             }
             aux = aux.getpNext();
         }
-        return count;
+      return count;
     }
+        
+        public Vertice(String nom, boolean soyUnaBomba){ //  Constructor, Se encarga de crear un nuevo vertice y recibe si es bomba o no, nom nombre del vertice y soyUnaBomba booleano true si es bomba, false si no es bomba
+            nombre= nom;
+            numeroVertice= -1;
+            lad = new ListaEnlazada();
+            this.soyUnaBomba = soyUnaBomba;
+            this.emoji = soyUnaBomba ? "💣" : "";
+        }
+       
 }

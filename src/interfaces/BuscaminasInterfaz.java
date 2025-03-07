@@ -2,9 +2,6 @@
 package interfaces;
 
 import grafo.Grafo;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 
@@ -13,7 +10,8 @@ import java.util.logging.Logger;
  * @author jmmor
  */
 public class BuscaminasInterfaz extends javax.swing.JFrame {
-//    Atributos de la clase BuscaminasInterfaz
+// Atributos de la clase BuscaminasInterfaz
+
     private int nroFilas, nroColumnas, nroMinas;
 
         /**
@@ -65,14 +63,17 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\unnamed (1).png")); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 230, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 290, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
+        btnJugar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +84,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +95,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnConfiguración.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnConfiguración.setText("Configuracion del juego");
+        btnConfiguración.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnConfiguración.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnConfiguración.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +106,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnCargar.setText("Cargar Juego");
+        btnCargar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.NE_RESIZE_CURSOR));
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,13 +120,17 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Dirige al jugador a la ventana para jugar
+     * @param evt 
+     */
     private void btnJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJugarActionPerformed
         Grafo grafo = new Grafo(this.nroFilas*this.nroColumnas); //crea un nuevo objeto de la clase grafo basado en la variables globales de la clase BuscaminasInterfaz
         String[] filasCoordenadas = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}; //Define la coordenadas de las filas en coordenadas de A a la J
         String[] arregloVectores = new String[this.nroFilas*this.nroColumnas]; //Crea un arreglo de vectores para almacenar las coordenadas de los vertices
         int[] columnasCoordenadas = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //Define las coordenas de las columnas del 1 al 10 
 
-        int contador= 0; //        Contador que llena el arreglo de vertices 
+        int contador= 0; 
 
 //Bucle For que genera las coordenadas de las casillas combinando filas y columnas
         for (int i = 0; i < this.nroFilas; i++){ 
@@ -137,8 +145,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
             }
         }
         
-        // Imprimir el arreglo de coordenadas generado (para depuración)
-        System.out.println(Arrays.toString(arregloVectores));
 
 // Crear los vértices en el grafo utilizando el arreglo de coordenadas
         grafo.nuevoVerticesRecibiendoArrayDeVertices(arregloVectores);
@@ -175,7 +181,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                         try {
                             grafo.nuevaArista(actual, vecino);
                         } catch (Exception ex) {
-                            Logger.getLogger(BuscaminasInterfaz.class.getName()).log(Level.SEVERE, null, ex);
+                            return;
                         }
                     }
                 }
@@ -196,9 +202,12 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
  */
             System.out.println(grafo.getVectorDeAdyacencia()[0].getLad().getSize());
     }//GEN-LAST:event_btnJugarActionPerformed
-
+/**
+ * Sale del programa
+ * @param evt 
+ */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-// Hace que el usuario salga del juego, es decir termina el programa.
+
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -217,8 +226,11 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnConfiguraciónActionPerformed
 
+    /**
+     * Es el boton que carga la partida
+     * @param evt 
+     */
     private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-//       Boton que carga el juego a la ultima partida jugada.
         CargarPartida carga = new CargarPartida();
         carga.setVisible(true);
         carga.setLocationRelativeTo(null);

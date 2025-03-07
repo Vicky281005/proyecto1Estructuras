@@ -16,8 +16,14 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         initComponents();
         this.fila = this.columna = this.minas = 3;
     }
+    /**
+     * Constructor de la clase Configuración
+     * @param fila
+     * @param columna
+     * @param minas 
+     */
     
-    public Configuracion(int fila, int columna, int minas) { //Constructor de la clase
+    public Configuracion(int fila, int columna, int minas) { 
         initComponents();
         this.fila = fila;
         this.columna = columna;
@@ -57,6 +63,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\83966 (1).png")); // NOI18N
         btnInicio.setText("Volver a inicio");
+        btnInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +84,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         jLabel4.setText("Numero de minas:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
+        numFilasTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         numFilasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numFilasTextFieldActionPerformed(evt);
@@ -84,6 +92,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         });
         jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 132, 150, 30));
 
+        numColumnasTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         numColumnasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numColumnasTextFieldActionPerformed(evt);
@@ -91,6 +100,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         });
         jPanel1.add(numColumnasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 92, 150, 30));
 
+        numMinasTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         numMinasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numMinasTextFieldActionPerformed(evt);
@@ -101,6 +111,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnGuardar.setText("Guardar cambios");
+        btnGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,9 +128,11 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     private void numColumnasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numColumnasTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numColumnasTextFieldActionPerformed
-
+/**
+ * Regresa al usuario al menu de inicio
+ * @param evt 
+ */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-// Regresa al usuario al menu principal
         BuscaminasInterfaz busca = new BuscaminasInterfaz(this.fila,this.columna,this.minas);
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
@@ -127,11 +140,10 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
 
     }//GEN-LAST:event_btnInicioActionPerformed
 /**
- * Se encarga de solicitar al usuario y guardar sus respuestas en cuando al tamanio del tablero
+ * Se encarga de solicitar y guardar al usuario sus respuestas en cuando las dimensiones del tablero
  * @param evt 
  */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-//Solicita al usuario registrar y guardar sus respuestra en cuando a las dimensiones del tablero, tambien se encuentra las validaciones de para la longitud de filas, columnas y numeros de minas
         try{
         if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){
             this.fila = Integer.parseInt(this.numColumnasTextField.getText());
@@ -156,12 +168,17 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error inesperado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
     }
     }//GEN-LAST:event_btnGuardarActionPerformed
-
+/**
+ * captura el numero de filas puesto por el usuario
+ * @param evt 
+ */
     private void numFilasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numFilasTextFieldActionPerformed
- 
-        
+  
     }//GEN-LAST:event_numFilasTextFieldActionPerformed
-
+/**
+ * captura el numero de columnas puesto por el usuario
+ * @param evt 
+ */
     private void numMinasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numMinasTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_numMinasTextFieldActionPerformed
