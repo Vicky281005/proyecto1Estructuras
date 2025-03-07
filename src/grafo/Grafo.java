@@ -36,6 +36,8 @@ public class Grafo {
         return vectorDeAdyacencia;
     }
     
+    
+    
     /**
      * Devuelve el vertice v
      *
@@ -434,4 +436,20 @@ public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
 //
 //        return listaVisitados;
 //    }
+
+    public int getNumVertices() {
+        return numVertices;
+    }
+
+    public void setNumVertices(int numVertices) {
+        this.numVertices = numVertices;
+    }
+
+    public int getMaxVertices() {
+        return maxVertices;
+    }
+
+    public void setMaxVertices(int maxVertices) {
+        this.maxVertices = maxVertices;
+    }
 }
