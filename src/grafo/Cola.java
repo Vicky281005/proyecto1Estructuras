@@ -1,4 +1,4 @@
-package arbol;
+package grafo;
 
 import grafo.Nodo;
 

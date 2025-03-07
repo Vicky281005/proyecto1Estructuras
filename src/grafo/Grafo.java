@@ -1,10 +1,5 @@
 package grafo;
 
-import arbol.Cola;
-
-
-//Importa la libreria java.util.Arrays
-
 /**
  *
  * @author NITRO V 15
