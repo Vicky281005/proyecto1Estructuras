@@ -11,33 +11,59 @@ public class NodoArbol {
     private NodoArbol izquierdo;
     private NodoArbol derecho;
     
+    
+    /**
+    * Constructor que inicializa un nodo del árbol con el valor de datos especificado.
+    * @param data el valor de datos del nodo
+    */
     public NodoArbol(int data){
-// Constructor de la clase Arbol
         this.data=data;
         this.derecho = derecho;
         this.izquierdo= izquierdo;
     }
-//    Getters y setters de los atributos de la clase NodoArbol
+    /**
+     * Obtiene el valor de datos del nodo.
+     * @return el valor de datos del nodo
+     */
     public int getData(){
         return data;
     }
     
+    /**
+    * Establece el valor de datos del nodo.
+    * @param data el nuevo valor de datos del nodo
+    */
     public void setData(int data){
         this.data= data;
     }
 
+    /**
+    * Obtiene el nodo izquierdo del árbol.
+    * @return el nodo izquierdo del árbol
+    */
     public NodoArbol getIzquierdo() {
         return izquierdo;
     }
-
+    /**
+     * Obtiene el nodo derecho del árbol.
+     * @return el nodo derecho del árbol
+     */
     public NodoArbol getDerecho() {
         return derecho;
     }
 
+    /**
+    * Establece el nodo izquierdo del árbol.
+    * @param izquierdo el nuevo nodo izquierdo del árbol
+    */
     public void setIzquierdo(NodoArbol izquierdo) {
         this.izquierdo = izquierdo;
     }
 
+    /**
+    * Establece el nodo derecho del árbol.
+    * @param derecho el nuevo nodo derecho del árbol
+    */
     public void setDerecho(NodoArbol derecho) {
         this.derecho = derecho;
     }

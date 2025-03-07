@@ -56,12 +56,10 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\gear-line-icon-vector__1_-removebg-preview.png")); // NOI18N
         jLabel1.setText("Configración del juego");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\83966 (1).png")); // NOI18N
         btnInicio.setText("Volver a inicio");
         btnInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -109,7 +107,6 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 172, 150, 30));
 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnGuardar.setText("Guardar cambios");
         btnGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

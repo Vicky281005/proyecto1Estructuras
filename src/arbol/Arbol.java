@@ -8,21 +8,37 @@ package arbol;
 public class Arbol {
       NodoArbol raiz;
       
+    /**
+   * Constructor por defecto que inicializa el nodo raíz del árbol como null.
+   */
       public Arbol(){
           this.raiz= null;
       }
       
-      public Arbol(NodoArbol nodo){// Constuctor de la clase Arbol
+    /**
+   * Constructor que establece el nodo raíz del árbol.
+   * 
+   * @param nodo el nuevo nodo raíz del árbol
+   */
+      public Arbol(NodoArbol nodo){
           this.raiz= nodo;
       }
 
-// Getters y setters de la variables raiz
+     /**
+     * Obtiene la raíz del árbol.
+     * 
+     * @return el nodo raíz del árbol
+     */
     public NodoArbol getRaiz() {
         return raiz;
     }
-
+    
+     /**
+     * Establece la raíz del árbol.
+     * 
+     * @param raiz el nuevo nodo raíz del árbol
+     */
     public void setRaiz(NodoArbol raiz) {
-
         this.raiz = raiz;
     }
       
@@ -31,7 +47,6 @@ public class Arbol {
      * @param raiz Nodo raiz del arbol actual
      * @param newNodo Nodo nuevo que se va a insertar
      */
-    
       public void insertar(NodoArbol raiz, NodoArbol newNodo){
           if(this.raiz==null){
               this.raiz= newNodo;
@@ -60,7 +75,6 @@ public class Arbol {
        * @param nivel Nivel actual del nodo
        * @return El nivel del nodo se encuentra
        */
-      
       public int getNodoNivel(NodoArbol aux, int data, int nivel){
           if(aux== null) return -1;
           

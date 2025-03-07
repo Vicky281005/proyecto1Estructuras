@@ -9,18 +9,29 @@ public class Arista { //indice del vector al que apunta la arista
          int destino; 
          
          
-        
-       public Arista(int d) { //Inicializa el atributo `destino` con el valor pasado como parámetro.
+        /**
+        * Constructor que inicializa una arista con el destino especificado.
+        * @param d el destino de la arista
+        */
+       public Arista(int d) { 
           destino = d; 
 }
 
-        
-        public int getDestino() { //Método getter para obtener el valor del atributo `destino`.
+        /**
+        * Obtiene el valor del destino de la arista.
+        * @return el valor del destino de la arista
+        */
+        public int getDestino() {
             return destino; 
         }
 
-        
-        public boolean equeals(Object n) { //Método para comparar si dos objetos de tipo Arista son iguales.
+        /**
+        * Compara esta arista con el objeto especificado para verificar la igualdad.
+        * 
+        * @param n el objeto con el que se va a comparar esta arista
+        * @return true si el destino de ambas aristas es el mismo, false en caso contrario
+        */
+        public boolean equeals(Object n) { 
             Arista a = (Arista) n; 
             return destino == a.destino; 
 }

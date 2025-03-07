@@ -14,20 +14,27 @@ public class Cola {
         NodoCola siguiente;
         
         NodoCola(NodoArbol valor){
-//Constructor de la clase cola
             this.valor= valor; 
             this.siguiente= null;
         
         }
     }
-    
+    /**
+    * Constructor por defecto que inicializa los punteros frente y finalCola como null.
+    */
     public Cola(){
         frente= finalCola=null;
     }
     
+     /**
+     * Verifica si la cola está vacía.
+     * 
+     * @return true si la cola está vacía, false en caso contrario
+     */
     public boolean estaVacia(){
         return frente==null;
     }
+    
     /**
      * Añade nuevos elementos a la cola
      * @param valor 
@@ -42,10 +49,11 @@ public class Cola {
             frente= finalCola;
         }
     }
-    /**
-     * Elimina los elementos de la cola
-     * @return 
-     */
+    
+   /**
+ * Elimina y devuelve el primer nodo de la cola.
+ * @return el nodo eliminado de la cola, o null si la cola está vacía
+ */
     public NodoArbol desencolar(){
         if (frente== null){
             return null; // la cola esta vacia :)

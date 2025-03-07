@@ -11,79 +11,80 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
        private Nodo pLast;
        private int size;
        
-        /**
-        * Constructor
-        * Crea una lista vacia
-        */
+     /**
+     * Constructor por defecto que inicializa una lista enlazada con los punteros pFirst y pLast como null.
+     */
     public ListaEnlazada(){ 
         this.pFirst = this.pLast = null;
     }
        
      /**
-        * Constructor
-        * Crea una lista con un solo elemento
-        * @param n Nodo que se aniadira
-        */
+    * Constructor que inicializa una lista enlazada con un nodo especificado.
+    * @param n el nodo inicial de la lista enlazada
+    */
     public ListaEnlazada(Nodo<T> n){ 
         this.pFirst=this.pLast= n;
     }
      
     /**
-     * Devuelve el primer nodo de la lista
-     * @return el primer nodo
-     */
+    * Obtiene el primer nodo de la lista enlazada.
+    * @return el primer nodo de la lista enlazada
+    */
     public Nodo getpFirst() { 
         return pFirst;
     }
     
      /**
-     * Devuelve el ultimo nodo de la lista
-     * @return el ultimo nodo
+     * Obtiene el ultimo nodo de la lista enlazada.
+     * @return el ultimo nodo de la lista enlazada.
      */
     public Nodo getpLast() { 
         return pLast;
     }
 
       /**
-     * Devuelve el tamaño de la lista 
-     * @return int tamaño de la lista
+     * Obtiene el tamaño de la lista enlazada. 
+     * @return int tamaño de la lista l¡enlazada.
      */
     public int getSize() { 
         return size;
     }
+    
     /**
-     * Modificar la data del primer nodo
-     * @param pFirst 
+     * Establece el primer nodo de la lista enlazada.
+     * @param pFirst el nuevo primer nodo de la lista enlazada.
      */
     public void setpFirst(Nodo pFirst) {  
         this.pFirst = pFirst;
     }
      /**
-     * Modificar la data del ultimo nodo
-     * @param pLast 
+     * Establece el ultimo nodo de la lista enlazada.
+     * @param pLast el nuevo ultimo nodo de la lista enlazada.
      */
     public void setpLast(Nodo pLast) { 
         this.pLast = pLast;
     }
     
     /**
-     * Modifica el tamaño de la lista
-     * @param size 
-     */
+   * Establece el tamaño de la lista.
+   * @param size el nuevo tamaño de la lista.
+   */
     public void setSize(int size) { 
         this.size = size;
     }
+    
     /**
-     * Revisa si la lista esta vacia o no
-     * @return True si esta vacia, false si no
+     * Revisa si la lista esta vacia.
+     * @return True si esta vacia, false si no.
      */
     public boolean isEmpty(){ 
         return this.pFirst== null;
     }
-     /**
-     * Se encarga de añadir un nodo en el primer lugar de una lista
-     * @param dato 
-     */     
+    
+    /**
+ * Añade un nodo al inicio de la lista.
+ * @param dato el dato que se va a almacenar en el nuevo nodo
+ */   
     public void addFirst(T dato) { 
         Nodo<T> n = new Nodo(dato);
         if (isEmpty()) {
@@ -98,19 +99,15 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
         size++;
       }
     
-    /**
-     * Busca si existe la arista en la lista enlazada
-     * @param arista
-     * @return 
-     */
+   /**
+ * Verifica si la lista enlazada contiene una arista específica.
+ * @param arista la arista que se va a buscar en la lista
+ * @return true si la arista ya existe en la lista, false en caso contrario
+ */
     public boolean contains(Arista arista){
-
         Nodo aux = this.pFirst;
-        
-        boolean yaExiste = false; 
-
-        for (int i = 0; i < size; i++){
-            
+        boolean yaExiste = false;
+        for (int i = 0; i < size; i++){ 
             Arista aux2 = (Arista) aux.getData();
             if (aux2.destino == arista.destino){
                 yaExiste = true;
@@ -119,14 +116,13 @@ public class ListaEnlazada <T>{ // Atributos de la clase ListaEnlazada
         }
         return yaExiste; 
     }
-    /**
-     * Remueve la Arista, ya creada
-     * @param arista
-     * @return 
-     */
     
+   /**
+    * Elimina una arista específica de la lista.
+    * @param arista la arista que se va a eliminar de la lista
+    * @return la arista eliminada si se encuentra, null en caso contrario
+    */
     public Arista removeArista(Arista arista){
-
         if (this.isEmpty()){ 
             return null;
         } else if (((Arista) pFirst.getData()).destino == arista.destino){

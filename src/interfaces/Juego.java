@@ -1041,7 +1041,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         TrueOrFalse.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
         TrueOrFalse.setText("FALSE");
         TrueOrFalse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
+        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 

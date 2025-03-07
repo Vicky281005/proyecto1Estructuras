@@ -13,19 +13,22 @@ public class Grafo {
     private int numVertices;
     private int maxVertices;
     private Vertice [] vectorDeAdyacencia;
+   
     /**
-     * constructor
-     */
+    * Constructor por defecto que inicializa un grafo con un vector de adyacencia de tamaño 10.
+    * Inicializa el número de vértices en 0 y el máximo número de vértices en 10.
+    */
     public Grafo(){
-//        Constructor de la clase grafo
         vectorDeAdyacencia= new Vertice[10];
         numVertices= 0;
         maxVertices= 10;
     }
+    
      /**
-     * constructor
-     * @param maxV maxima cantidad de vertices en el grafo 
-     */
+ * Constructor que inicializa un grafo con un vector de adyacencia de tamaño especificado.
+ * Inicializa el número de vértices en 0 y el máximo número de vértices según el parámetro.
+ * @param maxV el tamaño máximo del vector de adyacencia
+ */
     public Grafo(int maxV){ 
         vectorDeAdyacencia= new Vertice[maxV];
         numVertices= 0;
@@ -38,7 +41,6 @@ public class Grafo {
      * @return el vertice a buscar
      * @throws Exception cuando es index out of range
      */ 
-        
     public Vertice DevuelveVertice(int v) throws Exception { 
          if (v<0 || v>= numVertices){
              throw new Exception("Vertice fuera de rango" );  
@@ -76,10 +78,9 @@ public class Grafo {
      }
     
       /**
-     * Crea un nuevo vertice
-     * @param nombre recibe el nombre de como se llamara el vertice
-     */
-   
+    * Añade un nuevo vértice al grafo si no existe y el número máximo de vértices no se ha alcanzado.
+    * @param nombre el nombre del nuevo vértice
+    */
      public void nuevoVertice(String nombre){ 
          int indice = numVertice(nombre); 
          boolean existe = indice >= 0 ||  numVertices>=this.maxVertices;
@@ -93,9 +94,9 @@ public class Grafo {
          }
      }
      /**
-      * Agrega múltiples vértices a un grafo el recibe un array de nombres de vértices.
-      * @param arrayVertices 
-      */
+    * Añade nuevos vértices al grafo a partir de un array de nombres de vértices.
+    * @param arrayVertices el array de nombres de los nuevos vértices
+    */
      public void nuevoVerticesRecibiendoArrayDeVertices(String[] arrayVertices){ 
          int tamanioArray = arrayVertices.length;
          
@@ -103,6 +104,7 @@ public class Grafo {
              this.nuevoVertice(arrayVertices[i]);
          }
      } 
+     
      /**
       * Coloca las minas aleatoriamente en el conjunto de vertices
       * @param numMinas 
@@ -159,7 +161,6 @@ public class Grafo {
       * @param b es el segundo vertice
       * @throws Exception 
       */
-     
      public void nuevaArista(String a, String b) throws Exception{ 
          if (!adyacente(a, b)){
             
@@ -177,11 +178,11 @@ public class Grafo {
      }
      
      /**
-      * Borra una arista creada
-      * @param a es el primer vertice
-      * @param b es el segundo vertice
-      * @throws Exception 
-      */
+    * Elimina la arista entre dos vértices especificados en el grafo.
+    * @param a el nombre del primer vértice
+    * @param b el nombre del segundo vértice
+    * @throws Exception si alguno de los vértices no existe
+    */
      public void borrarArista(String a, String b) throws Exception { 
          int v1= numVertice(a);
          int v2= numVertice(b);

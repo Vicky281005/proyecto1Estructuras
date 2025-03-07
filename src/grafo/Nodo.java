@@ -10,7 +10,11 @@ public class Nodo<T> { // Atributos de la clase Nodo
     private T data;
     private Nodo pNext;
 
-    public Nodo(T data) {///constructor de la clase Nodo
+    /**
+    * Constructor que inicializa un nodo con el dato especificado y el siguiente nodo como null.
+    * @param data el dato que se va a almacenar en el nodo
+    */
+    public Nodo(T data) {
         this.data = data;
         this.pNext = null;
     }
