@@ -2568,8 +2568,16 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
  * @param evt 
  */
     private void BFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BFSActionPerformed
-   String nombre = "A3"; // Nombre del vértice de inicio
-    try {
+    /*
+                Buscas la casilla con este nombre y muestras su valor,
+                es decir, si no hay bombas adyacentes se muestra vacia. 
+                Si tiene x bombas adyacentes, se muestra ese numero.
+                En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
+                */
+        
+        
+        String nombre = "A3"; // Nombre del vértice de inicio
+        try {
       
         ListaEnlazada<Integer> visitados = grafo.BFS(nombre);
 
@@ -2593,7 +2601,6 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                     System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
                 }
             }
-
             aux = aux.getpNext();
         }
     } catch (Exception ex) {
@@ -2601,7 +2608,6 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         System.err.println("Error: " + ex.getMessage());
         
     }
-
     }//GEN-LAST:event_BFSActionPerformed
 
     /**
