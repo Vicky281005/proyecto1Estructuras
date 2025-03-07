@@ -24,6 +24,10 @@ public class Arista { //indice del vector al que apunta la arista
             return destino == a.destino; 
 }
 
+/**
+ * Verifica que las conexiones/aristas que se generaron cuando se creó el grafo
+ * @return 
+ */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

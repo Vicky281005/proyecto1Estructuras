@@ -29,6 +29,10 @@ public class Grafo {
         maxVertices= maxV;
     }
         
+/**
+ * Agregué los getters y setters que no se habían agregado
+ * @return modifica y recupera las variables fuera de esta clase que es donde fueron creadas
+ */
 //getters y setters 
     public int getNumVertices() {
         return numVertices;
