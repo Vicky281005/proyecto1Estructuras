@@ -178,12 +178,13 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
             return null;
         }
     }
-//**
-// * Obtiene el primer nodo de una lista enlazada
-// * @param g
-// * @return
-// * @throws Exception 
- //*/
+
+    /**
+     * Obtiene el primer nodo de una lista enlazada
+     * @param g
+     * @return
+     * @throws Exception 
+     */
     public int bombasAdy(Grafo g) throws Exception {
         Nodo aux = this.getpFirst();
         int b = 0;
