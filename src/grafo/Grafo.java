@@ -361,38 +361,77 @@ public void recorridoDFS(ListaEnlazada lista, Vertice v, boolean[] visitados) {
 Obtiene el vertice de incio
 */
 public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
-        Vertice inicio = this.DevuelveVerticePorNombre(nombre);
-        if (inicio == null) {
-            throw new Exception("El vértice no existe.");
-        }
-
-        ListaEnlazada<Integer> listaVisitados = new ListaEnlazada<>();
-
-        boolean[] visitados = new boolean[numVertices];
-
-       Cola cola = new Cola();
-        cola.encolar(new Nodo(inicio));
-        visitados[this.numVertice(inicio.nombreVertice())] = true; 
-
-        while (!cola.estaVacia()) {
-            Vertice actual = (Vertice) cola.desencolar().getData(); 
-            listaVisitados.addLast(this.numVertice(actual.nombreVertice())); 
-
-            Nodo aux = actual.lad.getpFirst();
-            while (aux != null) {
-                try {
-                    Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
-                    if (!visitados[this.numVertice(vecino.nombreVertice())]) {
-                        cola.encolar(new Nodo(vecino)); 
-                        visitados[this.numVertice(vecino.nombreVertice())] = true; 
-                    }
-                } catch (Exception ex) {
-                    System.err.println("Error al procesar el vértice: " + ex.getMessage());
-                }
-                aux = aux.getpNext();
-            }
-        }
-
-        return listaVisitados;
+    Vertice inicio = this.DevuelveVerticePorNombre(nombre);
+    if (inicio == null) {
+        throw new Exception("El vértice no existe.");
     }
+
+    ListaEnlazada<Integer> listaVisitados = new ListaEnlazada<>();
+    boolean[] visitados = new boolean[numVertices];
+   
+    Cola<Vertice> cola = new Cola<>();
+    cola.encolar(inicio);
+    visitados[this.numVertice(inicio.nombreVertice())] = true; 
+
+    while (!cola.estaVacia()) {
+        System.out.println("Cuentame");
+        Vertice actual = cola.desencolar().getData();
+        System.out.println("Te conte");
+        listaVisitados.addLast(this.numVertice(actual.nombreVertice())); 
+
+        Nodo aux = actual.lad.getpFirst();
+        while (aux != null) {
+            try {
+                Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+                if (!visitados[this.numVertice(vecino.nombreVertice())]) {
+                    cola.encolar(vecino); 
+                    visitados[this.numVertice(vecino.nombreVertice())] = true; 
+                }
+            } catch (Exception ex) {
+                System.err.println("Error al procesar el vértice: " + ex.getMessage());
+            }
+            aux = aux.getpNext();
+        }
+    }
+
+    return listaVisitados;
+}
+
+//public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
+//        Vertice inicio = this.DevuelveVerticePorNombre(nombre);
+//        if (inicio == null) {
+//            throw new Exception("El vértice no existe.");
+//        }
+//
+//        ListaEnlazada<Integer> listaVisitados = new ListaEnlazada<>();
+//
+//        boolean[] visitados = new boolean[numVertices];
+//
+//       Cola cola = new Cola();
+//        cola.encolar(new Nodo(inicio));
+//        visitados[this.numVertice(inicio.nombreVertice())] = true; 
+//
+//        while (!cola.estaVacia()) {
+//            System.out.println("Cuentame");
+//            Vertice actual = (Vertice) cola.desencolar().getData(); 
+//            System.out.println("Te conte");
+//            listaVisitados.addLast(this.numVertice(actual.nombreVertice())); 
+//
+//            Nodo aux = actual.lad.getpFirst();
+//            while (aux != null) {
+//                try {
+//                    Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+//                    if (!visitados[this.numVertice(vecino.nombreVertice())]) {
+//                        cola.encolar(new Nodo(vecino)); 
+//                        visitados[this.numVertice(vecino.nombreVertice())] = true; 
+//                    }
+//                } catch (Exception ex) {
+//                    System.err.println("Error al procesar el vértice: " + ex.getMessage());
+//                }
+//                aux = aux.getpNext();
+//            }
+//        }
+//
+//        return listaVisitados;
+//    }
 }
