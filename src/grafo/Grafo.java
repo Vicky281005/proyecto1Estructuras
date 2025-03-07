@@ -31,7 +31,7 @@ public class Grafo {
         
 /**
  * Agregué los getters y setters que no se habían agregado
- * @return modifica y recupera las variables fuera de esta clase que es donde fueron creadas
+ * @return agrega las conexiones
  */
 //getters y setters 
     public int getNumVertices() {
@@ -129,14 +129,14 @@ public class Grafo {
          if(v1<0 || v2<0){
              throw new Exception ("El vertice no existe");
          }
-        return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2)); 
+        return this.vectorDeAdyacencia[v1].getLad().contains(new Arista(v2)); 
      }
      
    
      boolean adyacentePorNumero(int v1, int v2) throws Exception{ 
         // Comprueba si 2 vertices son adyacentes por el numero de vertice.
         // Los parametros v1 y v2, son el primer y segundo vertice respectivamente, lo cual retornaran true si son adyacentes, false si no
-        if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))){
+        if (this.vectorDeAdyacencia[v1].getLad().contains(new Arista(v2))){
                 return true; 
             }else{
                 return false;
@@ -154,7 +154,7 @@ public class Grafo {
                  throw new Exception ("El veertice no existe");
              }
              Arista ab = new Arista(v2);
-             this.vectorDeAdyacencia[v1].lad.addFirst(ab);
+             this.vectorDeAdyacencia[v1].getLad().addFirst(ab);
          }else{
              System.out.println("ya existe");
          }
@@ -168,7 +168,7 @@ public class Grafo {
              throw new Exception ("El vertice no existe");
          }
          Arista ab = new Arista(v2);
-         Arista arista = this.vectorDeAdyacencia[v1].lad.removeArista(ab);
+         Arista arista = this.vectorDeAdyacencia[v1].getLad().removeArista(ab);
          System.out.print("eliminado:");
          if (arista != null) {
              System.out.print(arista.destino);

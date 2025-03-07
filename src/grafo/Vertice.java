@@ -11,7 +11,7 @@ public class Vertice {
     private int numeroVertice;
     private boolean soyUnaBomba;
     private String emoji;
-     ListaEnlazada<Object> lad;
+     private ListaEnlazada<Object> lad;
     
 
         public Vertice(String nom){ // Es el constructor, se encarga de crear un nuevo vertice y nom es el nombre del vertice
@@ -56,4 +56,21 @@ public class Vertice {
             Vertice dos= (Vertice) d;
             return nombre.equals(dos.nombre);
         }
+
+        
+ /**
+  * Agregué los getters y setters que no se habían agregado
+  * Si no se agregan las conexiones no voy a poder hacer funcionalidad de contar minas alrededor
+  * @return agrega las conexiones
+  */       
+    public ListaEnlazada<Object> getLad() {
+        return lad;
+    }
+
+    public void setLad(ListaEnlazada<Object> lad) {
+        this.lad = lad;
+    }
+        
+        
+        
 }
