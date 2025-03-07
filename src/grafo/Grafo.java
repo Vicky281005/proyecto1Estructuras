@@ -54,10 +54,11 @@ public class Grafo {
     
     public Vertice DevuelveVertice2(String a) throws Exception {
         int v = Integer.parseInt(a);
-        if (v < 0 || v >= numVertices) {
-            throw new Exception("Vertice fuera de rango");
-        }
-        return vectorDeAdyacencia[v];
+        return this.DevuelveVertice(v);
+//        if (v < 0 || v >= numVertices) {
+//            throw new Exception("Vertice fuera de rango");
+//        }
+//        return vectorDeAdyacencia[v];
     }
 
 
