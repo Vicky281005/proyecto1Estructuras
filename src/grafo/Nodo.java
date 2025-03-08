@@ -18,8 +18,8 @@ public class Nodo<T> { // Atributos de la clase Nodo
      * Se encarga de modificar la data de un nodo
      * @param data 
      */
-    public void setData(T data) { 
-        this.data = data;
+    public void setData(String data, String nombreVertice) { 
+        this.data = (T) data;
     }
     /**
      * Modifica el apuntador pNext de un nodo
@@ -42,5 +42,11 @@ public class Nodo<T> { // Atributos de la clase Nodo
     public Nodo getpNext() {
         return pNext;
     }
+
+    public void setAttribute(String uilabel, String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
 
 }

@@ -115,4 +115,30 @@ public class Vertice { // Atributos de la clase vertice
         }
         return count;       
     }
+
+    public Iterable<String> getVecinos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+   /**
+ * Busca un vértice en la lista enlazada por su número de destino.
+ *
+ * @param destino El número del vértice a buscar.
+ * @param grafo El grafo al que pertenece el vértice.
+ * @return El vértice encontrado o null si no existe.
+ */
+public Vertice getVertice(int destino, Grafo grafo) {
+    Nodo<Object> aux = this.lad.getpFirst(); // Recorremos la lista enlazada de adyacencia
+    while (aux != null) {
+        Arista arista = (Arista) aux.getData(); // Convertimos el nodo a Arista
+        int numeroDestino = arista.getDestino(); // Obtenemos el número de destino
+        if (numeroDestino == destino) {
+            return grafo.getVectorDeAdyacencia()[numeroDestino]; // Devuelve el vértice desde el vector de adyacencia
+        }
+        aux = aux.getpNext(); // Pasamos al siguiente nodo
+    }
+    return null; // Si no se encuentra el vértice, devolvemos null
+}
+
+    
 }

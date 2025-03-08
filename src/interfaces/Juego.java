@@ -9,8 +9,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
-//import org.graphstream.graph.*;
-//import org.graphstream.graph.implementations.*;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+
 /**
  *
  * @author jmmor
@@ -2584,83 +2586,121 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
  * @param evt 
  */
     private void DFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DFSActionPerformed
-
-        /*
-                Buscas la casilla con este nombre y muestras su valor,
-                es decir, si no hay bombas adyacentes se muestra vacia. 
-                Si tiene x bombas adyacentes, se muestra ese numero.
-                En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
-                */
-                 
-        String nombre = "A3"; 
-    try {
-        
-        ListaEnlazada visitados = grafo.DFS(nombre);
-
-        Nodo aux = visitados.getpFirst();
-       
-        while (aux != null) {
-            
-            String nombreCasilla = aux.getData().toString();
-
-            int indiceVertice = Integer.parseInt(nombreCasilla);
-
-            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
-            
-            if (vertice.isSoyUnaBomba()) {
-                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
-            } else {
-                int bombasAdyacentes = vertice.getLad().bombasAdy(grafo);
-                if (bombasAdyacentes == 0) {
-                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
-                } else {
-                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
-                }
-            }
-
-            aux = aux.getpNext();
-        }
-    } catch (Exception ex) {
-        System.out.println("Error: " + ex.getMessage());      
-    }
+//
+//        /*
+//                Buscas la casilla con este nombre y muestras su valor,
+//                es decir, si no hay bombas adyacentes se muestra vacia. 
+//                Si tiene x bombas adyacentes, se muestra ese numero.
+//                En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
+//                */
+//                 
+//        String nombre = "A3"; 
+//    try {
+//        
+//        Graph graph = new SingleGraph("Recorrido DFS");
+//        graph.setAttribute("ui.stylesheet", 
+//            "node { fill-color: gray; text-color: white; text-size: 14px; } " +
+//            "node.visitado { fill-color: green; size: 20px; } " +
+//            "node.bomba { fill-color: red; } " +
+//            "edge { size: 2px; }");
+//        graph.display();
+//        
+//        for (Vertice vertice : Grafo.getNUVertice()) {
+//            Node node = graph.addNode(vertice.nombreVertice());
+//            node.setAttribute("ui.label", vertice.nombreVertice());
+//        }
+//
+//        // Agrega las conexiones (aristas) al grafo de GraphStream
+//        for (Vertice vertice : grafo.getVertice()) {
+//            for (String vecino : vertice.getVecinos(grafo)) {
+//                String edgeId = vertice.nombreVertice() + "-" + vecino;
+//                if (graph.getEdge(edgeId) == null) {
+//                    graph.addEdge(edgeId, vertice.nombreVertice(), vecino, false);
+//                }
+//            }
+//        }
+//        
+//        ListaEnlazada visitados = grafo.DFS(nombre);
+//        Nodo aux = visitados.getpFirst();
+//       
+//        while (aux != null) {
+//            
+//            String nombreCasilla = aux.getData().toString();
+//            int indiceVertice = Integer.parseInt(nombreCasilla);
+//            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
+//            
+//            Nodo node = (Nodo) graph.addNode(nombre);
+//            if(node != null){
+//                if (vertice.isSoyUnaBomba()) {
+//                    node.setAttribute("ui.label", "💣 " + vertice.nombreVertice());
+//                    node.setAttribute("ui.style", "fill-color: red;");
+////                    System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+//                } else {
+//                    int bombasAdyacentes = vertice.getLad().bombasAdy(grafo);
+//                     node.setAttribute("ui.class", "visitado");
+//                    if (bombasAdyacentes == 0) {
+//                         node.setAttribute("ui.label", "Vacía " + vertice.nombreVertice());
+////                        System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+//                    } else {
+//                        node.setAttribute("ui.label", bombasAdyacentes + " bombas");
+////                        System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+//                    }
+//                }
+//            }
+//            for (String vecino : vertice.getVecinos()) {
+//                if (graph.getNode(vecino) != null) { // Avoid duplicate edges
+//                    String edgeId = nombreCasilla + "-" + vecino;
+//                    if (graph.getEdge(edgeId) == null) {
+//                        graph.addEdge(edgeId, nombreCasilla, vecino, false);
+//                    }
+//                }
+//            }
+//
+//            aux = aux.getpNext();
+//            Thread.sleep(500);
+//        }
+//    } catch (Exception ex) {
+//        System.out.println("Error: " + ex.getMessage());      
+//    }
     }//GEN-LAST:event_DFSActionPerformed
 
-    /**
- * 
+    
+/**
+ * Accion de barrido BFS(Búsqueda en Amplitud)
  * @param evt 
  */
     private void BFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BFSActionPerformed
    String nombre = "B3"; // Nombre del vértice de inicio
-    try {
-//        // Configurar el grafo para la visualización con GraphStream
-//        Graph graph = new SingleGraph("Recorrido BFS");
-//        graph.setAttribute("ui.stylesheet", "node.marked { fill-color: red; }");
-//        graph.display();
-//
-//        // Crear nodos en el grafo para las casillas
-//        for (int i = 0; i < grafo.getVectorDeAdyacencia().length; i++) {
-//            Vertice vertice = grafo.DevuelveVertice(i);
-//            Nodo node = graph.addNode(vertice.nombreVertice());
-//            node.setData("ui.label", vertice.nombreVertice());
-//        }
-//
-//        // Crear aristas en el grafo para las conexiones
-//        for (int i = 0; i < grafo.getVectorDeAdyacencia().length; i++) {
-//            Vertice vertice = grafo.DevuelveVertice(i);
-//            Nodo aux = vertice.getLad().getpFirst();
-//            while (aux != null) {
-//                int indiceAdyacente = (int) aux.getData();
-//                Vertice adyacente = grafo.DevuelveVertice(indiceAdyacente);
-//
-//                String edgeId = vertice.nombreVertice() + "-" + adyacente.nombreVertice();
-//                if (graph.getEdge(edgeId) == null) {
-//                    graph.addEdge(edgeId, vertice.nombreVertice(), adyacente.nombreVertice());
-//                }
-//
-//                aux = aux.getpNext();
-//            }
-//        
-//        
+    try{
+        // Configurar el grafo para la visualización con GraphStream
+        Graph graph = new SingleGraph("Recorrido BFS");
+        graph.setAttribute("ui.stylesheet", "node.marked { fill-color: red; }");
+        graph.display();
+
+        // Crear nodos en el grafo para las casillas
+        for (int i = 0; i < grafo.getVectorDeAdyacencia().length; i++) {
+            Vertice vertice = grafo.DevuelveVertice(i);
+            Nodo node = (Nodo) graph.addNode(vertice.nombreVertice());
+            node.setData("ui.label", vertice.nombreVertice());
+        }
+
+        // Crear aristas en el grafo para las conexiones
+        for (int i = 0; i < grafo.getVectorDeAdyacencia().length; i++) {
+            Vertice vertice = grafo.DevuelveVertice(i);
+            Nodo aux = vertice.getLad().getpFirst();
+            while (aux != null) {
+                int indiceAdyacente = (int) aux.getData();
+                Vertice adyacente = grafo.DevuelveVertice(indiceAdyacente);
+
+                String edgeId = vertice.nombreVertice() + "-" + adyacente.nombreVertice();
+                if (graph.getEdge(edgeId) == null) {
+                    graph.addEdge(edgeId, vertice.nombreVertice(), adyacente.nombreVertice());
+                }
+
+                aux = aux.getpNext();
+            }
+        }
+        
         ListaEnlazada<Integer> visitados = grafo.BFS(nombre);
 
         Nodo aux = visitados.getpFirst();
@@ -2669,7 +2709,12 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             
             int indiceVertice = (int) aux.getData(); 
             Vertice vertice = grafo.DevuelveVertice(indiceVertice);
-            
+            Node node = graph.getNode(vertice.nombreVertice());
+
+            // Resaltar el nodo visitado
+            if (node != null) {
+                node.setAttribute("ui.class", "marked");
+            }
             if (vertice.isSoyUnaBomba()) {
                 System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
             } else {

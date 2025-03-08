@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package proyecto1estructuras;
 
 import grafo.Grafo;
 import grafo.ListaEnlazada;
 import grafo.Nodo;
 import interfaces.BuscaminasInterfaz;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
 
 /**
  *
@@ -26,8 +26,7 @@ public class Proyecto1Estructuras {
 //            grafo.nuevoVertice("v2");
 //            grafo.nuevoVertice("v3");
             
-            
-            
+          
             
             
             
@@ -62,7 +61,7 @@ public class Proyecto1Estructuras {
             
 //            grafo.borrarArista("v1", "v2");
         grafo.imprimirGrafo();
-    ListaEnlazada lista = grafo.DFS(arregloVectores[1]);
+    ListaEnlazada lista = grafo.BFS(arregloVectores[1]);
     Nodo aux = lista.getpFirst();
     while(aux != null){
         System.out.println(aux.getData().toString());

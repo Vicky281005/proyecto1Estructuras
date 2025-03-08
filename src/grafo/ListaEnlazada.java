@@ -234,7 +234,21 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         size--; // Reducir el tamaño de la lista
         return datoEliminado; // Devolver el valor eliminado
     }
-    
+     public void añadirNodo(T data) {
+        Nodo<T> nuevoNodo = new Nodo<>(data); // Crear un nuevo nodo con la data proporcionada
+
+        if (pFirst == null) {
+            // Si la lista está vacía, el nuevo nodo será el primero
+            pFirst = nuevoNodo;
+        } else {
+            // Si la lista no está vacía, recorrer hasta el último nodo y añadir el nuevo nodo
+            Nodo<T> actual = pFirst;
+            while (actual.getpNext() != null) {
+                actual = actual.getpNext();
+            }
+            actual.setpNext(nuevoNodo); // Enlazar el último nodo con el nuevo nodo
+        }
+    }
 }
 
 
