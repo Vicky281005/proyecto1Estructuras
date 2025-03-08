@@ -1491,7 +1491,21 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
          // Vertice J6
         String nombre = "J6";
         int indice = this.grafo.numVertice(nombre); 
+        
         grafo.escribirCasilla(casillaJ6, nombre, indice, this.buscarPorDFS); 
+        
+    /**
+     * Funcionalidad para que cuando se pise una casilla con bomba pierdas
+     * @return "Haz Perdido"
+     */    
+        if (grafo.getVectorDeAdyacencia() [indice].isSoyUnaBomba()) {
+            JOptionPane.showMessageDialog(null, "Haz Perdido");
+            BuscaminasInterfaz v1 = new BuscaminasInterfaz();
+            v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
+            v1.setLocationRelativeTo(null); // Centra la ventana
+            v1.setResizable(false); // Hace que no se pueda modificar la ventana, es decir queda centrado y en un tamaño fijo
+            this.dispose();
+        }
     }//GEN-LAST:event_casillaJ6ActionPerformed
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
