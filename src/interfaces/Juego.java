@@ -1494,6 +1494,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         grafo.escribirCasilla(casillaJ6, nombre, indice, this.buscarPorDFS); 
         
+//Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
+        grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
+        
     /**
      * Funcionalidad para que cuando se pise una casilla con bomba pierdas
      * @return "Haz Perdido"
