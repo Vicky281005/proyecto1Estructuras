@@ -1427,60 +1427,71 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             this.casillaJ10.setVisible(false);
         }
         
-        Vertice[] vertices = grafo.getVectorDeAdyacencia();
-          try {
-                    int verticesTamanio = vertices.length;
-                    
-                    for (int i = 0; i < verticesTamanio; i++) {
-                        // setear adyacencia a los lados
-                        if (i == 0) {
-                                grafo.nuevaArista(vertices[0].nombreVertice(), vertices[1].nombreVertice()); // Adyacente a la derecha
-                        } else if (i == verticesTamanio - 1) {
-                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-1].nombreVertice()); // Adyacente a la izquierda
-                        } else if ( (i+1) % this.nroColumnas == 0) { // pared derecha
-                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-1].nombreVertice()); // Adyacente a la izquierda porque es pared derecha
-                        } else if ( i % this.nroColumnas == 0) { // pared izquierda
-                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+1].nombreVertice()); // Adyacente a la derecha porque es pared izquierda
-                        } else{
-                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+1].nombreVertice()); // Adyacente a la derecha resto de casos de lado
-                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-1].nombreVertice()); // Adyacente a la izquierda resto de casos de lado   
-                        }
-                        // setear adyacencia a vertical
-                        
-                        if (i-this.nroColumnas >= 0) { // si hay arriba
-                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-this.nroColumnas].nombreVertice()); // Adyacente arriba
-                                if (i - this.nroColumnas- 1 >= 0 && i % this.nroColumnas != 0){ // Si tiene diagonal superior izquierda
-                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-this.nroColumnas- 1].nombreVertice()); // Adyacente diag izq arriba                                    
-                                }
-                                if (i - this.nroColumnas+ 1 >= 0 && (i+1) % this.nroColumnas != 0){ // Si tiene diagonal superior derecha
-                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-this.nroColumnas+ 1].nombreVertice()); // Adyacente diag der arriba                                    
-                                }
-                                
-                        }
-                        
-                        if (i+this.nroColumnas <= verticesTamanio - 1) { // si hay abajo
-                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+this.nroColumnas].nombreVertice()); // Adyacente abajo
-                                if (i + this.nroColumnas- 1 <= verticesTamanio - 1 && i % this.nroColumnas != 0){ // Si tiene diagonal inferior izquierda
-                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+this.nroColumnas- 1].nombreVertice()); // Adyacente diag izq abajo
-                                }
-                                if (i + this.nroColumnas+ 1 <= verticesTamanio - 1 && (i+1) % this.nroColumnas != 0){ // Si tiene diagonal inferior derecha
-                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+this.nroColumnas+ 1].nombreVertice()); // Adyacente diag der abajo
-                                }
-                        }
-                    }
-                    
-                    
-                    
-                    Vertice v = grafo.devuelveVerticePorNombre("B3");
-                    
-                    System.out.println("hola");
-                    System.out.println(v.getLad().getSize());
-                    
-                    
-                    
-           } catch (Exception ex) {
-                    Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
-           }
+//        Vertice[] vertices = grafo.getVectorDeAdyacencia();
+//          try {
+//                    int verticesTamanio = vertices.length;
+//                    
+//                    for (int i = 0; i < verticesTamanio; i++) {
+//                        // setear adyacencia a los lados
+//                        if (i == 0) {
+//                                grafo.nuevaArista(vertices[0].nombreVertice(), vertices[1].nombreVertice()); // Adyacente a la derecha
+//                        } else if (i == verticesTamanio - 1) {
+//                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-1].nombreVertice()); // Adyacente a la izquierda
+//                        } else if ( (i+1) % this.nroColumnas == 0) { // pared derecha
+//                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-1].nombreVertice()); // Adyacente a la izquierda porque es pared derecha
+//                        } else if ( i % this.nroColumnas == 0) { // pared izquierda
+//                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+1].nombreVertice()); // Adyacente a la derecha porque es pared izquierda
+//                        } else{
+//                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+1].nombreVertice()); // Adyacente a la derecha resto de casos de lado
+//                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-1].nombreVertice()); // Adyacente a la izquierda resto de casos de lado   
+//                        }
+//                        // setear adyacencia a vertical
+//                        
+//                        if (i-this.nroColumnas >= 0) { // si hay arriba
+//                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-this.nroColumnas].nombreVertice()); // Adyacente arriba
+//                                if (i - this.nroColumnas- 1 >= 0 && i % this.nroColumnas != 0){ // Si tiene diagonal superior izquierda
+//                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-this.nroColumnas- 1].nombreVertice()); // Adyacente diag izq arriba                                    
+//                                }
+//                                if (i - this.nroColumnas+ 1 >= 0 && (i+1) % this.nroColumnas != 0){ // Si tiene diagonal superior derecha
+//                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i-this.nroColumnas+ 1].nombreVertice()); // Adyacente diag der arriba                                    
+//                                }
+//                                
+//                        }
+//                        
+//                        if (i+this.nroColumnas <= verticesTamanio - 1) { // si hay abajo
+//                                grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+this.nroColumnas].nombreVertice()); // Adyacente abajo
+//                                if (i + this.nroColumnas- 1 <= verticesTamanio - 1 && i % this.nroColumnas != 0){ // Si tiene diagonal inferior izquierda
+//                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+this.nroColumnas- 1].nombreVertice()); // Adyacente diag izq abajo
+//                                }
+//                                if (i + this.nroColumnas+ 1 <= verticesTamanio - 1 && (i+1) % this.nroColumnas != 0){ // Si tiene diagonal inferior derecha
+//                                    grafo.nuevaArista(vertices[i].nombreVertice(), vertices[i+this.nroColumnas+ 1].nombreVertice()); // Adyacente diag der abajo
+//                                }
+//                        }
+//                    }
+//                    
+//                    
+//                    
+//                    Vertice v = grafo.devuelveVerticePorNombre("B3");
+//                    
+//                    System.out.println("hola");
+//                    System.out.println(v.getLad().getSize());
+//                    
+//                    
+//                    
+//           } catch (Exception ex) {
+//                    Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+//           }
+//          for (int i = 0; i < grafo.getNumVertices(); i++) {
+//              Vertice verticeA = grafo.getVectorDeAdyacencia()[i];
+//              Nodo aux=verticeA.getLad().getpFirst();
+//              for (int j = 0; j < verticeA.getLad().getSize(); j++) {
+//                  System.out.println(aux.getData().toString());
+//                  aux=aux.getpNext();
+//              }
+//              System.out.println("=============================");
+//            
+//        }
+ 
         
     }//GEN-LAST:event_formWindowOpened
 

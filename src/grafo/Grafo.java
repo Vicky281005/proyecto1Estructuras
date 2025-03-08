@@ -232,6 +232,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
              Vertice verticeActual = vectorDeAdyacencia[i];
              if(!verticeActual.isSoyUnaBomba()){
                  verticeActual.setSoyUnaBomba(false, this);
+                 
              }
          }
      }
@@ -244,12 +245,12 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
      * @return true si son adyacentes, false si no lo son
      * @throws Exception cuando uno de los dos vertices no existe
      */
-    public boolean adyacente(String a, String b) throws Exception {
+    public boolean adyacente(String a, String b)  {
         int v1, v2;
         v1 = numVertice(a);
         v2 = numVertice(b);
         if (v1 < 0 || v2 < 0) {
-            throw new Exception("El vertice no existe");
+            System.out.println("El vertice no existe");
         }
         return this.vectorDeAdyacencia[v1].getLad().contains(new Arista(v2));
     }
@@ -277,14 +278,14 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
      * @param b es el segundo vertice
      * @throws Exception
      */
-    public void nuevaArista(String a, String b) throws Exception {
+    public void nuevaArista(String a, String b)  {
         if (!adyacente(a, b)) {
 
             int v1 = numVertice(a);
             int v2 = numVertice(b);
             System.out.println("todo bien");
             if (v1 < 0 || v2 < 0) {
-                throw new Exception("El veertice no existe");
+                System.out.println("El veertice no existe");
             }
             Arista ab = new Arista(v2);
             this.vectorDeAdyacencia[v1].getLad().addFirst(ab);

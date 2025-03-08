@@ -2,8 +2,6 @@
 package interfaces;
 
 import grafo.Grafo;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -175,11 +173,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                     if (nuevaFila >= 0 && nuevaFila < this.nroFilas && nuevaColumna >= 0 && nuevaColumna < this.nroColumnas) {
                         String vecino = filasCoordenadas[nuevaColumna] + String.valueOf(nuevaFila+1);
                         System.out.println(vecino);
-                        try {
                             grafo.nuevaArista(actual, vecino);
-                        } catch (Exception ex) {
-                            Logger.getLogger(BuscaminasInterfaz.class.getName()).log(Level.SEVERE, null, ex);
-                        }
                     }
                 }
             }
