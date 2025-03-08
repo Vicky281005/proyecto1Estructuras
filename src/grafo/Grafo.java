@@ -294,6 +294,62 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             System.out.println();
         }
     }
+    
+    public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice){
+//        button.setEnabled(false);
+        button.setForeground(java.awt.Color.BLACK);
+        try {
+            Vertice vertice = this.DevuelveVertice(indice);
+            if (vertice.isSoyUnaBomba()){
+                button.setText(vertice.getEmoji());
+            } else{
+                int bombasAdyacentes = this.casillasBombaAdyacentePorDFS(nombre);
+                button.setText(String.valueOf(bombasAdyacentes));
+                
+            }
+        } catch (Exception ex) {
+            button.setVisible(false);
+        }
+        
+    }
+    
+    public int casillasBombaAdyacentePorDFS(String nombre){
+        try {
+        
+        ListaEnlazada visitados = this.DFS(nombre);
+
+        Nodo aux = visitados.getpFirst();
+       
+        while (aux != null) {
+            
+            String nombreCasilla = aux.getData().toString();
+
+            int indiceVertice = Integer.parseInt(nombreCasilla);
+
+            Vertice vertice = this.DevuelveVertice(indiceVertice);
+            
+            if (vertice.isSoyUnaBomba()) {
+                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+                return -1; //No diremos las bombas adyacentes puesto que esto es una bomba
+            } else {
+                int bombasAdyacentes = vertice.lad.bombasAdy(this);
+                if (bombasAdyacentes == 0) {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+                    return 0;
+                } else {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+                    return bombasAdyacentes;
+                    
+                }
+            }
+
+//            aux = aux.getpNext();
+        }
+    } catch (Exception ex) {
+        System.out.println("Error: " + ex.getMessage());      
+    }
+        return -1;
+    }
 //    public ListaEnlazada DFS(String nombre) throws Exception {
 //        Vertice inicio = this.DevuelveVerticePorNombre(nombre);
 //
