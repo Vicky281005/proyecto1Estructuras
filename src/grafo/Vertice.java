@@ -10,6 +10,8 @@ public class Vertice { // Atributos de la clase vertice
     private int numeroVertice;
     private boolean soyUnaBomba;
     private String emoji;
+    private boolean marcado; 
+    private boolean barrido;
     public ListaEnlazada<Object> lad;
     
 
@@ -18,6 +20,8 @@ public class Vertice { // Atributos de la clase vertice
             numeroVertice= -1;
             lad = new ListaEnlazada();
             this.soyUnaBomba = false;
+            this.marcado = false;
+            this.barrido = false;
             this.emoji = "";
         }
         
@@ -26,6 +30,8 @@ public class Vertice { // Atributos de la clase vertice
             numeroVertice= -1;
             lad = new ListaEnlazada();
             this.soyUnaBomba = soyUnaBomba;
+            this.marcado = false; 
+            this.barrido = false;
             this.emoji = soyUnaBomba ? "💣" : "";
         }
         
@@ -77,4 +83,29 @@ public class Vertice { // Atributos de la clase vertice
             Vertice dos= (Vertice) d;
             return nombre.equals(dos.nombre);
         }
+
+/**
+ * Getters y Setters de booloeanos que agregue: barrido y marcado
+ * Estos booleanos son necesarios para que cuando se guarde el CSV se sepa si la casilla esta marcada o no
+ * y para poder saber si ponerlo de un color distinto o no 
+ * igual con barrido, se necesita saber si esta barrido o no para saber si se muestra o no la información de la casilla
+ * @return 
+ */
+    public boolean isMarcado() {
+        return marcado;
+    }
+
+    public void setMarcado(boolean marcado) {
+        this.marcado = marcado;
+    }
+
+    public boolean isBarrido() {
+        return barrido;
+    }
+
+    public void setBarrido(boolean barrido) {
+        this.barrido = barrido;
+    }
+        
+        
 }
