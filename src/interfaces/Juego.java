@@ -1489,13 +1489,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
      */
     private void casillaJ6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ6ActionPerformed
          // Vertice J6
-        int indice = this.grafo.numVertice("J6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice); 
-            this.casillaJ6.setText(vertice.getEmoji());
-        } catch (Exception ex) { 
-            this.casillaJ6.setVisible(false);
-        }        
+        String nombre = "J6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ6, nombre, indice, this.buscarPorDFS); 
     }//GEN-LAST:event_casillaJ6ActionPerformed
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
@@ -1508,13 +1504,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaJ10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ10ActionPerformed
            // Vertice J10
-        int indice = this.grafo.numVertice("J10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ10.setVisible(false);
-        }
+        String nombre = "J10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ10ActionPerformed
 
     private void casillaA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA4ActionPerformed
@@ -1526,57 +1518,37 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
         // Vertice A6
-        int indice = this.grafo.numVertice("A6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA6.setVisible(false);
-        }
+        String nombre = "A6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaA6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA6ActionPerformed
 
     private void casillaA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA7ActionPerformed
         // Vertice A7
-        int indice = this.grafo.numVertice("A7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA7.setVisible(false);
-        }
+        String nombre = "A7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaA7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA7ActionPerformed
 
     private void casillaA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA8ActionPerformed
         // Vertice A8
-        int indice = this.grafo.numVertice("A8");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA8.setVisible(false);
-        }
+       String nombre = "A8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaA8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA8ActionPerformed
 
     private void casillaA9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA9ActionPerformed
         // Vertice A9
-        int indice = this.grafo.numVertice("A9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);  
-            this.casillaA9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA9.setVisible(false);
-        }
+        String nombre = "A9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaA9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA9ActionPerformed
 
     private void casillaA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA10ActionPerformed
         // Vertice A10
-        int indice = this.grafo.numVertice("A10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA10.setVisible(false);
-        }
+       String nombre = "A10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaA10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA10ActionPerformed
 
     private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
@@ -1588,112 +1560,72 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
         // Vertice B1 
-        int indice = this.grafo.numVertice("B1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB1.setVisible(false);
-        }
+        String nombre = "B1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB1ActionPerformed
 
     private void casillaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ1ActionPerformed
          // Vertice J1
-        int indice = this.grafo.numVertice("J1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ1.setVisible(false);
-        }
+        String nombre = "J1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ1ActionPerformed
 
     private void casillaC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC10ActionPerformed
           // Vertice C10
-        int indice = this.grafo.numVertice("C10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC10.setVisible(false);
-        }
+         String nombre = "C10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC10ActionPerformed
 
     private void casillaD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD10ActionPerformed
         // Vertice D10
-        int indice = this.grafo.numVertice("D10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD10.setVisible(false);
-        }
+        String nombre = "D10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD10ActionPerformed
 
     private void casillaF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF1ActionPerformed
           // Vertice F1
-        int indice = this.grafo.numVertice("F1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF1.setVisible(false);
-        }
+        String nombre = "F1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF1ActionPerformed
 
     private void casillaG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG1ActionPerformed
           // Vertice G1
-        int indice = this.grafo.numVertice("G1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG1.setVisible(false);
-        }
+        String nombre = "G1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG1ActionPerformed
 
     private void casillaH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH1ActionPerformed
         // Vertice H1
-        int indice = this.grafo.numVertice("H1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH1.setVisible(false);
-        }
+        String nombre = "H1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH1ActionPerformed
 
     private void casillaI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI1ActionPerformed
         // Vertice I1
-        int indice = this.grafo.numVertice("I1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI1.setVisible(false);
-        }
+        String nombre = "I1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI1ActionPerformed
 
     private void casillaB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB2ActionPerformed
         // Vertice B2
-        int indice = this.grafo.numVertice("B2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB2.setVisible(false);
-        }
+        String nombre = "B2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB2ActionPerformed
 
     private void casillaB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB3ActionPerformed
         // Vertice B3
-        int indice = this.grafo.numVertice("B3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB3.setVisible(false);
-        }
+        String nombre = "B3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB3ActionPerformed
 
     private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
@@ -1705,860 +1637,548 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
        // Vertice B4 
-        int indice = this.grafo.numVertice("B4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB4.setVisible(false);
-        }
+         String nombre = "B4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB4ActionPerformed
 
     private void casillaC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC5ActionPerformed
          // Vertice C5
-        int indice = this.grafo.numVertice("C5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC5.setVisible(false);
-        }
+        String nombre = "C5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC5ActionPerformed
 
     private void casillaB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB6ActionPerformed
         // Vertice B6
-        int indice = this.grafo.numVertice("B6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB6.setVisible(false);
-        }
+         String nombre = "B6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB6ActionPerformed
 
     private void casillaB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB5ActionPerformed
       // Vertice B5
-        int indice = this.grafo.numVertice("B5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB5.setVisible(false);
-        }
+          String nombre = "B5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB5ActionPerformed
 
     private void casillaB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB7ActionPerformed
        // Vertice B7
-        int indice = this.grafo.numVertice("B7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB7.setVisible(false);
-        }
+          String nombre = "B7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB7ActionPerformed
 
     private void casillaB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB8ActionPerformed
         // Vertice B8
-        int indice = this.grafo.numVertice("B8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB8.setVisible(false);
-        }
+          String nombre = "B8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB8ActionPerformed
 
     private void casillaC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC1ActionPerformed
        // Vertice C1
-        int indice = this.grafo.numVertice("C1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC1.setVisible(false);
-        }
+         String nombre = "C1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC1ActionPerformed
 
     private void casillaB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB9ActionPerformed
        // Vertice B9
-        int indice = this.grafo.numVertice("B9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB9.setVisible(false);
-        }
+         String nombre = "B9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB9ActionPerformed
 
     private void casillaB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB10ActionPerformed
        // Vertice B10
-        int indice = this.grafo.numVertice("B10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB10.setVisible(false);
-        }
+          String nombre = "B10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaB10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaB10ActionPerformed
 
     private void casillaC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC2ActionPerformed
        // Vertice C2
-        int indice = this.grafo.numVertice("C2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC2.setVisible(false);
-        }
+         String nombre = "C2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC2ActionPerformed
 
     private void casillaC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC3ActionPerformed
           // Vertice C3
-        int indice = this.grafo.numVertice("C3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC3.setVisible(false);
-        }
+        String nombre = "C3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC3ActionPerformed
 
     private void casillaC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC4ActionPerformed
         // Vertice C4
-        int indice = this.grafo.numVertice("C4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC4.setVisible(false);
-        }
+        String nombre = "C4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC4ActionPerformed
 
     private void casillaC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC6ActionPerformed
          // Vertice C6
-        int indice = this.grafo.numVertice("C6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC6.setVisible(false);
-        }
+        String nombre = "C6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC6ActionPerformed
 
     private void casillaC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC7ActionPerformed
           // Vertice C7
-        int indice = this.grafo.numVertice("C7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC7.setVisible(false);
-        }
+       String nombre = "C7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC7ActionPerformed
 
     private void casillaC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC9ActionPerformed
           // Vertice C9
-        int indice = this.grafo.numVertice("C9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC9.setVisible(false);
-        }
+       String nombre = "C9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC9ActionPerformed
 
     private void casillaC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC8ActionPerformed
          // Vertice C8
-        int indice = this.grafo.numVertice("C8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC8.setVisible(false);
-        }
+       String nombre = "C8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaC8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaC8ActionPerformed
 
     private void casillaD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD9ActionPerformed
         // Vertice D9
-        int indice = this.grafo.numVertice("D9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD9.setVisible(false);
-        }
+       String nombre = "D9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD9ActionPerformed
 
     private void casillaD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD5ActionPerformed
         // Vertice D5
-        int indice = this.grafo.numVertice("D5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD5.setVisible(false);
-        }
+       String nombre = "D5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD5ActionPerformed
 
     private void casillaD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD1ActionPerformed
           // Vertice D1
-        int indice = this.grafo.numVertice("D1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD1.setVisible(false);
-        }
+        String nombre = "D1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD1ActionPerformed
 
     private void casillaD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD2ActionPerformed
           // Vertice D2
-        int indice = this.grafo.numVertice("D2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD2.setVisible(false);
-        }
+        String nombre = "D2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD2ActionPerformed
 
     private void casillaE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE3ActionPerformed
           // Vertice E3
-        int indice = this.grafo.numVertice("E3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE3.setVisible(false);
-        }
+        String nombre = "E3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE3ActionPerformed
 
     private void casillaD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD3ActionPerformed
          // Vertice D3
-        int indice = this.grafo.numVertice("D3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD3.setVisible(false);
-        }
+        String nombre = "D3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD3ActionPerformed
 
     private void casillaD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD7ActionPerformed
         // Vertice D7
-        int indice = this.grafo.numVertice("D7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD7.setVisible(false);
-        }
+       String nombre = "D7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD7ActionPerformed
 
     private void casillaD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD6ActionPerformed
        // Vertice D6
-        int indice = this.grafo.numVertice("D6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD6.setVisible(false);
-        }
+        String nombre = "D6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD6ActionPerformed
 
     private void casillaD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD8ActionPerformed
        // Vertice D8
-        int indice = this.grafo.numVertice("D8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD8.setVisible(false);
-        }
+       String nombre = "D8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD8ActionPerformed
 
     private void casillaE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE1ActionPerformed
        // Vertice E1
-        int indice = this.grafo.numVertice("E1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE1.setVisible(false);
-        }
+       String nombre = "E1";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE1ActionPerformed
 
     private void casillaE2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE2ActionPerformed
           // Vertice E2
-        int indice = this.grafo.numVertice("E2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE2.setVisible(false);
-        }
+        String nombre = "E2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE2ActionPerformed
 
     private void casillaE4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE4ActionPerformed
          // Vertice E4
-        int indice = this.grafo.numVertice("E4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE4.setVisible(false);
-        }
+       String nombre = "E4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE4ActionPerformed
 
     private void casillaE5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE5ActionPerformed
          // Vertice E5
-        int indice = this.grafo.numVertice("E5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE5.setVisible(false);
-        }
+        String nombre = "E5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE5ActionPerformed
 
     private void casillaE6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE6ActionPerformed
           // Vertice E6
-        int indice = this.grafo.numVertice("E6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE6.setVisible(false);
-        }
+       String nombre = "E6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE6ActionPerformed
 
     private void casillaE7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE7ActionPerformed
           // Vertice E7
-        int indice = this.grafo.numVertice("E7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE7.setVisible(false);
-        }
+       String nombre = "E7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE7ActionPerformed
 
     private void casillaE8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE8ActionPerformed
           // Vertice E8
-        int indice = this.grafo.numVertice("E8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE8.setVisible(false);
-        }
+        String nombre = "E8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE8ActionPerformed
 
     private void casillaE9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE9ActionPerformed
          // Vertice E9
-        int indice = this.grafo.numVertice("E9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE9.setVisible(false);
-        }
+       String nombre = "E9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE9ActionPerformed
 
     private void casillaE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE10ActionPerformed
          // Vertice E10
-        int indice = this.grafo.numVertice("E10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE10.setVisible(false);
-        }
+       String nombre = "E10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaE10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaE10ActionPerformed
 
     private void casillaF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF2ActionPerformed
            // Vertice F2
-        int indice = this.grafo.numVertice("F2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF2.setVisible(false);
-        }
+        String nombre = "F2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF2ActionPerformed
 
     private void casillaF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF3ActionPerformed
           // Vertice F3
-        int indice = this.grafo.numVertice("F3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF3.setVisible(false);
-        }
+        String nombre = "F3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF3ActionPerformed
 
     private void casillaD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD4ActionPerformed
           // Vertice D4
-        int indice = this.grafo.numVertice("D4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD4.setVisible(false);
-        }
+        String nombre = "D4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaD4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaD4ActionPerformed
 
     private void casillaF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF4ActionPerformed
            // Vertice F4
-        int indice = this.grafo.numVertice("F4");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF4.setVisible(false);
-        }
+        String nombre = "F4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF4ActionPerformed
 
     private void casillaF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF6ActionPerformed
            // Vertice F6
-        int indice = this.grafo.numVertice("F6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF6.setVisible(false);
-        }
+        String nombre = "F6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF6ActionPerformed
 
     private void casillaF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF7ActionPerformed
            // Vertice F7
-        int indice = this.grafo.numVertice("F7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF7.setVisible(false);
-        }
+         String nombre = "F7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF7ActionPerformed
 
     private void casillaF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF8ActionPerformed
            // Vertice F8
-        int indice = this.grafo.numVertice("F8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF8.setVisible(false);
-        }
+        String nombre = "F8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF8ActionPerformed
 
     private void casillaF9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF9ActionPerformed
            // Vertice F9
-        int indice = this.grafo.numVertice("F9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF9.setVisible(false);
-        }
+        String nombre = "F9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF9ActionPerformed
 
     private void casillaF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF10ActionPerformed
           // Vertice F10
-        int indice = this.grafo.numVertice("F10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF10.setVisible(false);
-        }
+        String nombre = "F10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF10ActionPerformed
 
     private void casillaG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG2ActionPerformed
         // Vertice G2
-        int indice = this.grafo.numVertice("G2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG2.setVisible(false);
-        }
+        String nombre = "G2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG2ActionPerformed
 
     private void casillaG3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG3ActionPerformed
        // Vertice G3
-        int indice = this.grafo.numVertice("G3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG3.setVisible(false);
-        }
+         String nombre = "G3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG3ActionPerformed
 
     private void casillaF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF5ActionPerformed
            // Vertice F5
-        int indice = this.grafo.numVertice("F5");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF5.setVisible(false);
-        }
+         String nombre = "F5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaF5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaF5ActionPerformed
 
     private void casillaG4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG4ActionPerformed
         // Vertice G4
-        int indice = this.grafo.numVertice("G4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG4.setVisible(false);
-        }
+        String nombre = "G4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG4ActionPerformed
 
     private void casillaG6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG6ActionPerformed
        // Vertice G6
-        int indice = this.grafo.numVertice("G6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG6.setVisible(false);
-        }
+         String nombre = "G6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG6ActionPerformed
 
     private void casillaG7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG7ActionPerformed
         // Vertice G7
-        int indice = this.grafo.numVertice("G7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG7.setVisible(false);
-        }
+        String nombre = "G7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG7ActionPerformed
 
     private void casillaG8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG8ActionPerformed
         // Vertice G8
-        int indice = this.grafo.numVertice("G8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG8.setVisible(false);
-        }
+        String nombre = "G8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG8ActionPerformed
 
     private void casillaG9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG9ActionPerformed
        // Vertice G9
-        int indice = this.grafo.numVertice("G9");
-        try { 
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG9.setVisible(false);
-        }
+       String nombre = "G9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG9ActionPerformed
 
     private void casillaG10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG10ActionPerformed
         // Vertice G10
-        int indice = this.grafo.numVertice("G10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG10.setVisible(false); 
-        }
+        String nombre = "G10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG10ActionPerformed
 
     private void casillaH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH2ActionPerformed
         // Vertice H2
-        int indice = this.grafo.numVertice("H2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH2.setVisible(false);
-        }
+        String nombre = "H2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH2ActionPerformed
 
     private void casillaH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH3ActionPerformed
         // Vertice H3
-        int indice = this.grafo.numVertice("H3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH3.setVisible(false);
-        }
+        String nombre = "H3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH3ActionPerformed
 
     private void casillaG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG5ActionPerformed
         // Vertice G5
-        int indice = this.grafo.numVertice("G5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG5.setVisible(false);
-        }
+         String nombre = "G5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaG5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaG5ActionPerformed
 
     private void casillaH4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH4ActionPerformed
         // Vertice H4
-        int indice = this.grafo.numVertice("H4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH4.setVisible(false);
-        }
+       String nombre = "H4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH4ActionPerformed
 
     private void casillaH6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH6ActionPerformed
         // Vertice H6
-        int indice = this.grafo.numVertice("H6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH6.setVisible(false);
-        }
+        String nombre = "H6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH6ActionPerformed
 
     private void casillaH7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH7ActionPerformed
        // Vertice H7
-        int indice = this.grafo.numVertice("H7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH7.setVisible(false);
-        }
+        String nombre = "H7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH7ActionPerformed
 
     private void casillaH8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH8ActionPerformed
         // Vertice H8
-        int indice = this.grafo.numVertice("H8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH8.setVisible(false);
-        }
+        String nombre = "H8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH8ActionPerformed
 
     private void casillaH9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH9ActionPerformed
         // Vertice H9
-        int indice = this.grafo.numVertice("H9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH9.setVisible(false);
-        }
+        String nombre = "H9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH9ActionPerformed
 
     private void casillaH10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH10ActionPerformed
         // Vertice H10
-        int indice = this.grafo.numVertice("H10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH10.setVisible(false);
-        }
+        String nombre = "H10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH10ActionPerformed
 
     private void casillaI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI2ActionPerformed
         // Vertice I2
-        int indice = this.grafo.numVertice("I2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI2.setVisible(false);
-        }
+        String nombre = "I2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI2ActionPerformed
 
     private void casillaI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI3ActionPerformed
        // Vertice I3
-        int indice = this.grafo.numVertice("I3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI3.setVisible(false);
-        }
+        String nombre = "I3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI3ActionPerformed
 
     private void casillaH5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH5ActionPerformed
        // Vertice H5
-        int indice = this.grafo.numVertice("H5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH5.setVisible(false);
-        }
+        String nombre = "H5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaH5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaH5ActionPerformed
 
     private void casillaI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI4ActionPerformed
        // Vertice I4
-        int indice = this.grafo.numVertice("I4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI4.setVisible(false);
-        }
+        String nombre = "I4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI4ActionPerformed
 
     private void casillaI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI6ActionPerformed
        // Vertice I6
-        int indice = this.grafo.numVertice("I6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI6.setVisible(false);
-        }
+        String nombre = "I6";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI6, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI6ActionPerformed
 
     private void casillaI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI7ActionPerformed
        // Vertice I7
-        int indice = this.grafo.numVertice("I7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI7.setVisible(false);
-        }
+        String nombre = "I7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI7ActionPerformed
 
     private void casillaI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI8ActionPerformed
         // Vertice I8
-        int indice = this.grafo.numVertice("I8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI8.setVisible(false);
-        }
+        String nombre = "I8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI8ActionPerformed
 
     private void casillaI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI9ActionPerformed
         // Vertice I9
-        int indice = this.grafo.numVertice("I9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI9.setVisible(false);
-        }
+        String nombre = "I9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI9ActionPerformed
 
     private void casillaI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI10ActionPerformed
         // Vertice I0
-        int indice = this.grafo.numVertice("I10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI10.setVisible(false);
-        }
+        String nombre = "I10";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI10, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI10ActionPerformed
 
     private void casillaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ2ActionPerformed
            // Vertice J2
-        int indice = this.grafo.numVertice("J2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ2.setVisible(false);
-        }
+       String nombre = "J2";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ2ActionPerformed
 
     private void casillaJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ3ActionPerformed
            // Vertice J3
-        int indice = this.grafo.numVertice("J3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ3.setVisible(false);
-        }
+        String nombre = "J3";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ3, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ3ActionPerformed
 
     private void casillaI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI5ActionPerformed
         // Vertice I5
-        int indice = this.grafo.numVertice("I5");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI5.setVisible(false);
-        }
+        String nombre = "I5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaI5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaI5ActionPerformed
 
     private void casillaJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ4ActionPerformed
           // Vertice J4
-        int indice = this.grafo.numVertice("J4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ4.setVisible(false);
-        }
+       String nombre = "J4";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ4ActionPerformed
 
     private void casillaJ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ5ActionPerformed
            // Vertice J5
-        int indice = this.grafo.numVertice("J5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ5.setVisible(false);
-        }
+        String nombre = "J5";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ5ActionPerformed
 
     private void casillaJ7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ7ActionPerformed
            // Vertice J7
-        int indice = this.grafo.numVertice("J7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ7.setVisible(false);
-        }
+        String nombre = "J7";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ7, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ7ActionPerformed
 
     private void casillaJ8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ8ActionPerformed
           // Vertice J8
-        int indice = this.grafo.numVertice("J8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ8.setVisible(false);
-        }
+        String nombre = "J8";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ8, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ8ActionPerformed
 
     private void casillaJ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ9ActionPerformed
           // Vertice J9
-        int indice = this.grafo.numVertice("J9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ9.setVisible(false);
-        }
+        String nombre = "J9";
+        int indice = this.grafo.numVertice(nombre); 
+        grafo.escribirCasilla(casillaJ9, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaJ9ActionPerformed
 /**
  * 

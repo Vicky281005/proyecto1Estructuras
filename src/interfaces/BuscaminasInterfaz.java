@@ -67,9 +67,8 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\unnamed (1).png")); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 290, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 240, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
