@@ -42,5 +42,5 @@ public class Nodo<T> { // Atributos de la clase Nodo
     public Nodo getpNext() {
         return pNext;
     }
-    
+
 }

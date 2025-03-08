@@ -211,4 +211,30 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         }
         return false;
     }
+    /**
+     * Elimina el primer nodo de la lista y devuelve su valor.
+     * @return El valor del primer nodo eliminado, o null si la lista está vacía.
+     */public T eliminarPrimero() {
+        if (isEmpty()) {
+            // Si la lista está vacía, no hay nada que eliminar
+            return null;
+        }
+
+        // Guardar el valor del primer nodo
+        T datoEliminado = (T) pFirst.getData();
+
+        if (pFirst == pLast) {
+            // Si solo hay un nodo en la lista, la lista queda vacía
+            pFirst = pLast = null;
+        } else {
+            // Si hay más de un nodo, el segundo nodo pasa a ser el primero
+            pFirst = pFirst.getpNext();
+        }
+
+        size--; // Reducir el tamaño de la lista
+        return datoEliminado; // Devolver el valor eliminado
+    }
+    
 }
+
+

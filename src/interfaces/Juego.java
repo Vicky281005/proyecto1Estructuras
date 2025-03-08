@@ -9,8 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
-//import org.graphstream.graph.Graph;
-//import org.graphstream.graph.implementations.SingleGraph;
+//import org.graphstream.graph.*;
+//import org.graphstream.graph.implementations.*;
 /**
  *
  * @author jmmor
@@ -2576,7 +2576,10 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             this.casillaJ9.setVisible(false);
         }
     }//GEN-LAST:event_casillaJ9ActionPerformed
-/**
+
+
+    
+    /**
  * 
  * @param evt 
  */
@@ -2621,14 +2624,43 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         System.out.println("Error: " + ex.getMessage());      
     }
     }//GEN-LAST:event_DFSActionPerformed
-/**
+
+    /**
  * 
  * @param evt 
  */
     private void BFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BFSActionPerformed
    String nombre = "B3"; // Nombre del vértice de inicio
     try {
-        
+//        // Configurar el grafo para la visualización con GraphStream
+//        Graph graph = new SingleGraph("Recorrido BFS");
+//        graph.setAttribute("ui.stylesheet", "node.marked { fill-color: red; }");
+//        graph.display();
+//
+//        // Crear nodos en el grafo para las casillas
+//        for (int i = 0; i < grafo.getVectorDeAdyacencia().length; i++) {
+//            Vertice vertice = grafo.DevuelveVertice(i);
+//            Nodo node = graph.addNode(vertice.nombreVertice());
+//            node.setData("ui.label", vertice.nombreVertice());
+//        }
+//
+//        // Crear aristas en el grafo para las conexiones
+//        for (int i = 0; i < grafo.getVectorDeAdyacencia().length; i++) {
+//            Vertice vertice = grafo.DevuelveVertice(i);
+//            Nodo aux = vertice.getLad().getpFirst();
+//            while (aux != null) {
+//                int indiceAdyacente = (int) aux.getData();
+//                Vertice adyacente = grafo.DevuelveVertice(indiceAdyacente);
+//
+//                String edgeId = vertice.nombreVertice() + "-" + adyacente.nombreVertice();
+//                if (graph.getEdge(edgeId) == null) {
+//                    graph.addEdge(edgeId, vertice.nombreVertice(), adyacente.nombreVertice());
+//                }
+//
+//                aux = aux.getpNext();
+//            }
+//        
+//        
         ListaEnlazada<Integer> visitados = grafo.BFS(nombre);
 
         Nodo aux = visitados.getpFirst();
@@ -2636,9 +2668,8 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         while (aux != null) {
             
             int indiceVertice = (int) aux.getData(); 
-
             Vertice vertice = grafo.DevuelveVertice(indiceVertice);
-
+            
             if (vertice.isSoyUnaBomba()) {
                 System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
             } else {
@@ -2661,7 +2692,186 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     }
 
     }//GEN-LAST:event_BFSActionPerformed
+/**
+ * Obtiene el índice del vértice inicial
+ * @param nombreCasilla 
+ */
+    public void barrerCasillasBFS(String nombreCasilla) {
+    try {
+        int indiceInicial = grafo.numVertice(nombreCasilla);
+        if (indiceInicial == -1) {
+            System.out.println("Casilla no encontrada: " + nombreCasilla);
+            return;
+        }
 
+        ListaEnlazada cola = new ListaEnlazada();
+        cola.addLast(indiceInicial);
+
+        boolean[] visitados = new boolean[grafo.getVectorDeAdyacencia().length];
+        visitados[indiceInicial] = true;
+
+        while (!cola.isEmpty()) {
+            int indiceActual = (int) cola.eliminarPrimero(); 
+            Vertice verticeActual = grafo.DevuelveVertice(indiceActual);
+
+            if (!verticeActual.isSoyUnaBomba()) {
+                int bombasAdyacentes = verticeActual.getLad().bombasAdy(grafo);
+                revelarCasilla(verticeActual, bombasAdyacentes); // Método para revelar la casilla
+
+                // Si no hay bombas adyacentes, continuar el barrido
+                if (bombasAdyacentes == 0) {
+                    // Obtener las casillas adyacentes
+                    ListaEnlazada adyacentes = verticeActual.getLad();
+                    Nodo aux = adyacentes.getpFirst();
+
+                    while (aux != null) {
+                        int indiceAdyacente = (int) aux.getData();
+
+                        // Si la casilla adyacente no ha sido visitada, añadirla a la cola
+                        if (!visitados[indiceAdyacente]) {
+                            visitados[indiceAdyacente] = true;
+                            cola.addLast(indiceAdyacente);
+                        }
+
+                        aux = aux.getpNext();
+                    }
+                }
+            }
+        }
+    } catch (Exception ex) {
+        System.out.println("Error al barrer casillas: " + ex.getMessage());
+    }
+}
+
+/**
+ * Método para revelar una casilla en la interfaz gráfica.
+ * @param vertice El vértice que representa la casilla.
+ * @param bombasAdyacentes El número de bombas adyacentes.
+ */
+private void revelarCasilla(Vertice vertice, int bombasAdyacentes) {
+    JToggleButton casilla = obtenerBotonPorNombre(vertice.nombreVertice());
+
+    if (casilla != null) {
+        if (bombasAdyacentes == 0) {
+            casilla.setText(""); 
+        } else {
+            casilla.setText(String.valueOf(bombasAdyacentes)); 
+        }
+        casilla.setEnabled(false); 
+    }
+}
+
+/**
+ * Método auxiliar para obtener el botón correspondiente a una casilla por su nombre.
+ * @param nombreCasilla El nombre de la casilla.
+ * @return El botón correspondiente, o null si no se encuentra.
+ */
+private JToggleButton obtenerBotonPorNombre(String nombreCasilla) {
+    switch (nombreCasilla) {
+        case "A1": return casillaA1;
+        case "A2": return casillaA2;
+        case "A3": return casillaA3;
+        case "A4": return casillaA4;
+        case "A5": return casillaA5;
+        case "A6": return casillaA6;
+        case "A7": return casillaA7;
+        case "A8": return casillaA8;
+        case "A9": return casillaA9;
+        case "A10": return casillaA10;
+        case "B1": return casillaB1;
+        case "B2": return casillaB2;
+        case "B3": return casillaB3;
+        case "B4": return casillaB4;
+        case "B5": return casillaB5;
+        case "B6": return casillaB6;
+        case "B7": return casillaB7;
+        case "B8": return casillaB8;
+        case "B9": return casillaB9;
+        case "B10": return casillaB10;
+        case "C1": return casillaC1;
+        case "C2": return casillaC2;
+        case "C3": return casillaC3;
+        case "C4": return casillaC4;
+        case "C5": return casillaC5;
+        case "C6": return casillaC6;
+        case "C7": return casillaC7;
+        case "C8": return casillaC8;
+        case "C9": return casillaC9;
+        case "C10": return casillaC10;
+        case "D1": return casillaD1;
+        case "D2": return casillaD2;
+        case "D3": return casillaD3;
+        case "D4": return casillaD4;
+        case "D5": return casillaD5;
+        case "D6": return casillaD6;
+        case "D7": return casillaD7;
+        case "D8": return casillaD8;
+        case "D9": return casillaD9;
+        case "D10": return casillaD10;
+        case "E1": return casillaE1;
+        case "E2": return casillaE2;
+        case "E3": return casillaE3;
+        case "E4": return casillaE4;
+        case "E5": return casillaE5;
+        case "E6": return casillaE6;
+        case "E7": return casillaE7;
+        case "E8": return casillaE8;
+        case "E9": return casillaE9;
+        case "E10": return casillaE10;
+        case "F1": return casillaF1;
+        case "F2": return casillaF2;
+        case "F3": return casillaF3;
+        case "F4": return casillaF4;
+        case "F5": return casillaF5;
+        case "F6": return casillaF6;
+        case "F7": return casillaF7;
+        case "F8": return casillaF8;
+        case "F9": return casillaF9;
+        case "F10": return casillaF10;
+        case "G1": return casillaG1;
+        case "G2": return casillaG2;
+        case "G3": return casillaG3;
+        case "G4": return casillaG4;
+        case "G5": return casillaG5;
+        case "G6": return casillaG6;
+        case "G7": return casillaG7;
+        case "G8": return casillaG8;
+        case "G9": return casillaG9;
+        case "G10": return casillaG10;
+        case "H1": return casillaH1;
+        case "H2": return casillaH2;
+        case "H3": return casillaH3;
+        case "H4": return casillaH4;
+        case "H5": return casillaH5;
+        case "H6": return casillaH6;
+        case "H7": return casillaH7;
+        case "H8": return casillaH8;
+        case "H9": return casillaH9;
+        case "H10": return casillaH10;
+        case "I1": return casillaI1;
+        case "I2": return casillaI2;
+        case "I3": return casillaI3;
+        case "I4": return casillaI4;
+        case "I5": return casillaI5;
+        case "I6": return casillaI6;
+        case "I7": return casillaI7;
+        case "I8": return casillaI8;
+        case "I9": return casillaI9;
+        case "I10": return casillaI10;
+        case "J1": return casillaJ1;
+        case "J2": return casillaJ2;
+        case "J3": return casillaJ3;
+        case "J4": return casillaJ4;
+        case "J5": return casillaJ5;
+        case "J6": return casillaJ6;
+        case "J7": return casillaJ7;
+        case "J8": return casillaJ8;
+        case "J9": return casillaJ9;
+        case "J10": return casillaJ10;
+            
+        default: return null;
+    }
+}
     /**
      * Configura el Look and Feel (apariencia) de la aplicacion
      * @param args the command line arguments
