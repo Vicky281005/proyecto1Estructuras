@@ -10,8 +10,8 @@ public class Vertice { // Atributos de la clase vertice
     private int numeroVertice;
     private boolean soyUnaBomba;
     private String emoji;
-    private boolean marcado; 
-    private boolean barrido;
+    private boolean marcado; //agregué booleano marcado (mishel)
+    private boolean barrido; //agregué booleano barrido (mishel)
     public ListaEnlazada<Object> lad;
     
 
@@ -20,8 +20,8 @@ public class Vertice { // Atributos de la clase vertice
             numeroVertice= -1;
             lad = new ListaEnlazada();
             this.soyUnaBomba = false;
-            this.marcado = false;
-            this.barrido = false;
+            this.marcado = false; //agregué la inicializada de marcado (mishel)
+            this.barrido = false; //agregué la inicializada de barrido (mishel)
             this.emoji = "";
         }
         

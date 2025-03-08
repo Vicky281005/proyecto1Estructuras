@@ -33,6 +33,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.nroMinas = nroMinas;
         this.grafo = grafo;
         this.buscarPorDFS = true;
+        this.bandera = false; //agregué la inicializada de bandera (mishel)
     }
 
     public void casillaBM(JToggleButton casilla, boolean es_bomba, int bombas_ady) {
@@ -1091,10 +1092,10 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private void btnBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanderaActionPerformed
         if (bandera) {
             bandera = false; 
-            this.TrueOrFalse.setText("False"); 
+            this.TrueOrFalse.setText("Desactivado"); //Cambié mensaje para que se vea mas dínamico el juego
         } else {
             bandera = true; 
-            this.TrueOrFalse.setText("True"); 
+            this.TrueOrFalse.setText("Activo"); //Cambié mensaje para que se vea mas dínamico el juego
 
         }
     }//GEN-LAST:event_btnBanderaActionPerformed
