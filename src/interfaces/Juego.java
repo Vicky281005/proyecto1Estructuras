@@ -17,7 +17,7 @@ import javax.swing.JToggleButton;
  */
 public class Juego extends javax.swing.JFrame { //Atributos de la clase juego con herencia de la liberia Java Swing
     private int nroFilas, nroColumnas, nroMinas;
-    boolean bandera;
+    boolean bandera, buscarPorDFS;
     Grafo grafo;
 /**
  * Constructor de la clase Juego
@@ -32,6 +32,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.nroColumnas = nroColumnas;
         this.nroMinas = nroMinas;
         this.grafo = grafo;
+        this.buscarPorDFS = true;
     }
 
     public void casillaBM(JToggleButton casilla, boolean es_bomba, int bombas_ady) {
@@ -1048,6 +1049,11 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         TrueOrFalse.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
         TrueOrFalse.setText("FALSE");
         TrueOrFalse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        TrueOrFalse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrueOrFalseActionPerformed(evt);
+            }
+        });
         jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
 
         DFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
@@ -1108,7 +1114,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         // Obtiene el vertice A1 en el grafo:
        String nombre = "A1";
         int indice = this.grafo.numVertice(nombre); 
-        grafo.escribirCasilla(casillaA1, nombre, indice);
+        grafo.escribirCasilla(casillaA1, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA1ActionPerformed
 
     /**
@@ -1496,7 +1502,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         // Vertice A3
         String nombre = "A3";
         int indice = this.grafo.numVertice(nombre); 
-        grafo.escribirCasilla(casillaA3, nombre, indice);
+        grafo.escribirCasilla(casillaA3, nombre, indice, this.buscarPorDFS);
         
     }//GEN-LAST:event_casillaA3ActionPerformed
 
@@ -1515,7 +1521,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         // Vertice A4
        String nombre = "A4";
         int indice = this.grafo.numVertice(nombre); 
-        grafo.escribirCasilla(casillaA4, nombre, indice);
+        grafo.escribirCasilla(casillaA4, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA4ActionPerformed
 
     private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
@@ -1577,7 +1583,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         // Vertice A2
         String nombre = "A2";
         int indice = this.grafo.numVertice(nombre); 
-        grafo.escribirCasilla(casillaA2, nombre, indice);
+        grafo.escribirCasilla(casillaA2, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA2ActionPerformed
 
     private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
@@ -1694,7 +1700,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         // Vertice A5
         String nombre = "A5";
         int indice = this.grafo.numVertice(nombre); 
-        grafo.escribirCasilla(casillaA5, nombre, indice);
+        grafo.escribirCasilla(casillaA5, nombre, indice, this.buscarPorDFS);
     }//GEN-LAST:event_casillaA5ActionPerformed
 
     private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
@@ -2566,9 +2572,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 Si tiene x bombas adyacentes, se muestra ese numero.
                 En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
                 */
-                 
-        String nombre = "A3"; 
-        int bombasAdyacentes = this.grafo.casillasBombaAdyacentePorDFS(nombre);
+           this.buscarPorDFS = true;
+//        String nombre = "A3"; 
+//        int bombasAdyacentes = this.grafo.casillasBombaAdyacentePorDFS(nombre);
 //    try {
 //        
 //        ListaEnlazada visitados = grafo.DFS(nombre);
@@ -2605,41 +2611,46 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
  * @param evt 
  */
     private void BFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BFSActionPerformed
-   String nombre = "B3"; // Nombre del vértice de inicio
-    try {
-        
-        ListaEnlazada<Integer> visitados = grafo.BFS(nombre);
-
-        Nodo aux = visitados.getpFirst();
-
-        while (aux != null) {
-            
-            int indiceVertice = (int) aux.getData(); 
-
-            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
-
-            if (vertice.isSoyUnaBomba()) {
-                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
-            } else {
-               
-                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
-
-                if (bombasAdyacentes == 0) {
-                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
-                } else {
-                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
-                }
-            }
-
-            aux = aux.getpNext();
-        }
-    } catch (Exception ex) {
-      
-        System.err.println("Error: " + ex.getMessage());
-        
-    }
+        this.buscarPorDFS = false;
+//   String nombre = "B3"; // Nombre del vértice de inicio
+//    try {
+//        
+//        ListaEnlazada<Integer> visitados = grafo.BFS(nombre);
+//
+//        Nodo aux = visitados.getpFirst();
+//
+//        while (aux != null) {
+//            
+//            int indiceVertice = (int) aux.getData(); 
+//
+//            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
+//
+//            if (vertice.isSoyUnaBomba()) {
+//                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+//            } else {
+//               
+//                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
+//
+//                if (bombasAdyacentes == 0) {
+//                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+//                } else {
+//                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+//                }
+//            }
+//
+//            aux = aux.getpNext();
+//        }
+//    } catch (Exception ex) {
+//      
+//        System.err.println("Error: " + ex.getMessage());
+//        
+//    }
 
     }//GEN-LAST:event_BFSActionPerformed
+
+    private void TrueOrFalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrueOrFalseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TrueOrFalseActionPerformed
 
     /**
      * Configura el Look and Feel (apariencia) de la aplicacion

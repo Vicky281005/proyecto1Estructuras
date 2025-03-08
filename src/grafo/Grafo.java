@@ -295,7 +295,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
         }
     }
     
-    public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice){
+    public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS){
 //        button.setEnabled(false);
         button.setForeground(java.awt.Color.BLACK);
         try {
@@ -303,7 +303,9 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             if (vertice.isSoyUnaBomba()){
                 button.setText(vertice.getEmoji());
             } else{
-                int bombasAdyacentes = this.casillasBombaAdyacentePorDFS(nombre);
+                System.out.println(buscarPorDFS);
+                System.out.println(buscarPorDFS);
+                int bombasAdyacentes =  buscarPorDFS ? this.casillasBombaAdyacentePorDFS(nombre) : this.casillasBombaAdyacentePorBFS(nombre);
                 button.setText(String.valueOf(bombasAdyacentes));
                 
             }
@@ -313,6 +315,44 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
         
     }
     
+    public int casillasBombaAdyacentePorBFS(String nombre){
+        try {
+        
+        ListaEnlazada<Integer> visitados = this.BFS(nombre);
+
+        Nodo aux = visitados.getpFirst();
+
+        while (aux != null) {
+            
+            int indiceVertice = (int) aux.getData(); 
+
+            Vertice vertice = this.DevuelveVertice(indiceVertice);
+
+            if (vertice.isSoyUnaBomba()) {
+                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+                return -1;
+            } else {
+               
+                int bombasAdyacentes = vertice.lad.bombasAdy(this);
+
+                if (bombasAdyacentes == 0) {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+                    return 0;
+                } else {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+                    return bombasAdyacentes;
+                }
+            }
+
+//            aux = aux.getpNext();
+        }
+        } catch (Exception ex) {
+
+            System.err.println("Error: " + ex.getMessage());
+
+        }
+        return -1;
+    }
     public int casillasBombaAdyacentePorDFS(String nombre){
         try {
         
@@ -430,9 +470,7 @@ public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
     visitados[this.numVertice(inicio.nombreVertice())] = true; 
 
     while (!cola.estaVacia()) {
-        System.out.println("Cuentame");
         Vertice actual = cola.desencolar().getData();
-        System.out.println("Te conte");
         listaVisitados.addLast(this.numVertice(actual.nombreVertice())); 
 
         Nodo aux = actual.lad.getpFirst();
