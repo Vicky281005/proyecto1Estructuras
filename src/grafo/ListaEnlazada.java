@@ -233,9 +233,10 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
                 if (boton != null){
                     String nombreOriginal = boton.getName(); // Obtén el nombre del botón
                     
-                    if (vertice.getNombre().equalsIgnoreCase(nombreOriginal)) {
+                    if (vertice.getNombre().equalsIgnoreCase(nombreOriginal) && !vertice.isMarcado()) {
                         boton.setText(String.valueOf(grafo.casillasBombaAdyacentePorDFS(nombreOriginal)));
                         boton.setEnabled(true);
+                        
                     }
                     
                     
