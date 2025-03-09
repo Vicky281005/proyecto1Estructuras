@@ -152,19 +152,25 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
 // Colocar minas aleatoriamente en el grafo, según el número de minas especificado
         grafo.fijarMinasAleatoriamente(this.nroMinas);
 
-        
-        for (int fila = 0; fila < this.nroFilas; fila++) { 
+/**
+ * Función que crea las adyacencias
+ * Conecta las vertices con sus adyacentes, en todos los lado: diagonales, arriba, abajo, izquierda y derecha
+ */
+
+//Inserta todas las casillas en el grafo
+        for (int fila = 0; fila < this.nroFilas; fila++) {
             for (int columna = 0; columna < this.nroColumnas; columna++) {
                 String actual = filasCoordenadas[columna] + String.valueOf(fila+1);
-                
-            // Todos los posibles movimientos (diagonales, abajo, arriba, izquierda y derecha)
+
+            // Posibles movimientos (todos los lados: izquierda, derecha, diagonal, arriba y abajo)
                 System.out.println(actual);
                 int[][] movimientos = {
-                    {-1, -1}, {-1, 0}, {-1, 1}, // Diagonal arriba izquierda, arriba (recto), Diagonal arriba derecha
-                    {0, -1}, {0, 1}, // izquierda (recto) y derecha (recto)
-                    {1, -1}, {1, 0}, {1, 1} // Diagonal abajo izquierda, abajo (recto), Diagonal abajo derecha
+                    {-1, -1}, {-1, 0}, {-1, 1}, // Lados: diagonal arriba izauierda, arriba (recto), diagonal arriba derecha
+                    {0, -1}, {0, 1}, // Lados: izquierda y derecha
+                    {1, -1}, {1, 0}, {1, 1} // Lados: diagonal abajo izauierda, abajo (recto), diagonal abajo derecha
                 };
 
+// Conecta las casillas con sus adyacentes
                 for (int[] mov : movimientos) {
                     int nuevaFila = fila + mov[0];
                     int nuevaColumna = columna + mov[1];
@@ -173,7 +179,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                         String vecino = filasCoordenadas[nuevaColumna] + String.valueOf(nuevaFila+1);
                         System.out.println(vecino);
                         try {
-                            System.out.println("aqui estoy");
                             grafo.nuevaArista(actual, vecino);
                         } catch (Exception ex) {
                             return;
@@ -181,17 +186,21 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
                     }
                 }
             }
-        }
-        grafo.fijarCantidadMinasAdy();
+        }  
         
+        grafo.fijarCantidadMinasAdy();  // muestra la cantidad de minas alrededor de la casilla
+    
             Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
-            System.out.println("imprimir");
             jugar.setVisible(true);
             jugar.setLocationRelativeTo(null);
             this.dispose(); //Sale de la ventana emergente
             
+/**
+ * Prueba para ver si las adyacencias se estan agregando
+ * Como estoy en el 0, el 0 representa la esquina entonces siempre va a tener 3 adyacentes
+ * @return cantidad de adyacentes: 3, porque es 0
+ */
             System.out.println(grafo.getVectorDeAdyacencia()[0].getLad().getSize());
-            
     }//GEN-LAST:event_btnJugarActionPerformed
 /**
  * Sale del programa

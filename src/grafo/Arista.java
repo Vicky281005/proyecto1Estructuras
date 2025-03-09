@@ -31,6 +31,19 @@ public class Arista { //indice del vector al que apunta la arista
         public boolean equeals(Object n) { 
             Arista a = (Arista) n; 
             return destino == a.destino; 
-        }
+}
 
+/**
+ * Verifica que las conexiones/aristas que se generaron cuando se creó el grafo
+ * @return 
+ */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Arista{");
+        sb.append("destino=").append(destino);
+        sb.append('}');
+        return sb.toString();
+    }
+        
 }
