@@ -1136,31 +1136,32 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
         
-        ListaEnlazada listaVisitados = new ListaEnlazada();
-        
-        try {
-            
-            listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
-            
-            listaVisitados.imprimirListaInvitados();
-            
-              javax.swing.JToggleButton[] botones = {
-    this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
-    this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
-    this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
-    this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
-    this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
-    this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
-    this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
-    this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
-    this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
-    this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
-};
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
 
-           
-            listaVisitados.visibilizarBotones(botones, grafo);
-        } catch (Exception ex) {
-            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         
     }//GEN-LAST:event_casillaA1ActionPerformed
@@ -1643,6 +1644,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ6ActionPerformed
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
@@ -1654,6 +1684,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
         
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA3ActionPerformed
 
     private void casillaJ10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ10ActionPerformed
@@ -1663,6 +1721,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ10ActionPerformed
 
     private void casillaA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA4ActionPerformed
@@ -1672,6 +1759,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
           int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA4ActionPerformed
 
     private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
@@ -1681,6 +1797,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
          int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA6ActionPerformed
 
     private void casillaA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA7ActionPerformed
@@ -1690,6 +1834,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
          int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA7ActionPerformed
 
     private void casillaA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA8ActionPerformed
@@ -1699,6 +1871,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA8ActionPerformed
 
     private void casillaA9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA9ActionPerformed
@@ -1708,6 +1908,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
           int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA9ActionPerformed
 
     private void casillaA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA10ActionPerformed
@@ -1717,6 +1946,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
          int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA10ActionPerformed
 
     private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
@@ -1727,6 +1985,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA2ActionPerformed
 
     private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
@@ -1736,6 +2023,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB1ActionPerformed
 
     private void casillaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ1ActionPerformed
@@ -1745,6 +2060,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ1ActionPerformed
 
     private void casillaC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC10ActionPerformed
@@ -1754,6 +2098,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC10ActionPerformed
 
     private void casillaD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD10ActionPerformed
@@ -1763,6 +2136,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD10ActionPerformed
 
     private void casillaF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF1ActionPerformed
@@ -1772,6 +2174,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF1ActionPerformed
 
     private void casillaG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG1ActionPerformed
@@ -1781,6 +2212,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG1ActionPerformed
 
     private void casillaH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH1ActionPerformed
@@ -1790,6 +2249,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH1ActionPerformed
 
     private void casillaI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI1ActionPerformed
@@ -1799,6 +2287,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI1ActionPerformed
 
     private void casillaB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB2ActionPerformed
@@ -1808,6 +2325,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB2ActionPerformed
 
     private void casillaB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB3ActionPerformed
@@ -1817,6 +2362,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB3ActionPerformed
 
     private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
@@ -1826,6 +2399,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
           int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaA5ActionPerformed
 
     private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
@@ -1835,6 +2436,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB4ActionPerformed
 
     private void casillaC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC5ActionPerformed
@@ -1845,6 +2474,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC5ActionPerformed
 
     private void casillaB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB6ActionPerformed
@@ -1854,6 +2511,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB6ActionPerformed
 
     private void casillaB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB5ActionPerformed
@@ -1863,6 +2548,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB5ActionPerformed
 
     private void casillaB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB7ActionPerformed
@@ -1872,6 +2586,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB7ActionPerformed
 
     private void casillaB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB8ActionPerformed
@@ -1881,6 +2623,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB8ActionPerformed
 
     private void casillaC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC1ActionPerformed
@@ -1890,6 +2660,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC1ActionPerformed
 
     private void casillaB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB9ActionPerformed
@@ -1899,6 +2697,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB9ActionPerformed
 
     private void casillaB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB10ActionPerformed
@@ -1908,6 +2734,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaB10ActionPerformed
 
     private void casillaC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC2ActionPerformed
@@ -1918,6 +2772,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC2ActionPerformed
 
     private void casillaC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC3ActionPerformed
@@ -1927,6 +2809,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC3ActionPerformed
 
     private void casillaC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC4ActionPerformed
@@ -1936,6 +2846,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC4ActionPerformed
 
     private void casillaC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC6ActionPerformed
@@ -1945,6 +2883,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC6ActionPerformed
 
     private void casillaC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC7ActionPerformed
@@ -1954,6 +2920,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC7ActionPerformed
 
     private void casillaC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC9ActionPerformed
@@ -1963,6 +2957,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC9ActionPerformed
 
     private void casillaC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC8ActionPerformed
@@ -1972,6 +2994,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaC8ActionPerformed
 
     private void casillaD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD9ActionPerformed
@@ -1981,6 +3031,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD9ActionPerformed
 
     private void casillaD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD5ActionPerformed
@@ -1990,6 +3069,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD5ActionPerformed
 
     private void casillaD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD1ActionPerformed
@@ -1999,6 +3107,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD1ActionPerformed
 
     private void casillaD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD2ActionPerformed
@@ -2008,6 +3145,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD2ActionPerformed
 
     private void casillaE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE3ActionPerformed
@@ -2017,6 +3183,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE3ActionPerformed
 
     private void casillaD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD3ActionPerformed
@@ -2026,6 +3221,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD3ActionPerformed
 
     private void casillaD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD7ActionPerformed
@@ -2035,6 +3259,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD7ActionPerformed
 
     private void casillaD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD6ActionPerformed
@@ -2044,6 +3297,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD6ActionPerformed
 
     private void casillaD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD8ActionPerformed
@@ -2053,6 +3335,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD8ActionPerformed
 
     private void casillaE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE1ActionPerformed
@@ -2062,6 +3373,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE1ActionPerformed
 
     private void casillaE2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE2ActionPerformed
@@ -2071,6 +3411,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE2ActionPerformed
 
     private void casillaE4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE4ActionPerformed
@@ -2080,6 +3449,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE4ActionPerformed
 
     private void casillaE5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE5ActionPerformed
@@ -2089,6 +3486,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE5ActionPerformed
 
     private void casillaE6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE6ActionPerformed
@@ -2098,6 +3524,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE6ActionPerformed
 
     private void casillaE7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE7ActionPerformed
@@ -2107,6 +3562,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE7ActionPerformed
 
     private void casillaE8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE8ActionPerformed
@@ -2116,6 +3600,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE8ActionPerformed
 
     private void casillaE9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE9ActionPerformed
@@ -2125,6 +3638,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE9ActionPerformed
 
     private void casillaE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE10ActionPerformed
@@ -2134,6 +3676,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaE10ActionPerformed
 
     private void casillaF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF2ActionPerformed
@@ -2143,6 +3714,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF2ActionPerformed
 
     private void casillaF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF3ActionPerformed
@@ -2152,6 +3752,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF3ActionPerformed
 
     private void casillaD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD4ActionPerformed
@@ -2161,6 +3790,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaD4ActionPerformed
 
     private void casillaF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF4ActionPerformed
@@ -2170,6 +3828,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF4ActionPerformed
 
     private void casillaF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF6ActionPerformed
@@ -2179,6 +3865,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF6ActionPerformed
 
     private void casillaF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF7ActionPerformed
@@ -2188,6 +3902,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF7ActionPerformed
 
     private void casillaF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF8ActionPerformed
@@ -2197,6 +3939,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF8ActionPerformed
 
     private void casillaF9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF9ActionPerformed
@@ -2206,6 +3977,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF9ActionPerformed
 
     private void casillaF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF10ActionPerformed
@@ -2215,6 +4015,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF10ActionPerformed
 
     private void casillaG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG2ActionPerformed
@@ -2224,6 +4053,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG2ActionPerformed
 
     private void casillaG3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG3ActionPerformed
@@ -2233,6 +4091,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG3ActionPerformed
 
     private void casillaF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF5ActionPerformed
@@ -2242,6 +4129,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaF5ActionPerformed
 
     private void casillaG4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG4ActionPerformed
@@ -2251,6 +4166,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG4ActionPerformed
 
     private void casillaG6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG6ActionPerformed
@@ -2260,6 +4204,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG6ActionPerformed
 
     private void casillaG7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG7ActionPerformed
@@ -2269,6 +4242,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG7ActionPerformed
 
     private void casillaG8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG8ActionPerformed
@@ -2278,6 +4280,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG8ActionPerformed
 
     private void casillaG9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG9ActionPerformed
@@ -2287,6 +4318,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG9ActionPerformed
 
     private void casillaG10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG10ActionPerformed
@@ -2296,6 +4356,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG10ActionPerformed
 
     private void casillaH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH2ActionPerformed
@@ -2305,6 +4394,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH2ActionPerformed
 
     private void casillaH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH3ActionPerformed
@@ -2314,6 +4432,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH3ActionPerformed
 
     private void casillaG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG5ActionPerformed
@@ -2323,6 +4470,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaG5ActionPerformed
 
     private void casillaH4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH4ActionPerformed
@@ -2332,6 +4508,34 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH4ActionPerformed
 
     private void casillaH6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH6ActionPerformed
@@ -2341,6 +4545,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH6ActionPerformed
 
     private void casillaH7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH7ActionPerformed
@@ -2350,6 +4583,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH7ActionPerformed
 
     private void casillaH8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH8ActionPerformed
@@ -2359,6 +4621,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH8ActionPerformed
 
     private void casillaH9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH9ActionPerformed
@@ -2368,6 +4659,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH9ActionPerformed
 
     private void casillaH10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH10ActionPerformed
@@ -2377,6 +4697,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH10ActionPerformed
 
     private void casillaI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI2ActionPerformed
@@ -2386,6 +4735,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI2ActionPerformed
 
     private void casillaI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI3ActionPerformed
@@ -2395,6 +4773,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI3ActionPerformed
 
     private void casillaH5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH5ActionPerformed
@@ -2404,6 +4811,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaH5ActionPerformed
 
     private void casillaI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI4ActionPerformed
@@ -2413,6 +4849,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI4ActionPerformed
 
     private void casillaI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI6ActionPerformed
@@ -2422,6 +4887,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI6ActionPerformed
 
     private void casillaI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI7ActionPerformed
@@ -2431,6 +4925,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI7ActionPerformed
 
     private void casillaI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI8ActionPerformed
@@ -2440,6 +4963,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI8ActionPerformed
 
     private void casillaI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI9ActionPerformed
@@ -2449,15 +5001,73 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI9ActionPerformed
 
     private void casillaI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI10ActionPerformed
-        // Vertice I0
+        // Vertice I10
         String nombre = "I10";
         int indice = this.grafo.numVertice(nombre); 
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI10ActionPerformed
 
     private void casillaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ2ActionPerformed
@@ -2467,6 +5077,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ2ActionPerformed
 
     private void casillaJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ3ActionPerformed
@@ -2476,6 +5115,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ3ActionPerformed
 
     private void casillaI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI5ActionPerformed
@@ -2485,6 +5153,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaI5ActionPerformed
 
     private void casillaJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ4ActionPerformed
@@ -2494,6 +5191,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ4ActionPerformed
 
     private void casillaJ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ5ActionPerformed
@@ -2503,6 +5229,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ5ActionPerformed
 
     private void casillaJ7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ7ActionPerformed
@@ -2512,6 +5267,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ7ActionPerformed
 
     private void casillaJ8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ8ActionPerformed
@@ -2521,6 +5305,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ8ActionPerformed
 
     private void casillaJ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ9ActionPerformed
@@ -2530,6 +5343,35 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ9ActionPerformed
 /**
  * 
