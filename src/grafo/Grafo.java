@@ -316,14 +316,14 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
                 
-                if (numeroBanderasPuestas ==nroMinas){
+                if (numeroBanderasPuestas == nroMinas){
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
                  * @return le sale un mensaje al usuario diciendo que ya marcó el máximo de minas que hay en el juego
                  */
                     JOptionPane.showMessageDialog(null, "Ya marcaste el máximo de minas que hay en el juego, por ahora solo puedes desmarcar casillas");
                 }
-                if (numeroBanderasPuestas < nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                else if (numeroBanderasPuestas < nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     System.out.println("entre");
                     button.setText("🚩");
                     this.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
@@ -352,6 +352,22 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             int[] arrayToReturn = {numeroBombasMarcadasConBandera, numeroBanderasPuestas};
 
             return arrayToReturn;
+    }
+    
+    public int[] escribirCasillaGlobal(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS,  int numeroBombasMarcadasConBandera, int numeroBanderasPuestas, int nroMinas, Juego juego, boolean bandera){
+        if (!bandera){
+            /**
+             * Funcionalidad para quitarle bandera a una casilla, es decir desmarcar una casilla que estaba marcada con bandera
+             * @return Cambia el color de la casilla de verde a blanco y se resta tanto el número de bombas como de banderas
+             */
+            this.antesDeEscribirCasilla(button, nombre, indice, buscarPorDFS, juego); 
+            
+            int[] arrayToReturn =  {numeroBombasMarcadasConBandera, numeroBanderasPuestas};
+            return arrayToReturn; // numeroBombasMarcadasConBandera (0) y numeroBanderasPuestas (1)
+        } else {
+            int[] arrayToReturn = this.siSeQuierePonerQuitarBandera(button, nombre, indice, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, juego);
+            return arrayToReturn; // numeroBombasMarcadasConBandera (0) y numeroBanderasPuestas (1)
+        }
     }
     
     public void antesDeEscribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS, Juego juego){
