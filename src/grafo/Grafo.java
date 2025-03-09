@@ -516,6 +516,9 @@ public ListaEnlazada DFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisita
             
             DFSRecursivoPorMi(vecino, listaVisitados);
             
+        } else if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) > 0 && this.casillasBombaAdyacentePorDFS(actual.nombreVertice()) == 0 && !vecino.isBarrido()){
+                vecino.setBarrido(true);
+                listaVisitados.addLast(vecino);
         }
         
         

@@ -1,5 +1,7 @@
 package grafo;
 
+import javax.swing.JToggleButton;
+
 /**
  *
  * @author NITRO V 15
@@ -221,4 +223,29 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
             aux = aux.getpNext();
         }
     }
+    
+    public void visibilizarBotones(javax.swing.JToggleButton[] buttons, Grafo grafo){
+        Nodo aux = this.pFirst;
+        
+        while (aux != null){
+            Vertice vertice = (Vertice) aux.getData();
+            for (JToggleButton boton : buttons) {
+                if (boton != null){
+                    String nombreOriginal = boton.getName(); // Obtén el nombre del botón
+                    
+                    if (vertice.getNombre().equalsIgnoreCase(nombreOriginal)) {
+                        boton.setText(String.valueOf(grafo.casillasBombaAdyacentePorDFS(nombreOriginal)));
+                        boton.setEnabled(true);
+                    }
+                    
+                    
+                }
+            }
+            
+            aux = aux.getpNext();
+        }
+        
+    }
+    
+
 }

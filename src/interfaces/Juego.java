@@ -39,6 +39,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.grafo = grafo;
         this.buscarPorDFS = true;
         this.bandera = false; //agregué la inicializada de bandera (mishel)
+        
     }
 
     public void casillaBM(JToggleButton casilla, boolean es_bomba, int bombas_ady) {
@@ -1128,6 +1129,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private void casillaA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA1ActionPerformed
         // Obtiene el vertice A1 en el grafo:
        String nombre = "A1";
+       
         int indice = this.grafo.numVertice(nombre); 
         
         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
@@ -1141,6 +1143,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             listaVisitados = grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
             
             listaVisitados.imprimirListaInvitados();
+            
+            javax.swing.JToggleButton[] botones = {this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10, this.casillaB1};
+            listaVisitados.visibilizarBotones(botones, grafo);
         } catch (Exception ex) {
             Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1155,6 +1160,19 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         // Verifica la existencia de los vértices "A1" a "J10" en el grafo.
         // Si no existe un vertice en el grafo devuelve -1
         // se oculta el componente de la interfaz gráfica correspondiente.
+            this.casillaA1.setName("A1");
+            this.casillaA2.setName("A2");
+            this.casillaA3.setName("A3");
+            this.casillaA4.setName("A4");
+            this.casillaA5.setName("A5");
+            this.casillaA6.setName("A6");
+            this.casillaA7.setName("A7");
+            this.casillaA8.setName("A8");
+            this.casillaA9.setName("A9");
+            this.casillaA10.setName("A10");
+            this.casillaB1.setName("B1");
+            //TODO
+            
         if (grafo.numVertice("A1") == -1){
             this.casillaA1.setVisible(false);
         }
