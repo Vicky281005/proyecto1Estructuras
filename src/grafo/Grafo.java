@@ -295,7 +295,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
         }
     }
     
-    public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS){
+    public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS, boolean bandera, int numeroBandera, int numeroBombas){
 //        button.setEnabled(false);
         button.setForeground(java.awt.Color.BLACK);
         try {

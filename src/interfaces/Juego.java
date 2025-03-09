@@ -1060,7 +1060,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 TrueOrFalseActionPerformed(evt);
             }
         });
-        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
+        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 250, 30));
 
         DFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         DFS.setText("DFS");
@@ -1106,10 +1106,10 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private void btnBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanderaActionPerformed
         if (bandera) {
             bandera = false; 
-            this.TrueOrFalse.setText("Desactivado"); //Cambié mensaje para que se vea mas dínamico el juego
+            this.TrueOrFalse.setText("Bandera Desactivada"); //Cambié mensaje para que se vea mas dínamico el juego
         } else {
             bandera = true; 
-            this.TrueOrFalse.setText("Activo"); //Cambié mensaje para que se vea mas dínamico el juego
+            this.TrueOrFalse.setText("Bandera Activada"); //Cambié mensaje para que se vea mas dínamico el juego
 
         }
     }//GEN-LAST:event_btnBanderaActionPerformed
@@ -1132,7 +1132,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -1168,13 +1168,13 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
                 if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
-                    casillaA1.setBackground(Color.green);
+                    casillaA1.setBackground(Color.GREEN);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else 
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -1578,7 +1578,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -1620,7 +1620,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -1654,7 +1654,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -1696,7 +1696,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -1731,7 +1731,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -1773,7 +1773,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -1807,7 +1807,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -1849,7 +1849,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -1883,7 +1883,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -1925,7 +1925,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -1959,7 +1959,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2001,7 +2001,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2035,7 +2035,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2077,7 +2077,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2111,7 +2111,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2153,7 +2153,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2187,7 +2187,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2229,7 +2229,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2263,7 +2263,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2305,7 +2305,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2339,7 +2339,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2381,7 +2381,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2415,7 +2415,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2457,7 +2457,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2491,7 +2491,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2533,7 +2533,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2567,7 +2567,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2609,7 +2609,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2643,7 +2643,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2685,7 +2685,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2719,7 +2719,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2761,7 +2761,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2795,7 +2795,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2837,7 +2837,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2871,7 +2871,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2913,7 +2913,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -2947,7 +2947,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -2989,7 +2989,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3023,7 +3023,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3065,7 +3065,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3099,7 +3099,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaA5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaA5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3141,7 +3141,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3175,7 +3175,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3217,7 +3217,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3251,7 +3251,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3293,7 +3293,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3327,7 +3327,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3369,7 +3369,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3403,7 +3403,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3445,7 +3445,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3479,7 +3479,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3521,7 +3521,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3555,7 +3555,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3597,7 +3597,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3631,7 +3631,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3673,7 +3673,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3707,7 +3707,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3749,7 +3749,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3783,7 +3783,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaB10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaB10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3825,7 +3825,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3859,7 +3859,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3901,7 +3901,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -3935,7 +3935,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -3977,14 +3977,14 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
                  * @return le sale un mensaje al usuario diciendo que ya marcó el máximo de minas que hay en el juego
                  */
                 JOptionPane.showMessageDialog(null, "Ya marcaste el máximo de minas que hay en el juego, por ahora solo puedes desmarcar casillas");
-            }
+            } 
             
             /** 
              * Funcionalidad de que ganaste
@@ -4011,7 +4011,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4053,7 +4053,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4087,7 +4087,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4129,7 +4129,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4163,7 +4163,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4205,7 +4205,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4239,7 +4239,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4281,7 +4281,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4315,7 +4315,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaC8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaC8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4357,7 +4357,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4391,7 +4391,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4433,7 +4433,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4467,7 +4467,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4509,7 +4509,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4543,7 +4543,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4585,7 +4585,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4619,7 +4619,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4661,7 +4661,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4695,7 +4695,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4737,7 +4737,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4771,7 +4771,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4813,7 +4813,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4847,7 +4847,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4889,7 +4889,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else 
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4923,7 +4923,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -4965,7 +4965,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -4999,7 +4999,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5041,7 +5041,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5075,7 +5075,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE1, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE1, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5117,7 +5117,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5151,7 +5151,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5193,7 +5193,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5227,7 +5227,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5269,7 +5269,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5303,7 +5303,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5345,7 +5345,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5379,7 +5379,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5421,7 +5421,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5455,7 +5455,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5497,7 +5497,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5531,7 +5531,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5573,7 +5573,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5607,7 +5607,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5649,7 +5649,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5683,7 +5683,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaE10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaE10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5725,7 +5725,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5759,7 +5759,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5801,7 +5801,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5835,7 +5835,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5877,7 +5877,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5911,7 +5911,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaD4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaD4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -5953,7 +5953,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -5987,7 +5987,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6029,7 +6029,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6063,7 +6063,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6105,7 +6105,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else 
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6139,7 +6139,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6181,7 +6181,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6215,7 +6215,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6257,7 +6257,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6291,7 +6291,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6333,7 +6333,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6367,7 +6367,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6409,7 +6409,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6443,7 +6443,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6485,7 +6485,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6519,7 +6519,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6561,7 +6561,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6595,7 +6595,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaF5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaF5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6637,7 +6637,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6671,7 +6671,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6713,7 +6713,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6747,7 +6747,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6789,7 +6789,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6823,7 +6823,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6865,7 +6865,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6899,7 +6899,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -6941,7 +6941,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -6975,7 +6975,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7017,7 +7017,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7051,7 +7051,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7093,7 +7093,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7127,7 +7127,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7169,7 +7169,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7203,7 +7203,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7245,7 +7245,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7279,7 +7279,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaG5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaG5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7321,7 +7321,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7355,7 +7355,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7397,7 +7397,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7431,7 +7431,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7473,7 +7473,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7507,7 +7507,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7549,7 +7549,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7583,7 +7583,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7625,7 +7625,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7659,7 +7659,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7701,7 +7701,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7735,7 +7735,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7777,7 +7777,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7811,7 +7811,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7853,7 +7853,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7887,7 +7887,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -7929,7 +7929,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -7963,7 +7963,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaH5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaH5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8005,7 +8005,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else 
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8039,7 +8039,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8081,7 +8081,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8115,7 +8115,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI6, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI6, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8157,7 +8157,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8191,7 +8191,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8233,7 +8233,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8267,7 +8267,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8309,7 +8309,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8343,7 +8343,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8385,7 +8385,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8419,7 +8419,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI10, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI10, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8461,7 +8461,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8495,7 +8495,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ2, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ2, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8537,7 +8537,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8571,7 +8571,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ3, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ3, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8613,7 +8613,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8647,7 +8647,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaI5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaI5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8689,7 +8689,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8723,7 +8723,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ4, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ4, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8765,7 +8765,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8799,7 +8799,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ5, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ5, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8841,7 +8841,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8875,7 +8875,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ7, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ7, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8917,7 +8917,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -8951,7 +8951,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ8, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ8, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -8993,7 +8993,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
@@ -9027,7 +9027,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         if (!bandera) {
         
-            grafo.escribirCasilla(casillaJ9, nombre, indice, this.buscarPorDFS); 
+            grafo.escribirCasilla(casillaJ9, nombre, indice, this.buscarPorDFS, this.bandera, this.numeroBanderas, this.numeroBombas); 
         
 //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
             grafo.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
@@ -9069,7 +9069,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                }
+                } else
                 
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
