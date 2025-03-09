@@ -356,6 +356,13 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
     
     public int[] escribirCasillaGlobal(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS,  int numeroBombasMarcadasConBandera, int numeroBanderasPuestas, int nroMinas, Juego juego, boolean bandera){
         if (!bandera){
+            if(this.getVectorDeAdyacencia()[indice].isMarcado()){
+                this.getVectorDeAdyacencia()[indice].setMarcado(false);
+                if (this.getVectorDeAdyacencia()[indice].isSoyUnaBomba()){
+                    numeroBombasMarcadasConBandera--;
+                }
+                numeroBanderasPuestas--;
+            }
             /**
              * Funcionalidad para quitarle bandera a una casilla, es decir desmarcar una casilla que estaba marcada con bandera
              * @return Cambia el color de la casilla de verde a blanco y se resta tanto el número de bombas como de banderas
