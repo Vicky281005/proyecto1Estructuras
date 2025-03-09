@@ -1134,6 +1134,17 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
         this.numeroBanderasPuestas = arrayBMyNBM[1];
         
+        ListaEnlazada listaVisitados = new ListaEnlazada();
+        
+        try {
+            
+            listaVisitados = grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+            
+            listaVisitados.imprimirListaInvitados();
+        } catch (Exception ex) {
+            Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_casillaA1ActionPerformed
 
     /**

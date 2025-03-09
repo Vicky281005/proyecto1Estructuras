@@ -211,4 +211,14 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         }
         return false;
     }
+    
+    public void imprimirListaInvitados(){
+        Nodo aux = this.pFirst;
+        
+        while (aux != null){
+            Vertice vertice = (Vertice) aux.getData();
+            System.out.print(vertice.getNombre()+" > ");
+            aux = aux.getpNext();
+        }
+    }
 }

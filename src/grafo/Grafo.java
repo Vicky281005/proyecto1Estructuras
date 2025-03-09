@@ -393,6 +393,10 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
                 v1.setResizable(false); // Hace que no se pueda modificar la ventana, es decir queda centrado y en un tamaño fijo
                 juego.dispose();
             }
+            
+            //TODO: empezar codigo aca
+            
+            
     }
     
     public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS){
@@ -453,6 +457,76 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
         }
         return -1;
     }
+    
+  public ListaEnlazada<Integer> DFSVersion2(String nombre, int[][] valores) throws Exception {
+        Vertice inicio = this.devuelveVerticePorNombre(nombre);
+        if (inicio == null) {
+            throw new Exception("El vértice no existe.");
+        }
+
+        ListaEnlazada<Integer> listaVisitados = new ListaEnlazada<>();
+        boolean[] visitados = new boolean[numVertices];
+
+        // Llamada inicial al método recursivo DFS
+        DFSRecursivo(inicio, visitados, listaVisitados, valores);
+
+        return listaVisitados;
+}
+
+private void DFSRecursivo(Vertice actual, boolean[] visitados, ListaEnlazada<Integer> listaVisitados, int[][] valores) throws Exception {
+        int indiceActual = this.numVertice(actual.nombreVertice());
+
+        // Marca el vértice como visitado y añádelo a la lista
+        visitados[indiceActual] = true;
+        listaVisitados.addLast(indiceActual);
+
+        // Recorre todos los vecinos del vértice actual
+        Nodo aux = actual.getLad().getpFirst();
+        while (aux != null) {
+            Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+            int indiceVecino = this.numVertice(vecino.nombreVertice());
+
+            // Continúa la búsqueda solo si el vecino no ha sido visitado y tiene valor 0
+            if (!visitados[indiceVecino] && valores[indiceVecino / valores[0].length][indiceVecino % valores[0].length] == 0) {
+                DFSRecursivo(vecino, visitados, listaVisitados, valores);
+            }
+            aux = aux.getpNext();
+        }
+}
+
+public ListaEnlazada DFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisitados) throws Exception{ // lista visitados inicialmente vacia
+    
+        // Marca el vértice como visitado y añádelo a la lista
+    actual.setBarrido(true);
+    listaVisitados.addLast(actual);
+    
+    // Recorre todos los vecinos del vértice actual
+    Nodo aux = actual.getLad().getpFirst();
+    while (aux != null) {
+        Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+        int indiceVecino = this.numVertice(vecino.nombreVertice());
+        
+//        if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) > 0 && !vecino.isBarrido()) {
+//            Graph(actual,vecinos)
+//        }
+        
+        // Continúa la búsqueda solo si el vecino no ha sido visitado y tiene valor 0
+        System.out.println(this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()));
+        if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) == 0 && !vecino.isBarrido()){
+            
+            DFSRecursivoPorMi(vecino, listaVisitados);
+            
+        }
+        
+        
+        
+        aux = aux.getpNext();
+    }
+    return listaVisitados;
+    
+    
+}
+    
     public int casillasBombaAdyacentePorDFS(String nombre){
         try {
         
