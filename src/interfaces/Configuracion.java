@@ -143,12 +143,12 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try{
         if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){
-            this.fila = Integer.parseInt(this.numColumnasTextField.getText());
+            this.columna = Integer.parseInt(this.numColumnasTextField.getText());
         }  else { 
             throw new IllegalArgumentException("El número de columnas debe estar entre 3 y 10.");
         }
         if(Integer.parseInt(this.numFilasTextField.getText()) <= 10 && Integer.parseInt(this.numFilasTextField.getText()) >= 3){
-            this.columna = Integer.parseInt(this.numFilasTextField.getText());
+            this.fila = Integer.parseInt(this.numFilasTextField.getText());
         } else {
             throw new IllegalArgumentException("El número de filas debe estar entre 3 y 10.");
         }
