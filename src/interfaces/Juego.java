@@ -1140,7 +1140,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         
         try {
             
-            listaVisitados = grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+            listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
             
             listaVisitados.imprimirListaInvitados();
             
