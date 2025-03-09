@@ -1,5 +1,10 @@
 package grafo;
 
+import interfaces.BuscaminasInterfaz;
+import interfaces.Juego;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author NITRO V 15
@@ -292,6 +297,79 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
 
             System.out.println();
         }
+    }
+    
+    public int[] siSeQuierePonerQuitarBandera(javax.swing.JToggleButton button, String nombre, int indice, int numeroBombasMarcadasConBandera, int numeroBanderasPuestas, int nroMinas, Juego juego){
+        // numeroBombasMarcadasConBandera
+        // numeroBanderasPuestas
+        if (this.getVectorDeAdyacencia()[indice].isMarcado()) {
+                this.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
+                button.setText("");
+                if (this.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
+                    numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                }
+                numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+            
+            /** 
+             * Funcionalidad para marcar una casilla con bandera
+             * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
+             */    
+            } else { //si casilla NO estaba marcada esto lo que hace es marcarla
+                
+                if (numeroBanderasPuestas ==nroMinas){
+                /**
+                 * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
+                 * @return le sale un mensaje al usuario diciendo que ya marcó el máximo de minas que hay en el juego
+                 */
+                    JOptionPane.showMessageDialog(null, "Ya marcaste el máximo de minas que hay en el juego, por ahora solo puedes desmarcar casillas");
+                }
+                if (numeroBanderasPuestas < nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                    System.out.println("entre");
+                    button.setText("🚩");
+                    this.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
+                    if (this.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
+                        numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        
+                    }
+                    numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                } 
+            }
+            
+            /** 
+             * Funcionalidad de que ganaste
+             * Una vez que marques con bandera todas las casillas que tienen minas ganas
+             * @return mensaje que dice que ganaste
+             */
+            if (numeroBombasMarcadasConBandera==nroMinas) {
+                JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
+                BuscaminasInterfaz v1 = new BuscaminasInterfaz();
+                v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
+                v1.setLocationRelativeTo(null); // Centra la ventana
+                v1.setResizable(false); // Hace que no se pueda modificar la ventana, es decir queda centrado y en un tamaño fijo
+                juego.dispose();
+            }
+            
+            int[] arrayToReturn = {numeroBombasMarcadasConBandera, numeroBanderasPuestas};
+
+            return arrayToReturn;
+    }
+    
+    public void antesDeEscribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS, Juego juego){
+            this.escribirCasilla(button, nombre, indice, buscarPorDFS);  
+            //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
+            this.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
+            /**
+            * Funcionalidad para que cuando se pise una casilla con bomba pierdas
+            * @return "Haz Perdido"
+             */    
+            if (this.getVectorDeAdyacencia() [indice].isSoyUnaBomba()) {
+                JOptionPane.showMessageDialog(null, "Haz Perdido");
+                BuscaminasInterfaz v1 = new BuscaminasInterfaz();
+                v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
+                v1.setLocationRelativeTo(null); // Centra la ventana
+                v1.setResizable(false); // Hace que no se pueda modificar la ventana, es decir queda centrado y en un tamaño fijo
+                juego.dispose();
+            }
     }
     
     public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS){
