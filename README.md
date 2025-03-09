@@ -6,6 +6,8 @@ El cual fue realizado en la versión Apache Netbeans IDE 24 y la version 23 del 
 
 En el proyecto no puede correr sin la importación de liberias como:
 
+El Diagrama de clases esta ubicado en este enlace: 
+
 java.swing.JToggleButton
 
 java.swing.JOptionPane
