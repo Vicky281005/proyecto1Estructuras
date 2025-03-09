@@ -12,7 +12,7 @@ public class Vertice { // Atributos de la clase vertice
     private String emoji;
     private boolean marcado; //agregué booleano marcado (mishel)
     private boolean barrido; //agregué booleano barrido (mishel)
-    public ListaEnlazada<Object> lad;
+    private ListaEnlazada<Object> lad;
     
 
         public Vertice(String nom){ // Es el constructor, se encarga de crear un nuevo vertice y nom es el nombre del vertice
@@ -106,6 +106,31 @@ public class Vertice { // Atributos de la clase vertice
     public void setBarrido(boolean barrido) {
         this.barrido = barrido;
     }
-        
+
+    public ListaEnlazada<Object> getLad() {
+        return lad;
+    }
+
+    public void setLad(ListaEnlazada<Object> lad) {
+        this.lad = lad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getNumeroVertice() {
+        return numeroVertice;
+    }
+
+    public void setNumeroVertice(int numeroVertice) {
+        this.numeroVertice = numeroVertice;
+    }
+      
+    
         
 }

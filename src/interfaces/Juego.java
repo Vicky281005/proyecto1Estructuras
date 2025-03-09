@@ -1,6 +1,8 @@
 
 package interfaces;
 
+import GestionCSV.FileChooser;
+import GestionCSV.GestionCSV;
 import grafo.Grafo;
 import grafo.ListaEnlazada;
 import grafo.Nodo;
@@ -1085,8 +1087,17 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Guarda el archivo
+     * @param evt 
+     */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        FileChooser file = new FileChooser(this); //llama e importa a FileChooser
+        GestionCSV gestionCSV = new GestionCSV(); 
+        
+        String contenido = gestionCSV.guardarCSV(grafo); //guarda el contenido que se quiere guardar
+        
+        file.guardar(contenido); 
     }//GEN-LAST:event_btnGuardarActionPerformed
 /**
  * Verifica si la bandera esta habilitada
@@ -1546,7 +1557,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                     Vertice v = grafo.devuelveVerticePorNombre("B3");
                     
                     System.out.println("hola");
-                    System.out.println(v.lad.getSize());
+                    System.out.println(v.getLad().getSize());
                     
                     
                     
