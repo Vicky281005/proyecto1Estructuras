@@ -54,14 +54,14 @@ public class Proyecto1Estructuras {
 
 // Crear los vértices en el grafo utilizando el arreglo de coordenadas
         grafo.nuevoVerticesRecibiendoArrayDeVertices(arregloVectores);
-        grafo.crearAristasAutomaticamente(5, 5);
+//        grafo.crearAristasAutomaticamente(5, 5);
 // Colocar minas aleatoriamente en el grafo, según el número de minas especificado
         grafo.fijarMinasAleatoriamente(2);
 
             
             
 //            grafo.borrarArista("v1", "v2");
-        grafo.imprimirGrafo();
+//        grafo.imprimirGrafo();
     ListaEnlazada lista = grafo.DFS(arregloVectores[1]);
     Nodo aux = lista.getpFirst();
     while(aux != null){

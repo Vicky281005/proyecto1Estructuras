@@ -14,7 +14,8 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     int fila, columna, minas;
     public Configuracion() {
         initComponents();
-        this.fila = this.columna = this.minas = 3;
+        this.fila = this.columna = 10;
+        this.minas = 15;
     }
     /**
      * Constructor de la clase Configuración
@@ -44,11 +45,11 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         btnInicio = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         numFilasTextField = new javax.swing.JTextField();
         numColumnasTextField = new javax.swing.JTextField();
         numMinasTextField = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,13 +57,11 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\gear-line-icon-vector__1_-removebg-preview.png")); // NOI18N
-        jLabel1.setText("Configración del juego");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+        jLabel1.setText("Configración del TABLERO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 370, -1));
 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        btnInicio.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\83966 (1).png")); // NOI18N
-        btnInicio.setText("Volver a inicio");
+        btnInicio.setText("Volver aL inicio");
         btnInicio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -70,19 +69,15 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, 50));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 200, 50));
 
         jLabel2.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel2.setText("Numero de columnas:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel3.setText("Numero de filas:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        jLabel4.setText("Numero de minas:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         numFilasTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         numFilasTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +85,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
                 numFilasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 132, 150, 30));
+        jPanel1.add(numFilasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 150, 30));
 
         numColumnasTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         numColumnasTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +93,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
                 numColumnasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numColumnasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 92, 150, 30));
+        jPanel1.add(numColumnasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 150, 30));
 
         numMinasTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         numMinasTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -106,10 +101,9 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
                 numMinasTextFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 172, 150, 30));
+        jPanel1.add(numMinasTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 150, 30));
 
         btnGuardar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        btnGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\save-to-disk-user-interface-icon-vector (1).jpg")); // NOI18N
         btnGuardar.setText("Guardar cambios");
         btnGuardar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -118,7 +112,11 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
                 btnGuardarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, 50));
+        jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 210, 50));
+
+        jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        jLabel5.setText("Numero de minas:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
@@ -133,6 +131,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
  * @param evt 
  */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        this.btnGuardar.doClick();
         BuscaminasInterfaz busca = new BuscaminasInterfaz(this.fila,this.columna,this.minas);
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
@@ -146,12 +145,12 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         try{
         if(Integer.parseInt(this.numColumnasTextField.getText()) <=10 && Integer.parseInt(this.numColumnasTextField.getText()) >= 3){
-            this.fila = Integer.parseInt(this.numColumnasTextField.getText());
+            this.columna = Integer.parseInt(this.numColumnasTextField.getText());
         }  else { 
             throw new IllegalArgumentException("El número de columnas debe estar entre 3 y 10.");
         }
         if(Integer.parseInt(this.numFilasTextField.getText()) <= 10 && Integer.parseInt(this.numFilasTextField.getText()) >= 3){
-            this.columna = Integer.parseInt(this.numFilasTextField.getText());
+            this.fila = Integer.parseInt(this.numFilasTextField.getText());
         } else {
             throw new IllegalArgumentException("El número de filas debe estar entre 3 y 10.");
         }
@@ -224,7 +223,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField numColumnasTextField;
     private javax.swing.JTextField numFilasTextField;

@@ -1,5 +1,7 @@
 package grafo;
 
+import javax.swing.JToggleButton;
+
 /**
  *
  * @author NITRO V 15
@@ -109,17 +111,17 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         size++;
     }
 
-    public void addLast(T dato) {
-        Nodo<T> n = new Nodo(dato);
-        if (isEmpty()) {
-            this.pFirst = n;
-            this.pLast = n;
-        }
-        else{
-            this.pLast.setpNext(n);
-        }
-        size++;
+   public void addLast(T dato) {
+    Nodo<T> n = new Nodo(dato);
+    if (isEmpty()) {
+        this.pFirst = n;
+        this.pLast = n;
+    } else {
+        this.pLast.setpNext(n); // Conectar el último nodo actual al nuevo nodo
+        this.pLast = n;         // Actualizar pLast al nuevo nodo
     }
+    size++;
+}
 
     /**
      * Busca si existe la arista en la lista enlazada
@@ -211,4 +213,52 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         }
         return false;
     }
+    
+    public void imprimirListaInvitados(){
+        Nodo aux = this.pFirst;
+        
+        while (aux != null){
+            Vertice vertice = (Vertice) aux.getData();
+            System.out.print(vertice.getNombre()+" > ");
+            aux = aux.getpNext();
+        }
+    }
+    
+    public void visibilizarBotones(javax.swing.JToggleButton[] buttons, Grafo grafo){
+        Nodo aux = this.pFirst;
+        
+        while (aux != null){
+            Vertice vertice = (Vertice) aux.getData();
+            for (JToggleButton boton : buttons) {
+                if (boton != null){
+                    String nombreOriginal = boton.getName(); // Obtén el nombre del botón
+                    
+                    if (vertice.getNombre().equalsIgnoreCase(nombreOriginal) && !vertice.isMarcado()) {
+                        boton.setText(String.valueOf(grafo.casillasBombaAdyacentePorDFS(nombreOriginal)));
+                        boton.setEnabled(true);
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+            aux = aux.getpNext();
+        }
+        
+    }
+    
+    public void encolarVerticesAUnaCola(Cola cola){
+        Nodo aux = this.pFirst;
+        while (aux != null){
+            Vertice vertice = (Vertice) aux.getData();
+            
+            if (vertice.isBarrido() && !vertice.isMarcado()){
+                cola.encolar(aux.getData());    
+            }
+            aux = aux.getpNext();
+        }
+    }
+    
+
 }

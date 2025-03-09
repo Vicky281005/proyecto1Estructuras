@@ -1,5 +1,10 @@
 package grafo;
 
+import interfaces.BuscaminasInterfaz;
+import interfaces.Juego;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author NITRO V 15
@@ -250,7 +255,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
         if (v1 < 0 || v2 < 0) {
             throw new Exception("El vertice no existe");
         }
-        return this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2));
+        return this.vectorDeAdyacencia[v1].getLad().contains(new Arista(v2));
     }
 
     /**
@@ -262,7 +267,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
      * @throws Exception
      */
     boolean adyacentePorNumero(int v1, int v2) throws Exception {
-        if (this.vectorDeAdyacencia[v1].lad.contains(new Arista(v2))) {
+        if (this.vectorDeAdyacencia[v1].getLad().contains(new Arista(v2))) {
             return true;
         } else {
             return false;
@@ -281,12 +286,11 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
 
             int v1 = numVertice(a);
             int v2 = numVertice(b);
-            System.out.println("todo bien");
             if (v1 < 0 || v2 < 0) {
                 throw new Exception("El veertice no existe");
             }
             Arista ab = new Arista(v2);
-            this.vectorDeAdyacencia[v1].lad.addFirst(ab);
+            this.vectorDeAdyacencia[v1].getLad().addLast(ab);
         } else {
             System.out.println("ya existe");
         }
@@ -306,7 +310,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             throw new Exception("El vertice no existe");
         }
         Arista ab = new Arista(v2);
-        Arista arista = this.vectorDeAdyacencia[v1].lad.removeArista(ab);
+        Arista arista = this.vectorDeAdyacencia[v1].getLad().removeArista(ab);
         System.out.print("eliminado:");
         if (arista != null) {
             System.out.print(arista.destino);
@@ -325,7 +329,7 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
             System.out.print("Vertice " + vertice.nombreVertice() + " (" + i + ") -> ");
 
             // Recorrer las aristas del vértice actual
-            Nodo aux = vertice.lad.getpFirst();
+            Nodo aux = vertice.getLad().getpFirst();
             while(aux!= null){
                 System.out.print(" -- " + aux.getData().toString());
                 aux = aux.getpNext();
@@ -333,6 +337,318 @@ public void crearAristasAutomaticamente(int filas, int columnas) {
 
             System.out.println();
         }
+    }
+    
+    public int[] siSeQuierePonerQuitarBandera(javax.swing.JToggleButton button, String nombre, int indice, int numeroBombasMarcadasConBandera, int numeroBanderasPuestas, int nroMinas, Juego juego){
+        // numeroBombasMarcadasConBandera
+        // numeroBanderasPuestas
+        if (this.getVectorDeAdyacencia()[indice].isMarcado()) {
+                this.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
+                button.setText("");
+                if (this.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
+                    numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                }
+                numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+            
+            /** 
+             * Funcionalidad para marcar una casilla con bandera
+             * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
+             */    
+            } else { //si casilla NO estaba marcada esto lo que hace es marcarla
+                
+                if (numeroBanderasPuestas == nroMinas){
+                /**
+                 * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
+                 * @return le sale un mensaje al usuario diciendo que ya marcó el máximo de minas que hay en el juego
+                 */
+                    JOptionPane.showMessageDialog(null, "Ya marcaste el máximo de minas que hay en el juego, por ahora solo puedes desmarcar casillas");
+                }
+                else if (numeroBanderasPuestas < nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                    System.out.println("entre");
+                    button.setText("🚩");
+                    this.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
+                    if (this.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
+                        numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        
+                    }
+                    numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                } 
+            }
+            
+            /** 
+             * Funcionalidad de que ganaste
+             * Una vez que marques con bandera todas las casillas que tienen minas ganas
+             * @return mensaje que dice que ganaste
+             */
+            if (numeroBombasMarcadasConBandera==nroMinas) {
+                JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
+                BuscaminasInterfaz v1 = new BuscaminasInterfaz();
+                v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
+                v1.setLocationRelativeTo(null); // Centra la ventana
+                v1.setResizable(false); // Hace que no se pueda modificar la ventana, es decir queda centrado y en un tamaño fijo
+                juego.dispose();
+            }
+            
+            int[] arrayToReturn = {numeroBombasMarcadasConBandera, numeroBanderasPuestas};
+
+            return arrayToReturn;
+    }
+    
+    public int[] escribirCasillaGlobal(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS,  int numeroBombasMarcadasConBandera, int numeroBanderasPuestas, int nroMinas, Juego juego, boolean bandera){
+        if (!bandera){
+            if(this.getVectorDeAdyacencia()[indice].isMarcado()){
+                this.getVectorDeAdyacencia()[indice].setMarcado(false);
+                if (this.getVectorDeAdyacencia()[indice].isSoyUnaBomba()){
+                    numeroBombasMarcadasConBandera--;
+                }
+                numeroBanderasPuestas--;
+            }
+            /**
+             * Funcionalidad para quitarle bandera a una casilla, es decir desmarcar una casilla que estaba marcada con bandera
+             * @return Cambia el color de la casilla de verde a blanco y se resta tanto el número de bombas como de banderas
+             */
+            this.antesDeEscribirCasilla(button, nombre, indice, buscarPorDFS, juego); 
+            
+            int[] arrayToReturn =  {numeroBombasMarcadasConBandera, numeroBanderasPuestas};
+            return arrayToReturn; // numeroBombasMarcadasConBandera (0) y numeroBanderasPuestas (1)
+        } else {
+            int[] arrayToReturn = this.siSeQuierePonerQuitarBandera(button, nombre, indice, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, juego);
+            return arrayToReturn; // numeroBombasMarcadasConBandera (0) y numeroBanderasPuestas (1)
+        }
+    }
+    
+    public void antesDeEscribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS, Juego juego){
+            this.escribirCasilla(button, nombre, indice, buscarPorDFS);  
+            //Necesario para cuando se vaya a guardar el CSV saber cuales ya se han barrido y cuales no para saber que mostrar y que no   
+            this.getVectorDeAdyacencia()[indice].setBarrido(true); //No afecta al funcionamiento
+            /**
+            * Funcionalidad para que cuando se pise una casilla con bomba pierdas
+            * @return "Haz Perdido"
+             */    
+            if (this.getVectorDeAdyacencia() [indice].isSoyUnaBomba()) {
+                JOptionPane.showMessageDialog(null, "Haz Perdido");
+                BuscaminasInterfaz v1 = new BuscaminasInterfaz();
+                v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
+                v1.setLocationRelativeTo(null); // Centra la ventana
+                v1.setResizable(false); // Hace que no se pueda modificar la ventana, es decir queda centrado y en un tamaño fijo
+                juego.dispose();
+            }
+            
+            //TODO: empezar codigo aca
+            
+            
+    }
+    
+    public void escribirCasilla(javax.swing.JToggleButton button, String nombre, int indice, boolean buscarPorDFS){
+//        button.setEnabled(false);
+        button.setForeground(java.awt.Color.BLACK);
+        try {
+            Vertice vertice = this.DevuelveVertice(indice);
+            if (vertice.isSoyUnaBomba()){
+                button.setText(vertice.getEmoji());
+            } else{
+                System.out.println(buscarPorDFS);
+                System.out.println(buscarPorDFS);
+                int bombasAdyacentes =  buscarPorDFS ? this.casillasBombaAdyacentePorDFS(nombre) : this.casillasBombaAdyacentePorBFS(nombre);
+                button.setText(String.valueOf(bombasAdyacentes));
+                
+            }
+        } catch (Exception ex) {
+            button.setVisible(false);
+        }
+        
+    }
+    
+    public int casillasBombaAdyacentePorBFS(String nombre){
+        try {
+        
+        ListaEnlazada<Integer> visitados = this.BFS(nombre);
+
+        Nodo aux = visitados.getpFirst();
+
+        while (aux != null) {
+            
+            int indiceVertice = (int) aux.getData(); 
+
+            Vertice vertice = this.DevuelveVertice(indiceVertice);
+
+            if (vertice.isSoyUnaBomba()) {
+                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+                return -1;
+            } else {
+               
+                int bombasAdyacentes = vertice.getLad().bombasAdy(this);
+
+                if (bombasAdyacentes == 0) {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+                    return 0;
+                } else {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+                    return bombasAdyacentes;
+                }
+            }
+
+//            aux = aux.getpNext();
+        }
+        } catch (Exception ex) {
+
+            System.err.println("Error: " + ex.getMessage());
+
+        }
+        return -1;
+    }
+    
+  public ListaEnlazada<Integer> DFSVersion2(String nombre, int[][] valores) throws Exception {
+        Vertice inicio = this.devuelveVerticePorNombre(nombre);
+        if (inicio == null) {
+            throw new Exception("El vértice no existe.");
+        }
+
+        ListaEnlazada<Integer> listaVisitados = new ListaEnlazada<>();
+        boolean[] visitados = new boolean[numVertices];
+
+        // Llamada inicial al método recursivo DFS
+        DFSRecursivo(inicio, visitados, listaVisitados, valores);
+
+        return listaVisitados;
+}
+
+private void DFSRecursivo(Vertice actual, boolean[] visitados, ListaEnlazada<Integer> listaVisitados, int[][] valores) throws Exception {
+        int indiceActual = this.numVertice(actual.nombreVertice());
+
+        // Marca el vértice como visitado y añádelo a la lista
+        visitados[indiceActual] = true;
+        listaVisitados.addLast(indiceActual);
+
+        // Recorre todos los vecinos del vértice actual
+        Nodo aux = actual.getLad().getpFirst();
+        while (aux != null) {
+            Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+            int indiceVecino = this.numVertice(vecino.nombreVertice());
+
+            // Continúa la búsqueda solo si el vecino no ha sido visitado y tiene valor 0
+            if (!visitados[indiceVecino] && valores[indiceVecino / valores[0].length][indiceVecino % valores[0].length] == 0) {
+                DFSRecursivo(vecino, visitados, listaVisitados, valores);
+            }
+            aux = aux.getpNext();
+        }
+}
+
+public ListaEnlazada BFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisitados ) throws Exception {
+    // Inicializa la lista de visitados y la cola de vértices a explorar
+    Cola cola = new Cola();
+    // Encola el vértice inicial y márcalo como visitado
+    cola.encolar(actual);
+    actual.setBarrido(true);
+    listaVisitados.addLast(actual);
+    this.cambiadorVerticesABarridoVerdadero(actual);
+
+    // Realiza la búsqueda en amplitud
+    while (!cola.estaVacia()) {
+        // Desencola el siguiente vértice
+        Vertice vertice = (Vertice) cola.desencolar().getData();
+
+        // Obtén los vecinos del vértice actual
+        Nodo aux = vertice.getLad().getpFirst();
+        while (aux != null) {
+            Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+
+            // Si el vecino no ha sido visitado y cumple las condiciones, se explora
+            if (!vecino.isBarrido() && this.casillasBombaAdyacentePorDFS(vertice.nombreVertice()) == 0) {
+                vecino.setBarrido(true);
+                listaVisitados.addLast(vecino);
+                cola.encolar(vecino);
+                this.cambiadorVerticesABarridoVerdadero(vecino);
+            }
+
+            aux = aux.getpNext();
+        }
+    }
+
+    return listaVisitados;
+}
+
+public void cambiadorVerticesABarridoVerdadero(Vertice vertice){
+    for (int i = 0; i < this.maxVertices; i++){
+        if (this.vectorDeAdyacencia[i].getNombre().equalsIgnoreCase(vertice.getNombre())){
+            this.vectorDeAdyacencia[i].setBarrido(true);
+        }
+    }
+}
+
+public ListaEnlazada DFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisitados) throws Exception{ // lista visitados inicialmente vacia
+    
+        // Marca el vértice como visitado y añádelo a la lista
+    actual.setBarrido(true);
+    listaVisitados.addLast(actual);
+    this.cambiadorVerticesABarridoVerdadero(actual);
+    
+    // Recorre todos los vecinos del vértice actual
+    Nodo aux = actual.getLad().getpFirst();
+    while (aux != null) {
+        Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+        int indiceVecino = this.numVertice(vecino.nombreVertice());
+        
+//        if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) > 0 && !vecino.isBarrido()) {
+//            Graph(actual,vecinos)
+//        }
+        
+        // Continúa la búsqueda solo si el vecino no ha sido visitado y tiene valor 0
+        System.out.println(this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()));
+        if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) == 0 && !vecino.isBarrido() && this.casillasBombaAdyacentePorDFS(actual.nombreVertice()) == 0){
+            
+            DFSRecursivoPorMi(vecino, listaVisitados);
+            
+        } else if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) > 0 && this.casillasBombaAdyacentePorDFS(actual.nombreVertice()) == 0 && !vecino.isBarrido()){
+                vecino.setBarrido(true);
+                listaVisitados.addLast(vecino);
+        }
+        
+        
+        
+        aux = aux.getpNext();
+    }
+    return listaVisitados;
+    
+    
+}
+    
+    public int casillasBombaAdyacentePorDFS(String nombre){
+        try {
+        
+        ListaEnlazada visitados = this.DFS(nombre);
+
+        Nodo aux = visitados.getpFirst();
+       
+        while (aux != null) {
+            
+            String nombreCasilla = aux.getData().toString();
+
+            int indiceVertice = Integer.parseInt(nombreCasilla);
+
+            Vertice vertice = this.DevuelveVertice(indiceVertice);
+            
+            if (vertice.isSoyUnaBomba()) {
+                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+                return -1; //No diremos las bombas adyacentes puesto que esto es una bomba
+            } else {
+                int bombasAdyacentes = vertice.getLad().bombasAdy(this);
+                if (bombasAdyacentes == 0) {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+                    return 0;
+                } else {
+                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+                    return bombasAdyacentes;
+                    
+                }
+            }
+
+//            aux = aux.getpNext();
+        }
+    } catch (Exception ex) {
+        System.out.println("Error: " + ex.getMessage());      
+    }
+        return -1;
     }
 //    public ListaEnlazada DFS(String nombre) throws Exception {
 //        Vertice inicio = this.DevuelveVerticePorNombre(nombre);
@@ -384,11 +700,11 @@ public void recorridoDFS(ListaEnlazada lista, Vertice v, boolean[] visitados) {
     visitados[this.numVertice(v.nombreVertice())] = true;
     lista.addLast(this.numVertice(v.nombreVertice())); 
     
-    Nodo aux = v.lad.getpFirst();
+    Nodo aux = v.getLad().getpFirst();
     while (aux != null) {
         try {
             Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
-            if (!visitados[this.numVertice(vecino.nombreVertice())] && vecino.lad.bombasAdy(this) == 0) {
+            if (!visitados[this.numVertice(vecino.nombreVertice())] && vecino.getLad().bombasAdy(this) == 0) {
                 recorridoDFS(lista, vecino, visitados); 
             }
         } catch (Exception ex) {
@@ -490,12 +806,10 @@ public ListaEnlazada<Integer> BFS(String nombre) throws Exception {
     visitados[this.numVertice(inicio.nombreVertice())] = true; 
 
     while (!cola.estaVacia()) {
-        System.out.println("Cuentame");
         Vertice actual = cola.desencolar().getData();
-        System.out.println("Te conte");
         listaVisitados.addLast(this.numVertice(actual.nombreVertice())); 
 
-        Nodo aux = actual.lad.getpFirst();
+        Nodo aux = actual.getLad().getpFirst();
         while (aux != null) {
             try {
                 Vertice vecino = this.DevuelveVertice2(aux.getData().toString());

@@ -1,10 +1,13 @@
 
 package interfaces;
 
+import GestionCSV.FileChooser;
+import GestionCSV.GestionCSV;
 import grafo.Grafo;
 import grafo.ListaEnlazada;
 import grafo.Nodo;
 import grafo.Vertice;
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -17,8 +20,10 @@ import javax.swing.JToggleButton;
  */
 public class Juego extends javax.swing.JFrame { //Atributos de la clase juego con herencia de la liberia Java Swing
     private int nroFilas, nroColumnas, nroMinas;
-    boolean bandera;
+    boolean bandera, buscarPorDFS;
     Grafo grafo;
+    int numeroBanderasPuestas=0; //cada vez que el usuario marque una bandera se aumenta 1 (PERO eso no se le muestra al usuario)
+    int numeroBombasMarcadasConBandera = 0; // cuando el usuario marque una casilla que tiene bomba/mina con bandera aumenta 1 (PERO eso no se le muestra al usuario)
 /**
  * Constructor de la clase Juego
  * @param nroFilas
@@ -32,6 +37,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.nroColumnas = nroColumnas;
         this.nroMinas = nroMinas;
         this.grafo = grafo;
+        this.buscarPorDFS = true;
+        this.bandera = false; //agregué la inicializada de bandera (mishel)
+        
     }
 
     public void casillaBM(JToggleButton casilla, boolean es_bomba, int bombas_ady) {
@@ -201,6 +209,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         TrueOrFalse = new javax.swing.JButton();
         DFS = new javax.swing.JButton();
         BFS = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -221,7 +230,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, 20));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, 20));
 
         casillaA1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         casillaA1.addActionListener(new java.awt.event.ActionListener() {
@@ -1046,37 +1055,54 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         jPanel1.add(casillaJ9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, 50, 50));
 
         TrueOrFalse.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
-        TrueOrFalse.setText("FALSE");
+        TrueOrFalse.setText("Bandera desactivada");
         TrueOrFalse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
+        TrueOrFalse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrueOrFalseActionPerformed(evt);
+            }
+        });
+        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 320, 30));
 
         DFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        DFS.setText("DFS");
+        DFS.setText("BARRIDO CON DFS");
         DFS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         DFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DFSActionPerformed(evt);
             }
         });
-        jPanel1.add(DFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 30, -1));
+        jPanel1.add(DFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 130, 20));
 
         BFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        BFS.setText("BFS");
+        BFS.setText("BARRIDO CON BFS");
         BFS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BFSActionPerformed(evt);
             }
         });
-        jPanel1.add(BFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+        jPanel1.add(BFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 120, 20));
+
+        jLabel1.setText("Para ganar, debes haber puesto una bandera en todas las casillas con minas.");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Guarda el archivo
+     * @param evt 
+     */
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        FileChooser file = new FileChooser(this); //llama e importa a FileChooser
+        GestionCSV gestionCSV = new GestionCSV(); 
+        
+        String contenido = gestionCSV.guardarCSV(grafo); //guarda el contenido que se quiere guardar
+        
+        file.guardar(contenido); 
     }//GEN-LAST:event_btnGuardarActionPerformed
 /**
  * Verifica si la bandera esta habilitada
@@ -1085,10 +1111,10 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private void btnBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanderaActionPerformed
         if (bandera) {
             bandera = false; 
-            this.TrueOrFalse.setText("False"); 
+            this.TrueOrFalse.setText("Bandera desactivada"); //Cambié mensaje para que se vea mas dínamico el juego
         } else {
             bandera = true; 
-            this.TrueOrFalse.setText("True"); 
+            this.TrueOrFalse.setText("Bandera activada"); //Cambié mensaje para que se vea mas dínamico el juego
 
         }
     }//GEN-LAST:event_btnBanderaActionPerformed
@@ -1106,16 +1132,42 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
 
     private void casillaA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA1ActionPerformed
         // Obtiene el vertice A1 en el grafo:
+       String nombre = "A1";
+       
+        int indice = this.grafo.numVertice(nombre); 
         
-        int indice = this.grafo.numVertice("A1");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA1.setText(vertice.getEmoji());
-            
-            this.casillaA1.setEnabled(false);
-        } catch (Exception ex) {
-            this.casillaA1.setVisible(false);
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA1ActionPerformed
 
     /**
@@ -1126,6 +1178,109 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         // Verifica la existencia de los vértices "A1" a "J10" en el grafo.
         // Si no existe un vertice en el grafo devuelve -1
         // se oculta el componente de la interfaz gráfica correspondiente.
+            this.casillaA1.setName("A1");
+            this.casillaA2.setName("A2");
+            this.casillaA3.setName("A3");
+            this.casillaA4.setName("A4");
+            this.casillaA5.setName("A5");
+            this.casillaA6.setName("A6");
+            this.casillaA7.setName("A7");
+            this.casillaA8.setName("A8");
+            this.casillaA9.setName("A9");
+            this.casillaA10.setName("A10");
+            this.casillaB1.setName("B1");
+            this.casillaB2.setName("B2");
+            this.casillaB3.setName("B3");
+            this.casillaB4.setName("B4");
+            this.casillaB5.setName("B5");
+            this.casillaB6.setName("B6");
+            this.casillaB7.setName("B7");
+            this.casillaB8.setName("B8");
+            this.casillaB9.setName("B9");
+            this.casillaB10.setName("B10");
+            this.casillaC1.setName("C1");
+            this.casillaC2.setName("C2");
+            this.casillaC3.setName("C3");
+            this.casillaC4.setName("C4");
+            this.casillaC5.setName("C5");
+            this.casillaC6.setName("C6");
+            this.casillaC7.setName("C7");
+            this.casillaC8.setName("C8");
+            this.casillaC9.setName("C9");
+            this.casillaC10.setName("C10");
+            this.casillaD1.setName("D1");
+            this.casillaD2.setName("D2");
+            this.casillaD3.setName("D3");
+            this.casillaD4.setName("D4");
+            this.casillaD5.setName("D5");
+            this.casillaD6.setName("D6");
+            this.casillaD7.setName("D7");
+            this.casillaD8.setName("D8");
+            this.casillaD9.setName("D9");
+            this.casillaD10.setName("D10");
+            this.casillaE1.setName("E1");
+            this.casillaE2.setName("E2");
+            this.casillaE3.setName("E3");
+            this.casillaE4.setName("E4");
+            this.casillaE5.setName("E5");
+            this.casillaE6.setName("E6");
+            this.casillaE7.setName("E7");
+            this.casillaE8.setName("E8");
+            this.casillaE9.setName("E9");
+            this.casillaE10.setName("E10");
+            this.casillaF1.setName("F1");
+            this.casillaF2.setName("F2");
+            this.casillaF3.setName("F3");
+            this.casillaF4.setName("F4");
+            this.casillaF5.setName("F5");
+            this.casillaF6.setName("F6");
+            this.casillaF7.setName("F7");
+            this.casillaF8.setName("F8");
+            this.casillaF9.setName("F9");
+            this.casillaF10.setName("F10");
+            this.casillaG1.setName("G1");
+            this.casillaG2.setName("G2");
+            this.casillaG3.setName("G3");
+            this.casillaG4.setName("G4");
+            this.casillaG5.setName("G5");
+            this.casillaG6.setName("G6");
+            this.casillaG7.setName("G7");
+            this.casillaG8.setName("G8");
+            this.casillaG9.setName("G9");
+            this.casillaG10.setName("G10");
+            this.casillaH1.setName("H1");
+            this.casillaH2.setName("H2");
+            this.casillaH3.setName("H3");
+            this.casillaH4.setName("H4");
+            this.casillaH5.setName("H5");
+            this.casillaH6.setName("H6");
+            this.casillaH7.setName("H7");
+            this.casillaH8.setName("H8");
+            this.casillaH9.setName("H9");
+            this.casillaH10.setName("H10");
+            this.casillaI1.setName("I1");
+            this.casillaI2.setName("I2");
+            this.casillaI3.setName("I3");
+            this.casillaI4.setName("I4");
+            this.casillaI5.setName("I5");
+            this.casillaI6.setName("I6");
+            this.casillaI7.setName("I7");
+            this.casillaI8.setName("I8");
+            this.casillaI9.setName("I9");
+            this.casillaI10.setName("I10");
+            this.casillaJ1.setName("J1");
+            this.casillaJ2.setName("J2");
+            this.casillaJ3.setName("J3");
+            this.casillaJ4.setName("J4");
+            this.casillaJ5.setName("J5");
+            this.casillaJ6.setName("J6");
+            this.casillaJ7.setName("J7");
+            this.casillaJ8.setName("J8");
+            this.casillaJ9.setName("J9");
+            this.casillaJ10.setName("J10");
+
+            //TODO
+            
         if (grafo.numVertice("A1") == -1){
             this.casillaA1.setVisible(false);
         }
@@ -1473,9 +1628,13 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                     
                     Vertice v = grafo.devuelveVerticePorNombre("B3");
                     
+<<<<<<< HEAD
                     System.out.println("hola");
                     System.out.println(v.getLad().getSize());
                     
+=======
+                    grafo.imprimirGrafo();
+>>>>>>> b5b7c3eb89bdb415e1b9761081641d0dcda0fc62
                     
                     
            } catch (Exception ex) {
@@ -1490,1091 +1649,3739 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
      */
     private void casillaJ6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ6ActionPerformed
          // Vertice J6
-        int indice = this.grafo.numVertice("J6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice); 
-            this.casillaJ6.setText(vertice.getEmoji());
-        } catch (Exception ex) { 
-            this.casillaJ6.setVisible(false);
-        }        
+        String nombre = "J6";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
     }//GEN-LAST:event_casillaJ6ActionPerformed
 
     private void casillaA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA3ActionPerformed
         // Vertice A3
-        int indice = this.grafo.numVertice("A3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA3.setVisible(false);
+        String nombre = "A3";
+        int indice = this.grafo.numVertice(nombre); 
+        
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA3ActionPerformed
 
     private void casillaJ10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ10ActionPerformed
            // Vertice J10
-        int indice = this.grafo.numVertice("J10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ10.setVisible(false);
+        String nombre = "J10";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ10ActionPerformed
 
     private void casillaA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA4ActionPerformed
         // Vertice A4
-        int indice = this.grafo.numVertice("A4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA4.setVisible(false);
+       String nombre = "A4";
+        int indice = this.grafo.numVertice(nombre); 
+          int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA4ActionPerformed
 
     private void casillaA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA6ActionPerformed
         // Vertice A6
-        int indice = this.grafo.numVertice("A6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA6.setVisible(false);
+        String nombre = "A6";
+        int indice = this.grafo.numVertice(nombre); 
+         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA6ActionPerformed
 
     private void casillaA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA7ActionPerformed
         // Vertice A7
-        int indice = this.grafo.numVertice("A7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA7.setVisible(false);
+        String nombre = "A7";
+        int indice = this.grafo.numVertice(nombre); 
+         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA7ActionPerformed
 
     private void casillaA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA8ActionPerformed
         // Vertice A8
-        int indice = this.grafo.numVertice("A8");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA8.setVisible(false);
+       String nombre = "A8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA8ActionPerformed
 
     private void casillaA9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA9ActionPerformed
         // Vertice A9
-        int indice = this.grafo.numVertice("A9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);  
-            this.casillaA9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA9.setVisible(false);
+        String nombre = "A9";
+        int indice = this.grafo.numVertice(nombre); 
+          int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA9ActionPerformed
 
     private void casillaA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA10ActionPerformed
         // Vertice A10
-        int indice = this.grafo.numVertice("A10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA10.setVisible(false);
+       String nombre = "A10";
+        int indice = this.grafo.numVertice(nombre); 
+         int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA10ActionPerformed
 
     private void casillaA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA2ActionPerformed
         // Vertice A2
-        int indice = this.grafo.numVertice("A2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA2.setVisible(false);
+        String nombre = "A2";
+        int indice = this.grafo.numVertice(nombre); 
+        
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA2ActionPerformed
 
     private void casillaB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB1ActionPerformed
         // Vertice B1 
-        int indice = this.grafo.numVertice("B1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB1.setVisible(false);
+        String nombre = "B1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB1ActionPerformed
 
     private void casillaJ1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ1ActionPerformed
          // Vertice J1
-        int indice = this.grafo.numVertice("J1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ1.setVisible(false);
+        String nombre = "J1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ1ActionPerformed
 
     private void casillaC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC10ActionPerformed
           // Vertice C10
-        int indice = this.grafo.numVertice("C10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC10.setVisible(false);
+         String nombre = "C10";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC10ActionPerformed
 
     private void casillaD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD10ActionPerformed
         // Vertice D10
-        int indice = this.grafo.numVertice("D10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD10.setVisible(false);
+        String nombre = "D10";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD10ActionPerformed
 
     private void casillaF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF1ActionPerformed
           // Vertice F1
-        int indice = this.grafo.numVertice("F1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF1.setVisible(false);
+        String nombre = "F1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF1ActionPerformed
 
     private void casillaG1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG1ActionPerformed
           // Vertice G1
-        int indice = this.grafo.numVertice("G1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG1.setVisible(false);
+        String nombre = "G1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG1ActionPerformed
 
     private void casillaH1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH1ActionPerformed
         // Vertice H1
-        int indice = this.grafo.numVertice("H1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH1.setVisible(false);
+        String nombre = "H1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH1ActionPerformed
 
     private void casillaI1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI1ActionPerformed
         // Vertice I1
-        int indice = this.grafo.numVertice("I1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI1.setVisible(false);
+        String nombre = "I1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI1ActionPerformed
 
     private void casillaB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB2ActionPerformed
         // Vertice B2
-        int indice = this.grafo.numVertice("B2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB2.setVisible(false);
+        String nombre = "B2";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB2ActionPerformed
 
     private void casillaB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB3ActionPerformed
         // Vertice B3
-        int indice = this.grafo.numVertice("B3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB3.setVisible(false);
+        String nombre = "B3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB3ActionPerformed
 
     private void casillaA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA5ActionPerformed
         // Vertice A5
-        int indice = this.grafo.numVertice("A5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaA5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaA5.setVisible(false);
+        String nombre = "A5";
+        int indice = this.grafo.numVertice(nombre); 
+          int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaA5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaA5ActionPerformed
 
     private void casillaB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB4ActionPerformed
        // Vertice B4 
-        int indice = this.grafo.numVertice("B4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB4.setVisible(false);
+         String nombre = "B4";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB4ActionPerformed
 
     private void casillaC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC5ActionPerformed
          // Vertice C5
-        int indice = this.grafo.numVertice("C5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC5.setVisible(false);
+        String nombre = "C5";
+        int indice = this.grafo.numVertice(nombre); 
+        
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC5ActionPerformed
 
     private void casillaB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB6ActionPerformed
         // Vertice B6
-        int indice = this.grafo.numVertice("B6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB6.setVisible(false);
+         String nombre = "B6";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB6ActionPerformed
 
     private void casillaB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB5ActionPerformed
       // Vertice B5
-        int indice = this.grafo.numVertice("B5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB5.setVisible(false);
+          String nombre = "B5";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB5ActionPerformed
 
     private void casillaB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB7ActionPerformed
        // Vertice B7
-        int indice = this.grafo.numVertice("B7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB7.setVisible(false);
+          String nombre = "B7";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB7ActionPerformed
 
     private void casillaB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB8ActionPerformed
         // Vertice B8
-        int indice = this.grafo.numVertice("B8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB8.setVisible(false);
+          String nombre = "B8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB8ActionPerformed
 
     private void casillaC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC1ActionPerformed
        // Vertice C1
-        int indice = this.grafo.numVertice("C1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC1.setVisible(false);
+         String nombre = "C1";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC1ActionPerformed
 
     private void casillaB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB9ActionPerformed
        // Vertice B9
-        int indice = this.grafo.numVertice("B9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB9.setVisible(false);
+         String nombre = "B9";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB9ActionPerformed
 
     private void casillaB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaB10ActionPerformed
        // Vertice B10
-        int indice = this.grafo.numVertice("B10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaB10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaB10.setVisible(false);
+          String nombre = "B10";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaB10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaB10ActionPerformed
 
     private void casillaC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC2ActionPerformed
        // Vertice C2
-        int indice = this.grafo.numVertice("C2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC2.setVisible(false);
+         String nombre = "C2";
+        int indice = this.grafo.numVertice(nombre); 
+        
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC2ActionPerformed
 
     private void casillaC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC3ActionPerformed
           // Vertice C3
-        int indice = this.grafo.numVertice("C3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC3.setVisible(false);
+        String nombre = "C3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC3ActionPerformed
 
     private void casillaC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC4ActionPerformed
         // Vertice C4
-        int indice = this.grafo.numVertice("C4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC4.setVisible(false);
+        String nombre = "C4";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC4ActionPerformed
 
     private void casillaC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC6ActionPerformed
          // Vertice C6
-        int indice = this.grafo.numVertice("C6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC6.setVisible(false);
+        String nombre = "C6";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC6ActionPerformed
 
     private void casillaC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC7ActionPerformed
           // Vertice C7
-        int indice = this.grafo.numVertice("C7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC7.setVisible(false);
+       String nombre = "C7";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC7ActionPerformed
 
     private void casillaC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC9ActionPerformed
           // Vertice C9
-        int indice = this.grafo.numVertice("C9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC9.setVisible(false);
+       String nombre = "C9";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC9ActionPerformed
 
     private void casillaC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaC8ActionPerformed
          // Vertice C8
-        int indice = this.grafo.numVertice("C8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaC8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaC8.setVisible(false);
+       String nombre = "C8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaC8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaC8ActionPerformed
 
     private void casillaD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD9ActionPerformed
         // Vertice D9
-        int indice = this.grafo.numVertice("D9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD9.setVisible(false);
+       String nombre = "D9";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD9ActionPerformed
 
     private void casillaD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD5ActionPerformed
         // Vertice D5
-        int indice = this.grafo.numVertice("D5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD5.setVisible(false);
+       String nombre = "D5";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD5ActionPerformed
 
     private void casillaD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD1ActionPerformed
           // Vertice D1
-        int indice = this.grafo.numVertice("D1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD1.setVisible(false);
+        String nombre = "D1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD1ActionPerformed
 
     private void casillaD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD2ActionPerformed
           // Vertice D2
-        int indice = this.grafo.numVertice("D2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD2.setVisible(false);
+        String nombre = "D2";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD2ActionPerformed
 
     private void casillaE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE3ActionPerformed
           // Vertice E3
-        int indice = this.grafo.numVertice("E3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE3.setVisible(false);
+        String nombre = "E3";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE3ActionPerformed
 
     private void casillaD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD3ActionPerformed
          // Vertice D3
-        int indice = this.grafo.numVertice("D3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD3.setVisible(false);
+        String nombre = "D3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD3ActionPerformed
 
     private void casillaD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD7ActionPerformed
         // Vertice D7
-        int indice = this.grafo.numVertice("D7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD7.setVisible(false);
+       String nombre = "D7";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD7ActionPerformed
 
     private void casillaD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD6ActionPerformed
        // Vertice D6
-        int indice = this.grafo.numVertice("D6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD6.setVisible(false);
+        String nombre = "D6";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD6ActionPerformed
 
     private void casillaD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD8ActionPerformed
        // Vertice D8
-        int indice = this.grafo.numVertice("D8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD8.setVisible(false);
+       String nombre = "D8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD8ActionPerformed
 
     private void casillaE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE1ActionPerformed
        // Vertice E1
-        int indice = this.grafo.numVertice("E1"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE1.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE1.setVisible(false);
+       String nombre = "E1";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE1, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE1ActionPerformed
 
     private void casillaE2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE2ActionPerformed
           // Vertice E2
-        int indice = this.grafo.numVertice("E2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE2.setVisible(false);
+        String nombre = "E2";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE2ActionPerformed
 
     private void casillaE4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE4ActionPerformed
          // Vertice E4
-        int indice = this.grafo.numVertice("E4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE4.setVisible(false);
+       String nombre = "E4";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE4ActionPerformed
 
     private void casillaE5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE5ActionPerformed
          // Vertice E5
-        int indice = this.grafo.numVertice("E5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE5.setVisible(false);
+        String nombre = "E5";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE5ActionPerformed
 
     private void casillaE6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE6ActionPerformed
           // Vertice E6
-        int indice = this.grafo.numVertice("E6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE6.setVisible(false);
+       String nombre = "E6";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE6ActionPerformed
 
     private void casillaE7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE7ActionPerformed
           // Vertice E7
-        int indice = this.grafo.numVertice("E7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE7.setVisible(false);
+       String nombre = "E7";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE7ActionPerformed
 
     private void casillaE8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE8ActionPerformed
           // Vertice E8
-        int indice = this.grafo.numVertice("E8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE8.setVisible(false);
+        String nombre = "E8";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE8ActionPerformed
 
     private void casillaE9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE9ActionPerformed
          // Vertice E9
-        int indice = this.grafo.numVertice("E9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE9.setVisible(false);
+       String nombre = "E9";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE9ActionPerformed
 
     private void casillaE10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaE10ActionPerformed
          // Vertice E10
-        int indice = this.grafo.numVertice("E10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaE10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaE10.setVisible(false);
+       String nombre = "E10";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaE10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaE10ActionPerformed
 
     private void casillaF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF2ActionPerformed
            // Vertice F2
-        int indice = this.grafo.numVertice("F2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF2.setVisible(false);
+        String nombre = "F2";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF2ActionPerformed
 
     private void casillaF3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF3ActionPerformed
           // Vertice F3
-        int indice = this.grafo.numVertice("F3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF3.setVisible(false);
+        String nombre = "F3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF3ActionPerformed
 
     private void casillaD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaD4ActionPerformed
           // Vertice D4
-        int indice = this.grafo.numVertice("D4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaD4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaD4.setVisible(false);
+        String nombre = "D4";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaD4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaD4ActionPerformed
 
     private void casillaF4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF4ActionPerformed
            // Vertice F4
-        int indice = this.grafo.numVertice("F4");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF4.setVisible(false);
+        String nombre = "F4";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF4ActionPerformed
 
     private void casillaF6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF6ActionPerformed
            // Vertice F6
-        int indice = this.grafo.numVertice("F6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF6.setVisible(false);
+        String nombre = "F6";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF6ActionPerformed
 
     private void casillaF7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF7ActionPerformed
            // Vertice F7
-        int indice = this.grafo.numVertice("F7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF7.setVisible(false);
+         String nombre = "F7";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF7ActionPerformed
 
     private void casillaF8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF8ActionPerformed
            // Vertice F8
-        int indice = this.grafo.numVertice("F8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF8.setVisible(false);
+        String nombre = "F8";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF8ActionPerformed
 
     private void casillaF9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF9ActionPerformed
            // Vertice F9
-        int indice = this.grafo.numVertice("F9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF9.setVisible(false);
+        String nombre = "F9";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF9ActionPerformed
 
     private void casillaF10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF10ActionPerformed
           // Vertice F10
-        int indice = this.grafo.numVertice("F10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF10.setVisible(false);
+        String nombre = "F10";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF10ActionPerformed
 
     private void casillaG2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG2ActionPerformed
         // Vertice G2
-        int indice = this.grafo.numVertice("G2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG2.setVisible(false);
+        String nombre = "G2";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG2ActionPerformed
 
     private void casillaG3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG3ActionPerformed
        // Vertice G3
-        int indice = this.grafo.numVertice("G3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG3.setVisible(false);
+         String nombre = "G3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG3ActionPerformed
 
     private void casillaF5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaF5ActionPerformed
            // Vertice F5
-        int indice = this.grafo.numVertice("F5");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaF5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaF5.setVisible(false);
+         String nombre = "F5";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaF5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaF5ActionPerformed
 
     private void casillaG4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG4ActionPerformed
         // Vertice G4
-        int indice = this.grafo.numVertice("G4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG4.setVisible(false);
+        String nombre = "G4";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG4ActionPerformed
 
     private void casillaG6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG6ActionPerformed
        // Vertice G6
-        int indice = this.grafo.numVertice("G6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG6.setVisible(false);
+         String nombre = "G6";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG6ActionPerformed
 
     private void casillaG7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG7ActionPerformed
         // Vertice G7
-        int indice = this.grafo.numVertice("G7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG7.setVisible(false);
+        String nombre = "G7";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG7ActionPerformed
 
     private void casillaG8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG8ActionPerformed
         // Vertice G8
-        int indice = this.grafo.numVertice("G8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG8.setVisible(false);
+        String nombre = "G8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG8ActionPerformed
 
     private void casillaG9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG9ActionPerformed
        // Vertice G9
-        int indice = this.grafo.numVertice("G9");
-        try { 
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG9.setVisible(false);
+       String nombre = "G9";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG9ActionPerformed
 
     private void casillaG10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG10ActionPerformed
         // Vertice G10
-        int indice = this.grafo.numVertice("G10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG10.setVisible(false); 
+        String nombre = "G10";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG10ActionPerformed
 
     private void casillaH2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH2ActionPerformed
         // Vertice H2
-        int indice = this.grafo.numVertice("H2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH2.setVisible(false);
+        String nombre = "H2";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH2ActionPerformed
 
     private void casillaH3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH3ActionPerformed
         // Vertice H3
-        int indice = this.grafo.numVertice("H3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH3.setVisible(false);
+        String nombre = "H3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH3ActionPerformed
 
     private void casillaG5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaG5ActionPerformed
         // Vertice G5
-        int indice = this.grafo.numVertice("G5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaG5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaG5.setVisible(false);
+         String nombre = "G5";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaG5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaG5ActionPerformed
 
     private void casillaH4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH4ActionPerformed
         // Vertice H4
-        int indice = this.grafo.numVertice("H4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH4.setVisible(false);
+       String nombre = "H4";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH4ActionPerformed
 
     private void casillaH6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH6ActionPerformed
         // Vertice H6
-        int indice = this.grafo.numVertice("H6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH6.setVisible(false);
+        String nombre = "H6";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH6ActionPerformed
 
     private void casillaH7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH7ActionPerformed
        // Vertice H7
-        int indice = this.grafo.numVertice("H7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH7.setVisible(false);
+        String nombre = "H7";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH7ActionPerformed
 
     private void casillaH8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH8ActionPerformed
         // Vertice H8
-        int indice = this.grafo.numVertice("H8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH8.setVisible(false);
+        String nombre = "H8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH8ActionPerformed
 
     private void casillaH9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH9ActionPerformed
         // Vertice H9
-        int indice = this.grafo.numVertice("H9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH9.setVisible(false);
+        String nombre = "H9";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH9ActionPerformed
 
     private void casillaH10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH10ActionPerformed
         // Vertice H10
-        int indice = this.grafo.numVertice("H10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH10.setVisible(false);
+        String nombre = "H10";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH10ActionPerformed
 
     private void casillaI2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI2ActionPerformed
         // Vertice I2
-        int indice = this.grafo.numVertice("I2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI2.setVisible(false);
+        String nombre = "I2";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI2ActionPerformed
 
     private void casillaI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI3ActionPerformed
        // Vertice I3
-        int indice = this.grafo.numVertice("I3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI3.setVisible(false);
+        String nombre = "I3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI3ActionPerformed
 
     private void casillaH5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaH5ActionPerformed
        // Vertice H5
-        int indice = this.grafo.numVertice("H5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaH5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaH5.setVisible(false);
+        String nombre = "H5";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaH5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaH5ActionPerformed
 
     private void casillaI4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI4ActionPerformed
        // Vertice I4
-        int indice = this.grafo.numVertice("I4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI4.setVisible(false);
+        String nombre = "I4";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI4ActionPerformed
 
     private void casillaI6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI6ActionPerformed
        // Vertice I6
-        int indice = this.grafo.numVertice("I6"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI6.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI6.setVisible(false);
+        String nombre = "I6";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI6, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI6ActionPerformed
 
     private void casillaI7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI7ActionPerformed
        // Vertice I7
-        int indice = this.grafo.numVertice("I7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI7.setVisible(false);
+        String nombre = "I7";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI7ActionPerformed
 
     private void casillaI8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI8ActionPerformed
         // Vertice I8
-        int indice = this.grafo.numVertice("I8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI8.setVisible(false);
+        String nombre = "I8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI8ActionPerformed
 
     private void casillaI9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI9ActionPerformed
         // Vertice I9
-        int indice = this.grafo.numVertice("I9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI9.setVisible(false);
+        String nombre = "I9";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI9ActionPerformed
 
     private void casillaI10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI10ActionPerformed
-        // Vertice I0
-        int indice = this.grafo.numVertice("I10"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI10.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI10.setVisible(false);
+        // Vertice I10
+        String nombre = "I10";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI10, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI10ActionPerformed
 
     private void casillaJ2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ2ActionPerformed
            // Vertice J2
-        int indice = this.grafo.numVertice("J2"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ2.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ2.setVisible(false);
+       String nombre = "J2";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ2, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ2ActionPerformed
 
     private void casillaJ3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ3ActionPerformed
            // Vertice J3
-        int indice = this.grafo.numVertice("J3"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ3.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ3.setVisible(false);
+        String nombre = "J3";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ3, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ3ActionPerformed
 
     private void casillaI5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaI5ActionPerformed
         // Vertice I5
-        int indice = this.grafo.numVertice("I5");
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaI5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaI5.setVisible(false);
+        String nombre = "I5";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaI5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaI5ActionPerformed
 
     private void casillaJ4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ4ActionPerformed
           // Vertice J4
-        int indice = this.grafo.numVertice("J4"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ4.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ4.setVisible(false);
+       String nombre = "J4";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ4, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ4ActionPerformed
 
     private void casillaJ5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ5ActionPerformed
            // Vertice J5
-        int indice = this.grafo.numVertice("J5"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ5.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ5.setVisible(false);
+        String nombre = "J5";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ5, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ5ActionPerformed
 
     private void casillaJ7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ7ActionPerformed
            // Vertice J7
-        int indice = this.grafo.numVertice("J7"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ7.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ7.setVisible(false);
+        String nombre = "J7";
+        int indice = this.grafo.numVertice(nombre); 
+       int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ7, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ7ActionPerformed
 
     private void casillaJ8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ8ActionPerformed
           // Vertice J8
-        int indice = this.grafo.numVertice("J8"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ8.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ8.setVisible(false);
+        String nombre = "J8";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ8, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ8ActionPerformed
 
     private void casillaJ9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaJ9ActionPerformed
           // Vertice J9
-        int indice = this.grafo.numVertice("J9"); 
-        try {
-            Vertice vertice = this.grafo.DevuelveVertice(indice);
-            this.casillaJ9.setText(vertice.getEmoji());
-        } catch (Exception ex) {
-            this.casillaJ9.setVisible(false);
+        String nombre = "J9";
+        int indice = this.grafo.numVertice(nombre); 
+        int[] arrayBMyNBM = grafo.escribirCasillaGlobal(casillaJ9, nombre, indice, buscarPorDFS, numeroBombasMarcadasConBandera, numeroBanderasPuestas, nroMinas, this, bandera);
+        this.numeroBombasMarcadasConBandera = arrayBMyNBM[0];
+        this.numeroBanderasPuestas = arrayBMyNBM[1];
+        
+        if (!bandera){
+            ListaEnlazada listaVisitados = new ListaEnlazada();
+            try {
+
+                listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
+
+                listaVisitados.imprimirListaInvitados();
+
+                  javax.swing.JToggleButton[] botones = {
+        this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+        this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+        this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+        this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+        this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+        this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+        this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+        this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+        this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+        this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+    };
+
+
+                listaVisitados.visibilizarBotones(botones, grafo);
+            } catch (Exception ex) {
+                Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_casillaJ9ActionPerformed
 /**
  * 
@@ -2588,6 +5395,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 Si tiene x bombas adyacentes, se muestra ese numero.
                 En ListaEnlazada, esta el metodo que te dice el nro de bombas ady.
                 */
+<<<<<<< HEAD
                  
         String nombre = "A3"; 
     try {
@@ -2620,12 +5428,48 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     } catch (Exception ex) {
         System.out.println("Error: " + ex.getMessage());      
     }
+=======
+           this.buscarPorDFS = true;
+//        String nombre = "A3"; 
+//        int bombasAdyacentes = this.grafo.casillasBombaAdyacentePorDFS(nombre);
+//    try {
+//        
+//        ListaEnlazada visitados = grafo.DFS(nombre);
+//
+//        Nodo aux = visitados.getpFirst();
+//       
+//        while (aux != null) {
+//            
+//            String nombreCasilla = aux.getData().toString();
+//
+//            int indiceVertice = Integer.parseInt(nombreCasilla);
+//
+//            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
+//            
+//            if (vertice.isSoyUnaBomba()) {
+//                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+//            } else {
+//                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
+//                if (bombasAdyacentes == 0) {
+//                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+//                } else {
+//                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+//                }
+//            }
+//
+//            aux = aux.getpNext();
+//        }
+//    } catch (Exception ex) {
+//        System.out.println("Error: " + ex.getMessage());      
+//    }
+>>>>>>> b5b7c3eb89bdb415e1b9761081641d0dcda0fc62
     }//GEN-LAST:event_DFSActionPerformed
 /**
  * 
  * @param evt 
  */
     private void BFSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BFSActionPerformed
+<<<<<<< HEAD
    String nombre = "B3"; // Nombre del vértice de inicio
     try {
         
@@ -2659,8 +5503,48 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         System.err.println("Error: " + ex.getMessage());
         
     }
+=======
+        this.buscarPorDFS = false;
+//   String nombre = "B3"; // Nombre del vértice de inicio
+//    try {
+//        
+//        ListaEnlazada<Integer> visitados = grafo.BFS(nombre);
+//
+//        Nodo aux = visitados.getpFirst();
+//
+//        while (aux != null) {
+//            
+//            int indiceVertice = (int) aux.getData(); 
+//
+//            Vertice vertice = grafo.DevuelveVertice(indiceVertice);
+//
+//            if (vertice.isSoyUnaBomba()) {
+//                System.out.println("Casilla " + vertice.nombreVertice() + ": 💣");
+//            } else {
+//               
+//                int bombasAdyacentes = vertice.lad.bombasAdy(grafo);
+//
+//                if (bombasAdyacentes == 0) {
+//                    System.out.println("Casilla " + vertice.nombreVertice() + ": Vacía");
+//                } else {
+//                    System.out.println("Casilla " + vertice.nombreVertice() + ": " + bombasAdyacentes + " bombas adyacentes");
+//                }
+//            }
+//
+//            aux = aux.getpNext();
+//        }
+//    } catch (Exception ex) {
+//      
+//        System.err.println("Error: " + ex.getMessage());
+//        
+//    }
+>>>>>>> b5b7c3eb89bdb415e1b9761081641d0dcda0fc62
 
     }//GEN-LAST:event_BFSActionPerformed
+
+    private void TrueOrFalseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrueOrFalseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TrueOrFalseActionPerformed
 
     /**
      * Configura el Look and Feel (apariencia) de la aplicacion
@@ -2800,6 +5684,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private javax.swing.JToggleButton casillaJ7;
     private javax.swing.JToggleButton casillaJ8;
     private javax.swing.JToggleButton casillaJ9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
