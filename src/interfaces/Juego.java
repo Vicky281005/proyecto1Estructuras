@@ -1556,9 +1556,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                     
                     Vertice v = grafo.devuelveVerticePorNombre("B3");
                     
-                    System.out.println("hola");
-                    System.out.println(v.getLad().getSize());
-                    
+                    grafo.imprimirGrafo();
                     
                     
            } catch (Exception ex) {

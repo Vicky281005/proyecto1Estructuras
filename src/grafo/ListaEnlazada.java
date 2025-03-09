@@ -109,17 +109,17 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         size++;
     }
 
-    public void addLast(T dato) {
-        Nodo<T> n = new Nodo(dato);
-        if (isEmpty()) {
-            this.pFirst = n;
-            this.pLast = n;
-        }
-        else{
-            this.pLast.setpNext(n);
-        }
-        size++;
+   public void addLast(T dato) {
+    Nodo<T> n = new Nodo(dato);
+    if (isEmpty()) {
+        this.pFirst = n;
+        this.pLast = n;
+    } else {
+        this.pLast.setpNext(n); // Conectar el último nodo actual al nuevo nodo
+        this.pLast = n;         // Actualizar pLast al nuevo nodo
     }
+    size++;
+}
 
     /**
      * Busca si existe la arista en la lista enlazada
