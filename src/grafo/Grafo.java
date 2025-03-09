@@ -497,11 +497,21 @@ private void DFSRecursivo(Vertice actual, boolean[] visitados, ListaEnlazada<Int
 public ListaEnlazada BFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisitados) throws Exception{ // lista visitados inicialmente vacia
     return listaVisitados;
 }
+
+public void cambiadorVerticesABarridoVerdadero(Vertice vertice){
+    for (int i = 0; i < this.maxVertices; i++){
+        if (this.vectorDeAdyacencia[i].getNombre().equalsIgnoreCase(vertice.getNombre())){
+            this.vectorDeAdyacencia[i].setBarrido(true);
+        }
+    }
+}
+
 public ListaEnlazada DFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisitados) throws Exception{ // lista visitados inicialmente vacia
     
         // Marca el vértice como visitado y añádelo a la lista
     actual.setBarrido(true);
     listaVisitados.addLast(actual);
+    this.cambiadorVerticesABarridoVerdadero(actual);
     
     // Recorre todos los vecinos del vértice actual
     Nodo aux = actual.getLad().getpFirst();
