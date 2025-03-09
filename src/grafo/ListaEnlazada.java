@@ -248,5 +248,17 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         
     }
     
+    public void encolarVerticesAUnaCola(Cola cola){
+        Nodo aux = this.pFirst;
+        while (aux != null){
+            Vertice vertice = (Vertice) aux.getData();
+            
+            if (vertice.isBarrido() && !vertice.isMarcado()){
+                cola.encolar(aux.getData());    
+            }
+            aux = aux.getpNext();
+        }
+    }
+    
 
 }

@@ -494,7 +494,37 @@ private void DFSRecursivo(Vertice actual, boolean[] visitados, ListaEnlazada<Int
         }
 }
 
-public ListaEnlazada BFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisitados) throws Exception{ // lista visitados inicialmente vacia
+public ListaEnlazada BFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisitados ) throws Exception {
+    // Inicializa la lista de visitados y la cola de vértices a explorar
+    Cola cola = new Cola();
+    // Encola el vértice inicial y márcalo como visitado
+    cola.encolar(actual);
+    actual.setBarrido(true);
+    listaVisitados.addLast(actual);
+    this.cambiadorVerticesABarridoVerdadero(actual);
+
+    // Realiza la búsqueda en amplitud
+    while (!cola.estaVacia()) {
+        // Desencola el siguiente vértice
+        Vertice vertice = (Vertice) cola.desencolar().getData();
+
+        // Obtén los vecinos del vértice actual
+        Nodo aux = vertice.getLad().getpFirst();
+        while (aux != null) {
+            Vertice vecino = this.DevuelveVertice2(aux.getData().toString());
+
+            // Si el vecino no ha sido visitado y cumple las condiciones, se explora
+            if (!vecino.isBarrido() && this.casillasBombaAdyacentePorDFS(vertice.nombreVertice()) == 0) {
+                vecino.setBarrido(true);
+                listaVisitados.addLast(vecino);
+                cola.encolar(vecino);
+                this.cambiadorVerticesABarridoVerdadero(vecino);
+            }
+
+            aux = aux.getpNext();
+        }
+    }
+
     return listaVisitados;
 }
 
