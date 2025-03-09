@@ -209,6 +209,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         TrueOrFalse = new javax.swing.JButton();
         DFS = new javax.swing.JButton();
         BFS = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -229,7 +230,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, 20));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, -1, 20));
 
         casillaA1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         casillaA1.addActionListener(new java.awt.event.ActionListener() {
@@ -1054,34 +1055,37 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         jPanel1.add(casillaJ9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 570, 50, 50));
 
         TrueOrFalse.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
-        TrueOrFalse.setText("FALSE");
+        TrueOrFalse.setText("Bandera desactivada");
         TrueOrFalse.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         TrueOrFalse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TrueOrFalseActionPerformed(evt);
             }
         });
-        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 100, 30));
+        jPanel1.add(TrueOrFalse, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 320, 30));
 
         DFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        DFS.setText("DFS");
+        DFS.setText("BARRIDO CON DFS");
         DFS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         DFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DFSActionPerformed(evt);
             }
         });
-        jPanel1.add(DFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 30, -1));
+        jPanel1.add(DFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 130, 20));
 
         BFS.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        BFS.setText("BFS");
+        BFS.setText("BARRIDO CON BFS");
         BFS.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         BFS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BFSActionPerformed(evt);
             }
         });
-        jPanel1.add(BFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
+        jPanel1.add(BFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 120, 20));
+
+        jLabel1.setText("Para ganar, debes haber puesto una bandera en todas las casillas con minas.");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 
@@ -1107,10 +1111,10 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private void btnBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBanderaActionPerformed
         if (bandera) {
             bandera = false; 
-            this.TrueOrFalse.setText("Desactivado"); //Cambié mensaje para que se vea mas dínamico el juego
+            this.TrueOrFalse.setText("Bandera desactivada"); //Cambié mensaje para que se vea mas dínamico el juego
         } else {
             bandera = true; 
-            this.TrueOrFalse.setText("Activo"); //Cambié mensaje para que se vea mas dínamico el juego
+            this.TrueOrFalse.setText("Bandera activada"); //Cambié mensaje para que se vea mas dínamico el juego
 
         }
     }//GEN-LAST:event_btnBanderaActionPerformed
@@ -5603,6 +5607,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private javax.swing.JToggleButton casillaJ7;
     private javax.swing.JToggleButton casillaJ8;
     private javax.swing.JToggleButton casillaJ9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

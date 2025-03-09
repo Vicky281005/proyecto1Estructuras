@@ -14,7 +14,8 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     int fila, columna, minas;
     public Configuracion() {
         initComponents();
-        this.fila = this.columna = this.minas = 3;
+        this.fila = this.columna = 10;
+        this.minas = 15;
     }
     /**
      * Constructor de la clase Configuración
@@ -44,11 +45,11 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         btnInicio = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         numFilasTextField = new javax.swing.JTextField();
         numColumnasTextField = new javax.swing.JTextField();
         numMinasTextField = new javax.swing.JTextField();
         btnGuardar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,10 +78,6 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         jLabel3.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel3.setText("Numero de filas:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
-        jLabel4.setText("Numero de minas:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         numFilasTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         numFilasTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +114,10 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 210, 50));
 
+        jLabel5.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
+        jLabel5.setText("Numero de minas:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 370));
 
         pack();
@@ -130,6 +131,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
  * @param evt 
  */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+        this.btnGuardar.doClick();
         BuscaminasInterfaz busca = new BuscaminasInterfaz(this.fila,this.columna,this.minas);
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
@@ -221,7 +223,7 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField numColumnasTextField;
     private javax.swing.JTextField numFilasTextField;
