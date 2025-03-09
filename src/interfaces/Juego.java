@@ -1174,8 +1174,8 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                         this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
                     this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
-                } else 
-                
+                } else
+                    
                 /**
                  * Avisa cuando estas poniendo más bandera que cantidad de minas que hay en el juego
                  * @return le sale un mensaje al usuario diciendo que ya marcó el máximo de minas que hay en el juego
