@@ -515,7 +515,7 @@ public ListaEnlazada DFSRecursivoPorMi(Vertice actual, ListaEnlazada listaVisita
         
         // Continúa la búsqueda solo si el vecino no ha sido visitado y tiene valor 0
         System.out.println(this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()));
-        if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) == 0 && !vecino.isBarrido()){
+        if (this.casillasBombaAdyacentePorDFS(vecino.nombreVertice()) == 0 && !vecino.isBarrido() && this.casillasBombaAdyacentePorDFS(actual.nombreVertice()) == 0){
             
             DFSRecursivoPorMi(vecino, listaVisitados);
             
