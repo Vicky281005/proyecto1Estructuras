@@ -1144,7 +1144,20 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             
             listaVisitados.imprimirListaInvitados();
             
-            javax.swing.JToggleButton[] botones = {this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10, this.casillaB1};
+              javax.swing.JToggleButton[] botones = {
+    this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
+    this.casillaB1, this.casillaB2, this.casillaB3, this.casillaB4, this.casillaB5, this.casillaB6, this.casillaB7, this.casillaB8, this.casillaB9, this.casillaB10,
+    this.casillaC1, this.casillaC2, this.casillaC3, this.casillaC4, this.casillaC5, this.casillaC6, this.casillaC7, this.casillaC8, this.casillaC9, this.casillaC10,
+    this.casillaD1, this.casillaD2, this.casillaD3, this.casillaD4, this.casillaD5, this.casillaD6, this.casillaD7, this.casillaD8, this.casillaD9, this.casillaD10,
+    this.casillaE1, this.casillaE2, this.casillaE3, this.casillaE4, this.casillaE5, this.casillaE6, this.casillaE7, this.casillaE8, this.casillaE9, this.casillaE10,
+    this.casillaF1, this.casillaF2, this.casillaF3, this.casillaF4, this.casillaF5, this.casillaF6, this.casillaF7, this.casillaF8, this.casillaF9, this.casillaF10,
+    this.casillaG1, this.casillaG2, this.casillaG3, this.casillaG4, this.casillaG5, this.casillaG6, this.casillaG7, this.casillaG8, this.casillaG9, this.casillaG10,
+    this.casillaH1, this.casillaH2, this.casillaH3, this.casillaH4, this.casillaH5, this.casillaH6, this.casillaH7, this.casillaH8, this.casillaH9, this.casillaH10,
+    this.casillaI1, this.casillaI2, this.casillaI3, this.casillaI4, this.casillaI5, this.casillaI6, this.casillaI7, this.casillaI8, this.casillaI9, this.casillaI10,
+    this.casillaJ1, this.casillaJ2, this.casillaJ3, this.casillaJ4, this.casillaJ5, this.casillaJ6, this.casillaJ7, this.casillaJ8, this.casillaJ9, this.casillaJ10
+};
+
+           
             listaVisitados.visibilizarBotones(botones, grafo);
         } catch (Exception ex) {
             Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
@@ -1171,6 +1184,96 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
             this.casillaA9.setName("A9");
             this.casillaA10.setName("A10");
             this.casillaB1.setName("B1");
+            this.casillaB2.setName("B2");
+            this.casillaB3.setName("B3");
+            this.casillaB4.setName("B4");
+            this.casillaB5.setName("B5");
+            this.casillaB6.setName("B6");
+            this.casillaB7.setName("B7");
+            this.casillaB8.setName("B8");
+            this.casillaB9.setName("B9");
+            this.casillaB10.setName("B10");
+            this.casillaC1.setName("C1");
+            this.casillaC2.setName("C2");
+            this.casillaC3.setName("C3");
+            this.casillaC4.setName("C4");
+            this.casillaC5.setName("C5");
+            this.casillaC6.setName("C6");
+            this.casillaC7.setName("C7");
+            this.casillaC8.setName("C8");
+            this.casillaC9.setName("C9");
+            this.casillaC10.setName("C10");
+            this.casillaD1.setName("D1");
+            this.casillaD2.setName("D2");
+            this.casillaD3.setName("D3");
+            this.casillaD4.setName("D4");
+            this.casillaD5.setName("D5");
+            this.casillaD6.setName("D6");
+            this.casillaD7.setName("D7");
+            this.casillaD8.setName("D8");
+            this.casillaD9.setName("D9");
+            this.casillaD10.setName("D10");
+            this.casillaE1.setName("E1");
+            this.casillaE2.setName("E2");
+            this.casillaE3.setName("E3");
+            this.casillaE4.setName("E4");
+            this.casillaE5.setName("E5");
+            this.casillaE6.setName("E6");
+            this.casillaE7.setName("E7");
+            this.casillaE8.setName("E8");
+            this.casillaE9.setName("E9");
+            this.casillaE10.setName("E10");
+            this.casillaF1.setName("F1");
+            this.casillaF2.setName("F2");
+            this.casillaF3.setName("F3");
+            this.casillaF4.setName("F4");
+            this.casillaF5.setName("F5");
+            this.casillaF6.setName("F6");
+            this.casillaF7.setName("F7");
+            this.casillaF8.setName("F8");
+            this.casillaF9.setName("F9");
+            this.casillaF10.setName("F10");
+            this.casillaG1.setName("G1");
+            this.casillaG2.setName("G2");
+            this.casillaG3.setName("G3");
+            this.casillaG4.setName("G4");
+            this.casillaG5.setName("G5");
+            this.casillaG6.setName("G6");
+            this.casillaG7.setName("G7");
+            this.casillaG8.setName("G8");
+            this.casillaG9.setName("G9");
+            this.casillaG10.setName("G10");
+            this.casillaH1.setName("H1");
+            this.casillaH2.setName("H2");
+            this.casillaH3.setName("H3");
+            this.casillaH4.setName("H4");
+            this.casillaH5.setName("H5");
+            this.casillaH6.setName("H6");
+            this.casillaH7.setName("H7");
+            this.casillaH8.setName("H8");
+            this.casillaH9.setName("H9");
+            this.casillaH10.setName("H10");
+            this.casillaI1.setName("I1");
+            this.casillaI2.setName("I2");
+            this.casillaI3.setName("I3");
+            this.casillaI4.setName("I4");
+            this.casillaI5.setName("I5");
+            this.casillaI6.setName("I6");
+            this.casillaI7.setName("I7");
+            this.casillaI8.setName("I8");
+            this.casillaI9.setName("I9");
+            this.casillaI10.setName("I10");
+            this.casillaJ1.setName("J1");
+            this.casillaJ2.setName("J2");
+            this.casillaJ3.setName("J3");
+            this.casillaJ4.setName("J4");
+            this.casillaJ5.setName("J5");
+            this.casillaJ6.setName("J6");
+            this.casillaJ7.setName("J7");
+            this.casillaJ8.setName("J8");
+            this.casillaJ9.setName("J9");
+            this.casillaJ10.setName("J10");
+
             //TODO
             
         if (grafo.numVertice("A1") == -1){
