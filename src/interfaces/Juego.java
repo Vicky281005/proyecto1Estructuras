@@ -22,8 +22,8 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
     private int nroFilas, nroColumnas, nroMinas;
     boolean bandera, buscarPorDFS;
     Grafo grafo;
-    int numeroBanderas = 0; //cada vez que el usuario marque una bandera se aumenta 1 (PERO eso no se le muestra al usuario)
-    int numeroBombas = 0; // cuando el usuario marque una casilla que tiene bomba/mina con bandera aumenta 1 (PERO eso no se le muestra al usuario)
+    int numeroBanderasPuestas; //cada vez que el usuario marque una bandera se aumenta 1 (PERO eso no se le muestra al usuario)
+    int numeroBombasMarcadasConBandera = 0; // cuando el usuario marque una casilla que tiene bomba/mina con bandera aumenta 1 (PERO eso no se le muestra al usuario)
 /**
  * Constructor de la clase Juego
  * @param nroFilas
@@ -39,6 +39,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.grafo = grafo;
         this.buscarPorDFS = true;
         this.bandera = false; //agregué la inicializada de bandera (mishel)
+        this.numeroBanderasPuestas = nroMinas; 
     }
 
     public void casillaBM(JToggleButton casilla, boolean es_bomba, int bombas_ady) {
@@ -1158,22 +1159,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -1188,7 +1189,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -1602,22 +1603,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -1632,7 +1633,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -1678,22 +1679,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -1708,7 +1709,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -1755,22 +1756,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -1785,7 +1786,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -1831,22 +1832,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -1861,7 +1862,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -1907,22 +1908,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -1937,7 +1938,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -1983,22 +1984,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2013,7 +2014,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2059,22 +2060,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2089,7 +2090,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2135,22 +2136,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2165,7 +2166,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2211,22 +2212,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2241,7 +2242,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2287,22 +2288,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2317,7 +2318,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2363,22 +2364,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2393,7 +2394,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2439,22 +2440,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2469,7 +2470,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2515,22 +2516,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2545,7 +2546,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2591,22 +2592,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2621,7 +2622,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2667,22 +2668,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2697,7 +2698,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2743,22 +2744,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2773,7 +2774,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2819,22 +2820,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2849,7 +2850,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2895,22 +2896,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -2925,7 +2926,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -2971,22 +2972,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3001,7 +3002,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3047,22 +3048,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3077,7 +3078,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3123,22 +3124,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaA5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaA5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3153,7 +3154,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3199,22 +3200,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3229,7 +3230,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3275,22 +3276,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3305,7 +3306,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3351,22 +3352,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3381,7 +3382,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3427,22 +3428,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3457,7 +3458,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3503,22 +3504,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3533,7 +3534,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3579,22 +3580,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3609,7 +3610,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3655,22 +3656,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3685,7 +3686,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3731,22 +3732,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3761,7 +3762,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3807,22 +3808,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaB10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaB10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3837,7 +3838,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3883,22 +3884,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3913,7 +3914,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -3959,22 +3960,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -3989,7 +3990,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4035,22 +4036,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4065,7 +4066,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4111,22 +4112,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4141,7 +4142,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4187,22 +4188,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4217,7 +4218,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4263,22 +4264,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4293,7 +4294,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4339,22 +4340,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaC8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaC8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4369,7 +4370,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4415,22 +4416,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4445,7 +4446,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4491,22 +4492,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4521,7 +4522,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4567,22 +4568,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4597,7 +4598,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4643,22 +4644,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4673,7 +4674,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4719,22 +4720,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4749,7 +4750,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4795,22 +4796,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4825,7 +4826,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4871,22 +4872,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4901,7 +4902,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -4947,22 +4948,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -4977,7 +4978,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5023,22 +5024,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5053,7 +5054,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5099,22 +5100,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE1.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE1.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5129,7 +5130,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5175,22 +5176,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5205,7 +5206,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5251,22 +5252,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5281,7 +5282,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5327,22 +5328,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5357,7 +5358,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5403,22 +5404,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5433,7 +5434,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5479,22 +5480,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5509,7 +5510,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5555,22 +5556,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5585,7 +5586,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5631,22 +5632,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5661,7 +5662,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5707,22 +5708,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaE10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaE10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5737,7 +5738,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5783,22 +5784,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5813,7 +5814,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5859,22 +5860,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5889,7 +5890,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -5935,22 +5936,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaD4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaD4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -5965,7 +5966,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6011,22 +6012,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6041,7 +6042,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6087,22 +6088,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6117,7 +6118,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6163,22 +6164,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6193,7 +6194,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6239,22 +6240,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6269,7 +6270,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6315,22 +6316,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6345,7 +6346,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6391,22 +6392,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6421,7 +6422,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6467,22 +6468,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6497,7 +6498,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6543,22 +6544,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6573,7 +6574,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6619,22 +6620,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaF5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaF5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6649,7 +6650,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6695,22 +6696,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6725,7 +6726,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6771,22 +6772,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6801,7 +6802,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6847,22 +6848,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6877,7 +6878,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6923,22 +6924,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -6953,7 +6954,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -6999,22 +7000,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7029,7 +7030,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7075,22 +7076,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7105,7 +7106,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7151,22 +7152,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7181,7 +7182,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7227,22 +7228,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7257,7 +7258,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7303,22 +7304,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaG5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaG5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7333,7 +7334,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7379,22 +7380,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7409,7 +7410,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7455,22 +7456,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7485,7 +7486,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7531,22 +7532,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7561,7 +7562,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7607,22 +7608,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7637,7 +7638,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7683,22 +7684,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7713,7 +7714,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7759,22 +7760,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7789,7 +7790,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7835,22 +7836,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7865,7 +7866,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7911,22 +7912,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -7941,7 +7942,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -7987,22 +7988,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaH5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaH5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8017,7 +8018,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8063,22 +8064,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8093,7 +8094,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8139,22 +8140,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI6.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI6.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8169,7 +8170,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8215,22 +8216,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8245,7 +8246,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8291,22 +8292,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8321,7 +8322,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8367,22 +8368,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8397,7 +8398,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8443,22 +8444,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI10.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI10.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8473,7 +8474,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8519,22 +8520,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ2.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ2.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8549,7 +8550,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8595,22 +8596,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ3.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ3.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8625,7 +8626,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8671,22 +8672,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaI5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaI5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8701,7 +8702,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8747,22 +8748,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ4.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ4.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8777,7 +8778,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8823,22 +8824,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ5.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ5.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8853,7 +8854,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8899,22 +8900,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ7.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ7.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -8929,7 +8930,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -8975,22 +8976,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ8.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ8.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -9005,7 +9006,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
@@ -9051,22 +9052,22 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 grafo.getVectorDeAdyacencia()[indice].setMarcado(false);// NO MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                 casillaJ9.setBackground(Color.WHITE);
                 if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) { 
-                    this.numeroBombas--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
+                    this.numeroBombasMarcadasConBandera--; //Numero de bombas disminuye 1 porque usuario desmarcó 1 bomba
                 }
-                this.numeroBanderas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
+                this.numeroBanderasPuestas--; //Numero de banderas disminuye 1 porque usuario desmarcó 1 bandera
             
             /** 
              * Funcionalidad para marcar una casilla con bandera
              * @return Cambia el color de la casilla de blanco a verde y se aumenta tanto el número de bombas como de banderas
              */    
             } else { //si casilla NO estaba marcada esto lo que hace es marcarla
-                if (this.numeroBanderas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
+                if (this.numeroBanderasPuestas < this.nroMinas) { // SOLO se puede marcar con bandera si el numero de banderas es menor al  numero de minas, si no es menor entonces mo se puede marcar
                     casillaJ9.setBackground(Color.green);
                     grafo.getVectorDeAdyacencia()[indice].setMarcado(true); //MARCADAS: Necesario para cuando se vaya a guardar el CSV saber cuales estan marcadas y cuales no para mostrarlas
                     if (grafo.getVectorDeAdyacencia()[indice].isSoyUnaBomba()) {
-                        this.numeroBombas++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
+                        this.numeroBombasMarcadasConBandera++; //Numero de bombas aumenta 1 porque usuario marcó con bandera 1 bomba
                     }
-                    this.numeroBanderas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
+                    this.numeroBanderasPuestas++; //Numero de banderas aumenta 1 porque usuario marcó 1 bandera
                 }
                 
                 /**
@@ -9081,7 +9082,7 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
              * Una vez que marques con bandera todas las casillas que tienen minas ganas
              * @return mensaje que dice que ganaste
              */
-            if (numeroBombas==this.nroMinas) {
+            if (numeroBombasMarcadasConBandera==this.nroMinas) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES, HAS GANADO!!");
                 BuscaminasInterfaz v1 = new BuscaminasInterfaz();
                 v1.setVisible(true); // Hace visible la ventana BuscaminasInterfaz
