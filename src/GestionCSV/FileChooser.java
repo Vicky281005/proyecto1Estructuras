@@ -20,15 +20,29 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 //Abre el FileChooser
 
+
 public class FileChooser {
+    
+    /**
+     * Atributos de la clase FlieChooser
+     */
     private JFrame ventana;
     private String contenidoCsv; // con esto se almacena el contenido leído del  CSV
 
+    /**
+     * Constructor de la clase FileChooser
+     * @param ventana 
+     */
+    
     public FileChooser(JFrame ventana) {
         this.ventana = ventana;
         this.contenidoCsv = "";
     }
     
+    /**
+     * Getters y Setters 
+     * @return 
+     */
     public JFrame getVentana() {
         return ventana;
     }
@@ -75,7 +89,7 @@ public class FileChooser {
 
     /**
      * Método para guardar un archivo CSV y selecciona la ruta
-     * @param contenido contenido es el contenido que se va a guardar en archivo CSV
+     * @param contenido contenido es el contenido que se va a guardar en el archivo CSV
      */
     public void guardar(String contenido) {
         JFileChooser fc = new JFileChooser();
