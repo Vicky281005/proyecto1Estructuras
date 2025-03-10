@@ -2,8 +2,7 @@
 package interfaces;
 
 import grafo.Grafo;
-
-
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -67,8 +66,9 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 36)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\unnamed (1).png")); // NOI18N
         jLabel1.setText("Buscaminas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 240, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 290, -1));
 
         btnJugar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnJugar.setText("Iniciar Juego");
@@ -106,7 +106,7 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         btnCargar.setFont(new java.awt.Font("Perpetua Titling MT", 0, 14)); // NOI18N
         btnCargar.setText("Cargar Juego");
         btnCargar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.NE_RESIZE_CURSOR));
+        btnCargar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarActionPerformed(evt);
@@ -144,15 +144,12 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
             }
         }
         
-
 // Crear los vértices en el grafo utilizando el arreglo de coordenadas
         grafo.nuevoVerticesRecibiendoArrayDeVertices(arregloVectores);
 
 // Colocar minas aleatoriamente en el grafo, según el número de minas especificado
         grafo.fijarMinasAleatoriamente(this.nroMinas);
 
-        
-        
             Juego jugar = new Juego(nroFilas, nroColumnas, nroMinas, grafo); //Llega a una instancia del juego con los parametros configurados
             jugar.setVisible(true);
             jugar.setLocationRelativeTo(null);
@@ -163,12 +160,12 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
  * @param evt 
  */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-
+        JOptionPane.showMessageDialog(null, "Gracias por jugar");
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
    
-        /**
+     /**
      * Maneja el evento de acción para el botón de configuración.
      * 
      * @param evt El evento de acción que activó este método.
@@ -191,7 +188,6 @@ public class BuscaminasInterfaz extends javax.swing.JFrame {
         carga.setVisible(true);
         carga.setLocationRelativeTo(null);
         this.dispose();
-        
     }//GEN-LAST:event_btnCargarActionPerformed
     
     /**

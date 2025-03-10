@@ -1084,8 +1084,9 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         });
         jPanel1.add(BFS, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 120, 20));
 
+        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         jLabel1.setText("Para ganar, debes haber puesto una bandera en todas las casillas con minas.");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 680));
 

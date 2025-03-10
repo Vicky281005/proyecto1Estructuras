@@ -1,6 +1,8 @@
 
 package interfaces;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jmmor
@@ -23,21 +25,72 @@ public class CargarPartida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        volverAlInicio = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        Salir = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        volverAlInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
+        volverAlInicio.setText("Volver a Inicio");
+        volverAlInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverAlInicioActionPerformed(evt);
+            }
+        });
+        jPanel1.add(volverAlInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 200, 60));
+
+        jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\gear-line-icon-vector__1_-removebg-preview.png")); // NOI18N
+        jLabel1.setText("Lo siento, esta parte esta en desarrollo");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 150));
+
+        Salir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
+        Salir.setText("Salir");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 170, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void volverAlInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverAlInicioActionPerformed
+        BuscaminasInterfaz busca = new BuscaminasInterfaz();
+        busca.setVisible(true);
+        busca.setLocationRelativeTo(null);
+        this.dispose(); 
+        
+    }//GEN-LAST:event_volverAlInicioActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        JOptionPane.showMessageDialog(null, "Gracias por jugar");
+        this.dispose();
+    }//GEN-LAST:event_SalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -75,5 +128,10 @@ public class CargarPartida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Salir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton volverAlInicio;
     // End of variables declaration//GEN-END:variables
 }

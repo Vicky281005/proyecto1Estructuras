@@ -57,8 +57,9 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Perpetua Titling MT", 0, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\jmmor\\Downloads\\png-transparent-settings-gear-icon-gear-configuration-set-up-thumbnail__1_-removebg-preview.png")); // NOI18N
         jLabel1.setText("Configración del TABLERO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 370, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 410, -1));
 
         btnInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 12)); // NOI18N
         btnInicio.setText("Volver aL inicio");
@@ -131,12 +132,10 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
  * @param evt 
  */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        this.btnGuardar.doClick();
         BuscaminasInterfaz busca = new BuscaminasInterfaz(this.fila,this.columna,this.minas);
         busca.setVisible(true);
         busca.setLocationRelativeTo(null);
         this.dispose();
-
     }//GEN-LAST:event_btnInicioActionPerformed
 /**
  * Se encarga de solicitar y guardar al usuario sus respuestas en cuando las dimensiones del tablero
@@ -159,13 +158,14 @@ public class Configuracion extends javax.swing.JFrame { //Atributos de la clase 
         } else {
             throw new IllegalArgumentException("El número de minas debe ser mayor a 0 y menor o igual al tamaño del tablero.");
         }
+        JOptionPane.showMessageDialog(null, "La configuración se ha guardado");
         } catch (NumberFormatException ex){ 
             JOptionPane.showMessageDialog(this, "Por favor, ingresa un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error inesperado: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-    }
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 /**
  * captura el numero de filas puesto por el usuario
