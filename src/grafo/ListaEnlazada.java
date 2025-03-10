@@ -213,7 +213,11 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         }
         return false;
     }
-    
+    /**
+ * Imprime en la consola los nombres de los vértices almacenados en una lista
+ * enlazada, separados por el símbolo `>`.
+ * Utilizada para probar
+ */
     public void imprimirListaInvitados(){
         Nodo aux = this.pFirst;
         
@@ -224,6 +228,17 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         }
     }
     
+    
+    /**
+ * Actualiza la visibilidad y el texto de los botones proporcionados según
+ * el estado de los vértices del grafo. Si un vértice no está marcado y su
+ * nombre coincide con el nombre del botón, el texto del botón se actualiza
+ * con el número de bombas adyacentes y se habilita el botón.
+ * 
+ * @param buttons Un arreglo de botones `JToggleButton` que representan las casillas a actualizar.
+ * @param grafo Un objeto `Grafo` que contiene la estructura del grafo y los vértices asociados.
+ 
+ */
     public void visibilizarBotones(javax.swing.JToggleButton[] buttons, Grafo grafo){
         Nodo aux = this.pFirst;
         
