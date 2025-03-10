@@ -84,13 +84,13 @@ public class Vertice { // Atributos de la clase vertice
             return nombre.equals(dos.nombre);
         }
 
-/**
- * Getters y Setters de booloeanos que agregue: barrido y marcado
- * Estos booleanos son necesarios para que cuando se guarde el CSV se sepa si la casilla esta marcada o no
- * y para poder saber si ponerlo de un color distinto o no 
- * igual con barrido, se necesita saber si esta barrido o no para saber si se muestra o no la información de la casilla
- * @return 
- */
+    /**
+     * Getters y Setters de booloeanos que agregue: barrido y marcado
+     * Estos booleanos son necesarios para que cuando se guarde el CSV se sepa si la casilla esta marcada o no
+     * y para poder saber si ponerlo de un color distinto o no 
+     * igual con barrido, se necesita saber si esta barrido o no para saber si se muestra o no la información de la casilla
+     * @return 
+     */
     public boolean isMarcado() {
         return marcado;
     }
@@ -111,6 +111,13 @@ public class Vertice { // Atributos de la clase vertice
         return lad;
     }
 
+        /**
+     * Establece la lista de adyacencia del vértice.
+     * 
+     * @param lad Una lista enlazada que representa la lista de adyacencia del vértice. Contiene objetos asociados a los vértices vecinos.
+     * 
+    
+     */
     public void setLad(ListaEnlazada<Object> lad) {
         this.lad = lad;
     }

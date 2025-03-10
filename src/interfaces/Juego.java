@@ -1130,6 +1130,10 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
         this.dispose();
     }//GEN-LAST:event_btnInicioActionPerformed
 
+    /**
+     *  Se encarga de controlar el comportamiento de una casilla en la interfaz, asi mismo con cada boton de casillas.
+     * @param evt 
+     */
     private void casillaA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_casillaA1ActionPerformed
         // Obtiene el vertice A1 en el grafo:
        String nombre = "A1";

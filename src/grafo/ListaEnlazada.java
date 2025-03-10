@@ -263,6 +263,14 @@ public class ListaEnlazada<T> { // Atributos de la clase ListaEnlazada
         
     }
     
+    
+    /**
+ * Recorre una lista enlazada de vértices y encola en la estructura proporcionada
+ * aquellos vértices que han sido barridos pero no están marcados. 
+ *
+ * @param cola La cola donde se encolarán los vértices que cumplen las condiciones.
+ * 
+ */
     public void encolarVerticesAUnaCola(Cola cola){
         Nodo aux = this.pFirst;
         while (aux != null){
