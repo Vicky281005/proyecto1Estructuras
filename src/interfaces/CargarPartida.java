@@ -40,6 +40,7 @@ public class CargarPartida extends javax.swing.JFrame {
 
         volverAlInicio.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
         volverAlInicio.setText("Volver a Inicio");
+        volverAlInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         volverAlInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverAlInicioActionPerformed(evt);
@@ -54,6 +55,7 @@ public class CargarPartida extends javax.swing.JFrame {
 
         Salir.setFont(new java.awt.Font("Perpetua Titling MT", 0, 18)); // NOI18N
         Salir.setText("Salir");
+        Salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalirActionPerformed(evt);
