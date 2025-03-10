@@ -22,10 +22,18 @@ import org.graphstream.ui.view.Viewer;
  * @author mishel
  */
 public class VisualizarRecorrido extends JFrame {
+    
+    /**
+     * Atributos de la clase VisualizarRecorrido
+     */
     private ListaEnlazada recorrido;
     private Viewer visor;
     private ViewPanel panelVista;
 
+    /**
+     * Constructor de la clase VisualizarRecorrrido
+     * @param recorrido 
+     */
     public VisualizarRecorrido(ListaEnlazada recorrido) {
         this.recorrido = recorrido;
         config();
@@ -33,15 +41,21 @@ public class VisualizarRecorrido extends JFrame {
         bntCerrar();
     }
 
+    /**
+    * Configuración de toda la interfaz incluyendo el tamaño
+    */
     private void config() {
         
-        setTitle("Arbol de Recorrido");
-        setSize(900, 800);
+        setTitle("Arbol de Recorrido"); //Titulo
+        setSize(900, 800); //Tamaño interfaz
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
-        setLayout(new BorderLayout());
-        setLocationRelativeTo(null); 
+        setLayout(new BorderLayout()); 
+        setLocationRelativeTo(null); //Hace que abra en el centro
     }
 
+    /**
+     * Funcionalidad que inicializa el visor de la libraria GraphStream creando un grafo de la forma singlegraph
+     */
     private void inicializarVisor() {
         
         Graph grafoVisual = new SingleGraph("Recorrido");
@@ -56,6 +70,11 @@ public class VisualizarRecorrido extends JFrame {
         }
     }
 
+    /** 
+     * Funcionaldad que recorre la lista de recorridos y se le van metiendo todos esos vertices dentro de los nodos que conforman el grafo que viene con la libreria
+     * Con esto empiezo a insertar los vertices con las conexiones en el grafoVisual 
+     * @param grafoVisual 
+     */
     private void construirArbol(Graph grafoVisual) {
         Nodo aux = recorrido.getpFirst();
         String nodoAnterior = null;
@@ -90,15 +109,23 @@ public class VisualizarRecorrido extends JFrame {
                         "edge { size: 1px; fill-color: black; }");
     }
 
+    
+    /**
+     * Crea el botón 'cerrar' y lo pone en la parte de abajo centrado cuando sale el gráfico del recorrido
+     */
     private void bntCerrar() {
         JButton botonCerrar = new JButton("Cerrar");
         botonCerrar.addActionListener(e -> {
-            cerrar();
-            dispose();
+            cerrar(); // cerrar visor
+            dispose(); // cerrar panel
         });
-        add(botonCerrar, BorderLayout.SOUTH);
+        add(botonCerrar, BorderLayout.SOUTH); //pone el botón cerrar abajo y centrado
     }
 
+    /**
+     * Funcionalidad que hace que cuando se pise el botón cerrar se cierre el visor donde esta el gráfico 
+     * Al cerrar el visor 'vuelvas', entre comiillas porque en verdad nunca se cerró el panel del tablero, al tablero del juego y puedas continuar con el juego
+     */
     private void cerrar() {
         if (visor != null) {
             visor.disableAutoLayout();
