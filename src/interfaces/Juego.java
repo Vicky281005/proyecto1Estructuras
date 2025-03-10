@@ -1147,6 +1147,27 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
 
                 listaVisitados.imprimirListaInvitados();
+            
+            /**
+             * Método para que cuando presiones una casilla sin minas a su alrededor te salga la opción de ver el recorrido
+             * Si la casilla oprimida tiene minas alrededor, simplemente sigue el juego, NO sale la opcion de ver el recorrido 
+             */    
+                if (this.grafo.casillasBombaAdyacentePorBFS(nombre) == 0) { // si la bomba tiene 0 adyacensias se pregunta si queire ver recorrrido sino NO
+                    int opcion = JOptionPane.showConfirmDialog(
+                            this,
+                            "¿Quieres ver el recorrido de forma grafica?\n",
+                            "Ver recorrido",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE
+                    );
+
+                    // Si el usuario elige NO, reggresa al tablero y sigue jugando
+                    if (opcion == JOptionPane.YES_NO_OPTION) {
+                        System.setProperty("org.graphstream.ui", "swing");
+                        VisualizarRecorrido v = new VisualizarRecorrido(listaVisitados);
+                        v.setVisible(true);
+                    }
+                }
 
                   javax.swing.JToggleButton[] botones = {
         this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
@@ -1656,6 +1677,27 @@ public class Juego extends javax.swing.JFrame { //Atributos de la clase juego co
                 listaVisitados =  this.buscarPorDFS ? grafo.DFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados) :  grafo.BFSRecursivoPorMi(grafo.DevuelveVertice(indice), listaVisitados);
 
                 listaVisitados.imprimirListaInvitados();
+                
+            /**
+             * Método para que cuando presiones una casilla sin minas a su alrededor te salga la opción de ver el recorrido
+             * Si la casilla oprimida tiene minas alrededor, simplemente sigue el juego, NO sale la opcion de ver el recorrido 
+             */    
+                if (this.grafo.casillasBombaAdyacentePorBFS(nombre) == 0) { // si la bomba tiene 0 adyacensias se pregunta si queire ver recorrrido sino NO
+                    int opcion = JOptionPane.showConfirmDialog(
+                            this,
+                            "¿Quieres ver el recorrido de forma grafica?\n",
+                            "Ver recorrido",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE
+                    );
+
+                    // Si el usuario elige NO, reggresa al tablero y sigue jugando
+                    if (opcion == JOptionPane.YES_NO_OPTION) {
+                        System.setProperty("org.graphstream.ui", "swing");
+                        VisualizarRecorrido v = new VisualizarRecorrido(listaVisitados);
+                        v.setVisible(true);
+                    }
+                }    
 
                   javax.swing.JToggleButton[] botones = {
         this.casillaA1, this.casillaA2, this.casillaA3, this.casillaA4, this.casillaA5, this.casillaA6, this.casillaA7, this.casillaA8, this.casillaA9, this.casillaA10,
