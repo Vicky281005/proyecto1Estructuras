@@ -1,8 +1,8 @@
 Bienvenido a nuestro proyecto de Estructuras de Datos:
 Integrantes:
 
-Juan Moreira. CI: 30.906.576
 Maria Victoria Almonte. CI: 31.126.829
+Juan Moreira. CI: 30.906.576
 Mishel Monaco. CI: 30.635.512
 
 Buscaminas es un juego de lógica donde debes descubrir casillas sin minas en un tablero mientras evitas las explosiones. Las pistas numéricas indican cuántas minas hay en las casillas adyacentes, ayudándote a deducir su ubicación.
